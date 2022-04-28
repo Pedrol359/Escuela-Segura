@@ -23,6 +23,7 @@ h1{
 .cont_txtIni{
     display:flex;
     justify-content:space-between;
+    /* flex-wrap:nowrap; */
 }
 
 h3{
