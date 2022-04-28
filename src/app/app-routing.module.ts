@@ -19,10 +19,6 @@ const routes: Routes = [
   {
     path: 'registrar-admin-asociacion',
     component: RegistrarAdminAsociacionComponent
-  },
-  {
-    path:'**', // Este siempre debe ir al ultimo, esto sirve para mandar a una interfaz por defecto cuando la url esta mal escrita o no existe
-    redirectTo: '', pathMatch:'full'
   }
 
 ];
