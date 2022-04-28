@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Inter', sans-serif;
+}
+.tc-1{
+    color: #000000;
+}
+.tc-2{
+    color: #494949;
+}
+.tc-3{
+    color: #FFF;
+}
+
+.tc-4{
+    color: #9B9B9B;
+}
