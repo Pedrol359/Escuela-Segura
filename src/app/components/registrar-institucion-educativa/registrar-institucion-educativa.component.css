@@ -1,26 +1,27 @@
 .cont_caja_blanca {
-  width: 100%;
-  margin-top: 60px;
   display: flex;
   /* background: #9c2d2d; */
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  width: 1400px;
+  height: 811px;
+  margin-top: 15px;
 }
 .caja_blanca {
-  padding: 15px 25px 30px 25px;
+  padding: 0px 30px 0px 30px;
   background: #ffffff;
   border: 1px solid rgba(211, 211, 211, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+  width: 1400px;
   max-width: 1400px;
-  width: 70%;
+  max-height: 811px;
 }
 .container {
   width: 100%;
   display: inline-flex;
+  justify-content: space-between;
 }
 .container-left {
-  margin-right: 40px;
 }
 .container-right {
 }
@@ -76,8 +77,10 @@ input {
   font-size: 17px;
   color: #333333;
 }
-input:focus, textarea:focus, select:focus{
-    outline: none;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
 }
 .text-2 {
   border: 0;
@@ -89,7 +92,8 @@ input:focus, textarea:focus, select:focus{
   font-size: 17px;
 }
 .cont_btn {
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-right: 20px;
   display: inline-block;
   text-align: end;
   width: 100%;
