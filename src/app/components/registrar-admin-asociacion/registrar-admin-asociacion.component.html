@@ -1,29 +1,34 @@
+<app-navbar-basica></app-navbar-basica>
 <section class="cont_caja_blanca">
     <div class="caja_blanca">
-        <h1 class="tc-1">Registrar asociación</h1>
-        <h3 class="tc-4">¿Ya estás registrado? <a href="#">Iniciar sesión</a></h3>
-        <h2 class="tc-2">Registrarse con correo electrónico</h2>
-
-        <h4 class="tc-4">Correo electrónico de la asociación</h4>
-        <input type="text">
-
-        <h4 class="tc-4">Nombre de la asociación</h4>
-        <input type="text">
-
-        <h4 class="tc-4">Nombre del administrador</h4>
-        <input type="text">
-
-        <h4 class="tc-4">Contraseña</h4>
-        <div>
-            <input type="text">
-        </div>
+        <h1 class="tc-1">Registrar administrador</h1>
         
-        <h4 class="tc-4">Confirmar contraseña</h4>
+        <div class="cont_txtClave">
+            <h3 class="tc-4">Clave de autorización</h3>
+            <h3 class="tc-4"><a href="#">¿Olvidaste la clave de autorización?</a></h3> 
+         </div>
+        <input type="text" id="correo">
+
+        <h4 class="tc-4">Correo electrónico</h4>
+        <input type="email" class="correccion">
+        
+
+        <h4 class="tc-4 password_txt"  >Contraseña</h4>
         <div>
-            <input type="text">
+            <input type={{tipo}} id="password">
+            <img class="icon_password {{ocu1}}" src="../../../assets/icons/show_password.svg" (click)="verPassword_clic()"  >
+            <img class="icon_password hide {{ocu2}}" src="../../../assets/icons/hide_password.svg" (click)="verPassword_clic()">
         </div>
+
+        <h4 class="tc-4 password_txt"  >Confirmar contraseña</h4>
+        <div>
+            <input type={{tipo1}} id="password">
+            <img class="icon_password {{ocu3}}" src="../../../assets/icons/show_password.svg" (click)="verPassword_clic1()"  >
+            <img class="icon_password hide {{ocu4}}" src="../../../assets/icons/hide_password.svg" (click)="verPassword_clic1()">
+        </div>
+
         <div class="cont_btn">
-            <button routerLink="/login-admin-asociacion">Registrar</button>
+            <button>Continuar</button>
         </div>
     </div>
 </section>
