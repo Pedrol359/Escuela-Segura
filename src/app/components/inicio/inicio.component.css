@@ -1,0 +1,29 @@
+/* Contenedores */
+.container-main {
+  width: 100%;
+  /* la altura falla */
+  height: 836px; 
+  background: #333;
+  display: flex;
+}
+.container-main-left {
+  width: 60%;
+  display: block;
+  padding-left: 100px;
+}
+.container-main-right {
+  width: 40%;
+  display: block;
+}
+/* Fuentes */
+.purple-text {
+  font-size: 64px;
+  font-weight: 600;
+  color: #a589f4;
+  padding-top: 90px;
+}
+.normal-text {
+  font-size: 26px;
+  color: #fff;
+  margin-top: 90px;
+}
