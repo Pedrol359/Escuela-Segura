@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-admin-asociacion',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarAdminAsociacionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   //Variables
   tipo = "password"
   tipo1 = "password"
@@ -47,4 +48,8 @@ export class RegistrarAdminAsociacionComponent implements OnInit {
     }
   }
 
+  recuperar(estatus:string){
+    localStorage.setItem('status_message',estatus);
+    this.router.navigate(['/modal']);
+  }
 }
