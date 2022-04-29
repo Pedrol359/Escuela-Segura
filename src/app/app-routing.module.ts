@@ -4,13 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginAdminAsociacionComponent } from './components/login-admin-asociacion/login-admin-asociacion.component';
 import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-asociacion/registrar-admin-asociacion.component';
+import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginAdminAsociacionComponent
+    component: RegistrarInstitucionEducativaComponent
   },
   {
     path: 'login-admin-asociacion',
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'registrar-admin-asociacion',
     component: RegistrarAdminAsociacionComponent
+  },
+  {
+    path: 'registrar-institucion-educativa',
+    component: RegistrarInstitucionEducativaComponent
   }
 
 ];
