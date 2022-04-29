@@ -7,6 +7,7 @@ import { LoginAdminAsociacionComponent } from './components/login-admin-asociaci
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarBasicaComponent } from './components/navbar/navbar-basica/navbar-basica.component';
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
+import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RegistrarInstitucionEducativaComponent } from './components/registrar-i
     RegistrarAdminAsociacionComponent,
     LoginAdminAsociacionComponent,
     NavbarBasicaComponent,
-    RegistrarInstitucionEducativaComponent
+    RegistrarInstitucionEducativaComponent,
+    EstatusRecuperacionComponent
   ],
   imports: [
     BrowserModule,
