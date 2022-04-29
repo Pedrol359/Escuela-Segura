@@ -9,6 +9,7 @@ import { NavbarBasicaComponent } from './components/navbar/navbar-basica/navbar-
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/navbar-principal.component';
+import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/n
     NavbarBasicaComponent,
     RegistrarInstitucionEducativaComponent,
     InicioComponent,
-    NavbarPrincipalComponent
+    NavbarPrincipalComponent,
+    EstatusRecuperacionComponent
   ],
   imports: [
     BrowserModule,
