@@ -8,12 +8,13 @@
         </div>
 
         <h4 class="tc-4">Correo electrónico</h4>
-        <input type="text">
+        <input type="email" id="correo">
 
-        <h4 class="tc-4" >Contraseña</h4>
+        <h4 class="tc-4 password_txt"  >Contraseña</h4>
         <div>
-            <input type="text" id="password">
-            <img class="icon_password" src="../../../assets/icons/show_password.svg" >
+            <input type={{tipo}} id="password">
+            <img class="icon_password {{ocu1}}" src="../../../assets/icons/show_password.svg" (click)="verPassword_clic()"  >
+            <img class="icon_password hide {{ocu2}}" src="../../../assets/icons/hide_password.svg" (click)="verPassword_clic()">
         </div>
 
         <div class="cont_btn">

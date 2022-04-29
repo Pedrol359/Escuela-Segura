@@ -8,8 +8,26 @@ import { Component, OnInit } from '@angular/core';
 export class LoginAdminAsociacionComponent implements OnInit {
 
   constructor() { }
-
+  //Variables
+  tipo = "password"
+  verPassword=false;
+  ocu1 ="mostrar"
+  ocu2 = "ocultar"
   ngOnInit(): void {
+  }
+
+  verPassword_clic(){
+    this.verPassword=!this.verPassword
+    if(this.verPassword){
+      this.tipo = "text"
+      this.ocu2 = "mostrar"
+      this.ocu1 ="ocultar"
+      
+    }else{
+      this.tipo = "password"
+      this.ocu1 ="mostrar"
+      this.ocu2 = "ocultar"
+    }
   }
 
 }

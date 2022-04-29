@@ -54,11 +54,27 @@ input{
     /* background: rgb(194, 255, 221); */
     font-size: 17px;
 }
+#correo{
+    padding-top:10px;
+    padding-bottom: 0;
+}
+.password_txt{
+    margin-bottom:-3px;
+}
 #password{
-    padding:2px 0;
+    padding:0px 0;
 }
 .icon_password{
     margin: 0 0 -5px -44px; 
+}
+.hide{
+    margin: 0 0 -5px -43px; 
+}
+.mostrar{
+    display:inline-block;
+}
+.ocultar{
+    display: none;
 }
 
 .cont_btn{
@@ -78,6 +94,5 @@ button{
     font-weight:600;
     color: #fff;
     padding: 7px 20px;
-    
 }
 
