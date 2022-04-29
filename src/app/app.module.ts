@@ -6,13 +6,15 @@ import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-
 import { LoginAdminAsociacionComponent } from './components/login-admin-asociacion/login-admin-asociacion.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarBasicaComponent } from './components/navbar/navbar-basica/navbar-basica.component';
+import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrarAdminAsociacionComponent,
     LoginAdminAsociacionComponent,
-    NavbarBasicaComponent
+    NavbarBasicaComponent,
+    RegistrarInstitucionEducativaComponent
   ],
   imports: [
     BrowserModule,

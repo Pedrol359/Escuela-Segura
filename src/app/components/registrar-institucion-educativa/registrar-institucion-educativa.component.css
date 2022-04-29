@@ -1,0 +1,212 @@
+.cont_caja_blanca {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  /* background: #9c2d2d; */
+  justify-content: center;
+  align-items: center;
+}
+.caja_blanca {
+  padding: 15px 25px 30px 25px;
+  background: #ffffff;
+  border: 1px solid rgba(211, 211, 211, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  max-width: 1400px;
+  width: 70%;
+}
+.container {
+  width: 100%;
+  display: inline-flex;
+}
+.container-left {
+  margin-right: 40px;
+}
+.container-right {
+}
+#txt-area {
+  resize: none;
+  color: #333333;
+  border-radius: 15px;
+  border: 1px solid #d3d3d3;
+  padding: 1em;
+  font-size: 16px;
+}
+.map {
+  width: 600px;
+  height: 257px;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-image: url("../../../assets/icons/mapa.png");
+}
+.spacer {
+  width: 100px;
+  height: 27px;
+}
+.container-switch {
+  margin-top: 15px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+h1 {
+  font-size: 34px;
+  margin: 10px 0;
+  margin-bottom: 15px;
+  color: #333333;
+}
+.cont_txtIni {
+  display: flex;
+  justify-content: space-between;
+}
+h4 {
+  font-weight: 500;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  color: #929292;
+}
+input {
+  border: 0;
+  border-bottom: 1px solid #d3d3d3;
+  width: 685px;
+  padding: 7px 0;
+  outline: none;
+  margin-bottom: 28px;
+  font-size: 17px;
+  color: #333333;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+.text-2 {
+  border: 0;
+  border-bottom: 1px solid #d3d3d3;
+  width: 600px;
+  padding: 7px 0;
+  outline: none;
+  margin-bottom: 28px;
+  font-size: 17px;
+}
+.cont_btn {
+  margin-top: 30px;
+  display: inline-block;
+  text-align: end;
+  width: 100%;
+}
+button {
+  background: #0bce5a;
+  border: 0;
+  cursor: pointer;
+  border-radius: 30px;
+  outline: none;
+  font-size: 23px;
+  font-weight: 600;
+  color: #fff;
+  padding: 7px 20px;
+}
+
+.switch {
+  margin-top: 4px;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #d3d3d3;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 5px;
+  background: #747474;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+  background-color: #8c68f6;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #8c68f6;
+}
+
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+  background: #fff;
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.posicion {
+  position: relative;
+}
+.pos1 {
+  top: 10px;
+}
+.pos2 {
+  left: -63px;
+  top: 8px;
+}
+.pos3 {
+  left: -95px;
+  top: 3px;
+}
+.pos4 {
+  left: -98px;
+  top: 1px;
+}
+.posCorrecion1 {
+  position: relative;
+  left: -50px;
+}
+.posCorrecion2 {
+  position: relative;
+  left: -100px;
+}
+
+.circuloRosa {
+  display: inline-block;
+  width: 57px;
+  height: 30px;
+  background: #f0637a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.circuloBlanco {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 120px;
+}
