@@ -1,29 +1,91 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh !important;
+  height: 100vh;
+  background-color: #333;
+}
+
 /* Contenedores */
 .container-main {
-  width: 100%;
-  /* la altura falla */
-  height: 836px; 
-  background: #333;
   display: flex;
+  justify-content: space-between;
 }
+
 .container-main-left {
-  width: 60%;
+  width: 65vh;
   display: block;
-  padding-left: 100px;
+  margin-left: 10.5vh;
 }
+
 .container-main-right {
-  width: 40%;
+  margin-right: 10.5vh;
+}
+
+/* Contenedores historias */
+.container-stories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.story {
+  width: 30vh;
   display: block;
 }
+
+.story-image {
+  height: 15vh;
+  background-color: green;
+  border-radius: 15px;
+}
+
+.story-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.main-story-container {
+  width: 65vh;
+  height: 65vh;
+  background-color: green;
+  border-radius: 15px;
+}
+
+.spacer {
+  width: 5vh;
+  height: 5vh;
+}
+
 /* Fuentes */
-.purple-text {
+.purple-title-text {
   font-size: 64px;
   font-weight: 600;
   color: #a589f4;
-  padding-top: 90px;
 }
-.normal-text {
+
+.white-title-text {
+  font-size: 36px;
+  color: #fff;
+}
+
+.white-normal-text {
   font-size: 26px;
   color: #fff;
-  margin-top: 90px;
+}
+
+/* Botones */
+.green-button {
+  padding: 1vh 5vh 1vh;
+  width: fit-content;
+  background-color: #0BCE5A;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.green-button a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 3vh;
 }
