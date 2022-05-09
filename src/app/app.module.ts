@@ -10,7 +10,6 @@ import { RegistrarInstitucionEducativaComponent } from './components/registrar-i
 import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/navbar-principal.component';
 import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
-import { ArticulosPantallaPrincipalComponent } from './src/components/articulos-pantalla-principal/articulos-pantalla-principal.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { ArticulosPantallaPrincipalComponent } from './src/components/articulos-
     RegistrarInstitucionEducativaComponent,
     InicioComponent,
     NavbarPrincipalComponent,
-    EstatusRecuperacionComponent,
-    ArticulosPantallaPrincipalComponent
+    EstatusRecuperacionComponent
   ],
   imports: [
     BrowserModule,
