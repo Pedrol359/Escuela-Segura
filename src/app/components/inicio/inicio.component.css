@@ -9,7 +9,8 @@ body {
 
 /* Contenedores */
 .container-main {
-  height: 100vh;
+  padding-top: 10vh;
+  height: 90vh;
   display: flex;
   justify-content: space-between;
 }
@@ -63,8 +64,8 @@ body {
 
 /* Contenedor scroll down */
 .container-scroll-down {
-  margin-top: 15vh;
-  height: 90vh;
+  padding-top: 5vh;
+  height: 85vh;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -169,37 +170,100 @@ body {
 .container-cards-left {
   border-radius: 20px;
   margin-right: 5vh;
+  position: relative;
 }
 
 .container-cards-right {
   border-radius: 20px;
+  position: relative;
 }
 
+/* Tarjeta izquierda */
 .main-card-left {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .card-blur {
+  top: 75%;
+  left: 1%;
+  width: 98%;
+  height: 10vh;
   position: absolute;
-
-  padding-top: 0.5vh;
-
   border-radius: 20px;
-  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
   backdrop-filter: blur(14px);
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 .card-blur h3,
 p {
+  padding: 0vh 3vh;
   color: #fff;
+}
+
+/* Tarjeta derecha top */
+
+.card-right-top {
+  text-align: center;
 }
 
 .card-right-top a {
   text-decoration: none;
   color: #000;
+}
+
+.card-right-top a:hover {
+  color: #a589f4;
+}
+
+/* Tarjeta derecha bottom */
+.card-right-bottom {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 15vh;
+  backdrop-filter: blur(14px);
+  background: rgb(129, 182, 183);
+  background: linear-gradient(
+    90deg,
+    rgba(129, 182, 183, 1) 0%,
+    rgba(161, 107, 186, 1) 51%,
+    rgba(86, 96, 145, 1) 100%
+  );
+  border-radius: 20px;
+}
+
+.card-right-text {
+  margin: 3vh;
+  width: 55%;
+}
+
+.card-right-bottom h3,
+span {
+  margin: 0;
+  color: #fff;
+}
+
+.card-right-bottom span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.card-right-button {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-right-button a {
+  margin-top: 1vh;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
 }
 
 /* Espaciador */
