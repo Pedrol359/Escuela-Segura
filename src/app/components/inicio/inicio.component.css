@@ -9,6 +9,8 @@ body {
 
 /* Contenedores */
 .container-main {
+  padding-top: 10vh;
+  height: 90vh;
   display: flex;
   justify-content: space-between;
 }
@@ -34,24 +36,237 @@ body {
   display: block;
 }
 
-.story-image {
+/* Historia 1 */
+.story-image-1 {
   height: 15vh;
-  background-color: green;
-  border-radius: 15px;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/inicio_story_1.svg");
+  cursor: pointer;
 }
 
-.story-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
+/* Historia 2 */
+.story-image-2 {
+  height: 15vh;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/inicio_story_2.svg");
+  cursor: pointer;
 }
 
+/* Historia principal */
 .main-story-container {
   width: 65vh;
   height: 65vh;
-  background-color: green;
-  border-radius: 15px;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/inicio_story_principal-2.svg");
+  cursor: pointer;
+  object-fit: fill;
 }
+
+/* Contenedor scroll down */
+.container-scroll-down {
+  padding-top: 5vh;
+  height: 85vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Contenedor izquierda scroll down */
+.scroll-down-left {
+  width: 65vh;
+  display: block;
+  margin-left: 10.5vh;
+}
+
+/* Contenedor derecha scroll down */
+.scroll-down-right {
+  width: 65vh;
+  margin-right: 10.5vh;
+}
+
+.container-articule-title {
+  display: flex;
+  align-items: center;
+}
+
+.container-articule-title img {
+  margin-right: 1vh;
+}
+
+/* Artículos */
+.story-image-3 {
+  height: 15vh;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/articulo_1.svg");
+  cursor: pointer;
+}
+
+/* Accesos directos 'Necesitas ayuda' */
+.container-links {
+  margin-top: 1vh;
+  display: flex;
+}
+
+.link-1,
+.link-2 {
+  margin-right: 5vh;
+  display: flex;
+  align-items: center;
+}
+
+.container-links a {
+  margin-left: 1vh;
+  text-decoration: none;
+  color: #3296f3;
+}
+
+.story-image-4 {
+  height: 15vh;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/articulo_2.svg");
+  cursor: pointer;
+}
+
+/* Historia principal */
+.main-story-container {
+  width: 65vh;
+  height: 65vh;
+  border-radius: 20px;
+  background-image: url("../../../assets/imagenes/inicio_story_principal-2.svg");
+  cursor: pointer;
+  object-fit: fill;
+}
+
+/* Slideshow circulos */
+.radio {
+  display: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+}
+
+.dots label {
+  width: 20px;
+  height: 20px;
+  margin: 2vh 0.5vh;
+  background: #fff;
+  border-radius: 50px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.dots label:hover {
+  opacity: 1;
+}
+
+/* Tarjetas */
+.container-cards {
+  display: flex;
+}
+
+.container-cards-left {
+  border-radius: 20px;
+  margin-right: 5vh;
+  position: relative;
+}
+
+.container-cards-right {
+  border-radius: 20px;
+  position: relative;
+}
+
+/* Tarjeta izquierda */
+.main-card-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-blur {
+  top: 75%;
+  left: 1%;
+  width: 98%;
+  height: 10vh;
+  position: absolute;
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card-blur h3,
+p {
+  padding: 0vh 3vh;
+  color: #fff;
+}
+
+/* Tarjeta derecha top */
+
+.card-right-top {
+  text-align: center;
+}
+
+.card-right-top a {
+  text-decoration: none;
+  color: #000;
+}
+
+.card-right-top a:hover {
+  color: #a589f4;
+}
+
+/* Tarjeta derecha bottom */
+.card-right-bottom {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 15vh;
+  backdrop-filter: blur(14px);
+  background: rgb(129, 182, 183);
+  background: linear-gradient(
+    90deg,
+    rgba(129, 182, 183, 1) 0%,
+    rgba(161, 107, 186, 1) 51%,
+    rgba(86, 96, 145, 1) 100%
+  );
+  border-radius: 20px;
+}
+
+.card-right-text {
+  margin: 3vh;
+  width: 55%;
+}
+
+.card-right-bottom h3,
+span {
+  margin: 0;
+  color: #fff;
+}
+
+.card-right-bottom span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.card-right-button {
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-right-button a {
+  margin-top: 1vh;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Espaciador */
 
 .spacer {
   width: 5vh;
@@ -70,18 +285,41 @@ body {
   color: #fff;
 }
 
+.black-normal-text {
+  font-size: 26px;
+  color: #000;
+}
+
+.black-small-text {
+  font-size: 18px;
+  color: #000;
+}
+
 .white-normal-text {
   font-size: 26px;
   color: #fff;
+}
+
+.story-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.story-text:hover {
+  color: #a589f4;
 }
 
 /* Botones */
 .green-button {
   padding: 1vh 5vh 1vh;
   width: fit-content;
-  background-color: #0BCE5A;
+  background-color: #0bce5a;
   text-align: center;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .green-button a {
