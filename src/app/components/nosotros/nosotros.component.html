@@ -1,6 +1,13 @@
+<!--IMPORTANTE
+Instalaciones necesarias.
+Mapbox:
+npm install mapbox-gl --save
+npm i --save-dev @types/mapbox-gl
+npm install --save-dev @types/mapbox-gl
+-->
 <!-- Barra de navegación -->
 <app-navbar-principal></app-navbar-principal>
-<!-- Código Nosotros-->
+<!-- Código Nosotros I-->
 <div class="flex-container">
     <div class="flex-item">
         <div class="left-box">
@@ -14,13 +21,13 @@
                 Somos un equipo multidisciplinario, multicultural; siendo conformada mayoritariamente por mujeres, jóvenes de diversas disciplinas de las áreas sociales; con una amplia experiencia en el trabajo de capacitación, gestión, desarrollo y ejecución de proyectos dentro del ámbito público y social.
             </span>
             <div class="video-1">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/64QcwARoZAM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fqcbNFHsLFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
     <div class="flex-item">
         <div class="left-box">
-            <span class="black-title-text">
+            <span class="black-title-text margin-services">
                 Nuestros servicios
             </span>
             <div class="services-grid">
@@ -50,6 +57,50 @@
                 <span class="text-button">Ir a sitio web</span>
             </div>
             </a>
+        </div>
+    </div>
+</div>
+<!-- Código Nosotros II-->
+<div class="flex-container no-padding margin-footer">
+    <div class="flex-item no-margin">
+        <div class="left-box">
+            <span class="purple-title-text">
+                Objetivo
+            </span>
+            <p class="black-text par-left">
+                Nuestro objetivo fundamental es promover el desarrollo e inclusión de las personas; ésto lo conseguimos con diversas actividades que nos permiten acercarnos a la gente, convivir, aprender y sembrar en ellas la semilla del cambio personal y comunitario; a través de talleres, cursos, gestiones, seguimientos, entre muchas cosas.
+            </p>
+            <span class="black-title-text little-margin-down">
+                Encuentranos
+            </span>
+            <div class="map">
+                <div id="map-box"></div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item no-margin">
+        <div class="left-box no-margin">
+            <div class="slider-box margin-section"></div>
+            <span class="points-slider"></span>
+            <span class="black-title-text">Áreas de trabajo</span>
+            <div class="services-grid">
+                <div class="servicio1">
+                    <span class="ico-a1"><span class="service-name-text to-right">Investigación</span></span>
+                    
+                </div>
+                <div class="servicio2">
+                    <span class="ico-a2"><span class="service-name-text to-right">Proyectos</span></span>
+                </div>
+                <div class="servicio3">
+                    <span class="ico-a3"><span class="service-name-text to-right">Gestión</span></span>
+                </div>
+                <div class="servicio4">
+                    <span class="ico-a4"><span class="service-name-text to-right">Capacitación</span></span>
+                </div>
+            </div>
+            <span class="service-name-text">Contactanos</span>
+            <span class="work-area-text">Escribenos a través de contacto@progresoparamexico.org
+            </span>
         </div>
     </div>
 </div>

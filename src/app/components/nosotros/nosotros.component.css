@@ -21,12 +21,46 @@
     order: 1;
     flex: 1 1 450px;
     align-self: auto;
-    }
+    margin-top: 10vh;
+}
 
 .flex-item:nth-child(2) {
     order: 2;
     flex: 1 1 450px;
     align-self: auto;
+}
+
+/*Ajustes margenes y padding*/
+.no-padding{
+    padding-top: 0;
+}
+
+.no-margin{
+    margin-top: 0;
+}
+
+.margin-services{
+    margin-top: 14vmax;
+}
+
+.margin-footer{
+    margin-bottom: 4.5vmax;
+}
+
+.margin-section{
+    margin-top: 11.35vmax;
+}
+
+.margin-down-section{
+    margin-bottom: 5vmax;
+}
+
+.little-margin-down{
+    margin-bottom: 1vmax;
+}
+
+.to-right{
+    margin-left: 40px;
 }
 /*Contenedores secciones izq y der*/
 .left-box{
@@ -40,6 +74,26 @@
     width: 100%;
 }
 
+/* Slider */
+.slider-box{
+    display: inline-block;
+    width: 100%;
+    height:19vw;
+    background: center/cover url("../../../assets/icons/Nosotros/slider-cover.svg"),no-repeat;
+    border-radius: 30px;
+    margin-bottom: 1em;
+    min-height: 309px;
+    max-width: 718px;
+}
+
+.points-slider{
+    display: inline-block;
+    width: 90px;
+    height:20px;
+    align-self: center;
+    background: center/cover url("../../../assets/icons/Nosotros/points_slider.svg"),no-repeat;
+    margin-bottom: 3em;
+}
 /* Fuentes */
 .purple-title-text {
     font-size: 64px;
@@ -62,7 +116,6 @@
     font-size: 36px;
     line-height: 44px;
     color: #313131;
-    margin-top: 9vmax;
   }
   
   .black-text {
@@ -103,12 +156,23 @@
     margin-inline-start: 17%;
   }
 
+  .work-area-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    color: #333333;
+  }
+
   /*Control parrafos*/
   .par-left{
       width:95%;
       max-width: 688px;
   }
 
+  #aligning-title{
+      margin-left: 0%;
+  }
   /* Vídeo control */
   .video-1 {
     border-radius: 30px;
@@ -174,6 +238,32 @@
     background:center/cover url("../../../assets/icons/Nosotros/servicio_capacitacion.svg") no-repeat;
 }
 
+/* Áreas de trabajo */
+.ico-a1{
+    display: inline-block;
+    height: 30px;
+    width: 24px;
+    background:center/cover url("../../../assets/icons/Nosotros/equity.svg") no-repeat;
+}
+.ico-a2{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background:center/cover url("../../../assets/icons/Nosotros/area_prevencion.svg") no-repeat;
+}
+.ico-a3{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background:center/cover url("../../../assets/icons/Nosotros/area_politica.svg") no-repeat;
+}
+.ico-a4{
+  display: inline-block;
+  height: 30px;
+  width: 24px;
+  background:center/cover url("../../../assets/icons/Nosotros/area_participacion.svg") no-repeat;
+}
+
 /* Botón enlace sitio web */
 .button-web{
     background: #0BCE5A;
@@ -192,4 +282,25 @@
 
 .button-web:hover {
     background: #333333;
+}
+
+/* Mapa */
+.map{
+    width: 100%;
+    height: 40vh;
+    max-width: 688px;
+    min-height: 309px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    overflow:hidden !important;
+    position: relative !important;
+    z-index: 999; 
+}
+#map-box{
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    background-color: #313131;
+    display: block;
 }
