@@ -9,6 +9,7 @@ import { RegistrarInstitucionEducativaComponent } from './components/registrar-i
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component'
+import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 
 InicioComponent
 
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+    path: 'articulo',
+    component: VerArticuloComponent
   },
   {
     path: 'nosotros',

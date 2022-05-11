@@ -13,6 +13,7 @@ import { EstatusRecuperacionComponent } from './components/pantallas-modular/est
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { ArticuloCardLargeComponent } from './components/cards/articulo-card-large/articulo-card-large.component';
+import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ArticuloCardLargeComponent } from './components/cards/articulo-card-lar
     ArticulosPantallaInicioComponent,
     ArticuloCardLargeComponent,
     NosotrosComponent,
-    ArticulosPantallaInicioComponent
+    ArticulosPantallaInicioComponent,
+    VerArticuloComponent
   ],
   imports: [
     BrowserModule,
