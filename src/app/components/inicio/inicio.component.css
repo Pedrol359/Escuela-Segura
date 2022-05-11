@@ -512,7 +512,36 @@ span {
   .container-stories {
     justify-content: flex-start;
   }
-  .story, .story-image-1, .story-image-2 {
+  .story,
+  .story-image-1,
+  .story-image-2 {
     width: 30vh;
   }
+}
+@media screen and (max-width: 1160px) {
+  .main-story-container {
+    width: 35vh;
+    height: 35vh;
+    /* object-fit: fill; */
+  }
+}
+@media screen and (max-width: 1100px) {
+  .main-story-container {
+    width: 32vh;
+    height: 32vh;
+  }
+  .scroll-down-left,
+  .scroll-down-right {
+    height: 75vh;
+    width: 80vh;
+    margin-left: 10.5vh;
+  }
+}
+@media screen and (max-width: 1060px) {
+  .container-main-right {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 1045px) {
+
 }
