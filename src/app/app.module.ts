@@ -10,6 +10,7 @@ import { RegistrarInstitucionEducativaComponent } from './components/registrar-i
 import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/navbar-principal.component';
 import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { ArticuloCardLargeComponent } from './components/cards/articulo-card-large/articulo-card-large.component';
 
@@ -24,7 +25,9 @@ import { ArticuloCardLargeComponent } from './components/cards/articulo-card-lar
     NavbarPrincipalComponent,
     EstatusRecuperacionComponent,
     ArticulosPantallaInicioComponent,
-    ArticuloCardLargeComponent
+    ArticuloCardLargeComponent,
+    NosotrosComponent,
+    ArticulosPantallaInicioComponent
   ],
   imports: [
     BrowserModule,

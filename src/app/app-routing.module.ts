@@ -8,6 +8,8 @@ import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component'
+
 InicioComponent
 
 
@@ -40,8 +42,11 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+    path: 'nosotros',
+    component: NosotrosComponent
   }
-
 ];
 
 @NgModule({
