@@ -11,6 +11,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/navbar-principal.component';
 import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
     InicioComponent,
     NavbarPrincipalComponent,
     EstatusRecuperacionComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    ArticulosPantallaInicioComponent
   ],
   imports: [
     BrowserModule,
