@@ -54,8 +54,8 @@ body {
 
 /* Historia principal */
 .main-story-container {
-  width: 65vh;
-  height: 65vh;
+  width: 400px;
+  height: 400px;
   border-radius: 20px;
   background: center/cover url("../../../assets/imagenes/inicio_story_principal-2.svg") no-repeat;
   cursor: pointer;
@@ -519,8 +519,8 @@ span {
 }
 @media screen and (max-width: 1160px) {
   .main-story-container {
-    width: 35vh;
-    height: 35vh;
+    width: 400px;
+    height: 400px;
     /* object-fit: fill; */
   }
 }
