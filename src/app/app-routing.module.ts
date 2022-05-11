@@ -7,6 +7,7 @@ import { EstatusRecuperacionComponent } from './components/pantallas-modular/est
 import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-asociacion/registrar-admin-asociacion.component';
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 InicioComponent
 
 
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'login-admin-asociacion',
     component: LoginAdminAsociacionComponent
+  },
+  {
+    path: 'articulos',
+    component: ArticulosPantallaInicioComponent
   },
   {
     path: 'registrar-admin-asociacion',

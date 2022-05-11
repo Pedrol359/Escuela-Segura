@@ -1,1 +1,66 @@
-<p>articulos-pantalla-inicio works!</p>
+<app-navbar-principal></app-navbar-principal>
+<section class="cont_principal">
+    <h1 class="title_articulo">Articulos</h1>
+
+    <!-- Articulos -->
+    <div class="cont_articulos">
+        <!--Card del articulo -->
+       <app-articulo-card-large url="../../../../assets/img/articulo1.png" titulo="{{t1}}" contenido="{{c1}}"></app-articulo-card-large>
+       <app-articulo-card-large url="../../../../assets/img/articulo2.png" titulo="{{t2}}" contenido="{{c2}}"></app-articulo-card-large>
+       <app-articulo-card-large url="../../../../assets/img/articulo3.png" titulo="{{t3}}" contenido="{{c3}}"></app-articulo-card-large>
+       <app-articulo-card-large url=""></app-articulo-card-large>
+       <app-articulo-card-large url=""></app-articulo-card-large>
+       <app-articulo-card-large url=""></app-articulo-card-large>
+
+    </div>
+    <!-- Contenido destacado -->
+    <aside>  
+        <h1>Contenido destacado</h1>
+        <!-- Slider -->
+        <section class="cont_slider">
+             <div class="slider_cards">
+                <!-- <img src="../../../../assets/icons/arrow_next_destacado.svg" alt="img-next" id="btnNext"> -->
+                 <div class="cards_scroll">
+
+                 
+                 <!-- Card destacado -->
+                    <div class="cont_unique_card">
+                            <img src="{{imgS1}}" alt="img-Fondo" class="img_card">
+                            <!-- <div>
+                                <h2>Entre retos e inspiración</h2>
+                                <img src="../../../../assets/icons/arrow_destacado.svg" alt="icono">
+                            </div> -->
+                    </div>
+                    <!-- Card destacado 2-->
+                    <div class="cont_unique_card">
+                        <img src="{{imgS2}}" alt="img-Fondo" class="img_card">
+                        <!-- <div>
+                            <h2>Entre retos e inspiración</h2>
+                            <img src="../../../../assets/icons/arrow_destacado.svg" alt="icono">
+                        </div> -->
+                    </div>
+                </div>
+                <!-- <img src="../../../../assets/icons/arrow_next_destacado.svg" alt="img-next" id="btnBack"> -->
+             </div>
+             <!-- Scroll slider -->
+             
+                 <!-- <img src="" alt="img-back"> -->
+                 <div class="container_circle">
+                     <span  id="s1" (click)="slider1()" [ngClass]="{'circle1': sl1, 'circle2': !sl1}"></span>
+                     <span id="s2" (click)="slider2()" [ngClass]="{'circle2': sl1, 'circle1': !sl1}"></span>
+                 </div>
+             
+        </section>
+        <!-- Reportat violencia -->
+        <div class="cont_repor_violencia">
+            <h2>
+                ¿Has sufrido violencia en tu escuela? 
+            </h2>
+            <p class="descrip_violencia">
+                Ayudanos a construir escuelas seguras para tí. Da clic en el botón para reportar tu caso de violencia, 
+                visibilicemos el problema para poderlo resolver.
+            </p>
+            <button>Reportar ahora</button>
+        </div>
+    </aside>
+</section>
