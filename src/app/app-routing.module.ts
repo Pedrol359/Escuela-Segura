@@ -7,6 +7,7 @@ import { EstatusRecuperacionComponent } from './components/pantallas-modular/est
 import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-asociacion/registrar-admin-asociacion.component';
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component'
 InicioComponent
 
 
@@ -35,8 +36,11 @@ const routes: Routes = [
   {
     path: 'inicio',
     component: InicioComponent
+  },
+  {
+    path: 'nosotros',
+    component: NosotrosComponent
   }
-
 ];
 
 @NgModule({

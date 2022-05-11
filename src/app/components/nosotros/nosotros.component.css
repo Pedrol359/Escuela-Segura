@@ -1,0 +1,195 @@
+/*Undecorated*/
+.undecorated{
+    text-decoration: none;
+}
+/* Containers Flex principales*/
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 88%;
+    padding-top: 3%;
+    gap: 17%;
+    }
+
+.flex-item:nth-child(1) {
+    order: 1;
+    flex: 1 1 450px;
+    align-self: auto;
+    }
+
+.flex-item:nth-child(2) {
+    order: 2;
+    flex: 1 1 450px;
+    align-self: auto;
+}
+/*Contenedores secciones izq y der*/
+.left-box{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items:flex-start;
+    flex-flow: column wrap;
+    margin: auto;
+    width: 100%;
+}
+
+/* Fuentes */
+.purple-title-text {
+    font-size: 64px;
+    font-weight: 600;
+    color: #a589f4;
+    margin-bottom: 0.2em;
+    text-shadow: 1px 0.2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .green-title-text {
+    font-size: 64px;
+    font-weight: 600;
+    color: #0BCE5A;
+    margin-bottom: 0.2em;
+    max-width: 688px;
+    text-shadow: 1px 0.2px 5px rgba(0, 0, 0, 0.05);
+  }
+  .black-title-text {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #313131;
+    margin-top: 9vmax;
+  }
+  
+  .black-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #313131;
+  }
+
+  .black-corpus-text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: #333333;
+  }
+
+  .service-name-text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 25px;
+    color: #333333;
+    display: block;
+  }
+
+  .text-button{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFFFFF;
+    width:100%;
+    align-self: center;
+    margin-inline-start: 17%;
+  }
+
+  /*Control parrafos*/
+  .par-left{
+      width:95%;
+      max-width: 688px;
+  }
+
+  /* Vídeo control */
+  .video-1 {
+    border-radius: 30px;
+    overflow: hidden;
+    z-index: 1;
+    width: 95%;
+    height: 15vw;
+    margin-top: 3em;
+    max-width: 688px;
+    min-height: 309px;
+  }
+
+  /*Servicios styles*/
+  .services-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-column-gap: 15%;
+    grid-row-gap: 9%;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .servicio1{
+    grid-area: 1 / 1 / 2 /2;
+  }
+
+  .servicio2{
+    grid-area: 1 / 2 / 2 /3;
+  }
+
+  .servicio3{
+    grid-area: 2 / 1 / 3 /2;
+  }
+  
+  .servicio4{
+    grid-area: 2 / 2 / 3 /3;
+  }
+
+  .ico-s1{
+      display: inline-block;
+      height: 45px;
+      width: 45px;
+      background:center/cover url("../../../assets/icons/Nosotros/servicio_investigacion.svg") no-repeat;
+  }
+  .ico-s2{
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background:center/cover url("../../../assets/icons/Nosotros/servicio_proyectos.svg") no-repeat;
+}
+.ico-s3{
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background:center/cover url("../../../assets/icons/Nosotros/servicio_gestion.svg") no-repeat;
+}
+.ico-s4{
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    background:center/cover url("../../../assets/icons/Nosotros/servicio_capacitacion.svg") no-repeat;
+}
+
+/* Botón enlace sitio web */
+.button-web{
+    background: #0BCE5A;
+    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    width: 200px;
+    height: 45px;
+    align-self:flex-end;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    align-items: center;
+    flex-flow:nowrap;
+    margin-top:5%;
+}
+
+.button-web:hover {
+    background: #333333;
+}
