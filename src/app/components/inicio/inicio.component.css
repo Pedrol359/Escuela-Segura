@@ -40,7 +40,7 @@ body {
 .story-image-1 {
   height: 15vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/inicio_story_1.svg");
+  background: center/cover url("../../../assets/imagenes/inicio_story_1.svg") no-repeat;
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@ body {
 .story-image-2 {
   height: 15vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/inicio_story_2.svg");
+  background: center/cover url("../../../assets/imagenes/inicio_story_2.svg") no-repeat;
   cursor: pointer;
 }
 
@@ -57,7 +57,7 @@ body {
   width: 65vh;
   height: 65vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/inicio_story_principal-2.svg");
+  background: center/cover url("../../../assets/imagenes/inicio_story_principal-2.svg") no-repeat;
   cursor: pointer;
   object-fit: fill;
 }
@@ -97,7 +97,7 @@ body {
 .story-image-3 {
   height: 15vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/articulo_1.svg");
+  background: center/cover url("../../../assets/imagenes/articulo_1.svg") no-repeat;
   cursor: pointer;
 }
 
@@ -123,7 +123,7 @@ body {
 .story-image-4 {
   height: 15vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/articulo_2.svg");
+  background: center/cover url("../../../assets/imagenes/articulo_2.svg") no-repeat;
   cursor: pointer;
 }
 
@@ -132,9 +132,8 @@ body {
   width: 65vh;
   height: 65vh;
   border-radius: 20px;
-  background-image: url("../../../assets/imagenes/inicio_story_principal-2.svg");
+  background: center/cover url("../../../assets/imagenes/inicio_story_principal-2.svg") no-repeat;
   cursor: pointer;
-  object-fit: fill;
 }
 
 /* Slideshow circulos */
