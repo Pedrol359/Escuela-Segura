@@ -1,130 +1,118 @@
+<!-- Barra de navegación -->
 <app-navbar-principal></app-navbar-principal>
-<html>
-
-<body>
-    <div class="container-main">
-        <div class="container-main-left">
-            <span class="purple-title-text">Entre retos e inspiración</span>
-            <div class="spacer"></div>
-            <span class="white-normal-text">Susana Rivera, artesana índigena y estudiante, nos habla sobre los retos a
-                los que
-                se enfrenta y como encuentra la inspiración en sus raíces.</span>
-            <div class="spacer"></div>
-            <div class="green-button">
+<!-- Sección superior -->
+<div class="flex-container dark">
+    <div class="flex-item">
+        <div class="left-column">
+            <span class="purple-title-text noselect">Entre retos e <br> inspiración</span>
+            <span class="white-normal-text noselect margin-top">Susana Rivera, artesana índigena y estudiante, nos habla
+                sobre los retos a los que se enfrenta y como encuentra la inspiración en sus raíces.</span>
+            <div class="green-button margin-top">
                 <a href="">Leer artículo</a>
             </div>
-            <div class="spacer"></div>
-            <span class="white-title-text">Otras historias</span>
-            <div class="spacer"></div>
-            <div class="container-stories">
+            <span class="white-title-text noselect margin-top">Otras historias</span>
+            <div class="grid-stories margin-top">
                 <div class="story">
-                    <div class="story-image-1"></div>
-                    <br>
-                    <div class="story-text" id="story-text-1">“Mis colores mi identidad: una mujer haitiana en México”
-                    </div>
+                    <div class="story-img-1 margin-bottom"></div>
+                    <a href="" class="white-normal-link">"Mis colores, mi identidad: una mujer haitiana en México"</a>
                 </div>
                 <div class="story">
-                    <div class="story-image-2"></div>
-                    <br>
-                    <div class="story-text" id="story-text-2">“El poder de mi voz: alto al acoso escolar”</div>
+                    <div class="story-img-2 margin-bottom"></div>
+                    <a href="" class="white-normal-link">"El poder de mi voz: al al acoso escolar"</a>
                 </div>
             </div>
         </div>
-        <div class="container-main-right">
-            <div class="main-story-container"></div>
-            <!-- <input type="radio" class="radio" id="radio-1">
-            <input type="radio" class="radio" id="radio-2">
-            <input type="radio" class="radio" id="radio-3">
-
-            <div class="dots">
-                <label for="radio-1" id="label-1"></label>
-                <label for="radio-2" id="label-2"></label>
-                <label for="radio-3" id="label-3"></label>
-            </div>  -->
+    </div>
+    <div class="flex-item">
+        <div class="right-column">
+            <div class="slider"></div>
         </div>
     </div>
-    <div class="container-scroll-down">
-        <div class="scroll-down-left">
-            <span class="purple-title-text">Alto a la violencia</span>
-            <div class="spacer"></div>
-            <span class="black-normal-text">Descubre los nuevos articulos sobre diferentes historias, eventos y
+</div>
+<!-- Sección inferior -->
+<div class="flex-container margin-top">
+    <div class="flex-item">
+        <div class="left-column">
+            <span class="purple-title-text noselect">Alto a la violencia</span>
+            <span class="black-normal-text noselect margin-top margin-bottom">Descubre los nuevos articulos sobre
+                diferentes
+                historias, eventos y
                 perspectivas
                 sobre la violencia, sus causas, consecuencias y soluciones.</span>
-            <div class="spacer"></div>
-            <div class="container-articule-title">
-                <img src="../../../assets/icons/articulos.svg" alt="">
+            <!-- Los artículos más recientes -->
+            <div class="icon-subtitle noselect">
+                <div class="icon-subtitle-img">
+                </div>
                 <h2>Los artículos más recientes</h2>
             </div>
             <div class="container-cards">
+                <!-- Artículo principal -->
                 <div class="container-cards-left">
-                    <div class="main-card-left">
-                        <img src="../../../assets/imagenes/inicio_articulo_reciente_1.svg" alt="">
-                        <div class="card-blur">
+                    <div class="card-left">
+                        <img src="" alt="">
+                        <div class="card-left-img"></div>
+                        <div class="blur">
                             <h3>Artículo más reciente</h3>
                             <p>
-                                La discriminación en el ambiente escolar
+                                La discriminación en el ambiente escolar.
                             </p>
                         </div>
                     </div>
                 </div>
+                <!-- Artículos secundarios -->
                 <div class="container-cards-right">
-                    <div class="card-right-top">
-                        <img src="../../../assets/imagenes/inicio_articulo_reciente_2.svg" alt="">
-                        <a href="">
-                            <b> Conferencia: “El feminismo del siglo XXI”</b></a>
+                    <div class="story margin-bottom">
+                        <div class="articule-img-3 margin-bottom"></div>
+                        <a href="" class="black-normal-link">Conferencia: "El feminismo del siglo XXI"
+                        </a>
                     </div>
-                    <br>
-                    <div class="card-right-bottom">
-                        <div class="card-right-text">
-                            <h3>Todos los artículos</h3>
-                            <br>
-                            <span>Da clic en ver más para leer todos nuestros artículos.
-                            </span>
-                        </div>
-                        <div class="card-right-button">
-                            <img src="../../../assets/icons/ver_mas.svg" alt="">
-                            <a href=""><b>Ver más</b></a>
+                    <div class="story">
+                        <div class="card-right">
+                            <div class="card-right-text">
+                                <h3>Todos los artículos</h3>
+                                <span>Da clic en el ícono para leer todos nuestros artículos.
+                                </span>
+                            </div>
+                            <div class="card-right-button">
+                                <img src="../../../assets/icons/ver_mas.svg" alt="">
+                                <!-- <a href="">Ver más</a> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="scroll-down-right">
-            <h2>¿Has sufrido violencia en tu escuela?</h2>
-            <span class="black-normal-text">Ayudanos a construir escuelas seguras para tí. Da clic en el botón para
-                reportar tu caso de violencia, visibilicemos el problema para poderlo resolver.</span>
-            <div class="spacer"></div>
-            <div class="green-button">
-                <a href="">Reportar ahora</a>
-            </div>
-            <div class="spacer"></div>
-            <h2>Informate aquí</h2>
-            <div class="container-stories">
-                <div class="story">
-                    <div class="story-image-3"></div>
-                    <br>
-                    <h3>Articulo: Conoce los diferentes tipos de violencia</h3>
-                </div>
-                <div class="story">
-                    <div class="story-image-4"></div>
-                    <br>
-                    <h3>Test Interactivo: ¿De qué tipo de violencia he sido victima?</h3>
-                </div>
-            </div>
-            <h4>¿Necesitas ayuda?</h4>
-            <span class="black-small-text">Nunca es tarde para alzar la voz, estamos siempre para ti.</span>
-            <div class="container-links">
-                <div class="link-1"><img src="../../../assets/icons/inicio_musuem.svg" alt="">
-                    <a href=""><b>Instituciones de apoyo</b></a>
-                </div>
-                <div class="link-2">
-                    <img src="../../../assets/icons/inicio_community.svg" alt="">
-                    <a href=""><b>Nuestra asociación</b></a>
-                </div>
-            </div>
-
         </div>
     </div>
-</body>
-
-</html>
+    <div class="flex-item">
+        <h2 class="noselect">¿Has sufrido violencia en tu escuela?</h2>
+        <span class="black-normal-text noselect ">Ayudanos a construir escuelas seguras para
+            tí. Da clic en el botón para reportar tu caso de violencia, visibilicemos el problema para poderlo
+            resolver.
+        </span>
+        <div class="green-button margin-top margin-bottom">
+            <a href="">Reportar ahora</a>
+        </div>
+        <h2 class="noselect">Infórmate aquí</h2>
+        <div class="grid-stories margin-top">
+            <div class="story">
+                <div class="articule-img-1 margin-bottom"></div>
+                <a href="" class="black-normal-link">Artículo: Conoce los diferentes tipos de violencia</a>
+            </div>
+            <div class="story">
+                <div class="articule-img-2 margin-bottom"></div>
+                <a href="" class="black-normal-link">Test Interactivo: ¿De qué tipo de violencia he sido victima?</a>
+            </div>
+        </div>
+        <h4 class="noselect">¿Necesitas ayuda?</h4>
+        <span class="black-small-text noselect ">Nunca es tarde para alzar la voz, estamos siempre para ti.
+        </span>
+        <div class="container-links">
+            <div class="link-1"><img src="../../../assets/icons/inicio_musuem.svg" alt="">
+                <a href=""><b>Instituciones de apoyo</b></a>
+            </div>
+            <div class="link-2">
+                <img src="../../../assets/icons/inicio_community.svg" alt="">
+                <a href=""><b>Nuestra asociación</b></a>
+            </div>
+        </div>
+    </div>

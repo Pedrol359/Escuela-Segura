@@ -10,14 +10,13 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component'
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
-import { InicioV2Component } from './components//inicio-v2/inicio-v2.component';
 InicioComponent
 
 
 const routes: Routes = [
   {
     path: '',
-    component: InicioV2Component
+    component: InicioComponent
   },
   {
     path: 'modal',

@@ -7,14 +7,13 @@ import { LoginAdminAsociacionComponent } from './components/login-admin-asociaci
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarBasicaComponent } from './components/navbar/navbar-basica/navbar-basica.component';
 import { RegistrarInstitucionEducativaComponent } from './components/registrar-institucion-educativa/registrar-institucion-educativa.component';
-import { InicioComponent } from './components/inicio/inicio.component';
 import { NavbarPrincipalComponent } from './components/navbar/navbar-principal/navbar-principal.component';
 import { EstatusRecuperacionComponent } from './components/pantallas-modular/estatus-recuperacion/estatus-recuperacion.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { ArticuloCardLargeComponent } from './components/cards/articulo-card-large/articulo-card-large.component';
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
-import { InicioV2Component } from './components//inicio-v2/inicio-v2.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { InicioV2Component } from './components//inicio-v2/inicio-v2.component';
     LoginAdminAsociacionComponent,
     NavbarBasicaComponent,
     RegistrarInstitucionEducativaComponent,
-    InicioComponent,
     NavbarPrincipalComponent,
     EstatusRecuperacionComponent,
     ArticulosPantallaInicioComponent,
@@ -31,7 +29,7 @@ import { InicioV2Component } from './components//inicio-v2/inicio-v2.component';
     NosotrosComponent,
     ArticulosPantallaInicioComponent,
     VerArticuloComponent,
-    InicioV2Component
+    InicioComponent
   ],
   imports: [
     BrowserModule,
