@@ -281,6 +281,9 @@
 }
 
 .button-web:hover {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
     background: #333333;
 }
 

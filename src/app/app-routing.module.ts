@@ -11,6 +11,7 @@ import { ArticulosPantallaInicioComponent } from './components/articulos-pantall
 import { NosotrosComponent } from './components/nosotros/nosotros.component'
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
+import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 InicioComponent
 
 
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path: 'nosotros',
     component: NosotrosComponent
+  },
+  {
+    path: 'panel-editor',
+    component: PanelEditorComponent
   }
 ];
 

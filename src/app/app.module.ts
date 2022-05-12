@@ -15,6 +15,7 @@ import { ArticuloCardLargeComponent } from './components/cards/articulo-card-lar
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
+import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
     ArticulosPantallaInicioComponent,
     VerArticuloComponent,
     InicioComponent,
-    AdminInicioComponent
+    AdminInicioComponent,
+    PanelEditorComponent
   ],
   imports: [
     BrowserModule,
