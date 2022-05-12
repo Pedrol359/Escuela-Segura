@@ -16,6 +16,7 @@ import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.com
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
+import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PanelEditorComponent } from './components/panel-editor/panel-editor.com
     VerArticuloComponent,
     InicioComponent,
     AdminInicioComponent,
-    PanelEditorComponent
+    PanelEditorComponent,
+    NavbarAdminComponent
   ],
   imports: [
     BrowserModule,
