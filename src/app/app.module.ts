@@ -14,6 +14,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { ArticuloCardLargeComponent } from './components/cards/articulo-card-large/articulo-card-large.component';
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
+import { InicioV2Component } from './components//inicio-v2/inicio-v2.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.com
     ArticuloCardLargeComponent,
     NosotrosComponent,
     ArticulosPantallaInicioComponent,
-    VerArticuloComponent
+    VerArticuloComponent,
+    InicioV2Component
   ],
   imports: [
     BrowserModule,
