@@ -14,6 +14,7 @@ import { ArticulosPantallaInicioComponent } from './components/articulos-pantall
 import { ArticuloCardLargeComponent } from './components/cards/articulo-card-large/articulo-card-large.component';
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     NosotrosComponent,
     ArticulosPantallaInicioComponent,
     VerArticuloComponent,
-    InicioComponent
+    InicioComponent,
+    AdminInicioComponent
   ],
   imports: [
     BrowserModule,

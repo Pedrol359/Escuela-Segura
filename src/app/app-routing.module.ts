@@ -10,6 +10,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosPantallaInicioComponent } from './components/articulos-pantalla-inicio/articulos-pantalla-inicio.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component'
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
+import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 InicioComponent
 
 
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: '',
     component: InicioComponent
+  },  
+  {
+    path: 'admin',
+    component: AdminInicioComponent
   },
   {
     path: 'modal',
