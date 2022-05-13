@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-asociacion/registrar-admin-asociacion.component';
 import { LoginAdminAsociacionComponent } from './components/login-admin-asociacion/login-admin-asociacion.component';
@@ -17,6 +17,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
+import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,14 @@ import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-ad
     InicioComponent,
     AdminInicioComponent,
     PanelEditorComponent,
-    NavbarAdminComponent
+    NavbarAdminComponent,
+    TestInteractivoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

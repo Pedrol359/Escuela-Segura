@@ -13,13 +13,13 @@ import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.com
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 InicioComponent
-
+import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 
 const routes: Routes = [
   {
     path: '',
     component: InicioComponent
-  },  
+  },
   {
     path: 'admin',
     component: AdminInicioComponent
@@ -60,6 +60,10 @@ const routes: Routes = [
   {
     path: 'panel-editor',
     component: PanelEditorComponent
+  },
+  {
+    path: 'test-interactivo',
+    component: TestInteractivoComponent
   }
 ];
 
