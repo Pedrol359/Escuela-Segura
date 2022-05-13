@@ -36,7 +36,6 @@ h1{
 .cont_text_article::-webkit-scrollbar {
     width: 3px;     /* Tamaño del scroll en vertical */
     height: 100px;
-
 }
 .cont_text_article::-webkit-scrollbar-thumb {
     background: #000;
