@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="search-bar" id="margin-40">
-                    <span class="white-normal-text" id="margin-16">
+                    <span class="white-normal-text noselect" id="margin-16">
                         Editar un artículo
                     </span>
                     <div class="search-w-icon">
@@ -34,7 +34,7 @@
                 <span class="white-title-text noselect">Artículos recientes</span>
                 <span class="white-small-text noselect left" id="margin-top-4vh">Seleccione el artículo a editar</span>
             </div>
-            <div class="grid-articulos">
+            <div class="grid-articulos noselect">
                 <div class="grid-articulo" *ngFor="let item of articulos">
                     <img src={{item}}>
                 </div>
@@ -44,15 +44,48 @@
     <div class="flex-item">
         <div class="left-box">
             <span class="white-section-title-text noselect" id="margin-16">Editar artículo</span>
-            <div class="selected-article">
-                <img src={{selected_article}}>
-            </div>
-            <div class="general-data">
-                <div class="search-w-icon">
-                    <input type="text" placeholder="Buscar un artículo" class="search-input">
-                    <i class="icono-buscar"></i>
+            <div class="selected-article-container">
+                <div class="selected-article">
+                    <img src={{selected_article}} class="noselect">
+                </div>
+                <div class="general-data">
+                    <span class="white-form-text noselect" id="align-end">Titulo</span>
+                    <div class="titulo-articulo">
+                        <textarea type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                    </div>
+                    <div class="span-counter">
+                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
+                    </div>
+                    <span class="white-form-text noselect" id="align-end">Autor</span>
+                    <div class="search-w-icon" id="margin-16">
+                        <input type="text" placeholder="Nombre del autor" class="search-input">
+                    </div>
+                    <span class="white-form-text noselect" id="align-end">Descripción</span>
+                    <div class="titulo-articulo">
+                        <textarea type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                    </div>
+                    <div class="span-counter">
+                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
+                    </div>
                 </div>
             </div>
+            <span class="white-form-text noselect" id="align-end">Contenido</span>
+            <div class="titulo-articulo">
+                <textarea type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+            </div>
+            <div class="buttons-bottom">
+                <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+                    <div class="button-cancel">
+                        <span class="text-button" id="text-cancel">Cancelar</span>
+                    </div>
+                </a>
+                <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+                    <div class="button-web">
+                        <span class="text-button">Publicar</span>
+                    </div>
+                </a>
+            </div>
+                
         </div>
     </div>
 </div>
