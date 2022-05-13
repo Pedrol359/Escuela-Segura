@@ -14,7 +14,7 @@ export class AdminInicioComponent implements OnInit {
   link_video = 'https://www.youtube.com/watch?v=fqcbNFHsLFs&ab_channel=Asociaci%C3%B3nProgresoparaM%C3%A9xico'
   video_code = ''
   // estado =[false,false,false,false,false,false,false,false,false,false]
-  estado =[true,false,true,false,false]
+  estado =[true,false,true,false]
   nombres=[
     "Instituto Tecnológico de Tepic",
     "Universidad Autonoma de Nayarit",
@@ -77,10 +77,9 @@ export class AdminInicioComponent implements OnInit {
     console.log(this.video_code);
   }
 
-  estados(){
-    this.estado[0] =! this.estado[0]
-    console.log(this.estado[0]);
-    
-    
+  check(est:boolean,index:number){
+    this.estado[index] =est
+    console.log(this.estado[index]);    
+    console.log(index);    
   }
 }
