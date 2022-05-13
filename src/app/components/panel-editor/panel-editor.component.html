@@ -2,15 +2,58 @@
 <app-navbar-admin></app-navbar-admin>
 <!-- Código nosotros -->
 <!-- Panel Izquierdo -->
+<div class="dark">
 <div class="flex-container">
     <div class="flex-item">
         <div class="left-box">
-
+            <span class="purple-title-text noselect" id="margin-24">Panel de editor</span>
+            <span class="white-section-title-text noselect" id="margin-16">Artículos</span>
+            <!--Agregar artículo && Buscar artículo bar-->
+            <div class="grid-search">
+                <div class="new-articule noselect">
+                    <div class="card-right">
+                        <div class="card-right-button">
+                            <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
+                        </div>
+                        <div class="card-right-text">
+                            <h3>Añadir artículo</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-bar" id="margin-40">
+                    <span class="white-normal-text" id="margin-16">
+                        Editar un artículo
+                    </span>
+                    <div class="search-w-icon">
+                        <input type="text" placeholder="Buscar un artículo" class="search-input">
+                        <i class="icono-buscar"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-articles" id="margin-24">
+                <span class="white-title-text noselect">Artículos recientes</span>
+                <span class="white-small-text noselect left" id="margin-top-4vh">Seleccione el artículo a editar</span>
+            </div>
+            <div class="grid-articulos">
+                <div class="grid-articulo" *ngFor="let item of articulos">
+                    <img src={{item}}>
+                </div>
+            </div>
         </div>
     </div>
     <div class="flex-item">
         <div class="left-box">
-            
+            <span class="white-section-title-text noselect" id="margin-16">Editar artículo</span>
+            <div class="selected-article">
+                <img src={{selected_article}}>
+            </div>
+            <div class="general-data">
+                <div class="search-w-icon">
+                    <input type="text" placeholder="Buscar un artículo" class="search-input">
+                    <i class="icono-buscar"></i>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>
