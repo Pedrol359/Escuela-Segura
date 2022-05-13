@@ -24,24 +24,25 @@ input{
     padding: 7px 0 7px 15px;
     margin: 3px 0 15px 0;
     font-size:16px;
+    overflow: hidden;
 }
 
 .cont_izq{
-    width:44%;
+    width:42%;
     /* background: rgb(187, 187, 187); */
 }
 .cont_der{
-    width:47%;
+    width:49%;  
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-content: flex-start;
     /* background: rgb(133, 133, 133); */
 }
 
 h1{
     color: #A589F4;
     font-size:64px;
-    font-size: 3.4vw;
+    font-size: 3.2vw;
     width: 100%;
     margin-bottom: 1.8vw;
     margin-top: 1.8vw;
@@ -69,6 +70,7 @@ h3{
 .img_destacado{
     width: 28%;/*es el bueno*/
     width: 30%;
+    cursor: pointer;
 }
 /* Actualizadr info contacto */
 .cont_info_contacto{
@@ -86,6 +88,7 @@ h3{
     /* background: #A589F4; */
     display: flex;
     flex-wrap: wrap;
+    
 }
 .img_portada{
     width: 100%;
@@ -152,6 +155,9 @@ table{
     border-radius: 15px;
     padding: 10px;
     font-size:12px;
+    border-spacing: 0;
+    max-height: 500px;
+    
 }
 #icon_shield{
     width:20px;
@@ -159,14 +165,16 @@ table{
 th{
     text-align: left;
     border-bottom: 2px solid #333333;
-    
 }
 th:first-child{
     text-align: center;
 }
 td:first-child {
-    
+    width: 30px;
     text-align: center;
+}
+tr ,td{ /*no se como hacer mas chicos los campos*/
+    height:2px;
 }
 td input {
     background:blue;
@@ -174,13 +182,21 @@ td input {
 /* Institucion de apoyo */
 .cont_apoyo{
     width: 100%;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .cont_apoyo_izq{
     width: 54%;
 }
+.cont_apoyo_der{
+    width: 43%;
+    margin: -20px 0 0 0;
+}
 .cont_add_institucion{
     display:flex;
-    margin-bottom:10px;
+    margin-bottom:8px;
     justify-content: space-between;
 }
 .cont_add_institucion img{
@@ -193,9 +209,24 @@ td input {
     width: 100%;
 }
 .img_arrow_combo{
-    width: 20px;
+    width: 18px;
     position: absolute;
-    margin: 8px 0px 0 352px;
+    margin: 8px 0px 0 350px;
+}
+.cont_info_contacto_campos{
+    margin-top:15px;
+    display: flex;
+    justify-content:space-between;
+}
+.cont_direccion{
+    width: 55%;
+}
+.cont_telefono{
+    width: 40%;
+}
+.descripcion{
+    height: 74px;
+    padding:14px
 }
 
 

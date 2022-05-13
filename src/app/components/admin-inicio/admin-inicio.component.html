@@ -1,19 +1,19 @@
 <app-navbar-admin></app-navbar-admin>
 <section class="cont_principal">
     <div class="cont_izq">
-        <h1 > Panel de Administrador</h1>
+        <h1> Panel de Administrador</h1>
         <h2>Editar contenido destacado</h2>
         <div class="cont_images_destacado">
-            <img src="../../../assets/img/img1-1.png" alt="" class="img_destacado">
-            <img src="../../../assets/img/img1-1.png" alt="" class="img_destacado">
-            <img src="../../../assets/img/img1-1.png" alt="" class="img_destacado">
+            <img src="../../../assets/img/img1-3p.png" alt="" class="img_destacado" routerLink="/panel-editor">
+            <img src="../../../assets/img/img1-2p.png" alt="" class="img_destacado" routerLink="/panel-editor">
+            <img src="../../../assets/img/img1-1p.png" alt="" class="img_destacado" routerLink="/panel-editor">
         </div>
         <div class="cont_info_contacto">
             <h3>Actualizar información de contacto</h3>
             <div class="cont_info_izq">
                 <img src="../../../assets/img/portada_asociacion.png" class="img_portada">
                 <span class="txt_span">Sitio web</span>
-                <input type="text" class="input_text" value="www.promex.org.mx" >
+                <input type="text" class="input_text" value="www.promex.org.mx">
 
                 <span class="txt_span">Correo electrónico de contacto</span>
                 <input type="text" class="input_text" value="www.promex.org.mx">
@@ -32,21 +32,21 @@
                 <span class="txt_span">Correo electrónico de contacto</span>
                 <input type="text" class="input_text" value="www.promex.org.mx">
             </div>
-            
+
         </div>
 
     </div>
     <div class="cont_der">
         <div class="crear_articulo"></div>
         <div class="edit_escuelas">
-            <h3 >Editar escuelas seguras</h3>
+            <h3>Editar escuelas seguras</h3>
             <div class="cont_buscar_escuela">
-                <input type="text" class="input_text edit_txt" value="Buscar escuela por nombre o clave"> 
+                <input type="text" class="input_text edit_txt" value="Buscar escuela por nombre o clave">
                 <img src="../../../assets/icons/search_admin.svg" class="img_lupa">
-                
+
             </div>
         </div>
-        
+
         <table class="default">
             <tr>
                 <th><img src="../../../assets/icons/shield_table_admin.svg" id="icon_shield"></th>
@@ -54,39 +54,50 @@
                 <th>Clave</th>
                 <th>Nivel educativo</th>
                 <th>Dirección</th>
-              </tr>
-            <tr>
-                <td>
-                    <div class="squaredThree"   [ngClass]="{'squaredThree_checked': estado[0], 'squaredThree_nochecked': !estado[0]}" >
-                        <input type="checkbox" (click)="estado[0]=!estado[0]" value="None" id="squaredThree" name="check"  />
-                        <label for="squaredThree"  ></label>
+            </tr>
+            <tr *ngFor="let est of estado; let i = index">
+                <td >
+                    <div class="squaredThree"
+                        [ngClass]="{'squaredThree_checked': est, 'squaredThree_nochecked': !est}">
+                        <input type="checkbox" (click)="estado[i]=!estado[i]" id="squaredThree"
+                            name="check" />
+                        <label for="squaredThree"></label>
                     </div>
                 </td>
-                <td>
-                    Celda 1
-                </td>
-                <td>
-                    Celda 2
-                </td>
-                <td>Celda 3</td>
-                <td>Celda 4</td>
+                <td>{{nombres[i]}}</td>
+                <td>{{claves[i]}}</td>
+                <td>{{niveles[i]}}</td>
+                <td>{{direcciones[i]}}</td>
             </tr>
-            
+
         </table>
         <div class="cont_apoyo">
             <h3>Instituciones de apoyo</h3>
             <div class="cont_apoyo_izq">
                 <div class="cont_add_institucion">
-                    <img src="../../../assets/icons/add_admin.svg" >
+                    <img src="../../../assets/icons/add_admin.svg">
                     <div>
                         <img src="../../../assets/icons/arrow_combobox_admin.svg" alt="" class="img_arrow_combo">
-                        <input type="text" id="" class="input_text edit_txt">
-
+                        <input type="text" value="Instituto para la Mujer Nayarita" class="input_text edit_txt">
                     </div>
-                    
                 </div>
-            </div>
-            <div class="cont_apoyo_der"></div>
+                <div class="cont_info_contacto_campos">
+
+                    <div class="cont_direccion">
+                        <span>Dirección</span>
+                        <input type="text" class="input_text" value="Calle Miñon Pte 7, Centro, ..." >
+                    </div>
+                    <div class="cont_telefono">
+                        <span>Teléfono</span>
+                        <input type="text" class="input_text" value="311 123 23 45">
+                </div>
+                </div>
         </div>
+        <div class="cont_apoyo_der">
+            <span>Descripción</span>
+            <textarea class="input_text descripcion">El Instituto para la Mujer Nayarita es una institución gubernamental que busca apoyar a las mujeres en terminos de prevención de violencia domestica,...
+            </textarea>
+        </div>
+    </div>
     </div>
 </section>
