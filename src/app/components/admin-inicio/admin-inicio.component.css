@@ -1,38 +1,69 @@
-
+/*estilos generales*/
 .cont_principal{
-    padding-top: 10vh;
-    width:100%;
-    padding: 13vh 6% 0 6%;
+    width:88%;  
     /* margin: auto; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-height: 90vh;
+    max-height: 83.88vh;
     background: #333333 ;
+    padding: 13.1vh 6% 1.6% 6%;
+    
 }
 
-/*parte izquierda*/
+input{
+    outline: none;
+    border: none;
+}
+input::placeholder{
+    color: #e9e9e9
+}
+.input_text{
+    width: calc(100% - 16px);
+    color: #fff;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    border-radius: 18px;
+    padding: 7px 0 7px 15px;
+    margin: 3px 0 15px 0;
+    font-size:16px;
+    overflow: hidden;
+}
+
 .cont_izq{
-    width:45%;
-    background: rgb(187, 187, 187);
+    width:42%;
+    /* background: rgb(187, 187, 187); */
 }
 .cont_der{
-    width:45%;
-    background: rgb(133, 133, 133);
+    width:49%;  
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    /* background: rgb(133, 133, 133); */
 }
 
 h1{
     color: #A589F4;
     font-size:64px;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
     width: 100%;
+    margin-bottom: 1.8vw;
+    margin-top: 1.8vw;
 }
 /* Sección contenido destacado*/
+
 h2{
     color: #fff;
-    width: inherit;
     font-size: 2.0vw;
     width:100%;
+}
+h3{
+    color: #fff;
+    font-size: 1.4vw;
+    width:100%;
+    margin-bottom: 20px;
+    margin-top: 0.8vw;
 }
 .cont_images_destacado{
     width: inherit;
@@ -40,8 +71,464 @@ h2{
     width:100%;
     justify-content:space-between;
 }
-
 .img_destacado{
-    width: 28%;
+    width: 28%;/*es el bueno*/
+    width: 30%;
+    cursor: pointer;
+}
+/* Actualizadr info contacto */
+.cont_info_contacto{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cont_info_izq{
+    width: 45%;
+    /* background: #7341fd; */
+}
+.cont_info_der{
+    width: 50%;
+    /* background: #A589F4; */
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.img_portada{
+    width: 100%;
+}
+.txt_span{
+    color: white;
+    font-size:16px;
+}
+.cont_lb_direccion{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:5px;
+}
+.img_maps{
+    width: 16px;
+    margin-right:3px;
+}
+.lb_direccion{
+    display: flex;
+    color: white;
+}
+
+#txtGuia{
+    font-size: 11px;
+    color: white;
+}
+/*Eliminar*/
+.crear_articulo{
+ width: 100%;
+ height: 50px;
+ background: #757575;
+}
+/* Añadir o editar articulo */
+.purple-title-text {
+    font-size: 64px;
+    font-weight: 600;
+    color: #a589f4;
+    text-decoration: none;
+  }
+.white-section-title-text {
+    margin: 68px 0 0 0;
+    width: 100%;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+  }
+  #margin-24{
+    margin-bottom: 24px;
+}
+
+#margin-16{
+    margin-bottom: 16px;
+}
+
+.grid-search {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+}
+.card-right {
+    display: flex;
+    width: 100%;
+    height: 9vh;
+    backdrop-filter: blur(14px);
+    background: rgb(129, 182, 183);
+    background: linear-gradient(90deg,
+        rgba(129, 182, 183, 1) 0%,
+        rgba(161, 107, 186, 1) 51%,
+        rgba(86, 96, 145, 1) 100%);
+    border-radius: 20px;
+    min-width: 100%;
+    cursor: pointer;
+  }
+  
+  .card-right-text {
+    width: 40%;
+    min-width: 40%;
+    margin: 1.5vh 0vw 2vh 0.1vw;
+  }
+  
+  .card-right h3 {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  
+  .card-right-button {
+    margin: 2vh 1vw 2vh 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+  }
+  
+  .card-right-button img {
+    cursor: pointer;
+  }
+  
+  .card-right:hover img {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    transform: scale(1.2);
+  }
+
+/*Barra busqueda*/
+.search-bar { 
+    grid-area: 1 / 2 / 2 / 3; 
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items:flex-start;
+    flex-flow: column wrap;
+    width: 100%;
+    
+}
+
+
+#margin-40{
+    margin-bottom: 40px;
+}
+.white-normal-text {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  .search-w-icon{
+    display:flex;
+    justify-content:space-between;
+    width: 100%;
+    height: 31px;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+.search-input{
+    border: none;
+    text-decoration: none;
+    resize: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 350;
+    background-color: transparent;
+    width: 91%;
+    padding-left: 15px;
+}
+
+.search-input i{
+    position:absolute;
+}
+
+.icono-buscar{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-top: 7px;
+    margin-right: 7px;
+    background: center/cover url("../../../assets/icons/Panel-editor/search.svg"),no-repeat;
+}
+
+/*Barra bsuqueda escuela*/
+.search-w-icon-escuela{
+    display:flex;
+    justify-content:space-between;
+    width: 65%;
+    height: 24px;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.search-input-escuela{
+    border: none;
+    text-decoration: none;
+    resize: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 250;
+    background-color: transparent;
+    width: 91%;
+    padding-left: 10px;
+}
+
+.search-input-escuela i{
+    position:absolute;
+}
+
+.icono-buscar-escuela{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 5px;
+    margin-right: 7px;
+    background: center/cover url("../../../assets/icons/Panel-editor/search.svg"),no-repeat;
+}
+  
+/* Sección de la tabla */
+.edit_escuelas{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
+.cont_buscar_escuela{
+    width: 70%;
+    margin: 0 0 -13px 0;
+}
+
+
+.edit_txt{
+    margin: 0;
+}
+
+.img_lupa{
+    margin: -37px 0px 22px 281px;
+    z-index: 10;
+}
+table{
+    background: #505050;
+    color: #fff;
+    width: 100%;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 10px;
+    font-size:12px;
+    border-spacing: 0;
+    max-height: 500px;
+    
+}
+#icon_shield{
+    width:20px;
+}
+th{
+    text-align: left;
+    border-bottom: 2px solid #333333;
+}
+th:first-child{
+    text-align: center;
+}
+td:first-child {
+    width: 30px;
+    text-align: center;
+}
+tr ,td{ /*no se como hacer mas chicos los campos*/
+    height:2px;
+}
+td input {
+    background:blue;
+}
+/* Institucion de apoyo */
+.cont_apoyo{
+    width: 100%;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cont_apoyo_izq{
+    width: 54%;
+}
+.cont_apoyo_der{
+    width: 43%;
+    margin: -20px 0 0 0;
+}
+.cont_add_institucion{
+    display:flex;
+    margin-bottom:8px;
+    justify-content: space-between;
+}
+.cont_add_institucion img{
+    margin-right: 10px;
+}
+.cont_apoyo h3{
+    margin-bottom:15px;
+}
+.cont_add_institucion div{
+    width: 100%;
+}
+.img_arrow_combo{
+    width: 18px;
+    position: absolute;
+    margin: 8px 0px 0 350px;
+}
+.cont_info_contacto_campos{
+    margin-top:15px;
+    display: flex;
+    justify-content:space-between;
+}
+.cont_direccion{
+    width: 55%;
+}
+.cont_telefono{
+    width: 40%;
+}
+.descripcion{
+    height: 74px;
+    padding:14px
+}
+
+
+/* Mapa */
+.map{
+    width: 100%;
+    height: 175px;
+    max-width: 688px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    overflow:hidden !important;
+    position: relative !important;
+    z-index: 999; 
+    margin-bottom: 15px;
+}
+#map-box{
+    height: 175px;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    background-color: #313131;
+    display: block;
+   
+}
+
+/* Boton de la parte inferior */
+.buttons-bottom{
+    display: flex;
+    gap: 50px;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1vh;
+    margin-top: 12px;
+}
+.undecorated{
+    text-decoration: none;    
+}
+.button-web{
+    background: #0BCE5A;
+    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    width: 180px;
+    height: 45px;
+    align-self:flex-end;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    align-items: center;
+    flex-flow:nowrap;
+    margin-top:5%;
+
+}
+
+.button-web:hover {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background-color: #089b43;
+}
+.text-button{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFFFFF;
+    width:100%;
+    align-self: center;
+    text-align: center;
+  }
+
+/*Diseño de checkbox*/
+.squaredThree {
+    width: 20px;
+    position: relative;
+    margin: 20px auto;
+  }
+  .squaredThree label{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: linear-gradient(to bottom, #222222 0%, #45484d 100%); */
+    border-radius: 4px;
+  }
+  .squaredThree_nochecked{
+    background: #333333;
+  }
+  .squaredThree_checked label{
+    background: #A589F4;
+  }
+  
+  .squaredThree label:after {
+    content: '';
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border: 3px solid #505050;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    /* opacity: 0; */
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+
+  .squaredThree input[type=checkbox] {
+    visibility: hidden;
+  }
+
+
+/* Evitar subrayado al seleccionar */
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+  }
