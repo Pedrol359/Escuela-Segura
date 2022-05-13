@@ -77,10 +77,9 @@ export class AdminInicioComponent implements OnInit {
     console.log(this.video_code);
   }
 
-  estados(){
-    this.estado[0] =! this.estado[0]
-    console.log(this.estado[0]);
-    
-    
+  check(est:boolean,index:number){
+    this.estado[index] =est
+    console.log(this.estado[index]);    
+    console.log(index);    
   }
 }

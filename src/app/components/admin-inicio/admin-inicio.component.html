@@ -81,10 +81,10 @@
             <tr *ngFor="let est of estado; let i = index">
                 <td >
                     <div class="squaredThree"
-                        [ngClass]="{'squaredThree_checked': est, 'squaredThree_nochecked': !est}">
-                        <input type="checkbox" (click)="estado[i]=!estado[i]" id="squaredThree"
+                        [ngClass]="{'squaredThree_checked': estado[i], 'squaredThree_nochecked': !estado[i]}">
+                        <input type="checkbox"  id="squaredThree"
                             name="check" />
-                        <label for="squaredThree"></label>
+                        <label for="squaredThree" (click)="check(!estado[i],i)"></label>
                     </div>
                 </td>
                 <td>{{nombres[i]}}</td>
