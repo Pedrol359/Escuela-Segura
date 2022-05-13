@@ -1,38 +1,64 @@
-
+/*estilos generales*/
 .cont_principal{
-    padding-top: 10vh;
-    width:100%;
-    padding: 13vh 6% 0 6%;
+    width:88%;  
     /* margin: auto; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     max-height: 90vh;
     background: #333333 ;
+    padding: 12.5vh 6% 4.8% 6%;
 }
 
-/*parte izquierda*/
+input{
+    outline: none;
+    border: none;
+}
+.input_text{
+    width: calc(100% - 16px);
+    color: #fff;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    border-radius: 18px;
+    padding: 7px 0 7px 15px;
+    margin: 3px 0 15px 0;
+    font-size:16px;
+}
+
 .cont_izq{
-    width:45%;
-    background: rgb(187, 187, 187);
+    width:44%;
+    /* background: rgb(187, 187, 187); */
 }
 .cont_der{
-    width:45%;
-    background: rgb(133, 133, 133);
+    width:47%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background: rgb(133, 133, 133); */
 }
 
 h1{
     color: #A589F4;
     font-size:64px;
-    font-size: 3.5vw;
+    font-size: 3.4vw;
     width: 100%;
+    margin-bottom: 1.8vw;
+    margin-top: 1.8vw;
 }
 /* Sección contenido destacado*/
+
 h2{
     color: #fff;
-    width: inherit;
     font-size: 2.0vw;
     width:100%;
+}
+h3{
+    color: #fff;
+    font-size: 1.4vw;
+    width:100%;
+    margin-bottom: 20px;
+    margin-top: 0.8vw;
 }
 .cont_images_destacado{
     width: inherit;
@@ -40,8 +66,200 @@ h2{
     width:100%;
     justify-content:space-between;
 }
-
 .img_destacado{
-    width: 28%;
+    width: 28%;/*es el bueno*/
+    width: 30%;
+}
+/* Actualizadr info contacto */
+.cont_info_contacto{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cont_info_izq{
+    width: 45%;
+    /* background: #7341fd; */
+}
+.cont_info_der{
+    width: 50%;
+    /* background: #A589F4; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.img_portada{
+    width: 100%;
+}
+.txt_span{
+    color: white;
+    font-size:16px;
+}
+.cont_lb_direccion{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:5px;
+}
+.img_maps{
+    width: 16px;
+    margin-right:3px;
+}
+.lb_direccion{
+    display: flex;
+    color: white;
+}
+
+#txtGuia{
+    font-size: 11px;
+    color: white;
+}
+/*Eliminar*/
+.crear_articulo{
+ width: 100%;
+ height: 50px;
+ background: #757575;
+}
+
+/* Sección de la tabla */
+.edit_escuelas{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
+.cont_buscar_escuela{
+    width: 70%;
+    margin: 0 0 -13px 0;
+}
+
+
+.edit_txt{
+    margin: 0;
+}
+
+.img_lupa{
+    margin: -37px 0px 22px 281px;
+    z-index: 10;
+}
+table{
+    background: #505050;
+    color: #fff;
+    width: 100%;
+    background: #505050;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 10px;
+    font-size:12px;
+}
+#icon_shield{
+    width:20px;
+}
+th{
+    text-align: left;
+    border-bottom: 2px solid #333333;
+    
+}
+th:first-child{
+    text-align: center;
+}
+td:first-child {
+    
+    text-align: center;
+}
+td input {
+    background:blue;
+}
+/* Institucion de apoyo */
+.cont_apoyo{
+    width: 100%;
+}
+.cont_apoyo_izq{
+    width: 54%;
+}
+.cont_add_institucion{
+    display:flex;
+    margin-bottom:10px;
+    justify-content: space-between;
+}
+.cont_add_institucion img{
+    margin-right: 10px;
+}
+.cont_apoyo h3{
+    margin-bottom:15px;
+}
+.cont_add_institucion div{
+    width: 100%;
+}
+.img_arrow_combo{
+    width: 20px;
+    position: absolute;
+    margin: 8px 0px 0 352px;
+}
+
+
+/* Mapa */
+.map{
+    width: 100%;
+    height: 175px;
+    max-width: 688px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    overflow:hidden !important;
+    position: relative !important;
+    z-index: 999; 
+    margin-bottom: 15px;
+}
+#map-box{
+    height: 175px;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    background-color: #313131;
+    display: block;
+   
+}
+
+/*Diseño de checkbox*/
+.squaredThree {
+    width: 20px;
+    position: relative;
+    margin: 20px auto;
+  }
+  .squaredThree label{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: linear-gradient(to bottom, #222222 0%, #45484d 100%); */
+    border-radius: 4px;
+  }
+  .squaredThree_nochecked{
+    background: #333333;
+  }
+  .squaredThree_checked label{
+    background: #A589F4;
+  }
+  
+  .squaredThree label:after {
+    content: '';
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border: 3px solid #505050;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    /* opacity: 0; */
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+
+  .squaredThree input[type=checkbox] {
+    visibility: hidden;
+  }
