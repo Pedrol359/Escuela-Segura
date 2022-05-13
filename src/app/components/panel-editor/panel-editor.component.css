@@ -48,7 +48,6 @@
   }
   
   .text-button{
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 21px;
@@ -93,55 +92,6 @@
     width: 100%;
     margin-bottom: 8px;
   }
-  /* Links */
-  
-  .white-normal-link {
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-  }
-  
-  .black-normal-link {
-    font-size: 15px;
-    font-weight: 600;
-    color: #000;
-    text-decoration: none;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-  }
-  
-  .white-normal-link:hover,
-  .black-normal-link:hover {
-    color: #a589f4;
-  }
-  
-  /* Botones */
-  .green-button {
-    padding: 1vh 5vh 1vh;
-    width: fit-content;
-    background-color: #0bce5a;
-    text-align: center;
-    border-radius: 50px;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-  
-  .green-button a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 3vh;
-  }
-  
-  .green-button:hover {
-    background-color: #089b43;
-  }
 
   /* Contenedores: Flex */
   .flex-container {
@@ -169,7 +119,7 @@
     order: 2;
     flex: 1 1 450px;
     align-self: auto;
-    margin-top: 7vh;
+    margin-top: 14vh;
 }
 
 .dark {
@@ -459,7 +409,7 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
 
 .contenido-input{
     width: 98%;
-    height: 19vw;
+    height: 15.3vw;
     background: #505050;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
