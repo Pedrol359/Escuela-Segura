@@ -1,187 +1,185 @@
 <table class="table">
     <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Logo</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
-      </tr>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let incidencia of listaIncicendias">
-        <th>{{incidencia.ID_INCIDENCIA}}</th>
-        <td>{{incidencia.INC_AGR_NOMBRE}}</td>
-        <td>{{incidencia.INC_AGR_EDAD}}</td>
-        <td>{{incidencia.INC_AGR_TIPO}}</td>
-        <td>{{incidencia.INC_FECHA}}</td>
-        
-      </tr>
+        <tr *ngFor="let incidencia of listaIncidencias">
+            <th>{{incidencia.ID_INCIDENCIA}}</th>
+            <td>{{incidencia.INC_AGR_NOMBRE}}</td>
+            <td>{{incidencia.INC_AGR_EDAD}}</td>
+            <td>{{incidencia.INC_AGR_TIPO}}</td>
+            <td>{{incidencia.INC_FECHA}}</td>
+        </tr>
     </tbody>
-  </table>
+</table>
 
 
-  <form action="/insertIncidencia" method="POST">        
+<form action="/insertIncidencia" method="POST">
     <div class="Seccion1">
-            <h3>DATOS DEL LUGAR</h3><br>
+        <h3>DATOS DEL LUGAR</h3><br>
 
-            <b><label>Municipio</label></b><br>
-            <select name="inc_municipio">
-                <option ngDefaultControl
-                *ngFor="let item of municipios"
-                [value]="item.MUNICIPIO_NOMBRE"
-                name={{item.MUNICIPIO_NOMBRE}}
-                [(ngModel)]="incidencia.inc_mun" >
-                    {{item.MUNICIPIO_NOMBRE}}
-                </option>
-            </select><br>
+        <b><label>Municipio</label></b><br>
+        <select [(ngModel)]="listaIncidencias[10]" name="inc_municipio">
+            <option ngDefaultControl *ngFor="let item of municipios" [value]="item.MUNICIPIO_NOMBRE"
+                name={{item.MUNICIPIO_NOMBRE}} [(ngModel)]="incidencia.inc_mun">
+                {{item.MUNICIPIO_NOMBRE}}
+            </option>
+        </select><br>
 
-            <b><label>Nivel educativo</label></b><br>
-            <select name="" id="">
-                <option value="">Preparatoria</option>
-                <option value="">Universidad</option>
-            </select><br>
-            
-           <b> <label>Institución</label> </b><br> 
-            <select name="inc_inst" id="inc_inst">
-                <option value="1">Cetis 100</option>
-                <option value="2">Cecyten</option>
-                <option value="3">Uan</option>
-            </select><br>
+        <b><label>Nivel educativo</label></b><br>
+        <select name="" id="">
+            <option value="">Preparatoria</option>
+            <option value="">Universidad</option>
+        </select><br>
 
-            <label>Lugar efectuado</label><br>
-            <select name="inc_esp" id="inc_esp">
-                <option value="1">Dentro del aula</option>
-                <option value="2">En una oficina o privado</option>
-                <option value="3">Areas comunes</option>
-                <option value="4">Baños</option>
-                <option value="5">Fuera del plantel realizando una actividad académica</option>
-                <option value="6">Fuera del plantel realizando otra actividad.</option>
-            </select><br>
+        <b> <label>Institución</label> </b><br>
+        <select [(ngModel)]="listaIncidencias[9]" name="inc_inst" id="inc_inst">
+            <option value="1">Cetis 100</option>
+            <option value="2">Cecyten</option>
+            <option value="3">Uan</option>
+        </select><br>
+
+        <label>Lugar efectuado</label><br>
+        <select [(ngModel)]="listaIncidencias[6]" name="inc_esp" id="inc_esp">
+            <option value="1">Dentro del aula</option>
+            <option value="2">En una oficina o privado</option>
+            <option value="3">Areas comunes</option>
+            <option value="4">Baños</option>
+            <option value="5">Fuera del plantel realizando una actividad académica</option>
+            <option value="6">Fuera del plantel realizando otra actividad.</option>
+        </select><br>
     </div>
 
     <div class="Seccion2">
-            <h3>DATOS DEL INCIDENTE</h3><br>
+        <h3>DATOS DEL INCIDENTE</h3><br>
 
-            <label>Tipo de violencia</label><br>
-            <select name="id_violencia" id="0">
-                <option value="1">Verbal o Psicologica</option>
-                <option value="2">Verbal</option>
-                <option value="3">Fisica</option>
-                <option value="4">Sexual</option>
-            </select><br>
-            
-            <label>Descripción</label><br>
-            <select name="inc_vio_descr" id="inc_vio_descr">
-                <option value="1">Bromas hirientes</option>
-                <option value="2">Apodos</option>
-                <option value="3">Engaños</option>
-                <option value="4">Ignorar</option>
-                <option value="5">Celar</option>
-                <option value="6">Culpabilizar</option>
-                <option value="7">Descalificar</option>
-                <option value="8">Ridiculizar</option>
-                <option value="9">Ofender</option>
-                <option value="10">Humillar en publico</option>
-                <option value="11">Controlar o Prohibir</option>
-                <option value="12">Amenzas</option>
-                <option value="13">Manipulación</option>
-            </select><br>
+        <label>Tipo de violencia</label><br>
+        <select name="id_violencia" id="0">
+            <option value="1">Verbal o Psicologica</option>
+            <option value="2">Verbal</option>
+            <option value="3">Fisica</option>
+            <option value="4">Sexual</option>
+        </select><br>
 
-            <label>Fecha</label><br>
-            <input type="date" [(ngModel)]="incidencia.inc_fecha" name="inc_fecha"><br>
+        <label>Descripción</label><br>
+        <select name="inc_vio_descr" id="inc_vio_descr">
+            <option value="1">Bromas hirientes</option>
+            <option value="2">Apodos</option>
+            <option value="3">Engaños</option>
+            <option value="4">Ignorar</option>
+            <option value="5">Celar</option>
+            <option value="6">Culpabilizar</option>
+            <option value="7">Descalificar</option>
+            <option value="8">Ridiculizar</option>
+            <option value="9">Ofender</option>
+            <option value="10">Humillar en público</option>
+            <option value="11">Controlar o Prohibir</option>
+            <option value="12">Amenzas</option>
+            <option value="13">Manipulación</option>
+        </select><br>
 
-            <label>Hora</label><br>
-            <input type="time" [(ngModel)]="incidencia.inc_hora" name="inc_hora"><br>
+        <label>Fecha</label><br>
+        <input type="date" [(ngModel)]="incidencia.inc_fecha" name="inc_fecha"><br>
+
+        <label>Hora</label><br>
+        <input type="time" [(ngModel)]="listaIncidencias[8]" name="inc_hora"><br>
     </div>
-
+    [(ngModel)]="
     <div class="Seccion3">
-            <h3>DATOS DE LA VICTIMA</h3><br>
+        <h3>DATOS DE LA VICTIMA</h3><br>
 
-            <label>Edad</label><br>
-            <input type="number" name="inc_vic_edad"> <br>
+        <label>Edad</label><br>
+        <input [(ngModel)]="listaIncidencias[13]" type="number" name="inc_vic_edad"> <br>
 
-            <label>Sexo</label><br>
-            <select name="inc_vic_genero" id="0">
-                <option value="1">Mujer</option>
-                <option value="1">Hombre</option>
-            </select><br>
+        <label>Sexo</label><br>
+        <select [(ngModel)]="listaIncidencias[14]" name="inc_vic_genero" id="0">
+            <option value="1">Mujer</option>
+            <option value="1">Hombre</option>
+        </select><br>
 
-         
+
     </div>
     <div class="Seccion3">
-            <h3>DATOS DEL AGRESOR</h3><br>
+        <h3>DATOS DEL AGRESOR</h3><br>
 
-            <label>Nombre</label><br>
-            <input type="text" name="inc_agr_nombre"> <br>
-            <label>Edad</label><br>
-            <input type="number" name="inc_agr_edad"> <br>
+        <label>Nombre</label><br>
+        <input [(ngModel)]="listaIncidencias[4]" type="text" name="inc_agr_nombre"> <br>
+        <label>Edad</label><br>
+        <input [(ngModel)]="listaIncidencias[2]" type="number" name="inc_agr_edad"> <br>
 
-            <label>Sexo</label><br>
-            <select name="inc_agr_genero" id="0">
-                <option value="1">Mujer</option>
-                <option value="1">Hombre</option>
-            </select><br>
+        <label>Sexo</label><br>
+        <select [(ngModel)]="listaIncidencias[3]" name="inc_agr_genero" id="0">
+            <option value="1">Mujer</option>
+            <option value="1">Hombre</option>
+        </select><br>
 
-            <label>Persona que ejerció la violencia</label><br>
-            <select name="inc_agr_tipo" id="inc_agr_tipo">
-                <option value="1">Compañero de clase</option>
-                <option value="2">Compañero de escuela</option>
-                <option value="1">Relacion de noviazgo dentro de la escuela</option>
-                <option value="2">Relacion de noviazgo fuera de la escuela</option>
-                <option value="1">Maestro</option>
-                <option value="2">Director</option>
-                <option value="1">Personal Administrativo</option>
-                <option value="2">Personal de labores varias</option>
-                <option value="2">Personal ajeno a la escuela</option>
-            </select><br>
+        <label>Persona que ejerció la violencia</label><br>
+        <select [(ngModel)]="listaIncidencias[5]" name="inc_agr_tipo" id="inc_agr_tipo">
+            <option value="1">Compañero de clase</option>
+            <option value="2">Compañero de escuela</option>
+            <option value="1">Relacion de noviazgo dentro de la escuela</option>
+            <option value="2">Relacion de noviazgo fuera de la escuela</option>
+            <option value="1">Maestro</option>
+            <option value="2">Director</option>
+            <option value="1">Personal Administrativo</option>
+            <option value="2">Personal de labores varias</option>
+            <option value="2">Personal ajeno a la escuela</option>
+        </select><br>
     </div>
 
     <div class="Seccion4">
-            <h3>DATOS POST - INCIDENTE</h3><br>
+        <h3>DATOS POST - INCIDENTE</h3><br>
 
-            <label>Acción Tomada</label><br>
-            <select name="inc_accion" id="0">
-                <option value="1">Denuncie ante un maestro</option>
-                <option value="2">Denuncie ante una autoridad escolar</option>
-                <option value="3">Denuncie ante una instancia</option>
-                <option value="4">Ninguna</option>
-            </select><br>
+        <label>Acción Tomada</label><br>
+        <select [(ngModel)]="listaIncidencias[1]" name="inc_accion" id="0">
+            <option value="1">Denuncie ante un maestro</option>
+            <option value="2">Denuncie ante una autoridad escolar</option>
+            <option value="3">Denuncie ante una instancia</option>
+            <option value="4">Ninguna</option>
+        </select><br>
 
-            <label>Tiempo Transcurrido</label><br>
-            <select name="inc_tiempo" id="0">
-                <option value="1">Mas de 12 meses</option>
-                <option value="2">Entre 6 y 12 meses</option>
-                <option value="3">Entre 3 y 6 meses</option>
-                <option value="4">Menos de 3 meses</option>
-                <option value="5">Ultimos 15 dias</option>
-            </select><br>
+        <label>Tiempo Transcurrido</label><br>
+        <select [(ngModel)]="listaIncidencias[12]" name="inc_tiempo" id="0">
+            <option value="1">Mas de 12 meses</option>
+            <option value="2">Entre 6 y 12 meses</option>
+            <option value="3">Entre 3 y 6 meses</option>
+            <option value="4">Menos de 3 meses</option>
+            <option value="5">Ultimos 15 dias</option>
+        </select><br>
 
-            <label>Se necesito de otro servicio a consecuencia del incident</label><br>
-            <select name="inc_servicio" id="0">
-                <option value="1">Atención psicologica</option>
-                <option value="2">Atencion Psiquiatrica</option>
-                <option value="3">Atencion Medica</option>
-                <option value="4">Interrupcion Legal del embarazo</option>
-                <option value="5">Ninguna</option>
-            </select><br>
+        <label>Se necesito de otro servicio a consecuencia del incidente</label><br>
+        <select [(ngModel)]="listaIncidencias[11]" name="inc_servicio" id="0">
+            <option value="1">Atención psicologica</option>
+            <option value="2">Atencion Psiquiatrica</option>
+            <option value="3">Atencion Medica</option>
+            <option value="4">Interrupcion Legal del embarazo</option>
+            <option value="5">Ninguna</option>
+        </select><br>
     </div>
 
     <div class="Seccion5">
-            <h3>DATOS INFORMATIVOS</h3><br>
+        <h3>DATOS INFORMATIVOS</h3><br>
 
-            <label>¿En tu institución recibes información sobre los tipos y modalidades de violencia?</label><br>
-            <select name="cmbInformacion" id="0">
-                <option value="1">Si</option>
-                <option value="2">No</option>
-            </select><br>
+        <label>¿En tu institución recibes información sobre los tipos y modalidades de violencia?</label><br>
+        <select name="cmbInformacion" id="0">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+        </select><br>
 
-            <label>¿En tu institución existen mecanismos para denunciar acciones de violencia?</label><br>
-            <select name="cmbMecanismos" id="0">
-                <option value="1">Si</option>
-                <option value="2">No</option>
-            </select><br>
+        <label>¿En tu institución existen mecanismos para denunciar acciones de violencia?</label><br>
+        <select name="cmbMecanismos" id="0">
+            <option value="1">Si</option>
+            <option value="2">No</option>
+        </select><br>
     </div>
-
-    <button (click)="agregar()" > Registar Incidencia </button>
+    <button (click)="guardarDatos()"> Guardar Datos</button>
+    <button (click)="agregar()"> Registar Incidencia </button>
 </form>
+
+<!-- (ngSubmit)="guardarDatos" -->

@@ -8,59 +8,63 @@ import { PeticionesService, Incidencia, Municipio } from 'src/app/services/petic
 })
 export class FormComponent implements OnInit {
 
-  incidencia: any ={
-    id_incidencia: 0,
-    inc_accion: "",
-    inc_agr_edad: "",
-    inc_agr_genero: "",
-    inc_agr_nombre: "",
-    inc_agr_tipo: "",
-    inc_esp: "",
-    inc_fecha: "",
-    inc_hora: "",
-    inc_inst: "",
-    inc_mun: "",
-    inc_servicio: "",
-    inc_tiempo: "",
-    inc_vic_edad: "",
-    inc_vic_genero: "",
-    inc_vio_descr: "",
+  incidencia: any = {
+    id_incidencia: 0, // 0
+    inc_accion: "", // 1
+    inc_agr_edad: "", // 2
+    inc_agr_genero: "", // 3
+    inc_agr_nombre: "", // 4
+    inc_agr_tipo: "", // 5
+    inc_esp: "", // 6
+    inc_fecha: "", // 7
+    inc_hora: "", // 8
+    inc_inst: "", // 9
+    inc_mun: "", // 10
+    inc_servicio: "", // 11
+    inc_tiempo: "", // 12
+    inc_vic_edad: "", // 13
+    inc_vic_genero: "", // 14
+    inc_vio_descr: "", // 15 - falta en formulario
     violencias_id_violencia: 0,
   }
 
-  listaIncicendias: Incidencia[] = [];
+  listaIncidencias: Incidencia[] = [];
 
   municipios: Municipio[] = []
 
-  arrat = [2,2]
-  constructor(private peticiones:PeticionesService) { }
+  arrat = [2, 2]
+  constructor(private peticiones: PeticionesService) { }
 
   ngOnInit(): void {
     this.listarIncidencias()
     this.listarMunicipios()
-    console.log(this.listaIncicendias);
+    console.log(this.listaIncidencias);
   }
 
   listarIncidencias() {
-    this.peticiones.getIncidencias().subscribe(res=>{
-        this.listaIncicendias =<any> res;
-      },
+    this.peticiones.getIncidencias().subscribe(res => {
+      this.listaIncidencias = <any>res;
+    },
       err => console.log(err)
-      );    
-    }
-    
-    listarMunicipios() {
-      this.peticiones.getMunicipios().subscribe(res=>{
-        this.municipios=<any> res;
-        console.log(this.municipios);
-      },
-      err => console.log(err)
-    );    
+    );
   }
 
-  agregar(){
+  listarMunicipios() {
+    this.peticiones.getMunicipios().subscribe(res => {
+      this.municipios = <any>res;
+      console.log(this.municipios);
+    },
+      err => console.log(err)
+    );
+  }
+
+  agregar() {
     delete this.incidencia.id_incidencia;
     this.peticiones.addInc(this.incidencia).subscribe();
+  }
+
+  guardarDatos() {
+    console.log(this.listaIncidencias);
   }
 
 }
