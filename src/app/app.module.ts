@@ -19,6 +19,12 @@ import { PanelEditorComponent } from './components/panel-editor/panel-editor.com
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 
+
+import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './components/form/form/form.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,13 +43,15 @@ import { TestInteractivoComponent } from './components/test-interactivo/test-int
     AdminInicioComponent,
     PanelEditorComponent,
     NavbarAdminComponent,
-    TestInteractivoComponent
+    TestInteractivoComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
