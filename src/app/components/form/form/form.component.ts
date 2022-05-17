@@ -19,13 +19,13 @@ export class FormComponent implements OnInit {
     inc_fecha: "",
     inc_hora: "",
     inc_inst: "",
-    inc_mun: "",
+    inc_municipio: "",
     inc_servicio: "",
     inc_tiempo: "",
     inc_vic_edad: "",
     inc_vic_genero: "",
     inc_vio_descr: "",
-    violencias_id_violencia: 0,
+    id_violencia: 10,
   }
 
   listaIncicendias: Incidencia[] = [];
@@ -62,7 +62,6 @@ export class FormComponent implements OnInit {
     delete this.incidencia.id_incidencia;
     this.peticiones.addInc(this.incidencia).subscribe();
   }
-
 }
 
 
