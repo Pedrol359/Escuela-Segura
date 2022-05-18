@@ -18,6 +18,8 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
+import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TestInteractivoComponent } from './components/test-interactivo/test-int
     AdminInicioComponent,
     PanelEditorComponent,
     NavbarAdminComponent,
-    TestInteractivoComponent
+    TestInteractivoComponent,
+    TiposViolenciaComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
