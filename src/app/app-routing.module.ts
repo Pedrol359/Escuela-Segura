@@ -15,6 +15,7 @@ import { PanelEditorComponent } from './components/panel-editor/panel-editor.com
 InicioComponent
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 import { FormComponent } from './components/form/form/form.component';
+import { TablaComponent } from './components/map/tabla/tabla.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'form',
     component: FormComponent
+  },
+  {
+    path: 'mapa',
+    component: TablaComponent
   }
 ];
 
