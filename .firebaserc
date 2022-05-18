@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "escuela-segura-v1": {
+      "hosting": {
+        "Escuela-Segura": [
+          "escuela-segura-v1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "escuela-segura-v1"
+  }
+}
