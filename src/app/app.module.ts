@@ -35,7 +35,6 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     ArticulosPantallaInicioComponent,
     ArticuloCardLargeComponent,
     NosotrosComponent,
-    ArticulosPantallaInicioComponent,
     VerArticuloComponent,
     InicioComponent,
     AdminInicioComponent,
