@@ -23,6 +23,12 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
+
+import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './components/form/form/form.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,13 +46,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     AdminInicioComponent,
     PanelEditorComponent,
     NavbarAdminComponent,
-    TestInteractivoComponent
+    TestInteractivoComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())

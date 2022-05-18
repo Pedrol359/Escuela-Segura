@@ -14,6 +14,8 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 InicioComponent
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
+import { FormComponent } from './components/form/form/form.component';
+
 
 const routes: Routes = [
   {
@@ -64,6 +66,10 @@ const routes: Routes = [
   {
     path: 'test-interactivo',
     component: TestInteractivoComponent
+  },
+  {
+    path: 'form',
+    component: FormComponent
   }
 ];
 
