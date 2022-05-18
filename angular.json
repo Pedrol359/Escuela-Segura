@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Escuela-Segura:build:production",
+            "firebaseProject": "escuela-segura-v1",
+            "firebaseHostingSite": "escuela-segura-v1"
+          }
         }
       }
     }

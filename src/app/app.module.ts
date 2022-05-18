@@ -18,6 +18,10 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 import {HttpClientModule} from '@angular/common/http';
@@ -37,7 +41,6 @@ import { FormComponent } from './components/form/form/form.component';
     ArticulosPantallaInicioComponent,
     ArticuloCardLargeComponent,
     NosotrosComponent,
-    ArticulosPantallaInicioComponent,
     VerArticuloComponent,
     InicioComponent,
     AdminInicioComponent,
@@ -51,7 +54,10 @@ import { FormComponent } from './components/form/form/form.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
