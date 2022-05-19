@@ -11,7 +11,7 @@
             <!--Agregar artículo && Buscar artículo bar-->
             <div class="grid-search">
                 <div class="new-articule noselect">
-                    <div class="card-right">
+                    <div class="card-right" (click)="nuevo()">
                         <div class="card-right-button">
                             <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
                         </div>
@@ -35,9 +35,18 @@
                 <span class="white-small-text noselect left" id="margin-top-4vh">Seleccione el artículo a editar</span>
             </div>
             <div class="grid-articulos noselect">
-                <div class="grid-articulo" *ngFor="let item of articulos; let i = index" (click)="seleccionarArticulo(i)">
-                    <img src={{item.urlImagen}}>
+
+                <div class="card"  *ngFor="let article of articulos; let i = index">
+                    <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
+                    <span class="eliminar_articulo" (click)="prepararElimiancion(i)"></span>
+                    <div class="blur" (click)="seleccionarArticulo(i)">
+                        <h3>Entre retos e inspiración</h3>
+                    </div>
                 </div>
+
+                <!-- <div class="grid-articulo" >
+                    <img src={{item.urlImagen}}>
+                </div> -->
             </div>
         </div>
     </div>

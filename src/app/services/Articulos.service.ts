@@ -27,8 +27,10 @@ export class ArticuloService {
         return this.firestore.collection('Articulos').snapshotChanges();
     }
     actualizarArticulo(articulo: any): Promise<any> {
-        console.log(articulo.id);
         return this.firestore.collection('Articulos').doc(articulo.id).update(articulo)
+    }
+    eliminarArticulo(idArticulo:string){
+        return this.firestore.collection('Articulos').doc(idArticulo).delete()
     }
 
 }
