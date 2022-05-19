@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-articulo-card-admin',
@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articulo-card-admin.component.css']
 })
 export class ArticuloCardAdminComponent implements OnInit {
-
   constructor() { }
+
+  @Input() imagen=''
+  @Input() titulo=''
+  @Input() index=''
+  @Output() deleted=false
+
+  
 
   ngOnInit(): void {
   }

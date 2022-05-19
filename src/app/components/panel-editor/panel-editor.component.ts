@@ -10,19 +10,14 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 export class PanelEditorComponent implements OnInit {
   constructor(private _articulo:ArticuloService, private storage: AngularFireStorage) { }
 
-  /*articulos:string[]=["../../../assets/icons/Panel-editor/destacado.svg","../../../assets/icons/Panel-editor/destacado2.svg",
-  "../../../assets/icons/Panel-editor/destacado3.svg","../../../assets/icons/Panel-editor/destacado.svg",
-  "../../../assets/icons/Panel-editor/destacado2.svg","../../../assets/icons/Panel-editor/destacado3.svg",
-  "../../../assets/icons/Panel-editor/destacado.svg","../../../assets/icons/Panel-editor/destacado2.svg",
-  "../../../assets/icons/Panel-editor/destacado3.svg","../../../assets/icons/Panel-editor/destacado.svg",
-  "../../../assets/icons/Panel-editor/destacado2.svg","../../../assets/icons/Panel-editor/destacado3.svg"]*/
   articulos:any[] = []
+  articulos_copy:any[] = []
   id=""
   titulo=""
   autor=""
   descripcion=""
   contenido=""
-  imagen_selected:any = "../../../assets/icons/Panel-editor/selected-article.svg";
+  imagen_selected:any = "../../../assets/imagenes/inicio_story_principal.svg";
 
   titulo_input:string="0/35";
   cargando=false
@@ -32,6 +27,7 @@ export class PanelEditorComponent implements OnInit {
   arhivo: any;
   imagenCargada = false;
   nameFile: string = 'Seleccionar una imagen';
+  elimiandos:string[]=[]
   
 
   ngOnInit(): void {
@@ -46,28 +42,48 @@ export class PanelEditorComponent implements OnInit {
     this.imagen_selected = this.articulos[index].urlImagen
     this.index_selected=index
     this.nuevoArticulo=false
+    
   }
 
   publicarArticulo(){
+    
+   if(!(this.titulo =='' && this.descripcion =='' && this.contenido=='' && this.autor=='')){
     this.asignarDatos()
-    if (this.nuevoArticulo){
+     if (this.nuevoArticulo){
       this._articulo.agregarArticulo(this._articulo.articulo)
     }else{
       this._articulo.actualizarArticulo(this._articulo.articulo)
     }
+   }
+    
     console.log("articulo");
     console.log(this._articulo.articulo);
+
+    //verifica si hay articulos por eliminar de la BD
+    console.log(this.elimiandos);
+    console.log(this.elimiandos.length);
+    
+    if (this.elimiandos.length>0){
+      console.log("eliminados");
+      this.eliminar()
+    }
+    else
+      console.log("no eliminados");
+      
+    
   }
 
   obtenerArticulos() {
-    this._articulo.obtenerArticulos().subscribe(data => {
+    let subs =this._articulo.obtenerArticulos().subscribe(data => {
         this.articulos = [];  
         data.forEach((element: any) => {
           this.articulos.push({
             ...element.payload.doc.data(),
             id: element.payload.doc.id
           })
+          this.articulos_copy=this.articulos
         })
+        subs.unsubscribe
         console.log(this.articulos);
       });
   }
@@ -97,6 +113,8 @@ export class PanelEditorComponent implements OnInit {
     let imagenSubida = false;
     // let userAlmacenado = false;
     try {
+      console.log(this.imagenCargada);
+      
       if (this.imagenCargada) {
         let porcentaje = 0;
         const subirImagen = this.storage.upload(this.filePath, this.arhivo);
@@ -132,9 +150,11 @@ export class PanelEditorComponent implements OnInit {
       this.cargando = false;
     }
   }
+
   publicar(){
     this.subirImagen()
   }
+
   getCharacters(limite:number,id_element:string) {
     var titulo:string = "0/35";
     var input =<HTMLInputElement> document.getElementById(id_element);
@@ -143,12 +163,60 @@ export class PanelEditorComponent implements OnInit {
     this.titulo_input = indicador;
   }
 
+  eliminar(){
+    for (let idArticulo of this.elimiandos) {
+      this._articulo.eliminarArticulo(idArticulo)      
+    }
+    this.elimiandos =[]
+  }
+  
+  nuevo(esNuevo:boolean){
+    this.nuevoArticulo=true
+    this.id=""
+    this.titulo=""
+    this.autor=""
+    this.descripcion=""
+    this.contenido=""
+    this.imagen_selected = "../../../assets/imagenes/inicio_story_principal.svg";
+    if (!esNuevo){
+      this.elimiandos=[]
+      this.articulos=this.articulos_copy
+    }
+
+  }
+  prepararElimiancion(index:number){
+    this.elimiandos.push(this.articulos[index].id);
+    this.articulos.splice(index,1);
+  }
+
   asignarDatos(){
-    this.articulos[this.index_selected].id=this._articulo.articulo.id=this.articulos[this.index_selected].id
+    if (this.nuevoArticulo){
+      this.articulos.push({
+        titulo:this.titulo,
+        id:'',
+        autor:this.autor,
+        descripcion:this.descripcion,
+        contenido:this.contenido,
+        urlImagen:this.imagen_selected
+      })
+    this._articulo.articulo.id=''
+    this._articulo.articulo.titulo=this.titulo
+    this._articulo.articulo.autor=this.autor
+    this._articulo.articulo.descripcion=this.descripcion
+    this._articulo.articulo.contenido=this.contenido
+    this._articulo.articulo.urlImagen=this.imagen_selected
+    }else{
+    this._articulo.articulo.id=this.articulos[this.index_selected].id
     this.articulos[this.index_selected].titulo=this._articulo.articulo.titulo=this.titulo
     this.articulos[this.index_selected].autor=this._articulo.articulo.autor=this.autor
     this.articulos[this.index_selected].descripcion=this._articulo.articulo.descripcion=this.descripcion
     this.articulos[this.index_selected].contenido=this._articulo.articulo.contenido=this.contenido
     this.articulos[this.index_selected].urlImagen=this._articulo.articulo.urlImagen=this.imagen_selected
+    this.articulos_copy=this.articulos
+  }
+  }
+
+  formatearUrl(url:string){
+    return 'center/cover url('+url+')'
   }
 }
