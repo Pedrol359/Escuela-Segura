@@ -17,7 +17,9 @@
 .undecorated{
     text-decoration: none;    
 }
-  
+a{
+    cursor: pointer;
+}
   /* Fuentes */
   .purple-title-text {
     font-size: 64px;
@@ -345,8 +347,8 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
 }
 
 .selected-article{
-    height: 75%;
-    width: 75%;
+    height: 57%;
+    width: 57%;
     margin-right: 24px;
     min-width: 200px;
     min-height: 200px;
@@ -356,7 +358,42 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
     height:100%;
     width: 100%;
 }
+/*apartado subir imagen*/
+.cont_editar_img{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
 
+.a {
+    text-decoration: none;
+  }
+  a img {
+    width: 18px !important;
+    margin: 0 0 -2px 0;
+    padding-right: 4px;
+
+  }
+  .a ,.pointer_cursor{
+    cursor: pointer;
+  }
+  .up-imagen {
+    outline: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+  }
+  input#file-input{
+    display: none;
+  }
+  input#file-input{
+    display: none;
+  }
+  .icon_upload{
+      width: 10px;
+  }
 /*Container datos generales*/
 .general-data{
     display:flex;
@@ -387,9 +424,12 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
-    padding: 5px;
+    padding: 7px;
+  
 }
-
+ input,textarea{
+   padding-left: 10px !important;
+ }
 .descripcion-input{
     width: 98%;
     height: 52px;

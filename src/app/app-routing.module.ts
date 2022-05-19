@@ -15,6 +15,7 @@ import { PanelEditorComponent } from './components/panel-editor/panel-editor.com
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
 import { FormComponent } from './components/form/form/form.component';
+import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 InicioComponent
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'panel-editor',
     component: PanelEditorComponent
+  },
+  {
+    path: 'panel-admin',
+    component: PanelAdminComponent
   },
   {
     path: 'test-interactivo',

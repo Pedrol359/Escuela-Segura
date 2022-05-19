@@ -38,29 +38,29 @@
     </div>
     <div class="cont_der">
         <span class="white-section-title-text noselect" id="margin-16">Artículos</span>
-            <!--Agregar artículo && Buscar artículo bar-->
-            <div class="grid-search">
-                <div class="new-articule noselect">
-                    <div class="card-right">
-                        <div class="card-right-button">
-                            <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
-                        </div>
-                        <div class="card-right-text">
-                            <h3>Añadir artículo</h3>
-                        </div>
+        <!--Agregar artículo && Buscar artículo bar-->
+        <div class="grid-search">
+            <div class="new-articule noselect">
+                <div class="card-right">
+                    <div class="card-right-button">
+                        <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
                     </div>
-                </div>
-                <div class="search-bar" id="margin-40">
-                    <span class="white-normal-text noselect" id="margin-16">
-                        Editar un artículo
-                    </span>
-                    <div class="search-w-icon">
-                        <input type="text" placeholder="Buscar un artículo" class="search-input">
-                        <i class="icono-buscar"></i>
+                    <div class="card-right-text">
+                        <h3>Añadir artículo</h3>
                     </div>
                 </div>
             </div>
-            
+            <div class="search-bar" id="margin-40">
+                <span class="white-normal-text noselect" id="margin-16">
+                    Editar un artículo
+                </span>
+                <div class="search-w-icon">
+                    <input type="text" placeholder="Buscar un artículo" class="search-input">
+                    <i class="icono-buscar"></i>
+                </div>
+            </div>
+        </div>
+
         <div class="edit_escuelas">
             <h3>Editar escuelas seguras</h3>
             <div class="search-w-icon-escuela">
@@ -78,11 +78,10 @@
                 <th>Dirección</th>
             </tr>
             <tr *ngFor="let est of estado; let i = index">
-                <td >
+                <td>
                     <div class="squaredThree"
                         [ngClass]="{'squaredThree_checked': estado[i], 'squaredThree_nochecked': !estado[i]}">
-                        <input type="checkbox"  id="squaredThree"
-                            name="check" />
+                        <input type="checkbox" id="squaredThree" name="check" />
                         <label for="squaredThree" (click)="check(!estado[i],i)"></label>
                     </div>
                 </td>
@@ -107,26 +106,26 @@
 
                     <div class="cont_direccion">
                         <span>Dirección</span>
-                        <input type="text" class="input_text" value="Calle Miñon Pte 7, Centro, ..." >
+                        <input type="text" class="input_text" value="Calle Miñon Pte 7, Centro, ...">
                     </div>
                     <div class="cont_telefono">
                         <span>Teléfono</span>
                         <input type="text" class="input_text" value="311 123 23 45">
+                    </div>
                 </div>
-                </div>
-        </div>
-        <div class="cont_apoyo_der">
-            <span>Descripción</span>
-            <textarea class="input_text descripcion">El Instituto para la Mujer Nayarita es una institución gubernamental que busca apoyar a las mujeres en terminos de prevención de violencia domestica,...
-            </textarea>
-        </div>
-    </div>
-    <div class="buttons-bottom">
-        <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
-            <div class="button-web">
-                <span class="text-button">Guardar todo</span>
             </div>
-        </a>
-    </div>
+            <div class="cont_apoyo_der">
+                <span>Descripción</span>
+                <textarea class="input_text descripcion">El Instituto para la Mujer Nayarita es una institución gubernamental que busca apoyar a las mujeres en terminos de prevención de violencia domestica,...
+            </textarea>
+            </div>
+        </div>
+        <div class="buttons-bottom">
+            <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+                <div class="button-web">
+                    <span class="text-button">Guardar todo</span>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
