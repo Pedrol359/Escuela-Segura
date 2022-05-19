@@ -16,6 +16,7 @@ import { TestInteractivoComponent } from './components/test-interactivo/test-int
 import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
 import { FormComponent } from './components/form/form/form.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
+import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 InicioComponent
 
 
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'mapa',
     component: TablaComponent
+  },
+  {
+    path: 'reporte',
+    component: ReporteFormularioComponent
   }
 ];
 

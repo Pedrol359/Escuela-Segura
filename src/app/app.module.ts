@@ -29,6 +29,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http';
 import { FormComponent } from './components/form/form/form.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
+import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 
 
 
@@ -53,7 +54,8 @@ import { TablaComponent } from './components/map/tabla/tabla.component';
     TiposViolenciaComponent,
     CarouselComponent,
     FormComponent,
-    TablaComponent
+    TablaComponent,
+    ReporteFormularioComponent
   ],
   imports: [
     BrowserModule,
