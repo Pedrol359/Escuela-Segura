@@ -35,43 +35,57 @@
                 <span class="white-small-text noselect left" id="margin-top-4vh">Seleccione el artículo a editar</span>
             </div>
             <div class="grid-articulos noselect">
-                <div class="grid-articulo" *ngFor="let item of articulos">
-                    <img src={{item}}>
+                <div class="grid-articulo" *ngFor="let item of articulos; let i = index" (click)="seleccionarArticulo(i)">
+                    <img src={{item.urlImagen}}>
                 </div>
             </div>
         </div>
     </div>
     <div class="flex-item">
         <div class="left-box">
-            <span class="white-section-title-text noselect" id="margin-16">Editar artículo</span>
+            <span class="white-section-title-text noselect" id="margin-16"  *ngIf="nuevoArticulo">Nuevo artículo</span>
+            <span class="white-section-title-text noselect" id="margin-16" *ngIf="!nuevoArticulo">Editar artículo</span>
             <div class="selected-article-container">
                 <div class="selected-article">
-                    <img src={{selected_article}} class="noselect">
+                    <img src={{imagen_selected}} class="noselect">
+                    <div class="cont_editar_img">
+                        <a class="up-imagen a">
+                  
+                            <input type="file"  class="" id="file-input" accept=".png, .jpg, .jpeg, .svg, .jfif" (change)="cargarImagen($event)">
+                            
+                            <label for="file-input" class="">
+                              <img src="../../../../assets/icons/Panel-editor/upload.svg" class="icon_upload"/> <span class="pointer_cursor">{{nameFile}}</span>
+                            </label>
+                            <!--  -->
+                            <!-- Subir una imagen  -->
+                        </a>
+
+                    </div>
                 </div>
                 <div class="general-data">
                     <span class="white-form-text noselect" id="align-end">Titulo</span>
                     <div class="titulo-articulo">
-                        <textarea type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                        <textarea [(ngModel)]="titulo" type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
                     </div>
                     <div class="span-counter">
                         <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
                     </div>
                     <span class="white-form-text noselect" id="align-end">Autor</span>
                     <div class="search-w-icon" id="margin-16">
-                        <input type="text" placeholder="Nombre del autor" class="search-input">
+                        <input [(ngModel)]="autor" type="text" placeholder="Nombre del autor" class="search-input">
                     </div>
-                    <span class="white-form-text noselect" id="align-end">Descripción</span>
+                    <span  class="white-form-text noselect" id="align-end">Descripción</span>
                     <div class="titulo-articulo">
-                        <textarea type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                        <textarea [(ngModel)]="descripcion" type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
                     </div>
                     <div class="span-counter">
                         <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
                     </div>
                 </div>
             </div>
-            <span class="white-form-text noselect" id="align-end">Contenido</span>
+            <span class="white-form-text noselect" id="align-end" (click)="probar()">Contenido</span>
             <div class="titulo-articulo">
-                <textarea type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
             </div>
             <div class="buttons-bottom">
                 <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
@@ -79,9 +93,9 @@
                         <span class="text-button" id="text-cancel">Cancelar</span>
                     </div>
                 </a>
-                <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+                <a  target="_blank" class="undecorated">
                     <div class="button-web">
-                        <span class="text-button">Publicar</span>
+                        <span class="text-button" (click)="publicar()" >Publicar</span>
                     </div>
                 </a>
             </div>

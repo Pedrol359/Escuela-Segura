@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticuloService } from 'src/app/services/Articulos.service';
 
 @Component({
   selector: 'app-articulos-pantalla-inicio',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticulosPantallaInicioComponent implements OnInit {
 
-  constructor() {
+  constructor(private _articulo:ArticuloService) {
 
   }
   //Variables
@@ -20,9 +21,15 @@ export class ArticulosPantallaInicioComponent implements OnInit {
   imgS1 = ""
   imgS2 = ""
   sl1=true
+
+  articulos:any[] = []
+
+
   ngOnInit(): void {
     this.imgS1 = "../../../../assets/img/img1-1.png"
     this.imgS2 = "../../../../assets/img/img1-2.png"
+
+    this.obtenerArticulos()
   }
 
   slider1() {
@@ -35,4 +42,17 @@ export class ArticulosPantallaInicioComponent implements OnInit {
     this.imgS2 = "../../../../assets/img/img1-1.png"
     this.sl1=false
   }
+  obtenerArticulos() {
+    this._articulo.obtenerArticulos().subscribe(data => {
+        this.articulos = [];  
+        data.forEach((element: any) => {
+          this.articulos.push({
+            id: element.payload.doc.id,
+            ...element.payload.doc.data()
+          })
+        })
+        console.log(this.articulos);
+      });
+  }
 }
+

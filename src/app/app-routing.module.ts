@@ -12,10 +12,12 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component'
 import { VerArticuloComponent } from './components/ver-articulo/ver-articulo.component';
 import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.component';
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
-InicioComponent
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
+import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
 import { FormComponent } from './components/form/form/form.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
+InicioComponent
+
 
 
 const routes: Routes = [
@@ -67,6 +69,10 @@ const routes: Routes = [
   {
     path: 'test-interactivo',
     component: TestInteractivoComponent
+  },
+  {
+    path: 'tipos-violencia',
+    component: TiposViolenciaComponent
   },
   {
     path: 'form',
