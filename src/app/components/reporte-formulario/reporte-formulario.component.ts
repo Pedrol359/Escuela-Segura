@@ -92,25 +92,6 @@ export class ReporteFormularioComponent implements OnInit {
 
    //Objeto reporte
    reporte = {
-    municipio: this.municipio,
-    nivel_educativo: this.nivel_educativo,
-    institucion: this.institucion,
-    carrera: this.carrera,
-    espacio: this.espacio,
-    tipo_violencia:this.tipo_violencia,
-    descripcion: this.descripcion,
-    fecha_incidente: this.fecha_incidente,
-    hora_incidente: this.hora_incidente,
-    sexo_victima: this.sexo_victima,
-    edad_victima: this.edad_victima,
-    sexo_agresor: this.sexo_agresor,
-    nombre_agresor: this.nombre_agresor,
-    persona_agresora: this.persona_agresora,
-    accion: this.accion,
-    tiempo: this.tiempo,
-    servicio: this.servicio,
-    recibir_info: this.recibir_info,
-    mecanismos: this.mecanismos
    }
 
   constructor() { }
@@ -182,6 +163,27 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   getReporte(){
+    this.reporte = {
+      municipio: this.municipio,
+      nivel_educativo: this.nivel_educativo,
+      institucion: this.institucion,
+      carrera: this.carrera,
+      espacio: this.espacio,
+      tipo_violencia:this.tipo_violencia,
+      descripcion: this.descripcion,
+      fecha_incidente: this.fecha_incidente,
+      hora_incidente: this.hora_incidente,
+      sexo_victima: this.sexo_victima,
+      edad_victima: this.edad_victima,
+      sexo_agresor: this.sexo_agresor,
+      nombre_agresor: this.nombre_agresor,
+      persona_agresora: this.persona_agresora,
+      accion: this.accion,
+      tiempo: this.tiempo,
+      servicio: this.servicio,
+      recibir_info: this.recibir_info,
+      mecanismos: this.mecanismos
+     }
     console.log(this.reporte)
   }
 
