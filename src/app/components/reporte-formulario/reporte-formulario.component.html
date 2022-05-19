@@ -49,7 +49,7 @@
                 <option *ngFor="let n of instituciones">{{n}}</option>
             </select>
             <span class="campo-text">Carrera o facultad</span>
-            <input type="text" placeholder="Escriba su carrera o facultad" class="input-medio" [(ngModel)]='carrera'>
+            <input type="text" placeholder="Escriba su carrera o facultad" class="input-medio" [(ngModel)]="carrera">
             <span class="campo-text">¿Dónde sucedió?</span>
             <select class="form-select" [(ngModel)]='espacio'>
                 <option *ngFor="let n of espacios">{{n}}</option>
