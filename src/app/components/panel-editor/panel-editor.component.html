@@ -40,7 +40,7 @@
                     <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
                     <span class="eliminar_articulo" (click)="prepararElimiancion(i)"></span>
                     <div class="blur" (click)="seleccionarArticulo(i)">
-                        <h3>Entre retos e inspiración</h3>
+                        <h3>{{article.titulo}}</h3>
                     </div>
                 </div>
 
