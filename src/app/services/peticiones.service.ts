@@ -25,6 +25,13 @@ export class PeticionesService {
     return this.http.post(this.url+"insertIncidencia", data);
   }
 
+  getMapDataLugar(){
+    return this.http.get(this.url+"mapLugar");
+  }
+
+  getMapDataGenero(){
+    return this.http.get(this.url+"mapGenero");
+  }
 }
 
 
