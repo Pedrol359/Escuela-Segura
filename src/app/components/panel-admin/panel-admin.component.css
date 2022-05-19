@@ -168,8 +168,8 @@
   width: 88%;
   padding-left: 6%;
   padding-right: 6%;
-  padding-bottom: 4%;
-  gap: 5%;
+  padding-bottom: 4.5%;
+  gap: 4%;
 }
 
 .flex-item:nth-child(1) {
@@ -503,18 +503,18 @@ th {
 }
 
 td:first-child {
-  width: 30px;
-  text-align: center;
+  width: 25px;
 }
 
 #icon_shield {
-  width: 20px;
+  width: 25px;
 }
 
 /* Diseño de checkbox */
 .squaredThree {
   width: 20px;
   position: relative;
+  margin-left: 2px;
 }
 
 .squaredThree label {
@@ -555,7 +555,6 @@ td:first-child {
 }
 
 /* Instituciones de apoyo */
-
 .instituciones-header {
   display: flex;
   width: 100%;
@@ -564,7 +563,6 @@ td:first-child {
 
 .agregar-institucion {
   display: flex;
-
   align-items: center;
   font-size: 15px;
   font-weight: 500;
