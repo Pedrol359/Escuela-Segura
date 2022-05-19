@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppComponent } from './app.component';
+
 import { RegistrarAdminAsociacionComponent } from './components/registrar-admin-asociacion/registrar-admin-asociacion.component';
 import { LoginAdminAsociacionComponent } from './components/login-admin-asociacion/login-admin-asociacion.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +22,8 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-admin.component';
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
+import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -27,6 +33,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http';
 import { FormComponent } from './components/form/form/form.component';
 import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
+import { TablaComponent } from './components/map/tabla/tabla.component';
 
 
 
@@ -49,7 +56,11 @@ import { PanelAdminComponent } from './components/panel-admin/panel-admin.compon
     NavbarAdminComponent,
     TestInteractivoComponent,
     FormComponent,
-    PanelAdminComponent
+    PanelAdminComponent,
+    TiposViolenciaComponent,
+    CarouselComponent,
+    FormComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +70,9 @@ import { PanelAdminComponent } from './components/panel-admin/panel-admin.compon
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
