@@ -17,16 +17,21 @@ export class PanelEditorComponent implements OnInit {
   "../../../assets/icons/Panel-editor/destacado3.svg","../../../assets/icons/Panel-editor/destacado.svg",
   "../../../assets/icons/Panel-editor/destacado2.svg","../../../assets/icons/Panel-editor/destacado3.svg"]*/
   articulos:any[] = []
-  titulo="El cafe y la programación"
-  autor="Filindes Dolca"
-  descripcion="Un poco de descirpción"
-  contenido="Nada en especial"
+  id=""
+  titulo=""
+  autor=""
+  descripcion=""
+  contenido=""
   imagen_selected:any = "../../../assets/icons/Panel-editor/selected-article.svg";
 
   titulo_input:string="0/35";
   cargando=false
   nuevoArticulo = true
   index_selected=-1
+  filePath: string = '';
+  arhivo: any;
+  imagenCargada = false;
+  nameFile: string = 'Seleccionar una imagen';
   
 
   ngOnInit(): void {
@@ -42,12 +47,16 @@ export class PanelEditorComponent implements OnInit {
     this.index_selected=index
     this.nuevoArticulo=false
   }
-  getCharacters(limite:number,id_element:string) {
-    var titulo:string = "0/35";
-    var input =<HTMLInputElement> document.getElementById(id_element);
-    var indicador:string = "";
-    indicador = input.value.length+'\\'+limite;
-    this.titulo_input = indicador;
+
+  publicarArticulo(){
+    this.asignarDatos()
+    if (this.nuevoArticulo){
+      this._articulo.agregarArticulo(this._articulo.articulo)
+    }else{
+      this._articulo.actualizarArticulo(this._articulo.articulo)
+    }
+    console.log("articulo");
+    console.log(this._articulo.articulo);
   }
 
   obtenerArticulos() {
@@ -55,31 +64,14 @@ export class PanelEditorComponent implements OnInit {
         this.articulos = [];  
         data.forEach((element: any) => {
           this.articulos.push({
-            id: element.payload.doc.id,
-            ...element.payload.doc.data()
+            ...element.payload.doc.data(),
+            id: element.payload.doc.id
           })
         })
         console.log(this.articulos);
       });
   }
 
-  publicarArticulo(){
-    this._articulo.articulo.id=this._articulo.articulo.id
-    this._articulo.articulo.titulo=this.titulo
-    this._articulo.articulo.autor=this.autor
-    this._articulo.articulo.descripcion=this.descripcion
-    this._articulo.articulo.contenido=this.contenido
-    this._articulo.articulo.urlImagen=this.imagen_selected
-    console.log("articulo");
-    console.log(this._articulo.articulo);
-    let algo = this._articulo.agregarArticulo(this._articulo.articulo)
-    console.log(algo)
-  }
-
-  filePath: string = '';
-  arhivo: any;
-  imagenCargada = false;
-  nameFile: string = 'Seleccionar una imagen';
  
   cargarImagen(event: any) {
     try {
@@ -143,8 +135,20 @@ export class PanelEditorComponent implements OnInit {
   publicar(){
     this.subirImagen()
   }
-  probar(){
-    console.log(this.articulos);
-    
+  getCharacters(limite:number,id_element:string) {
+    var titulo:string = "0/35";
+    var input =<HTMLInputElement> document.getElementById(id_element);
+    var indicador:string = "";
+    indicador = input.value.length+'\\'+limite;
+    this.titulo_input = indicador;
+  }
+
+  asignarDatos(){
+    this.articulos[this.index_selected].id=this._articulo.articulo.id=this.articulos[this.index_selected].id
+    this.articulos[this.index_selected].titulo=this._articulo.articulo.titulo=this.titulo
+    this.articulos[this.index_selected].autor=this._articulo.articulo.autor=this.autor
+    this.articulos[this.index_selected].descripcion=this._articulo.articulo.descripcion=this.descripcion
+    this.articulos[this.index_selected].contenido=this._articulo.articulo.contenido=this.contenido
+    this.articulos[this.index_selected].urlImagen=this._articulo.articulo.urlImagen=this.imagen_selected
   }
 }

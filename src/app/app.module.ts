@@ -33,6 +33,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import {HttpClientModule} from '@angular/common/http';
 import { FormComponent } from './components/form/form/form.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
+import { ArticuloCardAdminComponent } from './components/cards/articulo-card-admin/articulo-card-admin.component';
 
 
 
@@ -57,7 +58,8 @@ import { TablaComponent } from './components/map/tabla/tabla.component';
     TiposViolenciaComponent,
     CarouselComponent,
     FormComponent,
-    TablaComponent
+    TablaComponent,
+    ArticuloCardAdminComponent
   ],
   imports: [
     BrowserModule,

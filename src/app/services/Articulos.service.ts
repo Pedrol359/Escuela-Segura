@@ -6,25 +6,29 @@ import { Observable } from 'rxjs';
 
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class ArticuloService {
-  constructor(private firestore: AngularFirestore, private router: Router) { }
-  //Objeto Articulo
-    articulo ={
-        id:"",
-        titulo:"",
-        autor:"",
-        descripcion:"",
-        contenido:"",
-        urlImagen:""
+    constructor(private firestore: AngularFirestore, private router: Router) { }
+    //Objeto Articulo
+    articulo = {
+        id: "",
+        titulo: "",
+        autor: "",
+        descripcion: "",
+        contenido: "",
+        urlImagen: ""
     }
-//metodos
-  agregarArticulo(articulo: any): Promise<any> {
-    return this.firestore.collection('Articulos').add(articulo);
-  }
-  obtenerArticulos(): Observable<any> {
-    return this.firestore.collection('Articulos').snapshotChanges();
-  }
+    //metodos
+    agregarArticulo(articulo: any): Promise<any> {
+        return this.firestore.collection('Articulos').add(articulo);
+    }
+    obtenerArticulos(): Observable<any> {
+        return this.firestore.collection('Articulos').snapshotChanges();
+    }
+    actualizarArticulo(articulo: any): Promise<any> {
+        console.log(articulo.id);
+        return this.firestore.collection('Articulos').doc(articulo.id).update(articulo)
+    }
 
 }
