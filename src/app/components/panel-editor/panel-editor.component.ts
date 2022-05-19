@@ -11,6 +11,7 @@ export class PanelEditorComponent implements OnInit {
   constructor(private _articulo:ArticuloService, private storage: AngularFireStorage) { }
 
   articulos:any[] = []
+  articulos_copy:any[] = []
   id=""
   titulo=""
   autor=""
@@ -80,7 +81,7 @@ export class PanelEditorComponent implements OnInit {
             ...element.payload.doc.data(),
             id: element.payload.doc.id
           })
-          
+          this.articulos_copy=this.articulos
         })
         subs.unsubscribe
         console.log(this.articulos);
@@ -169,7 +170,7 @@ export class PanelEditorComponent implements OnInit {
     this.elimiandos =[]
   }
   
-  nuevo(){
+  nuevo(esNuevo:boolean){
     this.nuevoArticulo=true
     this.id=""
     this.titulo=""
@@ -177,6 +178,11 @@ export class PanelEditorComponent implements OnInit {
     this.descripcion=""
     this.contenido=""
     this.imagen_selected = "../../../assets/imagenes/inicio_story_principal.svg";
+    if (!esNuevo){
+      this.elimiandos=[]
+      this.articulos=this.articulos_copy
+    }
+
   }
   prepararElimiancion(index:number){
     this.elimiandos.push(this.articulos[index].id);
@@ -206,6 +212,7 @@ export class PanelEditorComponent implements OnInit {
     this.articulos[this.index_selected].descripcion=this._articulo.articulo.descripcion=this.descripcion
     this.articulos[this.index_selected].contenido=this._articulo.articulo.contenido=this.contenido
     this.articulos[this.index_selected].urlImagen=this._articulo.articulo.urlImagen=this.imagen_selected
+    this.articulos_copy=this.articulos
   }
   }
 

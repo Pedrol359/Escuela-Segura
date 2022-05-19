@@ -11,7 +11,7 @@
             <!--Agregar artículo && Buscar artículo bar-->
             <div class="grid-search">
                 <div class="new-articule noselect">
-                    <div class="card-right" (click)="nuevo()">
+                    <div class="card-right" (click)="nuevo(true)">
                         <div class="card-right-button">
                             <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
                         </div>
@@ -97,9 +97,9 @@
                 <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
             </div>
             <div class="buttons-bottom">
-                <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+                <a target="_blank" class="undecorated">
                     <div class="button-cancel">
-                        <span class="text-button" id="text-cancel">Cancelar</span>
+                        <span class="text-button" id="text-cancel" (click)="nuevo(false)">Cancelar</span>
                     </div>
                 </a>
                 <a  target="_blank" class="undecorated">
