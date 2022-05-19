@@ -20,6 +20,17 @@ import { NavbarAdminComponent } from './components/navbar/navbar-admin/navbar-ad
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+
+
+import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './components/form/form/form.component';
+import { TablaComponent } from './components/map/tabla/tabla.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +44,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     ArticulosPantallaInicioComponent,
     ArticuloCardLargeComponent,
     NosotrosComponent,
-    ArticulosPantallaInicioComponent,
     VerArticuloComponent,
     InicioComponent,
     AdminInicioComponent,
@@ -41,13 +51,19 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     NavbarAdminComponent,
     TestInteractivoComponent,
     TiposViolenciaComponent,
-    CarouselComponent
+    CarouselComponent,
+    FormComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

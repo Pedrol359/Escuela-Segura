@@ -14,7 +14,11 @@ import { AdminInicioComponent } from './components/admin-inicio/admin-inicio.com
 import { PanelEditorComponent } from './components/panel-editor/panel-editor.component';
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 import { TiposViolenciaComponent } from './components/tipos-violencia/tipos-violencia.component';
+import { FormComponent } from './components/form/form/form.component';
+import { TablaComponent } from './components/map/tabla/tabla.component';
 InicioComponent
+
+
 
 const routes: Routes = [
   {
@@ -69,6 +73,14 @@ const routes: Routes = [
   {
     path: 'tipos-violencia',
     component: TiposViolenciaComponent
+  },
+  {
+    path: 'form',
+    component: FormComponent
+  },
+  {
+    path: 'mapa',
+    component: TablaComponent
   }
 ];
 
