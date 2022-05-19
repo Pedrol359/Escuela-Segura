@@ -165,8 +165,10 @@ export class PanelEditorComponent implements OnInit {
 
   eliminar(){
     for (let idArticulo of this.elimiandos) {
+      //elimina en la base de daos articulo x articulo
       this._articulo.eliminarArticulo(idArticulo)      
     }
+    //con esto se eliminan todos de forma local
     this.elimiandos =[]
   }
   
@@ -185,8 +187,9 @@ export class PanelEditorComponent implements OnInit {
 
   }
   prepararElimiancion(index:number){
+    //se guarda el id del documento de los articulos eliminados
     this.elimiandos.push(this.articulos[index].id);
-    this.articulos.splice(index,1);
+    this.articulos.splice(index,1);// se elimina el articulo de forma local
   }
 
   asignarDatos(){
