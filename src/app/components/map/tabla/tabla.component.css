@@ -1,0 +1,26 @@
+.table{
+    text-align: center;
+    color: black;
+    border: 1px solid #81cb47;
+}
+
+/*body{
+    background-color: #212121;
+}*/
+
+h1{
+    color: #81cb47;
+    text-align: center;
+    padding: .5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+div{
+    background-color: #333333;
+    margin-top: 2rem;
+}
+.row-color{
+    background-color: #81cb47;
+    color:#fff;
+    font-size: 1.2rem;
+}
