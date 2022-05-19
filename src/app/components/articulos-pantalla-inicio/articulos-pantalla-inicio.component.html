@@ -5,15 +5,8 @@
     <!-- Articulos -->
     <div class="cont_articulos">
         <!--Card del articulo -->
-        <app-articulo-card-large url="../../../../assets/img/articulo1.png" titulo="{{t1}}" contenido="{{c1}}">
-        </app-articulo-card-large>
-        <app-articulo-card-large url="../../../../assets/img/articulo2.png" titulo="{{t2}}" contenido="{{c2}}">
-        </app-articulo-card-large>
-        <app-articulo-card-large url="../../../../assets/img/articulo3.png" titulo="{{t3}}" contenido="{{c3}}">
-        </app-articulo-card-large>
-        <app-articulo-card-large url="../../../../assets/img/articulo1.png"></app-articulo-card-large>
-        <app-articulo-card-large url="../../../../assets/img/articulo2.png"></app-articulo-card-large>
-        <app-articulo-card-large url="../../../../assets/img/articulo3.png"></app-articulo-card-large>
+        <app-articulo-card-large *ngFor="let articulo of articulos" url="{{articulo.urlImagen}}" titulo="{{articulo.titulo}}" contenido="{{articulo.descripcion}}"></app-articulo-card-large>
+
 
     </div>
     <!-- Contenido destacado -->
