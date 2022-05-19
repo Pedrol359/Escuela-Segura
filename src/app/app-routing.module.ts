@@ -15,7 +15,7 @@ import { PanelEditorComponent } from './components/panel-editor/panel-editor.com
 InicioComponent
 import { TestInteractivoComponent } from './components/test-interactivo/test-interactivo.component';
 import { FormComponent } from './components/form/form/form.component';
-
+import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
 
 const routes: Routes = [
   {
@@ -62,6 +62,10 @@ const routes: Routes = [
   {
     path: 'panel-editor',
     component: PanelEditorComponent
+  },
+  {
+    path: 'panel-admin',
+    component: PanelAdminComponent
   },
   {
     path: 'test-interactivo',

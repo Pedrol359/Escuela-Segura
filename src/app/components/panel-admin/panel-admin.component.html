@@ -1,0 +1,174 @@
+<!-- Barra de navegación -->
+<app-navbar-admin></app-navbar-admin>
+<!-- Contenedor principal -->
+<div class="flex-container dark">
+    <!-- Contenedor secundario: Izquierda -->
+    <div class="flex-item">
+        <div class="left-column">
+            <span class="purple-title-text noselect">Panel de Administrador</span>
+            <span class="white-subtitle-text noselect margin-top-small margin-bottom">Editar contenido destacado</span>
+            <!-- Contenido destacado -->
+            <div class="contenido-destacado">
+                <div class="card">
+                    <div class="card-img-1"></div>
+                    <span class="eliminar_articulo"></span>
+                    <div class="blur">
+                        <h3>Entre retos e inspiración</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-2"></div>
+                    <span class="eliminar_articulo"></span>
+                    <div class="blur">
+                        <h3>Mis colores mi identidad: una mujer haitiana en México</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-3"></div>
+                    <span class="eliminar_articulo"></span>
+                    <div class="blur">
+                        <h3>El poder de mi voz: alto al acoso escolar</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenedor: Actualizar información de contacto -->
+            <span class="white-subtitle-text noselect margin-top-small margin-bottom">Actualizar información de
+                contacto</span>
+            <div class="cont-update-info">
+                <!-- Izquierda -->
+                <div class="cont-update-left">
+                    <div class="cont-update-banner margin-bottom">
+                        <span class="modal-open">
+                            <div class="modal-icon"></div>
+                            <span class="banner-text"><b>Somos Progreso para México </b>
+                                <br>
+                                Haz clic para actualizar la portada</span>
+                        </span>
+                    </div>
+                    <span class="white-normal-text noselect margin-bottom">Sitio web</span>
+                    <input class="textbox-normal margin-bottom" type="text" value="www.promex.org.mx">
+                    <span class="white-normal-text noselect margin-bottom">Correo electrónico de contacto</span>
+                    <input class="textbox-normal margin-bottom" type="text" value="contacto@progresoparamexico.org">
+                </div>
+                <!-- Derecha -->
+                <div class="cont-update-right">
+                    <div class="map-header margin-bottom">
+                        <div class="map-icon noselect"></div>
+                        <span class="white-normal-text noselect">Dirección</span>
+                        <!-- <span class="white-small-text noselect bottom">Posicione el marcador sobre su dirección</span> -->
+                    </div>
+                    <div class="map">
+                        <div id="map-box"></div>
+                    </div>
+                    <span class="white-normal-text noselect margin-bottom">Página de facebook</span>
+                    <input class="textbox-normal margin-bottom" type="text" value="www.facebook.com/promex">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contenedor secundario: Derecha -->
+    <div class="flex-item">
+        <div class="right-column">
+            <!-- Sección: Artículos -->
+            <span class="white-subtitle-text noselect margin-bottom">Artículos</span>
+            <div class="container-articulos">
+                <div class="articulos-left">
+                    <div class="articulo">
+                        <div class="articulo-button">
+                            <span class="articulo-icon"></span>
+                        </div>
+                        <div class="articulo-text">
+                            <span class="white-normal-text">Añadir artículo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="articulos-right">
+                    <span class="white-normal-text noselect">Editar un artículo</span>
+                    <div class="searchbar">
+                        <input class="textbox-normal margin-top-small width-100" type="text"
+                            placeholder="Busca un artículo">
+                        <span class="searchbar-icon"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenedor: Escuelas seguras -->
+            <div class="container-escuelas margin-bottom">
+                <span class="white-subtitle-text noselect margin-top-small">Escuelas seguras</span>
+                <div class="searchbar">
+                    <input class="textbox-normal margin-top-small width-100" type="text"
+                        placeholder="Busca una escuela por nombre o clave">
+                    <span class="searchbar-icon"></span>
+                </div>
+            </div>
+            <!-- Tabla: Escuelas seguras -->
+            <table class="margin-bottom">
+                <tr>
+                    <th><img src="../../../assets/icons/shield_table_admin.svg" id="icon_shield"></th>
+                    <th>Nombre</th>
+                    <th>Clave</th>
+                    <th>Nivel educativo</th>
+                    <th>Dirección</th>
+                </tr>
+                <tr *ngFor="let est of estado; let i = index">
+                    <td>
+                        <div class="squaredThree"
+                            [ngClass]="{'squaredThree_checked': estado[i], 'squaredThree_nochecked': !estado[i]}">
+                            <input type="checkbox" id="squaredThree" name="check" />
+                            <label for="squaredThree" (click)="check(!estado[i],i)"></label>
+                        </div>
+                    </td>
+                    <td>{{nombres[i]}}</td>
+                    <td>{{claves[i]}}</td>
+                    <td>{{niveles[i]}}</td>
+                    <td>{{direcciones[i]}}</td>
+                </tr>
+            </table>
+            <!-- Contenedor: Instituciones de apoyo -->
+            <div class="instituciones-header margin-top-small margin-bottom">
+                <div class="instituciones-title">
+                    <span class="white-subtitle-text noselect ">Instituciones de
+                        apoyo</span>
+                </div>
+                <div class="agregar-institucion">
+                    Agregar institución de apoyo
+                    <span class="institucion-icon margin-left-small"></span>
+                </div>
+            </div>
+            <div class="container-instituciones margin-bottom">
+                <div class="instituciones-column">
+                    <!-- Sección superior -->
+                    <div class="custom-select margin-bottom">
+                        <select>
+                            <option value="0">Instituto para la Mujer Nayarita</option>
+                            <option value="1">Fiscalía del Estado de Nayarit</option>
+                            <option value="1">Comisión de Atención de la Violencia contra las Mujeres</option>
+                        </select>
+                    </div>
+                    <!-- Sección central -->
+                    <div class="instituciones-central margin-bottom">
+                        <div class="instituciones-central-left">
+                            <span class="white-normal-text noselect ">Dirección</span>
+                            <input class="textbox-normal margin-top-very-small" type="text"
+                                value="Calle Miñon Pte 7, Centro, ...">
+                        </div>
+                        <div class="instituciones-central-right">
+                            <span class="white-normal-text noselect">Teléfono</span>
+                            <input class="textbox-normal margin-top-very-small" type="text" value="311 123 23 45">
+                        </div>
+                    </div>
+                    <!-- Sección inferior -->
+                    <div class="instituciones-inferior">
+                        <span class="white-normal-text noselect margin-bottom-small">Descripción</span>
+                        <textarea class="text-area">El Instituto para la Mujer Nayarita es una institución gubernamental que busca apoyar a las mujeres en términos de prevención de violencia domestica,...
+                            </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-end">
+            <div class="green-button margin-top-small margin-bottom">
+                <a routerLink="/panel-admin">Guardar todo</a>
+            </div>
+        </div>
+    </div>
+</div>
