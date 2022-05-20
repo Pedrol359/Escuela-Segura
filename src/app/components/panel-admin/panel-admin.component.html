@@ -1,5 +1,62 @@
 <!-- Barra de navegación -->
 <app-navbar-admin></app-navbar-admin>
+<!-- Ventana emergente: actualizar portada -->
+<div class="modal-box" [ngStyle]="{ display: modal_update }">
+    <div class="modal-content" [ngStyle]="{ display: modal_content }">
+        <h1 class="white-normal-text noselect">
+            Ingresa el link de un video en Youtube o sube una imagen desde tu equipo.
+        </h1>
+        <div class="modal-button-container">
+            <div class="yt-icon cursor-p" (click)="open_yt()"></div>
+            <input type="file" class="" id="file-input" accept=".png, .jpg, .jpeg, .svg, .jfif"
+                (change)="cargarImagen($event)">
+            <label for="file-input" class="">
+                <div class="modal-icon-upload cursor-p"></div>
+            </label>
+        </div>
+        <span class="modal-close noselect" (click)="close_modal()">&times;</span>
+    </div>
+    <!-- Sección YT -->
+    <div class="modal-content" [ngStyle]="{ display: displayYoutube }">
+        <h1 class="white-normal-text noselect">
+            Ingresa el link de un video en Youtube.
+        </h1>
+        <div class="modal-button-container">
+            <input class="textbox-yt" type="text" placeholder="https://www.youtube.com/">
+            <div class="green-button-small">
+                <a>Guardar</a>
+            </div>
+        </div>
+        <span class="modal-close noselect" (click)="close_modal()">&times;</span>
+    </div>
+</div>
+<!-- Ventana emergente: agregar institución de apoyo -->
+<div class="modal-box" [ngStyle]="{ display: modal_add }">
+    <div class="modal-content">
+        <h1 class="purple-subtitle-text noselect">
+            Agregar institución de apoyo
+        </h1>
+        <h4 class="white-small-text noselect">Nombre de la institución</h4>
+        <input class=" textbox-add" type="text" placeholder="Nombre de la institución">
+
+        <h4 class="white-small-text noselect">Dirección</h4>
+        <input class=" textbox-add" type="text" placeholder="Dirección de la institución">
+
+        <h4 class="white-small-text noselect">Teléfono</h4>
+        <input class=" textbox-add" type="text" placeholder="Teléfono de la institución">
+
+        <h4 class="white-small-text noselect">Descripción</h4>
+        <textarea class="text-area-modal" placeholder="Descripción de la institución"></textarea>
+
+        <div class="modal-row">
+            <div class="green-button-small margin-top-small">
+                <a (click)="agregarInstitucion()">Agregar institución</a>
+            </div>
+        </div>
+        <!-- Ícono cerrar -->
+        <span class="modal-close noselect" (click)="close_modal_add()">&times;</span>
+    </div>
+</div>
 <!-- Contenedor principal -->
 <div class="flex-container dark">
     <!-- Contenedor secundario: Izquierda -->
@@ -7,27 +64,77 @@
         <div class="left-column">
             <span class="purple-title-text noselect">Panel de Administrador</span>
             <span class="white-subtitle-text noselect margin-top-small margin-bottom">Editar contenido destacado</span>
-            <!-- Contenido destacado -->
+            <!-- Artículo destacado 1 -->
             <div class="contenido-destacado">
                 <div class="card">
-                    <div class="card-img-1"></div>
-                    <span class="eliminar_articulo"></span>
-                    <div class="blur">
-                        <h3>Entre retos e inspiración</h3>
+                    <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_1}">
+                        <div class="card-img-1"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_1()"></span>
+                        <div class="blur">
+                            <h3>Entre retos e inspiración</h3>
+                        </div>
+                    </div>
+                    <div class="card-default" [ngStyle]="{ display: articulo_default_1}">
+                        <div class="articulo-default">
+                            <div class="articulo-button">
+                                <a class="white-normal-text" routerLink="/panel-editor">
+                                    <span class="articulo-icon"></span>
+                                </a>
+                            </div>
+                            <div class="articulo-d-text">
+                                <a class="white-normal-text" (click)="verArticulos()">
+                                    <span class="white-small-text">Seleccionar artículo</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Artículo destacado 2 -->
                 <div class="card">
-                    <div class="card-img-2"></div>
-                    <span class="eliminar_articulo"></span>
-                    <div class="blur">
-                        <h3>Mis colores mi identidad: una mujer haitiana en México</h3>
+                    <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_2}">
+                        <div class="card-img-2"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_2()"></span>
+                        <div class="blur">
+                            <h3>Mis colores mi identidad: una mujer haitiana en México</h3>
+                        </div>
+                    </div>
+                    <div class="card-default" [ngStyle]="{ display: articulo_default_2}">
+                        <div class="articulo-default">
+                            <div class="articulo-button">
+                                <a class="white-normal-text" routerLink="/panel-editor">
+                                    <span class="articulo-icon"></span>
+                                </a>
+                            </div>
+                            <div class="articulo-d-text">
+                                <a class="white-normal-text" (click)="verArticulos()">
+                                    <span class="white-small-text">Seleccionar artículo</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Artículo destacado 3 -->
                 <div class="card">
-                    <div class="card-img-3"></div>
-                    <span class="eliminar_articulo"></span>
-                    <div class="blur">
-                        <h3>El poder de mi voz: alto al acoso escolar</h3>
+                    <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_3}">
+                        <div class="card-img-3"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_3()"></span>
+                        <div class="blur">
+                            <h3>El poder de mi voz: alto al acoso escolar</h3>
+                        </div>
+                    </div>
+                    <div class="card-default" [ngStyle]="{ display: articulo_default_3}">
+                        <div class="articulo-default">
+                            <div class="articulo-button">
+                                <a class="white-normal-text" routerLink="/panel-editor">
+                                    <span class="articulo-icon"></span>
+                                </a>
+                            </div>
+                            <div class="articulo-d-text">
+                                <a class="white-normal-text" (click)="verArticulos()">
+                                    <span class="white-small-text">Seleccionar artículo</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,10 +146,12 @@
                 <div class="cont-update-left">
                     <div class="cont-update-banner margin-bottom">
                         <span class="modal-open">
-                            <div class="modal-icon"></div>
-                            <span class="banner-text"><b>Somos Progreso para México </b>
-                                <br>
-                                Haz clic para actualizar la portada</span>
+                            <a class="notextdeco" (click)="open_modal()">a
+                                <div class="modal-icon cursor-p"></div>
+                                <span class="banner-text noselect cursor-p"><b>Somos Progreso para México </b>
+                                    <br>
+                                    Haz clic para actualizar la portada</span>
+                            </a>
                         </span>
                     </div>
                     <span class="white-normal-text noselect margin-bottom">Sitio web</span>
@@ -75,10 +184,14 @@
                 <div class="articulos-left">
                     <div class="articulo">
                         <div class="articulo-button">
-                            <span class="articulo-icon"></span>
+                            <a class="white-normal-text" routerLink="/panel-editor">
+                                <span class="articulo-icon"></span>
+                            </a>
                         </div>
                         <div class="articulo-text">
-                            <span class="white-normal-text">Añadir artículo</span>
+                            <a class="white-normal-text" routerLink="/panel-editor">
+                                <span class="white-normal-text">Añadir artículo</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -129,10 +242,12 @@
                     <span class="white-subtitle-text noselect ">Instituciones de
                         apoyo</span>
                 </div>
-                <div class="agregar-institucion">
-                    Agregar institución de apoyo
-                    <span class="institucion-icon margin-left-small"></span>
-                </div>
+                <a class="notextdeco" (click)="open_modal_add()">
+                    <div class="agregar-institucion">
+                        Agregar institución de apoyo
+                        <span class="institucion-icon margin-left-small"></span>
+                    </div>
+                </a>
             </div>
             <div class="container-instituciones margin-bottom">
                 <div class="instituciones-column">
