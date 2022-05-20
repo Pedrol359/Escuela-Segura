@@ -253,7 +253,7 @@ export class PanelAdminComponent implements OnInit {
 
   agregarInstitucion() {
     this.obtenerInstituciones();
-    this._institucion.institucion.id = this.instituciones.length + 1;
+    this._institucion.institucion.id = this.instituciones.length;
     this._institucion.institucion.nombre = this.nuevaInstitucion.nombre;
     this._institucion.institucion.direccion = this.nuevaInstitucion.direccion;
     this._institucion.institucion.telefono = this.nuevaInstitucion.telefono;
