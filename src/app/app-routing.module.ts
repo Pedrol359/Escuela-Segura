@@ -18,6 +18,7 @@ import { FormComponent } from './components/form/form/form.component';
 import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
 import { TablaComponent } from './components/map/tabla/tabla.component';
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
+import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component'
 InicioComponent
 
 
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'reporte',
     component: ReporteFormularioComponent
+  },
+  {
+    path: 'escuelas-seguras',
+    component: EscuelasSegurasComponent
   }
 ];
 

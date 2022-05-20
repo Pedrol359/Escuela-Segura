@@ -37,6 +37,7 @@ import { TablaComponent } from './components/map/tabla/tabla.component';
 import { ArticuloCardAdminComponent } from './components/cards/articulo-card-admin/articulo-card-admin.component';
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component';
+import { EscuelaCardComponent } from './components/cards/escuela-card/escuela-card.component';
 
 
 
@@ -67,7 +68,8 @@ import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas
     TablaComponent,
     ArticuloCardAdminComponent,
     ReporteFormularioComponent,
-    EscuelasSegurasComponent
+    EscuelasSegurasComponent,
+    EscuelaCardComponent
   ],
   imports: [
     BrowserModule,

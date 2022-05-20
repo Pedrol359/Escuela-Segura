@@ -1,1 +1,39 @@
-<p>escuelas-seguras works!</p>
+<!-- Barra de navegación -->
+<app-navbar-principal></app-navbar-principal>
+<!-- Código Nosotros I-->
+<div class="flex-container">
+    <div class="flex-item">
+        <div class="left-box">
+            <span class="purple-title-text">
+                Escuelas seguras
+            </span>
+            <span class="black-text par-left">
+                Descubre las escuelas distiguidas con la insignia de escuela segura. La insignia es asignada gracias a tus reportes de incidencia de violencia, ¡Ayudanos a construir espacios seguros para ti!
+            </span>
+            <div class="encabezado-catalogo margin-top">
+                <span class="escuelas-icono">
+                </span>
+                <span class="black-title-text">
+                    Listado de escuelas seguras
+                </span>
+            </div>
+            <div class="catalog-container margin-top-little">
+                <!--Card del articulo -->
+                <app-escuela-card *ngFor="let escuela of escuelas" nombre="{{escuela.nombre}}" nivel="{{escuela.nivel}}" direccion="{{escuela.direccion}}"></app-escuela-card>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item">
+        <div class="left-box">
+            <span class="black-title-text">
+                Instituciones de apoyo
+            </span>
+            
+            <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+            <div class="button-web">
+                <span class="text-button">Ir a sitio web</span>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
