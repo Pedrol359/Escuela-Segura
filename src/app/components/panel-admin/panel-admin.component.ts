@@ -3,6 +3,7 @@ import * as Mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { InstitucionesService } from 'src/app/services/Instituciones.service';
 
 @Component({
   selector: 'app-panel-admin',
@@ -11,11 +12,12 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class PanelAdminComponent implements OnInit {
 
-  constructor(private _articulo: ArticuloService, private storage: AngularFireStorage) { }
+  constructor(private _articulo: ArticuloService, private storage: AngularFireStorage, private _institucion: InstitucionesService) { }
 
   ngOnInit(): void {
     this.getLocation();
     this.getVideoCode();
+    this.obtenerInstituciones();
   }
 
 
@@ -210,7 +212,59 @@ export class PanelAdminComponent implements OnInit {
   }
 
   // Instituciones de apoyo
-  agregarInstitucion() {
+  instituciones: any[] = []
+  institucion = {
+    nombre: "",
+    descripcion: "",
+    direccion: "",
+    telefono: ""
+  }
+  nuevaInstitucion = {
+    nombre: "",
+    descripcion: "",
+    direccion: "",
+    telefono: ""
+  }
 
+  index: number = 0;
+  combo_option_0 = 'flex';
+
+
+  getDatosInstitucion(id: any) {
+    this.combo_option_0 = 'none';
+    this.institucion.direccion = this.instituciones
+    [id].direccion;
+    this.institucion.telefono = this.instituciones[id].telefono;
+    this.institucion.descripcion = this.instituciones[id].descripcion;
+  }
+
+  obtenerInstituciones() {
+    this._institucion.obtenerInstituciones().subscribe(data => {
+      this.instituciones = [];
+      data.forEach((element: any) => {
+        this.instituciones.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      })
+      console.log(this.instituciones.length);
+    });
+  }
+
+  agregarInstitucion() {
+    this.obtenerInstituciones();
+    this._institucion.institucion.id = this.instituciones.length + 1;
+    this._institucion.institucion.nombre = this.nuevaInstitucion.nombre;
+    this._institucion.institucion.direccion = this.nuevaInstitucion.direccion;
+    this._institucion.institucion.telefono = this.nuevaInstitucion.telefono;
+    this._institucion.institucion.descripcion = this.nuevaInstitucion.descripcion;
+
+    this._institucion.agregarInstitucion(this.nuevaInstitucion)
+    console.log(this._institucion.institucion);
+  }
+
+  // Guardar todo
+  guardarTodo() {
+    console.log(this.institucion);
   }
 }

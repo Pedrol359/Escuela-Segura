@@ -1,42 +1,42 @@
 article {
-    background: center/cover,url("../../../../assets/icons/Escuelas-seguras/card_ins.svg")no-repeat;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    width: 289px;
-    height: 333px;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items:flex-start;
-    flex-flow: column wrap;
-    margin: auto;
+  background: center/cover,
+    url("../../../../assets/icons/Escuelas-seguras/card_ins.svg") no-repeat;
+  border-radius: 20px;
+  width: 295px;
+  height: 333px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column wrap;
 }
 
-.cont_text{
-    
-    width: 100%;
-}
-.titre{
-    font-size: 21px;
-    margin: 10px 10px 5px 0;
-    color:#ffffff;
-    font-weight: 700;
-    display:flex;
+.cont_text {
+  width: 100%;
+  height: 100%;
 }
 
-.descripcion{
-    font-size: 16px;
-    color: #ffffff;
-    display: flex;
-    display: -webkit-box;
-    height: 23 * auto * 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+.titre {
+  font-size: 21px;
+  margin: 5vh 2vh 1vh 2vh;
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
 }
 
-a{
-    color: #3296F3;
-    font-size: 23px;
-    text-decoration: none;
+.descripcion {
+  font-size: 16px;
+  color: #ffffff;
+  display: flex;
+  display: -webkit-box;
+  -webkit-line-clamp: auto;
+  -webkit-box-orient: vertical;
+  margin: 1vh 2vh 0.5vh 2vh;
+}
+
+a {
+  color: #3296f3;
+  font-size: 23px;
+  text-decoration: none;
 }

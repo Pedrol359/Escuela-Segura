@@ -37,16 +37,20 @@
             Agregar institución de apoyo
         </h1>
         <h4 class="white-small-text noselect">Nombre de la institución</h4>
-        <input class=" textbox-add" type="text" placeholder="Nombre de la institución">
+        <input class=" textbox-add" type="text" placeholder="Nombre de la institución"
+            [(ngModel)]="nuevaInstitucion.nombre" [value]="nuevaInstitucion.nombre">
 
         <h4 class="white-small-text noselect">Dirección</h4>
-        <input class=" textbox-add" type="text" placeholder="Dirección de la institución">
+        <input class=" textbox-add" type="text" placeholder="Dirección de la institución"
+            [(ngModel)]="nuevaInstitucion.direccion" [value]="nuevaInstitucion.direccion">
 
         <h4 class="white-small-text noselect">Teléfono</h4>
-        <input class=" textbox-add" type="text" placeholder="Teléfono de la institución">
+        <input class=" textbox-add" type="text" placeholder="Teléfono de la institución"
+            [(ngModel)]="nuevaInstitucion.telefono" [value]="nuevaInstitucion.telefono">
 
         <h4 class="white-small-text noselect">Descripción</h4>
-        <textarea class="text-area-modal" placeholder="Descripción de la institución"></textarea>
+        <textarea class="text-area-modal" placeholder="Descripción de la institución"
+            [(ngModel)]="nuevaInstitucion.descripcion" [value]="nuevaInstitucion.descripcion"></textarea>
 
         <div class="modal-row">
             <div class="green-button-small margin-top-small">
@@ -253,10 +257,11 @@
                 <div class="instituciones-column">
                     <!-- Sección superior -->
                     <div class="custom-select margin-bottom">
-                        <select>
-                            <option value="0">Instituto para la Mujer Nayarita</option>
-                            <option value="1">Fiscalía del Estado de Nayarit</option>
-                            <option value="1">Comisión de Atención de la Violencia contra las Mujeres</option>
+                        <select [(ngModel)]="index" (change)="getDatosInstitucion(index)">
+                            <option [ngStyle]="{ display: combo_option_0 }" value="0">Selecciona una institución de
+                                apoyo</option>
+                            <option *ngFor="let i of instituciones" [value]="i.id">
+                                {{i.nombre}}</option>
                         </select>
                     </div>
                     <!-- Sección central -->
@@ -264,25 +269,26 @@
                         <div class="instituciones-central-left">
                             <span class="white-normal-text noselect ">Dirección</span>
                             <input class="textbox-normal margin-top-very-small" type="text"
-                                value="Calle Miñon Pte 7, Centro, ...">
+                                [(ngModel)]="institucion.direccion" [value]="institucion.direccion">
                         </div>
                         <div class="instituciones-central-right">
                             <span class="white-normal-text noselect">Teléfono</span>
-                            <input class="textbox-normal margin-top-very-small" type="text" value="311 123 23 45">
+                            <input class="textbox-normal margin-top-very-small" type="text"
+                                [(ngModel)]="institucion.telefono" [value]="institucion.telefono">
                         </div>
                     </div>
                     <!-- Sección inferior -->
                     <div class="instituciones-inferior">
                         <span class="white-normal-text noselect margin-bottom-small">Descripción</span>
-                        <textarea class="text-area">El Instituto para la Mujer Nayarita es una institución gubernamental que busca apoyar a las mujeres en términos de prevención de violencia domestica,...
-                            </textarea>
+                        <textarea class="text-area" [(ngModel)]="institucion.descripcion"
+                            [value]="institucion.descripcion"></textarea>
                     </div>
                 </div>
             </div>
         </div>
         <div class="flex-end">
             <div class="green-button margin-top-small margin-bottom">
-                <a routerLink="/panel-admin">Guardar todo</a>
+                <a (click)="guardarTodo()">Guardar todo</a>
             </div>
         </div>
     </div>

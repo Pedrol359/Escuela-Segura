@@ -12,7 +12,7 @@ export class InstitucionesService {
     constructor(private firestore: AngularFirestore, private router: Router) { }
     //Objeto Institucion
     institucion = {
-        id: "",
+        id: 0,
         nombre: "",
         descripcion: "",
         direccion: "",
@@ -25,7 +25,7 @@ export class InstitucionesService {
     obtenerInstituciones(): Observable<any> {
         return this.firestore.collection('Instituciones de Apoyo').snapshotChanges();
     }
-    eliminarinstitucion(idInstitucion:string){
+    eliminarInstitucion(idInstitucion:string){
         return this.firestore.collection('Instituciones de Apoyo').doc(idInstitucion).delete()
     }
 
