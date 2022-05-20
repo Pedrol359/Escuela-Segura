@@ -78,21 +78,15 @@
 .slider-box{
     display: inline-block;
     width: 100%;
-    height:19vw;
-    background: center/cover url("../../../assets/icons/Nosotros/slider-cover.svg"),no-repeat;
-    border-radius: 30px;
+    height:22vw;
     margin-bottom: 1em;
     min-height: 309px;
     max-width: 718px;
 }
 
-.points-slider{
-    display: inline-block;
-    width: 90px;
-    height:20px;
-    align-self: center;
-    background: center/cover url("../../../assets/icons/Nosotros/points_slider.svg"),no-repeat;
-    margin-bottom: 3em;
+.inner-carousel{
+  height: 100%;
+  width: 100%;
 }
 /* Fuentes */
 .purple-title-text {

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment.prod';
+import { CAROUSEL_DATA_NOSOTROS } from './carousel.const.nosotros';
+import { ICarouselItem } from '../carousel/Icarousel-item.metadata'
+
 @Component({
   selector: 'app-nosotros',
   templateUrl: './nosotros.component.html',
@@ -11,6 +14,7 @@ export class NosotrosComponent implements OnInit {
   longitud = -104.92007528951542;
   link_video = 'https://www.youtube.com/watch?v=fqcbNFHsLFs&ab_channel=Asociaci%C3%B3nProgresoparaM%C3%A9xico'
   video_code = ''
+  public carouselIData: ICarouselItem[] = CAROUSEL_DATA_NOSOTROS;
   constructor() { }
 
   ngOnInit(): void {

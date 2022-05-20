@@ -36,6 +36,7 @@ import { PanelAdminComponent } from './components/panel-admin/panel-admin.compon
 import { TablaComponent } from './components/map/tabla/tabla.component';
 import { ArticuloCardAdminComponent } from './components/cards/articulo-card-admin/articulo-card-admin.component';
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
+import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component';
 
 
 
@@ -65,7 +66,8 @@ import { ReporteFormularioComponent } from './components/reporte-formulario/repo
     FormComponent,
     TablaComponent,
     ArticuloCardAdminComponent,
-    ReporteFormularioComponent
+    ReporteFormularioComponent,
+    EscuelasSegurasComponent
   ],
   imports: [
     BrowserModule,

@@ -3,23 +3,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 30px;
     position: relative;
+    min-height: 300px;
     &::before {
         content: '';
         height: 100%;
+        min-height: 300px;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
         background: rgba(0,0,0,0.48);
+        border-radius: 30px;
     }
 
     &__content {
         text-align: center;
         width: 100%;
+        min-height: 300px;
         align-self: stretch;
         display: flex;
         overflow: hidden;
+        border-radius: 30px;
         &-item {
             float: left;
             display: flex;
@@ -38,7 +44,7 @@
                 text-transform: uppercase;
                 z-index: 1;
                 span {
-                    color: #FF8000;
+                    color: #a589f4;
                 }
             }
             p {

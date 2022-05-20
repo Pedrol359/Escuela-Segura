@@ -8,7 +8,6 @@
     max-height: 83.88vh;
     background: #333333 ;
     padding: 13.1vh 6% 1.6% 6%;
-    
 }
 
 input{
@@ -454,7 +453,6 @@ td input {
     align-items: center;
     flex-flow:nowrap;
     margin-top:5%;
-
 }
 
 .button-web:hover {

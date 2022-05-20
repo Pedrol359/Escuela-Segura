@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
   /**
    * Custom Properties
    */
-  @Input() height = 500;
+  @Input() height = 22;
   @Input() isFullScreen = false;
   @Input() items: ICarouselItem[] = [];
 
@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit {
   public currentPosition = 0;
 
   constructor() {
-    this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}px`;
+    this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}vw`;
    }
 
   ngOnInit() {

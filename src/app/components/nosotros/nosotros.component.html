@@ -80,8 +80,11 @@ npm install --save-dev @types/mapbox-gl
     </div>
     <div class="flex-item no-margin">
         <div class="left-box no-margin">
-            <div class="slider-box margin-section"></div>
-            <span class="points-slider"></span>
+            <div class="slider-box margin-section">
+                <div class="inner-carousel">
+                    <app-carousel [height]=19 [items]="carouselIData"></app-carousel>
+                </div>
+            </div>
             <span class="black-title-text">Áreas de trabajo</span>
             <div class="services-grid">
                 <div class="servicio1">

@@ -131,14 +131,14 @@
   order: 1;
   flex: 1 1 450px;
   align-self: auto;
-  margin-top: 10vh;
+  padding-top: 14vh;
 }
 
 .flex-item:nth-child(2) {
   order: 2;
   flex: 1 1 450px;
   align-self: auto;
-  margin-top: 10vh;
+  padding-top: 14vh;
 }
 
 /* Contenedor superior: Columna izquierda */
