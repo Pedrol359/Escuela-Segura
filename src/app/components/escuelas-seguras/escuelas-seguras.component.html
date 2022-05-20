@@ -17,10 +17,12 @@
                     Listado de escuelas seguras
                 </span>
             </div>
+            <div class="cont">
             <div class="catalog-container margin-top-little">
                 <!--Card del articulo -->
                 <app-escuela-card *ngFor="let escuela of escuelas" nombre="{{escuela.nombre}}" nivel="{{escuela.nivel}}" direccion="{{escuela.direccion}}"></app-escuela-card>
             </div>
+         </div>
         </div>
     </div>
     <div class="flex-item">
@@ -28,10 +30,18 @@
             <span class="black-title-text">
                 Instituciones de apoyo
             </span>
-            
-            <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
+            <!-- SCROLL Horizontal Intituciones de apoyo-->
+            <div class="scroller">
+                <app-institucion-card *ngFor="let institucion of instituciones" nombre="{{institucion.nombre}}" descripcion="{{institucion.descripcion}}" direccion="{{institucion.direccion}}" telefono="{{institucion.telefono}}"></app-institucion-card>
+            </div>
+            <h2 class="noselect black-title-text">¿Has sufrido violencia en tu escuela?</h2>
+            <span class="black-corpus-text noselect ">Ayudanos a construir escuelas seguras para
+                tí. Da clic en el botón para reportar tu caso de violencia, visibilicemos el problema para poderlo
+                resolver.
+            </span>
+            <a routerLink="/reporte" class="undecorated">
             <div class="button-web">
-                <span class="text-button">Ir a sitio web</span>
+                <span class="text-button">Reportar ahora</span>
             </div>
             </a>
         </div>

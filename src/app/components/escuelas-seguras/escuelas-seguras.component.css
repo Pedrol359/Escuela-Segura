@@ -132,8 +132,8 @@
   .black-corpus-text{
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19.2px;
+    font-size: 21px;
+    line-height: 25.41px;
     color: #333333;
   }
 
@@ -157,7 +157,7 @@
     color: #FFFFFF;
     width:100%;
     align-self: center;
-    margin-inline-start: 17%;
+    margin-inline-start: 13%;
   }
 
   .work-area-text{
@@ -206,7 +206,7 @@
     display:flex;
     align-items:center;
 }
-/* Icono escuelas seguras */
+
 .escuelas-icono{
     display: inline-block;
     height: 33px;
@@ -231,4 +231,17 @@
     background: #000;
     border-radius: 1px;
     
+}
+
+/*Scroll horizontal instituciones de apoyo*/
+.scroller{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+.scroll-horizontal{
+    gap: 5em;
+    overflow: auto;
+    white-space: nowrap;
 }

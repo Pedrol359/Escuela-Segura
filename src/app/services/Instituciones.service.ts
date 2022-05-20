@@ -22,7 +22,7 @@ export class InstitucionesService {
     agregarInstitucion(institucion: any): Promise<any> {
         return this.firestore.collection('Instituciones de Apoyo').add(institucion);
     }
-    obtenerinstitucions(): Observable<any> {
+    obtenerInstituciones(): Observable<any> {
         return this.firestore.collection('Instituciones de Apoyo').snapshotChanges();
     }
     eliminarinstitucion(idInstitucion:string){

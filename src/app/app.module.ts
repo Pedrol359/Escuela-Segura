@@ -38,6 +38,7 @@ import { ArticuloCardAdminComponent } from './components/cards/articulo-card-adm
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component';
 import { EscuelaCardComponent } from './components/cards/escuela-card/escuela-card.component';
+import { InstitucionCardComponent } from './components/cards/institucion-card/institucion-card.component';
 
 
 
@@ -69,7 +70,8 @@ import { EscuelaCardComponent } from './components/cards/escuela-card/escuela-ca
     ArticuloCardAdminComponent,
     ReporteFormularioComponent,
     EscuelasSegurasComponent,
-    EscuelaCardComponent
+    EscuelaCardComponent,
+    InstitucionCardComponent
   ],
   imports: [
     BrowserModule,
