@@ -29,6 +29,7 @@
     flex: 1 1 450px;
     align-self: auto;
     margin-top: 14vh;
+    overflow: hidden;
 }
 
 /*Ajustes margenes y padding*/
@@ -216,7 +217,7 @@
 }
 
 .catalog-container{
-    width: 100%;
+    width: 150%;
     height: 30em;
     overflow-y: scroll;
     padding-right: 2em;
@@ -235,13 +236,25 @@
 
 /*Scroll horizontal instituciones de apoyo*/
 .scroller{
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
     overflow: auto;
+    column-gap: 4em;
+    padding-bottom: 2em;
 }
 .scroll-horizontal{
-    gap: 5em;
     overflow: auto;
     white-space: nowrap;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 100px;     /* Tamaño del scroll en vertical */
+    height: 3px;
+
+}
+.scroller::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 1px;
+    
 }
