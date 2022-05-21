@@ -1,2 +1,72 @@
 <app-navbar-basica></app-navbar-basica>
-<p>tabla works!</p>
+
+<section class="mt-4 px-4" >
+
+    
+    <div class="mt-1">
+        <h1>Mapa de calor de Incidencias por Municipio</h1>
+    </div>
+
+    <table class="table table-hover p-2">
+        <thead>
+            <tr class="row-color">
+                <th scope="col">#</th>
+                <th scope="col">Municipio</th>
+                <th scope="col">Casos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let dato of municipios; index as i">
+                <th scope="row">{{i+1}}</th>
+                <th>{{dato.municipio}}</th>
+                <td>{{dato.casos}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div>
+        <h1>Mapa de calor de Incidencias por Lugar</h1>
+    </div>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr class="row-color">
+                <th scope="col">#</th>
+                <th scope="col">Institución</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Casos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let dato of lugares; index as i">
+                <th scope="row">{{i+1}}</th>
+                <th>{{dato.nombre}}</th>
+                <td>{{dato.lugar}}</td>
+                <td>{{dato.casos}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div>
+        <h1>Mapa de calor de Incidencias por Género</h1>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="row-color">
+                <th scope="col">#</th>
+                <th scope="col">Institución</th>
+                <th scope="col">Género (Victima)</th>
+                <th scope="col">Casos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let dato of genero; index as i">
+                <th scope="row">{{i+1}}</th>
+                <th>{{dato.nombre}}</th>
+                <td>{{dato.genero}}</td>
+                <td>{{dato.casos}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</section>
