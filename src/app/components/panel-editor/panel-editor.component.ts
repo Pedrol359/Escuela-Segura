@@ -12,7 +12,7 @@ export class PanelEditorComponent implements OnInit {
 
   articulos:any[] = []
   articulos_copy:any[] = []
-  id=""
+  idArticulos:string[] = []
   titulo=""
   autor=""
   descripcion=""
@@ -52,7 +52,7 @@ export class PanelEditorComponent implements OnInit {
      if (this.nuevoArticulo){
       this._articulo.agregarArticulo(this._articulo.articulo)
     }else{
-      this._articulo.actualizarArticulo(this._articulo.articulo)
+      this._articulo.actualizarArticulo(this._articulo.articulo,this.idArticulos[this.index_selected])
     }
    }
     
@@ -78,13 +78,17 @@ export class PanelEditorComponent implements OnInit {
         this.articulos = [];  
         data.forEach((element: any) => {
           this.articulos.push({
-            ...element.payload.doc.data(),
-            id: element.payload.doc.id
+            ...element.payload.doc.data()
           })
-          this.articulos_copy=this.articulos
+          this.articulos_copy.push({
+            ...element.payload.doc.data()
+          })
+          this.idArticulos.push(element.payload.doc.id)
         })
+        
         subs.unsubscribe
         console.log(this.articulos);
+        console.log(this.idArticulos);
       });
   }
 
@@ -116,6 +120,7 @@ export class PanelEditorComponent implements OnInit {
       console.log(this.imagenCargada);
       
       if (this.imagenCargada) {
+        this.imagenCargada=false
         let porcentaje = 0;
         const subirImagen = this.storage.upload(this.filePath, this.arhivo);
 
@@ -174,7 +179,6 @@ export class PanelEditorComponent implements OnInit {
   
   nuevo(esNuevo:boolean){
     this.nuevoArticulo=true
-    this.id=""
     this.titulo=""
     this.autor=""
     this.descripcion=""
@@ -188,7 +192,7 @@ export class PanelEditorComponent implements OnInit {
   }
   prepararElimiancion(index:number){
     //se guarda el id del documento de los articulos eliminados
-    this.elimiandos.push(this.articulos[index].id);
+    this.elimiandos.push(this.idArticulos[index]);
     this.articulos.splice(index,1);// se elimina el articulo de forma local
   }
 
@@ -196,20 +200,18 @@ export class PanelEditorComponent implements OnInit {
     if (this.nuevoArticulo){
       this.articulos.push({
         titulo:this.titulo,
-        id:'',
         autor:this.autor,
         descripcion:this.descripcion,
         contenido:this.contenido,
         urlImagen:this.imagen_selected
       })
-    this._articulo.articulo.id=''
+    this.idArticulos.push('')
     this._articulo.articulo.titulo=this.titulo
     this._articulo.articulo.autor=this.autor
     this._articulo.articulo.descripcion=this.descripcion
     this._articulo.articulo.contenido=this.contenido
     this._articulo.articulo.urlImagen=this.imagen_selected
     }else{
-    this._articulo.articulo.id=this.articulos[this.index_selected].id
     this.articulos[this.index_selected].titulo=this._articulo.articulo.titulo=this.titulo
     this.articulos[this.index_selected].autor=this._articulo.articulo.autor=this.autor
     this.articulos[this.index_selected].descripcion=this._articulo.articulo.descripcion=this.descripcion
