@@ -5,10 +5,10 @@
     <div class="flex-item">
         <div class="left-box">
             <span class="purple-title-text">
-                Reportes
+                Denuncias
             </span>
             <span class="black-text par-left">
-                Ayudanos a construir escuelas seguras para ti, con tu reporte colaboras a la erradicación de la violencia en las instituciones educativas. A continuación se te presentarán 6 secciones de preguntas para la generación de tu reporte, recuerda que si necesitas ayuda para darle seguimiento a tu caso puedes acercate a diversas instituciones de apoyo, para conocerlas da clic en el botón de espacios seguros. Si deseas conocer más sobre los tipos de violencia o si no identificas qué tipo de violencia has sufrido, te invitamos a revisar la sección inferior. 
+                Ayudanos a construir escuelas seguras para ti, con tu denuncia colaboras a la erradicación de la violencia en las instituciones educativas. A continuación se te presentarán 6 secciones de preguntas para la generación de tu denuncia, recuerda que si necesitas ayuda para darle seguimiento a tu caso puedes acercate a diversas instituciones de apoyo, para conocerlas da clic en el botón de espacios seguros. Si deseas conocer más sobre los tipos de violencia o si no identificas qué tipo de violencia has sufrido, te invitamos a revisar la sección inferior. 
             </span>
             <h2 class="noselect">Infórmate aquí</h2>
             <div class="grid-stories margin-top">
@@ -89,9 +89,11 @@
                 value={{fecha}} class="date-picker"
                 min="2000-01-01" max={{fecha}} [(ngModel)]='fecha_incidente'>
             <span class="campo-text">Hora de la agresión</span>
-            <select class="form-select" [(ngModel)]='hora_incidente'>
+            <input type="time" id="appt" name="appt"
+            min="00:00" max="23:59" [(ngModel)]='hora_incidente' class="date-picker">
+            <!--<select class="form-select" [(ngModel)]='hora_incidente'>
                 <option *ngFor="let n of horas">{{n}}</option>
-            </select>
+            </select>-->
         </div>
     </div>
     <div class="flex-item">
@@ -175,8 +177,8 @@
                 ¡Gracias!
             </span>
             <span class="black-text par-left">
-                Gracias por reportar tu caso de incidencia de violencia, tu aporte nos permite construir escuelas seguras para ti. A través de tu reporte podremos identificar que instituciones educativas son seguras y de esta forma generar las bases de un cambio en aquellas instituciones que lo requieren. Recuerda que si conoces a alguien que necesita ayuda o tú la necesitas puedes acercarte a nuestra asociación o alguna de las instituciones de apoyo disponibles para ti. Te invitamos a seguir capacitándote en términos de violencia, consulta nuestros artículos y sé parte de esta red transformacional, trabajando en equipo acabaremos con la violencia.
-                Los datos de tu reporte son confidenciales y solo la asociación puede acceder a ellos. Recuerda, tu reporte es anónimo.
+                Gracias por denunciar tu caso de incidencia de violencia, tu aporte nos permite construir escuelas seguras para ti. A través de tu denuncia podremos identificar que instituciones educativas son seguras y de esta forma generar las bases de un cambio en aquellas instituciones que lo requieren. Recuerda que si conoces a alguien que necesita ayuda o tú la necesitas puedes acercarte a nuestra asociación o alguna de las instituciones de apoyo disponibles para ti. Te invitamos a seguir capacitándote en términos de violencia, consulta nuestros artículos y sé parte de esta red transformacional, trabajando en equipo acabaremos con la violencia.
+                Los datos de tu denuncia son confidenciales y solo la asociación puede acceder a ellos. Recuerda, tu denuncia es anónima.
             </span>
         </div>
         <div class="buttons-container margin-buttons-final">

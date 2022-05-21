@@ -57,7 +57,7 @@ export class ReporteFormularioComponent implements OnInit {
    tipo_violencia = this.violencias[0]
    descripcion = this.descripciones_verbal[0]
    fecha_incidente = this.getFecha()
-   hora_incidente = this.horas[0]
+   hora_incidente = "13:00"
 
    //Datos sección III entrada
    sexos = ['Hombre','Mujer']
