@@ -3,6 +3,8 @@ import * as Mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment.prod';
 import { CAROUSEL_DATA_NOSOTROS } from './carousel.const.nosotros';
 import { ICarouselItem } from '../carousel/Icarousel-item.metadata'
+import { Router, NavigationEnd } from '@angular/router';
+
 
 @Component({
   selector: 'app-nosotros',
@@ -15,9 +17,15 @@ export class NosotrosComponent implements OnInit {
   link_video = 'https://www.youtube.com/watch?v=fqcbNFHsLFs&ab_channel=Asociaci%C3%B3nProgresoparaM%C3%A9xico'
   video_code = ''
   public carouselIData: ICarouselItem[] = CAROUSEL_DATA_NOSOTROS;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+    });
     this.getLocation();
     this.getVideoCode();
   }

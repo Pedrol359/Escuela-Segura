@@ -15,7 +15,9 @@ article {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #C4C4C4;
     border-radius: 20px;
     width: 35%;
+    height:291px;
     max-width: 291px;
+    object-fit: cover;
 }
 
 .cont_text{
@@ -46,4 +48,11 @@ a{
     color: #3296F3;
     font-size: 23px;
     text-decoration: none;
+}
+
+a:hover{
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    color: #a589f4;
 }
