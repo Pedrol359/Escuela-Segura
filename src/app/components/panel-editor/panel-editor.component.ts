@@ -8,91 +8,86 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   styleUrls: ['./panel-editor.component.css']
 })
 export class PanelEditorComponent implements OnInit {
-  constructor(private _articulo:ArticuloService, private storage: AngularFireStorage) { }
-
-  articulos:any[] = []
-  articulos_copy:any[] = []
-  idArticulos:string[] = []
-  titulo=""
-  autor=""
-  descripcion=""
-  contenido=""
-  imagen_selected:any = "../../../assets/imagenes/inicio_story_principal.svg";
-
-  titulo_input:string="0/35";
-  cargando=false
+  constructor(private _articulo: ArticuloService, private storage: AngularFireStorage) { }
+  //Variables de control de interfaz
+  vtnDeleteShow=false
+  cargando = false
+  titulo_input: string = "0/35";
   nuevoArticulo = true
-  index_selected=-1
+  //Variables
+  articulos: any[] = []
+  idArticulos: string[] = []
+  titulo = ""
+  autor = ""
+  descripcion = ""
+  contenido = ""
+  imagen_selected: any ='';
+  // imagen_selected: any = "../../../assets/imagenes/inicio_story_principal.svg";
+
+  index_selected = -1
   filePath: string = '';
   arhivo: any;
   imagenCargada = false;
   nameFile: string = 'Seleccionar una imagen';
-  elimiandos:string[]=[]
-  
+
+  articuloToDelete=this._articulo.articulo
+  articuloIdDelete=''
+  articuloIndexDelete=-1
+
 
   ngOnInit(): void {
     this.obtenerArticulos()
   }
 
-  seleccionarArticulo(index:number){   
-    this.titulo=this.articulos[index].titulo
-    this.autor=this.articulos[index].autor
-    this.descripcion=this.articulos[index].descripcion
-    this. contenido=this.articulos[index].contenido
+  seleccionarArticulo(index: number) {
+    this.titulo = this.articulos[index].titulo
+    this.autor = this.articulos[index].autor
+    this.descripcion = this.articulos[index].descripcion
+    this.contenido = this.articulos[index].contenido
     this.imagen_selected = this.articulos[index].urlImagen
-    this.index_selected=index
-    this.nuevoArticulo=false
-    
+    this.index_selected = index
+    this.nuevoArticulo = false
+
   }
 
-  publicarArticulo(){
-    
-   if(!(this.titulo =='' && this.descripcion =='' && this.contenido=='' && this.autor=='')){
-    this.asignarDatos()
-     if (this.nuevoArticulo){
-      this._articulo.agregarArticulo(this._articulo.articulo)
-    }else{
-      this._articulo.actualizarArticulo(this._articulo.articulo,this.idArticulos[this.index_selected])
+  publicarArticulo() {
+
+    if (!(this.titulo == '' && this.descripcion == '' && this.contenido == '' && this.autor == '')) {
+      if (this.imagen_selected =='') {
+        alert("No haz subido ninguna imagen para tu articulo")
+        return;
+      }
+      this.asignarDatos()
+      if (this.nuevoArticulo) {
+        
+        this._articulo.agregarArticulo(this._articulo.articulo)
+      } else {
+        this._articulo.actualizarArticulo(this._articulo.articulo, this.idArticulos[this.index_selected])
+      }
+      this.nuevo()
     }
-   }
-    
+
     console.log("articulo");
     console.log(this._articulo.articulo);
-
-    //verifica si hay articulos por eliminar de la BD
-    console.log(this.elimiandos);
-    console.log(this.elimiandos.length);
-    
-    if (this.elimiandos.length>0){
-      console.log("eliminados");
-      this.eliminar()
-    }
-    else
-      console.log("no eliminados");
-      
-    
   }
 
   obtenerArticulos() {
-    let subs =this._articulo.obtenerArticulos().subscribe(data => {
-        this.articulos = [];  
-        data.forEach((element: any) => {
-          this.articulos.push({
-            ...element.payload.doc.data()
-          })
-          this.articulos_copy.push({
-            ...element.payload.doc.data()
-          })
-          this.idArticulos.push(element.payload.doc.id)
+    let subs = this._articulo.obtenerArticulos().subscribe(data => {
+      this.articulos = [];
+      data.forEach((element: any) => {
+        this.articulos.push({
+          ...element.payload.doc.data()
         })
-        
-        subs.unsubscribe
-        console.log(this.articulos);
-        console.log(this.idArticulos);
-      });
+        this.idArticulos.push(element.payload.doc.id)
+      })
+
+      subs.unsubscribe
+      console.log(this.articulos);
+      console.log(this.idArticulos);
+    });
   }
 
- 
+
   cargarImagen(event: any) {
     try {
       this.arhivo = event.target.files[0];
@@ -118,23 +113,17 @@ export class PanelEditorComponent implements OnInit {
     // let userAlmacenado = false;
     try {
       console.log(this.imagenCargada);
-      
       if (this.imagenCargada) {
-        this.imagenCargada=false
+        this.imagenCargada = false
         let porcentaje = 0;
         const subirImagen = this.storage.upload(this.filePath, this.arhivo);
-
         const subscription = subirImagen.percentageChanges().subscribe((changes) => {
-          let cont =0
-          
-            console.log(cont++);
-          
-          
+          let cont = 0
+          console.log(cont++);
           porcentaje = (changes || 0);
           console.log('porcentaje ' + porcentaje);
           imagenSubida = porcentaje >= 100;
           console.log('imagenSubida ' + imagenSubida);
-
           if (imagenSubida) {
             const ref = this.storage.ref(this.filePath).getDownloadURL().subscribe(url => {
               subscription.unsubscribe();
@@ -148,80 +137,74 @@ export class PanelEditorComponent implements OnInit {
         });// Con ese metodo se sube la imagen y te da el porcentaje de subida
       } else {
         this.publicarArticulo();
-
       }
-    } catch (error) {      
+    } catch (error) {
       console.log(error);
       this.cargando = false;
     }
   }
 
-  publicar(){
+  publicar() { //aqui hacer la validacion
     this.subirImagen()
   }
 
-  getCharacters(limite:number,id_element:string) {
-    var titulo:string = "0/35";
-    var input =<HTMLInputElement> document.getElementById(id_element);
-    var indicador:string = "";
-    indicador = input.value.length+'\\'+limite;
+
+  prepararElimiancion(index: number) {
+    this.articuloToDelete = this.articulos[index]
+    this.articuloIdDelete = this.idArticulos[index]
+    this.vtnDeleteShow=false
+    this.vtnDeleteShow=true
+    console.log(this.articuloToDelete);
+    console.log(this.vtnDeleteShow);
+  }
+  eliminarArticulo(idArticulo:string) {
+      console.log("eliminar Articulo: "+ idArticulo+ " index: "+ this.articuloIndexDelete)
+      let resul = this._articulo.eliminarArticulo(idArticulo)
+      console.log(resul);
+      this.vtnDeleteShow=false
+  }
+
+  nuevo() {
+    this.nuevoArticulo = true
+    this.titulo = ""
+    this.autor = ""
+    this.descripcion = ""
+    this.contenido = ""
+    this.imagen_selected = "";
+
+
+  }
+
+
+
+  asignarDatos() {
+    if (this.nuevoArticulo) {
+      this._articulo.articulo.titulo = this.titulo
+      this._articulo.articulo.autor = this.autor
+      this._articulo.articulo.descripcion = this.descripcion
+      this._articulo.articulo.contenido = this.contenido
+      this._articulo.articulo.urlImagen = this.imagen_selected
+    } else {
+      this.articulos[this.index_selected].titulo = this._articulo.articulo.titulo = this.titulo
+      this.articulos[this.index_selected].autor = this._articulo.articulo.autor = this.autor
+      this.articulos[this.index_selected].descripcion = this._articulo.articulo.descripcion = this.descripcion
+      this.articulos[this.index_selected].contenido = this._articulo.articulo.contenido = this.contenido
+      this.articulos[this.index_selected].urlImagen = this._articulo.articulo.urlImagen = this.imagen_selected
+    }
+  }
+
+
+
+  /* Metodos de control de interfaz */
+  formatearUrl(url: string) {
+    return 'center/cover url(' + url + ')'
+  }
+  getCharacters(limite: number, id_element: string) {
+    var titulo: string = "0/35";
+    var input = <HTMLInputElement>document.getElementById(id_element);
+    var indicador: string = "";
+    indicador = input.value.length + '\\' + limite;
     this.titulo_input = indicador;
   }
 
-  eliminar(){
-    for (let idArticulo of this.elimiandos) {
-      //elimina en la base de daos articulo x articulo
-      this._articulo.eliminarArticulo(idArticulo)      
-    }
-    //con esto se eliminan todos de forma local
-    this.elimiandos =[]
-  }
-  
-  nuevo(esNuevo:boolean){
-    this.nuevoArticulo=true
-    this.titulo=""
-    this.autor=""
-    this.descripcion=""
-    this.contenido=""
-    this.imagen_selected = "../../../assets/imagenes/inicio_story_principal.svg";
-    if (!esNuevo){
-      this.elimiandos=[]
-      this.articulos=this.articulos_copy
-    }
-
-  }
-  prepararElimiancion(index:number){
-    //se guarda el id del documento de los articulos eliminados
-    this.elimiandos.push(this.idArticulos[index]);
-    this.articulos.splice(index,1);// se elimina el articulo de forma local
-  }
-
-  asignarDatos(){
-    if (this.nuevoArticulo){
-      this.articulos.push({
-        titulo:this.titulo,
-        autor:this.autor,
-        descripcion:this.descripcion,
-        contenido:this.contenido,
-        urlImagen:this.imagen_selected
-      })
-    this.idArticulos.push('')
-    this._articulo.articulo.titulo=this.titulo
-    this._articulo.articulo.autor=this.autor
-    this._articulo.articulo.descripcion=this.descripcion
-    this._articulo.articulo.contenido=this.contenido
-    this._articulo.articulo.urlImagen=this.imagen_selected
-    }else{
-    this.articulos[this.index_selected].titulo=this._articulo.articulo.titulo=this.titulo
-    this.articulos[this.index_selected].autor=this._articulo.articulo.autor=this.autor
-    this.articulos[this.index_selected].descripcion=this._articulo.articulo.descripcion=this.descripcion
-    this.articulos[this.index_selected].contenido=this._articulo.articulo.contenido=this.contenido
-    this.articulos[this.index_selected].urlImagen=this._articulo.articulo.urlImagen=this.imagen_selected
-    this.articulos_copy=this.articulos
-  }
-  }
-
-  formatearUrl(url:string){
-    return 'center/cover url('+url+')'
-  }
 }

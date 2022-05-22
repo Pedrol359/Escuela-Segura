@@ -1,0 +1,12 @@
+<!-- Panel, Eliminar Árticulo -->
+<div class="cont_eliminarArticulo_shadow" *ngIf="vtnShow">
+    <section class="cont_eliminarArticulo">
+        <h1 class="title_card">¿Desea eliminar el articulo?</h1>
+        <p>Está tratando de eliminar el articulo <b>{{articulo.descripcion}}</b> por <b>{{articulo.autor}}</b>
+        </p>
+        <div class="cont_btn_confirmacion">
+            <button class="button-web text-button cancelar" (click)="onHide()">Cancelar</button>
+            <button class="button-web text-button aceptar" (click)="onEliminar()">Aceptar</button>
+        </div>
+    </section>
+</div>

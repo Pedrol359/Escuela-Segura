@@ -1,6 +1,14 @@
 <!-- Barra de navegación -->
 <app-navbar-admin></app-navbar-admin>
-<!-- Código nosotros -->
+<!-- Panel, Eliminar Árticulo -->
+<app-eliminar-articulo-card 
+    [vtnShow]="vtnDeleteShow" 
+    (eliminarEvent)="eliminarArticulo($event)"
+    (vtnHide)="vtnDeleteShow=!$event"
+    [articulo]="articuloToDelete"
+    [id]="articuloIdDelete">
+</app-eliminar-articulo-card>
+
 <!-- Panel Izquierdo -->
 <div class="dark">
 <div class="flex-container">
@@ -11,7 +19,7 @@
             <!--Agregar artículo && Buscar artículo bar-->
             <div class="grid-search">
                 <div class="new-articule noselect">
-                    <div class="card-right" (click)="nuevo(true)">
+                    <div class="card-right" (click)="nuevo()">
                         <div class="card-right-button">
                             <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
                         </div>
@@ -56,7 +64,10 @@
             <span class="white-section-title-text noselect" id="margin-16" *ngIf="!nuevoArticulo">Editar artículo</span>
             <div class="selected-article-container">
                 <div class="selected-article">
-                    <img src={{imagen_selected}} class="noselect">
+                    <div class="imagen_selected noselect"  [ngStyle]="{'background': formatearUrl(imagen_selected)}" *ngIf="imagen_selected!=''"></div>
+                    <div class="imagen_selected noselect articulo-default" *ngIf="imagen_selected==''">
+                        <span class="txt_imagen_selected">Agrega una imagen como portada en tu articulo.</span>
+                    </div>
                     <div class="cont_editar_img">
                         <a class="up-imagen a">
                   
@@ -99,13 +110,14 @@
             <div class="buttons-bottom">
                 <a target="_blank" class="undecorated">
                     <div class="button-cancel">
-                        <span class="text-button" id="text-cancel" (click)="nuevo(false)">Cancelar</span>
+                        <span class="text-button" id="text-cancel" (click)="nuevo()">Cancelar</span>
                     </div>
                 </a>
                 <a  target="_blank" class="undecorated">
-                    <div class="button-web">
-                        <span class="text-button" (click)="publicar()" >Publicar</span>
-                    </div>
+                    <button class="button-web text-button" (click)="publicar()">
+                      <span *ngIf="nuevoArticulo; else blockElse">Publicar</span>
+                      <ng-template #blockElse>Guardar</ng-template>
+                    </button>                    
                 </a>
             </div> 
         </div>
