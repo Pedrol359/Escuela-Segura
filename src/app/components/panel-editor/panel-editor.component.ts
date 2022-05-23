@@ -12,7 +12,8 @@ export class PanelEditorComponent implements OnInit {
   //Variables de control de interfaz
   vtnDeleteShow=false
   cargando = false
-  titulo_input: string = "0/35";
+  titulo_count: string = "0/35";
+  descripcion_count: string = "0/35";
   nuevoArticulo = true
   btnCancelarShow=false
   //Variables
@@ -48,7 +49,7 @@ export class PanelEditorComponent implements OnInit {
     this.imagen_selected = this.articulos[index].urlImagen
     this.index_selected = index
     this.nuevoArticulo = false
-
+    this.getCharacters()
   }
 
   publicarArticulo() {
@@ -100,12 +101,14 @@ export class PanelEditorComponent implements OnInit {
       let reader = new FileReader();
       reader.readAsDataURL(this.arhivo);
       reader.onload = () => {
-        this.imagen_selected = reader.result;
+      this.imagen_selected = reader.result;
+      this.btnCancelarShow = true
       }
     } catch (error) {
       console.log('Error al cargar la img local: ' + error);
       this.imagenCargada = false;
       this.filePath = '';
+      this.btnCancelarShow = false
     }
   }
   subirImagen() { // En realidad modifica el usuario existente y le agrega una imagen
@@ -172,7 +175,9 @@ export class PanelEditorComponent implements OnInit {
     this.descripcion = ""
     this.contenido = ""
     this.imagen_selected = "";
+    this.getCharacters()
     this.btnCancelarShow = false
+    
   }
 
 
@@ -199,12 +204,15 @@ export class PanelEditorComponent implements OnInit {
   formatearUrl(url: string) {
     return 'center/cover url(' + url + ')'
   }
-  getCharacters(limite: number, id_element: string) {
-    var titulo: string = "0/35";
-    var input = <HTMLInputElement>document.getElementById(id_element);
-    var indicador: string = "";
-    indicador = input.value.length + '\\' + limite;
-    this.titulo_input = indicador;
+  getCharacters() {
+    this.titulo_count= this.titulo.length+'/35'
+    this.descripcion_count= this.descripcion.length+'/100'
+    
+    // var titulo: string = "0/35";
+    // var input = <HTMLInputElement>document.getElementById(id_element);
+    // var indicador: string = "";
+    // indicador = input.value.length + '\\' + limite;
+    // this.titulo_count = indicador;
     this.btnCancelarShow = true
   }
 

@@ -85,10 +85,10 @@
                 <div class="general-data">
                     <span class="white-form-text noselect" id="align-end">Titulo</span>
                     <div class="titulo-articulo">
-                        <textarea [(ngModel)]="titulo" type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                        <textarea [(ngModel)]="titulo" type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters()"></textarea>
                     </div>
                     <div class="span-counter">
-                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
+                        <span class="white-small-text noselect" id="titre align-left">{{titulo_count}}</span>
                     </div>
                     <span class="white-form-text noselect" id="align-end">Autor</span>
                     <div class="search-w-icon" id="margin-16">
@@ -96,16 +96,16 @@
                     </div>
                     <span  class="white-form-text noselect" id="align-end">Descripción</span>
                     <div class="titulo-articulo">
-                        <textarea [(ngModel)]="descripcion" type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                        <textarea [(ngModel)]="descripcion" type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters()"></textarea>
                     </div>
                     <div class="span-counter">
-                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
+                        <span class="white-small-text noselect" id="titre align-left">{{descripcion_count}}</span>
                     </div>
                 </div>
             </div>
             <span class="white-form-text noselect" id="align-end" >Contenido</span>
             <div class="titulo-articulo">
-                <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
+                <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keypress)="getCharacters()"></textarea>
             </div>
             <div class="buttons-bottom">
                 <a target="_blank" class="undecorated" *ngIf="btnCancelarShow">
