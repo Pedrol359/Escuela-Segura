@@ -14,6 +14,7 @@ export class PanelEditorComponent implements OnInit {
   cargando = false
   titulo_input: string = "0/35";
   nuevoArticulo = true
+  btnCancelarShow=false
   //Variables
   articulos: any[] = []
   idArticulos: string[] = []
@@ -171,8 +172,7 @@ export class PanelEditorComponent implements OnInit {
     this.descripcion = ""
     this.contenido = ""
     this.imagen_selected = "";
-
-
+    this.btnCancelarShow = false
   }
 
 
@@ -205,6 +205,7 @@ export class PanelEditorComponent implements OnInit {
     var indicador: string = "";
     indicador = input.value.length + '\\' + limite;
     this.titulo_input = indicador;
+    this.btnCancelarShow = true
   }
 
 }

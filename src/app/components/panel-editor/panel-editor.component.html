@@ -108,9 +108,9 @@
                 <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
             </div>
             <div class="buttons-bottom">
-                <a target="_blank" class="undecorated">
+                <a target="_blank" class="undecorated" *ngIf="btnCancelarShow">
                     <div class="button-cancel">
-                        <span class="text-button" id="text-cancel" (click)="nuevo()">Cancelar</span>
+                        <span class="text-button" id="text-cancel" (click)="nuevo()" >Cancelar</span>
                     </div>
                 </a>
                 <a  target="_blank" class="undecorated">
