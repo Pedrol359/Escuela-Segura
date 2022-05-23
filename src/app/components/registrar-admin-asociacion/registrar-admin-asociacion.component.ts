@@ -31,7 +31,6 @@ export class RegistrarAdminAsociacionComponent implements OnInit {
   //Encriptación de contraseña
   passwordEncryp = ""
   passwordDesencryp = ""
-  passwordFunctionEncrypt=""
   //Objeto registro
   registro= {}
 

@@ -47,6 +47,7 @@ a{
     font-size: 11px;
     color: #e6244e;
 }
+
 h4{
     font-weight: 500;
     font-size: 17px;
@@ -92,7 +93,6 @@ input{
     display: inline-block;
     text-align: center;
     width: 100%;
-    
 }
 
 button{
@@ -104,4 +104,12 @@ button{
     font-weight:600;
     color: #fff;
     padding: 7px 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background-color: #333333;
 }
