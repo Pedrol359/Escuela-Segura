@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PeticionesService, Municipio, Incidencia } from 'src/app/services/peticiones.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ReporteFormularioComponent implements OnInit {
    fecha = ''
 
    //Datos sección I entrada
-   municipios = ['Tepic','Xalisco','San Blas','Santa María del Oro','Santiago Ixcuintla','San Pedro Lagunillas']
+   //municipios = ['Tepic','Xalisco','San Blas','Santa María del Oro','Santiago Ixcuintla','San Pedro Lagunillas']
+   municipios: Municipio []=[]
    niveles_educativos = ['Nivel Medio Superior','Nivel Superior']
    instituciones_superior = ['Instituto Tecnológico de Tepic','Universidad Autonoma de Nayarit','Universidad del Valle']
    instituciones_media = ['Cetis 100','Cecyten','Conalep','Preparatoría #1']
@@ -91,12 +93,22 @@ export class ReporteFormularioComponent implements OnInit {
    mecanismos = this.resp_cerrada[0]
 
    //Objeto reporte
-   reporte = {
+   reporte:any = {
    }
+   listaIncidencias: Incidencia[] = [];
 
-  constructor() { }
+  constructor(private peticiones:PeticionesService) { }
 
   ngOnInit(): void {
+    this.listarMunicipios()
+  }
+  listarMunicipios() {
+    this.peticiones.getMunicipios().subscribe(res => {
+      this.municipios = <any>res;
+      console.log(this.municipios);
+    },
+      err => console.log(err)
+    );
   }
 
   seccion2() {
@@ -117,6 +129,8 @@ export class ReporteFormularioComponent implements OnInit {
   backto2(){
     this.display_tres = 'none';
     this.display_dos = 'flex';
+    delete this.reporte.id_incidencia;
+    this.peticiones.addInc(this.reporte).subscribe();
   }
 
   getFecha():string{
@@ -164,23 +178,23 @@ export class ReporteFormularioComponent implements OnInit {
 
   getReporte(){
     this.reporte = {
-      municipio: this.municipio,
+      inc_mun: this.municipio,
       nivel_educativo: this.nivel_educativo,
-      institucion: this.institucion,
+      inc_inst: this.institucion,
       carrera: this.carrera,
-      espacio: this.espacio,
-      tipo_violencia:this.tipo_violencia,
-      descripcion: this.descripcion,
-      fecha_incidente: this.fecha_incidente,
-      hora_incidente: this.hora_incidente,
-      sexo_victima: this.sexo_victima,
-      edad_victima: this.edad_victima,
-      sexo_agresor: this.sexo_agresor,
-      nombre_agresor: this.nombre_agresor,
-      persona_agresora: this.persona_agresora,
-      accion: this.accion,
-      tiempo: this.tiempo,
-      servicio: this.servicio,
+      inc_esp: this.espacio,
+      violencias_id_violencia:this.tipo_violencia,
+      inc_vio_descr: this.descripcion,
+      inc_fecha: this.fecha_incidente,
+      inc_hora: this.hora_incidente,
+      inc_vic_genero: this.sexo_victima,
+      inc_vic_edad: this.edad_victima,
+      inc_agr_genero: this.sexo_agresor,
+      inc_agr_nombre: this.nombre_agresor,
+      inc_agr_tipo: this.persona_agresora,
+      inc_accion: this.accion,
+      inc_tiempo: this.tiempo,
+      inc_servicio: this.servicio,
       recibir_info: this.recibir_info,
       mecanismos: this.mecanismos
      }

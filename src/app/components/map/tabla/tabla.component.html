@@ -1,72 +1,115 @@
 <app-navbar-basica></app-navbar-basica>
 
-<section class="mt-4 px-4" >
+<div class="container">
+    <h1 class="purple-title-text noselect mt-4">Mapa de calor</h1>
 
-    
-    <div class="mt-1">
-        <h1>Mapa de calor de Incidencias por Municipio</h1>
+    <p class="black-normal-text ">Mostrar Incidencias por: </p>
+    <div class="show-by">
+        <span [ngClass]="{'selected':mun}" (click)="clickMun()" id="mun">Municipio</span>
+        <span [ngClass]="{'selected':inst}" (click)="clickInst()" id="uni">Institución</span>
+        <span [ngClass]="{'selected':niv}" (click)="clickNiv()" id="gen">Nivel</span>
+        <span [ngClass]="{'selected':lug}" (click)="clickLug()" id="lug">Lugar</span>
+        <span [ngClass]="{'selected':gen}" (click)="clickGen()" id="gen">Género</span>
     </div>
 
-    <table class="table table-hover p-2">
-        <thead>
-            <tr class="row-color">
-                <th scope="col">#</th>
-                <th scope="col">Municipio</th>
-                <th scope="col">Casos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr scope="row" *ngFor="let dato of municipios; index as i">
-                <th scope="row">{{i+1}}</th>
-                <th>{{dato.municipio}}</th>
-                <td>{{dato.casos}}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <div>
-        <h1>Mapa de calor de Incidencias por Lugar</h1>
+    <div *ngIf="mun">
+        <table class="table table-hover p-2">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Municipio</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of municipios; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.municipio}}</th>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    
-    <table class="table table-hover">
-        <thead>
-            <tr class="row-color">
-                <th scope="col">#</th>
-                <th scope="col">Institución</th>
-                <th scope="col">Lugar</th>
-                <th scope="col">Casos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr scope="row" *ngFor="let dato of lugares; index as i">
-                <th scope="row">{{i+1}}</th>
-                <th>{{dato.nombre}}</th>
-                <td>{{dato.lugar}}</td>
-                <td>{{dato.casos}}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <div>
-        <h1>Mapa de calor de Incidencias por Género</h1>
+    <div *ngIf="inst">
+        <table class="table table-hover p-2">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of instituciones; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nombre}}</th>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table table-hover">
-        <thead>
-            <tr class="row-color">
-                <th scope="col">#</th>
-                <th scope="col">Institución</th>
-                <th scope="col">Género (Victima)</th>
-                <th scope="col">Casos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr scope="row" *ngFor="let dato of genero; index as i">
-                <th scope="row">{{i+1}}</th>
-                <th>{{dato.nombre}}</th>
-                <td>{{dato.genero}}</td>
-                <td>{{dato.casos}}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-</section>
+    <div *ngIf="niv">
+        <table class="table table-hover p-2">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of nivel; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nombre}}</th>
+                    <th>{{dato.nivel}}</th>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div *ngIf="lug">
+        <table class="table table-hover">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of lugares; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nombre}}</th>
+                    <td>{{dato.lugar}}</td>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div *ngIf="gen">
+        <table class="table table-hover">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Género (Victima)</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of genero; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nombre}}</th>
+                    <td>{{dato.genero}}</td>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
