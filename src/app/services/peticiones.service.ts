@@ -35,6 +35,12 @@ export class PeticionesService {
   getMapDataMunicipio(){
     return this.http.get(this.url+"mapMunicipios");
   }
+  getMapDataInst(){
+    return this.http.get(this.url+"mapInst");
+  }
+  getMapDataNiv(){
+    return this.http.get(this.url+"mapNivel");
+  }
 }
 
 
