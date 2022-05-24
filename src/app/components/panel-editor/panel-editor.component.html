@@ -1,14 +1,6 @@
 <!-- Barra de navegación -->
 <app-navbar-admin></app-navbar-admin>
-<!-- Panel, Eliminar Articulo -->
-<app-eliminar-articulo-card 
-    [vtnShow]="vtnDeleteShow" 
-    (eliminarEvent)="eliminarArticulo($event)"
-    (vtnHide)="vtnDeleteShow=!$event"
-    [articulo]="articuloToDelete"
-    [id]="articuloIdDelete">
-</app-eliminar-articulo-card>
-
+<!-- Código nosotros -->
 <!-- Panel Izquierdo -->
 <div class="dark">
 <div class="flex-container">
@@ -19,7 +11,7 @@
             <!--Agregar artículo && Buscar artículo bar-->
             <div class="grid-search">
                 <div class="new-articule noselect">
-                    <div class="card-right" (click)="nuevo()">
+                    <div class="card-right" (click)="nuevo(true)">
                         <div class="card-right-button">
                             <img src="../../../assets/icons/Panel-editor/add.svg" alt="">
                         </div>
@@ -64,10 +56,7 @@
             <span class="white-section-title-text noselect" id="margin-16" *ngIf="!nuevoArticulo">Editar artículo</span>
             <div class="selected-article-container">
                 <div class="selected-article">
-                    <div class="imagen_selected noselect"  [ngStyle]="{'background': formatearUrl(imagen_selected)}" *ngIf="imagen_selected!=''"></div>
-                    <div class="imagen_selected noselect articulo-default" *ngIf="imagen_selected==''">
-                        <span class="txt_imagen_selected">Agrega una imagen como portada en tu articulo.</span>
-                    </div>
+                    <img src={{imagen_selected}} class="noselect">
                     <div class="cont_editar_img">
                         <a class="up-imagen a">
                   
@@ -85,10 +74,10 @@
                 <div class="general-data">
                     <span class="white-form-text noselect" id="align-end">Titulo</span>
                     <div class="titulo-articulo">
-                        <textarea [(ngModel)]="titulo" type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters()"></textarea>
+                        <textarea [(ngModel)]="titulo" type="text" placeholder="Título del artículo" class="titulo-input" maxlength="35" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
                     </div>
                     <div class="span-counter">
-                        <span class="white-small-text noselect" id="titre align-left">{{titulo_count}}</span>
+                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
                     </div>
                     <span class="white-form-text noselect" id="align-end">Autor</span>
                     <div class="search-w-icon" id="margin-16">
@@ -96,28 +85,27 @@
                     </div>
                     <span  class="white-form-text noselect" id="align-end">Descripción</span>
                     <div class="titulo-articulo">
-                        <textarea [(ngModel)]="descripcion" type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters()"></textarea>
+                        <textarea [(ngModel)]="descripcion" type="text" placeholder="Descripción del artículo" class="descripcion-input" maxlength="100" id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
                     </div>
                     <div class="span-counter">
-                        <span class="white-small-text noselect" id="titre align-left">{{descripcion_count}}</span>
+                        <span class="white-small-text noselect" id="titre align-left">{{titulo_input}}</span>
                     </div>
                 </div>
             </div>
             <span class="white-form-text noselect" id="align-end" >Contenido</span>
             <div class="titulo-articulo">
-                <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keypress)="getCharacters()"></textarea>
+                <textarea [(ngModel)]="contenido" type="text" placeholder="Título del artículo" class="contenido-input"  id="titulo" (keyup)="getCharacters(35,'titulo')"></textarea>
             </div>
             <div class="buttons-bottom">
-                <a target="_blank" class="undecorated" *ngIf="btnCancelarShow">
+                <a target="_blank" class="undecorated">
                     <div class="button-cancel">
-                        <span class="text-button" id="text-cancel" (click)="nuevo()" >Cancelar</span>
+                        <span class="text-button" id="text-cancel" (click)="nuevo(false)">Cancelar</span>
                     </div>
                 </a>
                 <a  target="_blank" class="undecorated">
-                    <button class="button-web text-button" (click)="publicar()">
-                      <span *ngIf="nuevoArticulo; else blockElse">Publicar</span>
-                      <ng-template #blockElse>Guardar</ng-template>
-                    </button>                    
+                    <div class="button-web">
+                        <span class="text-button" (click)="publicar()" >Publicar</span>
+                    </div>
                 </a>
             </div> 
         </div>
