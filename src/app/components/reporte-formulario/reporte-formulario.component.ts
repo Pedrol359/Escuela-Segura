@@ -204,8 +204,8 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   getReporte() {
-
     console.log(this.reporte)
+    this.peticiones.addInc(this.reporte).subscribe()
   }
 
 }

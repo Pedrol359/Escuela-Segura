@@ -8,6 +8,27 @@ import { Observable } from 'rxjs';
 })
 export class PeticionesService {
 
+  reporte: Incidencia = {
+    ID_INCIDENCIA: 0,
+    INC_ACCION: "",
+    INC_AGR_EDAD: "",
+    INC_AGR_GENERO: "",
+    INC_AGR_NOMBRE: "",
+    INC_AGR_TIPO: "",
+    INC_ESP: "",
+    INC_FECHA: "",
+    INC_HORA: "",
+    INC_INST: "",
+    INC_MUN: "",
+    INC_SERVICIO: "",
+    INC_TIEMPO: "",
+    INC_VIC_EDAD: "",
+    INC_VIC_GENERO: "",
+    INC_VIO_DESCR: "",
+    violencias_ID_VIOLENCIA: 0
+  }
+
+
   url='http://localhost:5000/';
   constructor(private http: HttpClient) { }
 
@@ -20,8 +41,7 @@ export class PeticionesService {
     .pipe(map(response => response));
   }
 
-  addInc(data:any): Observable<any> {
-    console.log(data);    
+  addInc(data:Incidencia): Observable<any> {
     return this.http.post(this.url+"insertIncidencia", data);
   }
 
