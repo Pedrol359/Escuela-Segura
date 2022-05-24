@@ -1,225 +1,195 @@
 <!-- Barra de navegación -->
 <app-navbar-principal></app-navbar-principal>
 <!-- Código Sección I-->
-<form action="/insertIncidencia" method="POST">
-    <div class="flex-container noselect" [ngStyle]="{ display: display_uno }">
-        <div class="flex-item">
-            <div class="left-box">
-                <span class="purple-title-text">
-                    Denuncias
-                </span>
-                <span class="black-text par-left">
-                    Ayudanos a construir escuelas seguras para ti, con tu denuncia colaboras a la erradicación de la
-                    violencia en las instituciones educativas. A continuación se te presentarán 6 secciones de preguntas
-                    para la generación de tu denuncia, recuerda que si necesitas ayuda para darle seguimiento a tu caso
-                    puedes acercate a diversas instituciones de apoyo, para conocerlas da clic en el botón de espacios
-                    seguros. Si deseas conocer más sobre los tipos de violencia o si no identificas qué tipo de
-                    violencia has sufrido, te invitamos a revisar la sección inferior.
-                </span>
-                <h2 class="noselect">Infórmate aquí</h2>
-                <div class="grid-stories margin-top">
-                    <div class="story">
-                        <a routerLink="/tipos-violencia" class="black-normal-link">
-                            <div class="articule-img-1 margin-bottom"></div>
-                            Sección: Conoce los diferentes tipos de violencia
-                        </a>
-                    </div>
-                    <div class="story">
-                        <a routerLink="/test-interactivo" class="black-normal-link">
-                            <div class="articule-img-2 margin-bottom" routerLink="/test-interactivo"></div>
-                            Test Interactivo: ¿De qué tipo de violencia
-                            he sido victima?
-                        </a>
-                    </div>
+<div class="flex-container noselect" [ngStyle]="{ display: display_uno }">
+    <div class="flex-item">
+        <div class="left-box">
+            <span class="purple-title-text">
+                Denuncias
+            </span>
+            <span class="black-text par-left">
+                Ayudanos a construir escuelas seguras para ti, con tu denuncia colaboras a la erradicación de la violencia en las instituciones educativas. A continuación se te presentarán 6 secciones de preguntas para la generación de tu denuncia, recuerda que si necesitas ayuda para darle seguimiento a tu caso puedes acercate a diversas instituciones de apoyo, para conocerlas da clic en el botón de espacios seguros. Si deseas conocer más sobre los tipos de violencia o si no identificas qué tipo de violencia has sufrido, te invitamos a revisar la sección inferior. 
+            </span>
+            <h2 class="noselect">Infórmate aquí</h2>
+            <div class="grid-stories margin-top">
+                <div class="story">
+                    <a routerLink="/tipos-violencia" class="black-normal-link">
+                    <div class="articule-img-1 margin-bottom"></div>
+                    Sección: Conoce los diferentes tipos de violencia</a>
                 </div>
-                <div class="button-purple-container">
-                    <a routerLink="/" class="undecorated">
-                        <div class="button-purple">
-                            <span class="text-button" id="purple">Espacios seguros</span>
-                        </div>
-                    </a>
+                <div class="story">
+                    <a routerLink="/test-interactivo" class="black-normal-link"><div class="articule-img-2 margin-bottom" routerLink="/test-interactivo"></div>
+                        Test Interactivo: ¿De qué tipo de violencia
+                        he sido victima?</a>
                 </div>
             </div>
-        </div>
-        <div class="flex-item">
-            <div class="left-box">
-                <h2 class="noselect margen-h2-bottom">Sección I</h2>
-                <h2 class="noselect no-margin">Datos del lugar</h2>
-                <span class="campo-text">Municipio</span>
-                <select class="form-select" [(ngModel)]="listaIncidencias[10]" name="inc_municipio">
-                    <option ngDefaultControl *ngFor="let item of municipios" [value]="item.MUNICIPIO_NOMBRE"
-                        name={{item.MUNICIPIO_NOMBRE}} [(ngModel)]="reporte.inc_mun">
-                        {{item.MUNICIPIO_NOMBRE}}
-                    </option>
-                </select>
-                <span class="campo-text">Nivel educativo</span>
-                <select class="form-select" name="nivel_educativo" [(ngModel)]='nivel_educativo' (change)="setNivel()">
-                    <option *ngFor="let n of niveles_educativos">{{n}}</option>
-                </select>
-                <span class="campo-text">Institución</span>
-                <select class="form-select" name="institucion" [(ngModel)]='institucion'>
-                    <option *ngFor="let n of instituciones">{{n}}</option>
-                </select>
-                <span class="campo-text">Carrera o facultad</span>
-                <input type="text" placeholder="Escriba su carrera o facultad" class="input-medio"
-                    name="carrera" [(ngModel)]="carrera">
-                <span class="campo-text">¿Dónde sucedió?</span>
-                <select class="form-select" name="espacio" [(ngModel)]='espacio'>
-                    <option *ngFor="let n of espacios">{{n}}</option>
-                </select>
-                <div class="buttons-container margin-buttons">
-                    <a routerLink="/inicio" class="undecorated">
-                        <div class="button-gray">
-                            <span class="text-button" id="gray">Cancelar</span>
-                        </div>
-                    </a>
-                    <div class="button-web" (click)="seccion2()">
-                        <span class="text-button">Siguiente sección</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Código Sección II-->
-    <div class="flex-container noselect" [ngStyle]="{ display: display_dos }">
-        <div class="flex-item">
-            <div class="left-box">
-                <h2 class="noselect margen-h2-bottom">Sección II</h2>
-                <h2 class="noselect no-margin">Datos de la víctima</h2>
-                <div class="grid-campos">
-                    <div class="col1">
-                        <span class="campo-text no-margin-bottom">Edad</span>
-                        <input type="number" placeholder="Escriba su edad" class="input-medio"
-                            name="edad_victima" [(ngModel)]='edad_victima'>
-                    </div>
-                    <div class="col2">
-                        <span class="campo-text no-margin-bottom">Sexo</span>
-                        <select class="form-select" name="sexo_victima" [(ngModel)]='sexo_victima'>
-                            <option *ngFor="let n of sexos">{{n}}</option>
-                        </select>
-                    </div>
-                </div>
-                <h2 class="noselect margen-h2-bottom">Sección III</h2>
-                <h2 class="noselect no-margin">Datos del agresor</h2>
-                <span class="campo-text no-margin-bottom">Nombre del agresor</span>
-                <input type="text" placeholder="Escriba el nombre del agresor" class="input-medio" id="full-input"
-                    name="nombre_agresor" [(ngModel)]='nombre_agresor'>
-                <span class="campo-text no-margin-bottom">Sexo del agresor</span>
-                <select class="form-select" id='little-input' name="sexo_agresor" [(ngModel)]='sexo_agresor'>
-                    <option *ngFor="let n of sexos">{{n}}</option>
-                </select>
-                <span class="campo-text no-margin-bottom">¿Quién es el agresor?</span>
-                <select class="form-select" id="full-input" name="persona_agresora" [(ngModel)]='persona_agresora'>
-                    <option *ngFor="let n of agresor">{{n}}</option>
-                </select>
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="left-box">
-                <h2 class="noselect margen-h2-bottom">Sección IV</h2>
-                <h2 class="noselect no-margin">Datos del incidente</h2>
-                <span class="black-text par-left-2">
-                    En caso de haber sido víctima de más de un tipo de violencia, solo seleccione la que más le ha
-                    afectado. Rellene el formulario basandose en la última agresión que recibió.
-                </span>
-                <span class="campo-text">Tipo de violencia</span>
-                <select class="form-select" name="tipo_violencia" [(ngModel)]='tipo_violencia' (change)="setTipo()">
-                    <option *ngFor="let n of violencias">{{n}}</option>
-                </select>
-                <span class="campo-text">Agresión</span>
-                <select class="form-select" name="descripcion" [(ngModel)]='descripcion'>
-                    <option *ngFor="let n of descripciones">{{n}}</option>
-                </select>
-                <span class="campo-text">Fecha de la agresión</span>
-                <input type="date" id="agresion-fecha" name="fecha-agresion" value={{fecha}} class="date-picker"
-                    min="2000-01-01" max={{fecha}} name="fecha_incidente" [(ngModel)]='fecha_incidente'>
-                <span class="campo-text">Hora de la agresión</span>
-                <input type="time" id="appt" name="appt" min="00:00" max="23:59" name="fecha_incidente" [(ngModel)]='fecha_incidente'
-                    class="date-picker">
-                <!--<select class="form-select" name="" [(ngModel)]='hora_incidente'>
-                <option *ngFor="let n of horas">{{n}}</option>
-            </select>-->
-                <div class="buttons-container margin-buttons">
-                    <div class="button-gray" (click)="backto1()">
-                        <span class="text-button" id="gray-inline">Atrás</span>
-                    </div>
-                    <div class="button-web" (click)="seccion3()">
-                        <span class="text-button">Siguiente sección</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Código Sección III-->
-    <div class="flex-container noselect" [ngStyle]="{ display: display_tres }">
-        <div class="flex-item">
-            <div class="left-box">
-                <h2 class="noselect margen-h2-bottom">Sección V</h2>
-                <h2 class="noselect no-margin">Datos de acción después de la incidencia</h2>
-                <span class="campo-text">¿Qué acción tomaste después de la agresión?</span>
-                <select class="form-select" name="accion" [(ngModel)]='accion'>
-                    <option *ngFor="let n of acciones">{{n}}</option>
-                </select>
-                <span class="campo-text">Tiempo transcurrido desde la acción tomada</span>
-                <select class="form-select" name="tiempo" [(ngModel)]='tiempo'>
-                    <option *ngFor="let n of tiempos">{{n}}</option>
-                </select>
-                <span class="campo-text">Otro servicio requerido derivado de la agresión</span>
-                <select class="form-select" name="servicio" [(ngModel)]='servicio'>
-                    <option *ngFor="let n of servicios">{{n}}</option>
-                </select>
-                <h2 class="noselect margen-h2-bottom">Sección VI</h2>
-                <h2 class="noselect no-margin">Datos informativos</h2>
-                <div class="grid-campos">
-                    <div class="col1">
-                        <span class="campo-text no-margin-bottom">¿En tu institución recibes información sobre los tipos
-                            y modalidades de violencia?</span>
-                        <select class="form-select" name="recibir_info" [(ngModel)]='recibir_info'>
-                            <option *ngFor="let n of resp_cerrada">{{n}}</option>
-                        </select>
-                    </div>
-                    <div class="col2">
-                        <span class="campo-text no-margin-bottom">¿En tu institución existen mecanismos para denunciar
-                            acciones de violencia?</span>
-                        <select class="form-select" name="mecanismos" [(ngModel)]='mecanismos'>
-                            <option *ngFor="let n of resp_cerrada">{{n}}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="left-box">
-                <span class="purple-title-text">
-                    ¡Gracias!
-                </span>
-                <span class="black-text par-left">
-                    Gracias por denunciar tu caso de incidencia de violencia, tu aporte nos permite construir escuelas
-                    seguras para ti. A través de tu denuncia podremos identificar que instituciones educativas son
-                    seguras y de esta forma generar las bases de un cambio en aquellas instituciones que lo requieren.
-                </span>
-                <h2 class="noselect margen-h2-bottom margin-titre">Artículos destacados para ti</h2>
-                <div class="grid-stories margin-top">
-                    <div class="story">
-                        <div class="story-img-1 margin-bottom"></div>
-                        <a href="" class="black-normal-link">"Mis colores, mi identidad: una mujer haitiana en México"</a>
-                    </div>
-                    <div class="story">
-                        <div class="story-img-2 margin-bottom"></div>
-                        <a href="" class="black-normal-link">"El poder de mi voz: alto al acoso escolar"</a>
-                    </div>
-                </div>
-            </div>
-            <div class="buttons-container margin-buttons-final">
-                <div class="button-gray" (click)="backto2()">
-                    <span class="text-button" id="gray-inline">Atrás</span>
-                </div>
-                <a routerLink="/inicio" class="undecorated">
-                    <div class="button-web" id="purple-finish" (click)="getReporte()">
-                        <span class="text-button" id="purple-filled">Finalizar</span>
+            <div class="button-purple-container">
+                <a routerLink="/" class="undecorated">
+                    <div class="button-purple">
+                        <span class="text-button" id="purple">Espacios seguros</span>
                     </div>
                 </a>
             </div>
         </div>
     </div>
-</form>
+    <div class="flex-item">
+        <div class="left-box">
+            <h2 class="noselect margen-h2-bottom">Sección I</h2>
+            <h2 class="noselect no-margin">Datos del lugar</h2>
+            <span class="campo-text">Municipio</span>
+            <select class="form-select" [(ngModel)]='municipio'>
+                <option *ngFor="let n of municipios">{{n}}</option>
+            </select>
+            <span class="campo-text">Nivel educativo</span>
+            <select class="form-select" [(ngModel)]='nivel_educativo' (change)="setNivel()">
+                <option *ngFor="let n of niveles_educativos">{{n}}</option>
+            </select>
+            <span class="campo-text">Institución</span>
+            <select class="form-select" [(ngModel)]='institucion'>
+                <option *ngFor="let n of instituciones">{{n}}</option>
+            </select>
+            <span class="campo-text">Carrera o facultad</span>
+            <input type="text" placeholder="Escriba su carrera o facultad" class="input-medio" [(ngModel)]="carrera">
+            <span class="campo-text">¿Dónde sucedió?</span>
+            <select class="form-select" [(ngModel)]='espacio'>
+                <option *ngFor="let n of espacios">{{n}}</option>
+            </select>
+            <div class="buttons-container margin-buttons">
+                <a routerLink="/inicio" class="undecorated">
+                    <div class="button-gray">
+                        <span class="text-button" id="gray">Cancelar</span>
+                    </div>
+                </a>
+                <div class="button-web" (click)="seccion2()">
+                    <span class="text-button">Siguiente sección</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Código Sección II-->
+<div class="flex-container noselect" [ngStyle]="{ display: display_dos }">
+    <div class="flex-item">
+        <div class="left-box">
+            <h2 class="noselect margen-h2-bottom">Sección II</h2>
+            <h2 class="noselect no-margin">Datos del incidente</h2>
+            <span class="black-text par-left-2">
+                En caso de haber sido víctima de más de un tipo de violencia, solo seleccione la que más le ha afectado. Rellene el formulario basandose en la última agresión que recibió.
+            </span>
+            <span class="campo-text">Tipo de violencia</span>
+            <select class="form-select" [(ngModel)]='tipo_violencia' (change)="setTipo()">
+                <option *ngFor="let n of violencias">{{n}}</option>
+            </select>
+            <span class="campo-text">Agresión</span>
+            <select class="form-select" [(ngModel)]='descripcion'>
+                <option *ngFor="let n of descripciones">{{n}}</option>
+            </select>
+            <span class="campo-text">Fecha de la agresión</span>
+            <input type="date" id="agresion-fecha" name="fecha-agresion"
+                value={{fecha}} class="date-picker"
+                min="2000-01-01" max={{fecha}} [(ngModel)]='fecha_incidente'>
+            <span class="campo-text">Hora de la agresión</span>
+            <input type="time" id="appt" name="appt"
+            min="00:00" max="23:59" [(ngModel)]='hora_incidente' class="date-picker">
+            <!--<select class="form-select" [(ngModel)]='hora_incidente'>
+                <option *ngFor="let n of horas">{{n}}</option>
+            </select>-->
+        </div>
+    </div>
+    <div class="flex-item">
+        <div class="left-box">
+            <h2 class="noselect margen-h2-bottom">Sección III</h2>
+            <h2 class="noselect no-margin">Datos de la víctima</h2>
+            <div class="grid-campos">
+                <div class="col1">
+                    <span class="campo-text no-margin-bottom">Edad</span>
+                    <input type="number" placeholder="Escriba su edad" class="input-medio" [(ngModel)]='edad_victima'>
+                </div>
+                <div class="col2">
+                    <span class="campo-text no-margin-bottom">Sexo</span>
+                    <select class="form-select" [(ngModel)]='sexo_victima'>
+                        <option *ngFor="let n of sexos">{{n}}</option>
+                    </select>
+                </div>
+            </div>
+            <h2 class="noselect margen-h2-bottom">Sección IV</h2>
+            <h2 class="noselect no-margin">Datos del agresor</h2>
+            <span class="campo-text no-margin-bottom">Nombre del agresor</span>
+            <input type="text" placeholder="Escriba el nombre del agresor" class="input-medio" id="full-input" [(ngModel)]='nombre_agresor'>
+            <span class="campo-text no-margin-bottom">Sexo del agresor</span>
+            <select class="form-select"  id='little-input' [(ngModel)]='sexo_agresor'>
+                <option *ngFor="let n of sexos">{{n}}</option>
+            </select>
+            <span class="campo-text no-margin-bottom">¿Quién es el agresor?</span>
+            <select class="form-select" id="full-input" [(ngModel)]='persona_agresora'>
+                <option *ngFor="let n of agresor">{{n}}</option>
+            </select>
+            <div class="buttons-container margin-buttons">
+                <div class="button-gray" (click)="backto1()">
+                    <span class="text-button" id="gray-inline">Atrás</span>
+                </div>
+                <div class="button-web" (click)="seccion3()">
+                    <span class="text-button">Siguiente sección</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Código Sección III-->
+<div class="flex-container noselect" [ngStyle]="{ display: display_tres }">
+    <div class="flex-item">
+        <div class="left-box">
+            <h2 class="noselect margen-h2-bottom">Sección V</h2>
+            <h2 class="noselect no-margin">Datos de acción después de la incidencia</h2>
+            <span class="campo-text">¿Qué acción tomaste después de la agresión?</span>
+            <select class="form-select" [(ngModel)]='accion'>
+                <option *ngFor="let n of acciones">{{n}}</option>
+            </select>
+            <span class="campo-text">Tiempo transcurrido desde la acción tomada</span>
+            <select class="form-select" [(ngModel)]='tiempo'>
+                <option *ngFor="let n of tiempos">{{n}}</option>
+            </select>
+            <span class="campo-text">Otro servicio requerido derivado de la agresión</span>
+            <select class="form-select" [(ngModel)]='servicio'>
+                <option *ngFor="let n of servicios">{{n}}</option>
+            </select>
+            <h2 class="noselect margen-h2-bottom">Sección VI</h2>
+            <h2 class="noselect no-margin">Datos informativos</h2>
+            <div class="grid-campos">
+                <div class="col1">
+                    <span class="campo-text no-margin-bottom">¿En tu institución recibes información sobre los tipos y modalidades de violencia?</span>
+                    <select class="form-select" [(ngModel)]='recibir_info'>
+                        <option *ngFor="let n of resp_cerrada">{{n}}</option>
+                    </select>
+                </div>
+                <div class="col2">
+                    <span class="campo-text no-margin-bottom">¿En tu institución existen mecanismos para denunciar acciones de violencia?</span>
+                    <select class="form-select" [(ngModel)]='mecanismos'>
+                        <option *ngFor="let n of resp_cerrada">{{n}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item">
+        <div class="left-box">
+            <span class="purple-title-text">
+                ¡Gracias!
+            </span>
+            <span class="black-text par-left">
+                Gracias por denunciar tu caso de incidencia de violencia, tu aporte nos permite construir escuelas seguras para ti. A través de tu denuncia podremos identificar que instituciones educativas son seguras y de esta forma generar las bases de un cambio en aquellas instituciones que lo requieren. Recuerda que si conoces a alguien que necesita ayuda o tú la necesitas puedes acercarte a nuestra asociación o alguna de las instituciones de apoyo disponibles para ti. Te invitamos a seguir capacitándote en términos de violencia, consulta nuestros artículos y sé parte de esta red transformacional, trabajando en equipo acabaremos con la violencia.
+                Los datos de tu denuncia son confidenciales y solo la asociación puede acceder a ellos. Recuerda, tu denuncia es anónima.
+            </span>
+        </div>
+        <div class="buttons-container margin-buttons-final">
+            <div class="button-gray" (click)="backto2()">
+                <span class="text-button" id="gray-inline">Atrás</span>
+            </div>
+            <a routerLink="/inicio" class="undecorated">
+                <div class="button-web" id="purple-finish" (click)="getReporte()">
+                    <span class="text-button" id="purple-filled">Finalizar</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
