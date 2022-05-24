@@ -93,8 +93,25 @@ export class ReporteFormularioComponent implements OnInit {
    mecanismos = this.resp_cerrada[0]
 
    //Objeto reporte
-   reporte:any = {
-   }
+   reporte: Incidencia = {
+    ID_INCIDENCIA: 0,
+    INC_ACCION: "",
+    INC_AGR_EDAD: "",
+    INC_AGR_GENERO: "",
+    INC_AGR_NOMBRE: "",
+    INC_AGR_TIPO: "",
+    INC_ESP: "",
+    INC_FECHA: "",
+    INC_HORA: "",
+    INC_INST: "",
+    INC_MUN: "",
+    INC_SERVICIO: "",
+    INC_TIEMPO: "",
+    INC_VIC_EDAD: "",
+    INC_VIC_GENERO: "",
+    INC_VIO_DESCR: "",
+    violencias_ID_VIOLENCIA: 0
+  }
    listaIncidencias: Incidencia[] = [];
 
   constructor(private peticiones:PeticionesService) { }
@@ -129,7 +146,7 @@ export class ReporteFormularioComponent implements OnInit {
   backto2(){
     this.display_tres = 'none';
     this.display_dos = 'flex';
-    delete this.reporte.id_incidencia;
+    delete this.reporte.ID_INCIDENCIA;
     this.peticiones.addInc(this.reporte).subscribe();
   }
 
@@ -177,28 +194,8 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   getReporte(){
-    this.reporte = {
-      inc_mun: this.municipio,
-      nivel_educativo: this.nivel_educativo,
-      inc_inst: this.institucion,
-      carrera: this.carrera,
-      inc_esp: this.espacio,
-      violencias_id_violencia:this.tipo_violencia,
-      inc_vio_descr: this.descripcion,
-      inc_fecha: this.fecha_incidente,
-      inc_hora: this.hora_incidente,
-      inc_vic_genero: this.sexo_victima,
-      inc_vic_edad: this.edad_victima,
-      inc_agr_genero: this.sexo_agresor,
-      inc_agr_nombre: this.nombre_agresor,
-      inc_agr_tipo: this.persona_agresora,
-      inc_accion: this.accion,
-      inc_tiempo: this.tiempo,
-      inc_servicio: this.servicio,
-      recibir_info: this.recibir_info,
-      mecanismos: this.mecanismos
-     }
     console.log(this.reporte)
+    this.peticiones.addInc(this.reporte).subscribe()
   }
 
 }
