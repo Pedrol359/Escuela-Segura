@@ -13,6 +13,7 @@ export class ArticuloService {
     //Objeto Articulo
     articulo = {
         titulo: "",
+        destacado: "",
         autor: "",
         descripcion: "",
         contenido: "",
