@@ -71,20 +71,17 @@
             <!-- Artículo destacado 1 -->
             <div class="contenido-destacado">
                 <div class="card">
-                    <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_1}">
-                        <div class="card-img-1"
-                            [ngStyle]="{'background': formatearUrl(articulos_destacados[0].urlImagen)}"></div>
-                        <span class="eliminar_articulo" (click)="eliminarArticulo(0)"></span>
+                        <div class="card-img-1"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_1()"></span>
                         <div class="blur">
-                            <h3>{{articulos_destacados[0].titulo}}</h3>
+                            <h3>Entre retos e inspiración</h3>
                         </div>
                     </div>
-                    <!-- Tarjeta 'Seleccionar articulo' -->
                     <div class="card-default" [ngStyle]="{ display: articulo_default_1}">
                         <div class="articulo-default">
                             <div class="articulo-button">
-                                <a class="white-normal-text">
+                                <a class="white-normal-text" routerLink="/panel-editor">
                                     <span class="articulo-icon"></span>
                                 </a>
                             </div>
@@ -96,41 +93,43 @@
                         </div>
                     </div>
                 </div>
+                <!-- Artículo destacado 2 -->
                 <div class="card">
-                    <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_2}">
-                        <div class="card-img-2"
-                            [ngStyle]="{'background': formatearUrl(articulos_destacados[1].urlImagen)}"></div>
-                        <span class="eliminar_articulo" (click)="eliminarArticulo(1)"></span>
+                        <div class="card-img-2"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_2()"></span>
                         <div class="blur">
-                            <h3>{{articulos_destacados[1].titulo}}</h3>
+                            <h3>Mis colores mi identidad: una mujer haitiana en México</h3>
                         </div>
                     </div>
-                    <!-- Tarjeta 'Seleccionar articulo' -->
                     <div class="card-default" [ngStyle]="{ display: articulo_default_2}">
                         <div class="articulo-default">
-                            <div class="articulo-button"> <a class="white-normal-text"> <span
-                                        class="articulo-icon"></span> </a> </div>
-                            <div class="articulo-d-text"> <a class="white-normal-text" (click)="verArticulos()"> <span
-                                        class="white-small-text">Seleccionar artículo</span> </a> </div>
+                            <div class="articulo-button">
+                                <a class="white-normal-text" routerLink="/panel-editor">
+                                    <span class="articulo-icon"></span>
+                                </a>
+                            </div>
+                            <div class="articulo-d-text">
+                                <a class="white-normal-text" (click)="verArticulos()">
+                                    <span class="white-small-text">Seleccionar artículo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- Artículo destacado 3 -->
                 <div class="card">
-                    <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_3}">
-                        <div class="card-img-3"
-                            [ngStyle]="{'background': formatearUrl(articulos_destacados[2].urlImagen)}"></div>
-                        <span class="eliminar_articulo" (click)="eliminarArticulo(2)"></span>
+                        <div class="card-img-3"></div>
+                        <span class="eliminar_articulo" (click)="eliminar_articulo_3()"></span>
                         <div class="blur">
-                            <h3>{{articulos_destacados[2].titulo}}</h3>
+                            <h3>El poder de mi voz: alto al acoso escolar</h3>
                         </div>
                     </div>
-                    <!-- Tarjeta 'Seleccionar articulo' -->
                     <div class="card-default" [ngStyle]="{ display: articulo_default_3}">
                         <div class="articulo-default">
                             <div class="articulo-button">
-                                <a class="white-normal-text">
+                                <a class="white-normal-text" routerLink="/panel-editor">
                                     <span class="articulo-icon"></span>
                                 </a>
                             </div>
@@ -180,26 +179,9 @@
             </div>
         </div>
     </div>
-
     <!-- Contenedor secundario: Derecha -->
     <div class="flex-item">
-        <div class="catalogo_articulos" [ngStyle]="{ display: catalogo_articulos }">
-            <span class="white-subtitle-text noselect margin-bottom">Seleccione un artículo</span>
-            <div class="grid-articulos noselect">
-                <div class="card" *ngFor="let article of articulos; let i = index" (click)="seleccionarArticulo(i)">
-                    <div class="card-img"
-                        [ngStyle]="{'background': formatearUrl(article.urlImagen),'filter': asignarFiltro(i)}">
-                    </div>
-                    <div class="blur">
-                        <h3>{{article.titulo}}</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="green-button margin-top-small margin-bottom">
-                <a (click)="guardarArticulos()">Aceptar</a>
-            </div>
-        </div>
-        <div class="right-column" [ngStyle]="{ display: before_catalogo }">
+        <div class="right-column">
             <!-- Sección: Artículos -->
             <span class="white-subtitle-text noselect margin-bottom">Artículos</span>
             <div class="container-articulos">
@@ -304,7 +286,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex-end" [ngStyle]="{ display: before_catalogo }">
+        <div class="flex-end">
             <div class="green-button margin-top-small margin-bottom">
                 <a (click)="guardarTodo()">Guardar todo</a>
             </div>

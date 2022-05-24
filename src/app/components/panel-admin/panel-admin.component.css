@@ -263,8 +263,7 @@ input[type="file"] {
 }
 
 /* Contenedor superior: Columna derecha */
-.right-column,
-.catalogo_articulos {
+.right-column {
   display: flex;
   align-items: flex-start;
   flex-flow: column wrap;
@@ -279,12 +278,6 @@ input[type="file"] {
   justify-content: space-between;
 }
 
-.grid-catalogo {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Card con efecto blur */
 .card {
   position: relative;
@@ -293,16 +286,6 @@ input[type="file"] {
   white-space: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.card-img {
-  float: left;
-  border-radius: 20px;
-  width: 100%;
-  height: 21vh;
-  background: center/cover
-    url("../../../assets/imagenes/inicio_story_principal.svg");
-    filter: opacity(70%);
 }
 
 .eliminar_articulo {
@@ -334,7 +317,6 @@ input[type="file"] {
   border-radius: 20px;
   width: 21vh;
   height: 23vh;
-  filter: opacity(70%);
 }
 
 .card-img-1 {
@@ -878,62 +860,6 @@ select {
   align-items: center;
   justify-content: center;
   align-self: center;
-}
-
-/* grid de artículos */
-.grid-articulos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
-  width: 100%;
-  max-height: calc(79vh - 11vh);
-  overflow-y: scroll;
-  overflow-x: hidden;
-  grid-column-gap: 5.21vh;
-  grid-row-gap: 3.2vh;
-  margin-bottom: 3.7vh;
-  padding-right: 2vh;
-}
-
-.grid-articulos::-webkit-scrollbar {
-  width: 3px; /* Tamaño del scroll en vertical */
-  height: 100px;
-}
-
-.grid-articulos::-webkit-scrollbar-thumb {
-  background: rgb(255, 255, 255);
-  border-radius: 30px;
-}
-
-.grid-articulo img {
-  height: 50px;
-  width: 50px;
-  border-radius: 30px;
-  object-fit: fill;
-  margin-left: -2vh;
-  cursor: pointer;
-}
-
-/*Overlay grid*/
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    linear-gradient(
-      180deg,
-      rgba(165, 137, 244, 0.57) 31.77%,
-      rgba(50, 150, 243, 0.57) 100%
-    );
-}
-
-.grid-articulo img:hover .overlay {
-  opacity: 1;
 }
 
 /* Responsive */

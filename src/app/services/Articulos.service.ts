@@ -13,7 +13,6 @@ export class ArticuloService {
     //Objeto Articulo
     articulo = {
         id: "",
-        destacado: "",
         titulo: "",
         autor: "",
         descripcion: "",
@@ -30,7 +29,7 @@ export class ArticuloService {
     actualizarArticulo(articulo: any): Promise<any> {
         return this.firestore.collection('Articulos').doc(articulo.id).update(articulo)
     }
-    eliminarArticulo(idArticulo: string) {
+    eliminarArticulo(idArticulo:string){
         return this.firestore.collection('Articulos').doc(idArticulo).delete()
     }
 
