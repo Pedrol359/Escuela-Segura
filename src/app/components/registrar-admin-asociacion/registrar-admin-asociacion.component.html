@@ -1,47 +1,34 @@
-<!-- IMPORTANTE 
-Instalación de la librería para encriptar contraseña:
-npm i install crypto-js --save
-Si no detecta la librería quizá pida:
-npm i --save-dev @types/crypto-js
-En caso de error: 
-npm update
--->
 <app-navbar-basica></app-navbar-basica>
 <section class="cont_caja_blanca">
     <div class="caja_blanca">
         <h1 class="tc-1">Registrar administrador</h1>
         
         <div class="cont_txtClave">
-            <h3 class="tc-4">Nombre</h3>
-            <h3 class="tc-4 error">{{nombreError}}</h3>
+            <h3 class="tc-4">Clave de autorización</h3>
+            <h3 class="tc-4"><a (click)="recuperar('4') " >¿Olvidaste la clave de autorización?</a></h3> 
          </div>
-        <input type="text" id="correo" [(ngModel)]="nombre" (click)="restoreName()">
-        <div class="cont_txtClave">
-            <h3 class="tc-4">Nombre de usuario</h3>
-            <h3 class="tc-4 error">{{usuarioError}}</h3>
-         </div>
-        <input type="email" class="correccion" [(ngModel)]="usuario" (click)="restoreUser()">
+        <input type="text" id="correo">
+
+        <h4 class="tc-4">Correo electrónico</h4>
+        <input type="email" class="correccion">
         
-        <div class="cont_txtClave">
-            <h3 class="tc-4 password_txt">Contraseña</h3>
-            <h3 class="tc-4 error">{{passwordError}}</h3>
-         </div>
+
+        <h4 class="tc-4 password_txt"  >Contraseña</h4>
         <div>
-            <input type={{tipo}} id="password" [(ngModel)]="password" (click)="restorePass()">
+            <input type={{tipo}} id="password">
             <img class="icon_password {{ocu1}}" src="../../../assets/icons/show_password.svg" (click)="verPassword_clic()"  >
             <img class="icon_password hide {{ocu2}}" src="../../../assets/icons/hide_password.svg" (click)="verPassword_clic()">
         </div>
-        <div class="cont_txtClave">
-            <h3 class="tc-4 password_txt">Confirmar contraseña</h3>
-         </div>
+
+        <h4 class="tc-4 password_txt"  >Confirmar contraseña</h4>
         <div>
-            <input type={{tipo1}} id="password" [(ngModel)]="passwordConfirmacion" (click)="restorePass()">
+            <input type={{tipo1}} id="password">
             <img class="icon_password {{ocu3}}" src="../../../assets/icons/show_password.svg" (click)="verPassword_clic1()"  >
             <img class="icon_password hide {{ocu4}}" src="../../../assets/icons/hide_password.svg" (click)="verPassword_clic1()">
         </div>
 
         <div class="cont_btn">
-            <button (click)="comprobarCampos()">Registrar</button>
+            <button>Registrar</button>
         </div>
     </div>
 </section>
