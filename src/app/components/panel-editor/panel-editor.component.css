@@ -50,14 +50,11 @@ a{
   }
   
   .text-button{
-    font-style: normal;
     font-weight: 500;
     font-size: 21px;
     line-height: 25px;
     color: #FFFFFF;
-    width:100%;
-    align-self: center;
-    margin-inline-start: 28%;
+    text-align: center;
   }
 
   #text-cancel{
@@ -353,12 +350,15 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
     min-width: 200px;
     min-height: 200px;
 }
-.selected-article img{
-    cursor: pointer;
-    height:100%;
+/*imagen por default */
+.selected-article .imagen_selected{
     width: 100%;
+    /* height:calc(8vw + 100px);  */
+    height:calc(280px - (100px - 4.5vw)); 
     border-radius: 20px;
+    margin-bottom: 10px;
 }
+
 /*apartado subir imagen*/
 .cont_editar_img{
     width: 100%;
@@ -423,7 +423,7 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
     outline: none;
     color: #FFFFFF;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 18px;
     line-height: 25px;
     padding: 7px;
   
@@ -483,16 +483,12 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
 /* Botón Publicar */
 .button-web{
     background: #0BCE5A;
+    border: none;
+    outline: none;
     box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
     border-radius: 25px;
     width: 180px;
     height: 45px;
-    align-self:flex-end;
-    display: flex;
-    flex-direction: row;
-    align-content:center;
-    align-items: center;
-    flex-flow:nowrap;
     margin-top:5%;
 }
 
@@ -610,5 +606,29 @@ REVISAR TIENE MUCHISMOS PUNTOS DE MEJORA*/
 
   
 
+/*Articulo defualt*/
+.articulo-default {
+  display: flex;
+  width: 21vh;
+  height: 23vh;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    90deg,
+    rgba(129, 182, 183, 1) 0%,
+    rgba(161, 107, 186, 1) 51%,
+    rgba(86, 96, 145, 1) 100%
+  );
+  border-radius: 20px;
+  justify-content:center;
+  align-items: center;
 
+}
+.txt_imagen_selected{
+  text-align: center;
+  /* margin-top:1vw; */
+  color: #fff;
+  font-size:14px;
+  padding:10px;
+}
 
+/* Ventanas emergentes */

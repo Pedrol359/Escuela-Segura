@@ -39,6 +39,7 @@ import { ReporteFormularioComponent } from './components/reporte-formulario/repo
 import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component';
 import { EscuelaCardComponent } from './components/cards/escuela-card/escuela-card.component';
 import { InstitucionCardComponent } from './components/cards/institucion-card/institucion-card.component';
+import { EliminarArticuloCardComponent } from './components/cards/eliminar-articulo-card/eliminar-articulo-card.component';
 
 
 
@@ -71,7 +72,8 @@ import { InstitucionCardComponent } from './components/cards/institucion-card/in
     ReporteFormularioComponent,
     EscuelasSegurasComponent,
     EscuelaCardComponent,
-    InstitucionCardComponent
+    InstitucionCardComponent,
+    EliminarArticuloCardComponent
   ],
   imports: [
     BrowserModule,

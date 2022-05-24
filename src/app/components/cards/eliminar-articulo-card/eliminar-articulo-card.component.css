@@ -1,0 +1,78 @@
+/* Eliminar Articulos */
+/*caracteriticas generales*/
+.button-web{
+    background: #0BCE5A;
+    border: none;
+    outline: none;
+    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    width: 180px;
+    height: 45px;
+    margin-top:5%;
+}
+
+.button-web:hover {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background-color: #089b43;
+}
+.text-button{
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFFFFF;
+    text-align: center;
+  }
+.cont_eliminarArticulo_shadow{
+    /* display:none; */
+    position:fixed;
+    z-index: 99999;
+    width:100%;
+    height: 100%;
+    background: rgba(209, 209, 209, 0.226);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    background-color: rgba(255, 255, 255, 0.2);
+  
+  }
+  .cont_eliminarArticulo{
+    width:40%;
+    padding: 3vw;
+    margin: auto;
+    margin-top:25vh;
+    background: #fff;
+    border-radius:20px;
+  }
+  .title_card{
+    color:#333333;
+    font-size:36px;
+    margin: 10px 0 1.7vw 0;
+  }
+  .cont_eliminarArticulo p{
+    color:#9B9B9B;
+    font-size:18px;
+  }
+  .cont_btn_confirmacion{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cancelar, .aceptar{
+    width: 150px;
+    cursor:pointer;
+  }
+  .cancelar:hover{
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background-color: #838383;
+  }
+  
+  .cancelar{
+    background: #C4C4C4;
+  }
+  .aceptar{
+    margin-left: 2vw;
+  }
+  
