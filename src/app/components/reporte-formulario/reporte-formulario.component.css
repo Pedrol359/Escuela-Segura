@@ -338,16 +338,7 @@ h2{
 }
 
 /* Informate aquí*/
-.grid-stories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 15%;
-    grid-row-gap: 9%;
-    width: 95%;
-    margin-bottom: 2em;
-    max-width: 688px;
-  }
+
 
 /*Imágenes informate aquí*/
 .articule-img-1,
@@ -504,6 +495,11 @@ h2{
   width: 100%;
   margin-top: 2em;
   max-height: 180px;
+  margin-bottom: 3.5em;
+}
+
+.new-margin-grid{
+  max-height: 80px;
 }
 
 .story-img-1,
