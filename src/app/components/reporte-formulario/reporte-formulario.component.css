@@ -468,7 +468,6 @@ h2{
     grid-column-gap: 10%;
     grid-row-gap: 0;
     width: 100%;
-    margin-bottom: 0.24vmax;
   }
 
   .col1{
@@ -495,3 +494,48 @@ h2{
       height: 10px;
   }
 
+  /* Otras historias */
+.grid-stories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 15%;
+  grid-row-gap: 9%;
+  width: 100%;
+  margin-top: 2em;
+  max-height: 180px;
+}
+
+.story-img-1,
+.story-img-2 {
+  width: auto;
+  height: 20vh;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.story-img-1 {
+  background: center/cover url("../../../assets/imagenes/inicio_story_1.svg") no-repeat;
+}
+
+.story-img-2 {
+  background: center/cover url("../../../assets/imagenes/inicio_story_2.svg") no-repeat;
+}
+
+.black-normal-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+}
+
+.black-normal-link:hover {
+  color: #a589f4;
+}
+
+.margin-titre{
+  margin-top:1em;
+}
