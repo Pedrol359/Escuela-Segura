@@ -337,6 +337,7 @@ h2{
     background-color: #313131;
 }
 
+
 /*Imágenes informate aquí*/
 .articule-img-1,
 .articule-img-2 {
@@ -456,7 +457,6 @@ h2{
     grid-column-gap: 10%;
     grid-row-gap: 0;
     width: 100%;
-    margin-bottom: 0.24vmax;
   }
 
   .col1{
@@ -496,10 +496,6 @@ h2{
   margin-bottom: 5em;
 }
 
-.new-margin-grid{
-  max-height: 80px;
-}
-
 .story-img-1,
 .story-img-2 {
   width: auto;
@@ -533,6 +529,7 @@ h2{
 .margin-titre{
   margin-top:1em;
 }
+
 .new-margin-grid{
   max-height: 80px;
 }

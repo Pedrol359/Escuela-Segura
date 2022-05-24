@@ -83,7 +83,6 @@ input{
     display: inline-block;
     text-align: center;
     width: 100%;
-    
 }
 
 button{
@@ -95,5 +94,26 @@ button{
     font-weight:600;
     color: #fff;
     padding: 7px 20px;
+    cursor: pointer;
+}
+
+button:hover{
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background-color: #333333;
+}
+
+.error{
+    font-weight: 500;
+    font-size: 11px;
+    color: #e6244e;
+}
+
+.cont_txtClave{
+    display:flex;
+    justify-content:space-between;
+    margin-top:38px;
+    flex-wrap:wrap;
 }
 

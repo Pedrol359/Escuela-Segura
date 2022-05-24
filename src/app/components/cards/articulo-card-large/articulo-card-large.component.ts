@@ -14,7 +14,7 @@ export class ArticuloCardLargeComponent implements OnInit {
   //Variables
   @Input() url="";
   @Input() titulo="";
-  @Input() contenido="";
+  @Input() descripcion="";
 
 
   ngOnInit(): void {
@@ -24,8 +24,8 @@ export class ArticuloCardLargeComponent implements OnInit {
     if (this.titulo ==""){
       this.titulo="La discriminación en el ambiente escolar"
     }
-    if (this.contenido ==""){
-      this.contenido="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget amet, tellus amet, vitae neque, aliquam dignissim. Ac diam... Seguir leyendo"
+    if (this.descripcion ==""){
+      this.descripcion="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget amet, tellus amet, vitae neque, aliquam dignissim. Ac diam... Seguir leyendo"
     }
 
   }
