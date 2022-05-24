@@ -868,32 +868,3 @@ select {
     visibility: hidden;
   }
 }
-
-@media screen and (max-width: 1400px) {
-
-  /* Fuentes */
-  .purple-title-text {
-      font-size: 48px;
-  }
-
-  .white-subtitle-text {
-      font-size: 20px;
-  }
-
-  .white-normal-text {
-      font-size: 18px;
-  }
-
-  .white-small-text {
-      font-size: 14px;
-  }
-
-  .banner-text {
-      font-size: 15px;
-  }
-
-  .blur h3 {
-      font-size: 14px;
-      padding: .7vh;
-  }
-}
