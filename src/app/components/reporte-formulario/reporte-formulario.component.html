@@ -139,38 +139,6 @@
                 <!--<select class="form-select" name="" [(ngModel)]='hora_incidente'>
                 <option *ngFor="let n of horas">{{n}}</option>
             </select>-->
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="left-box">
-                <h2 class="noselect margen-h2-bottom">Sección III</h2>
-                <h2 class="noselect no-margin">Datos de la víctima</h2>
-                <div class="grid-campos">
-                    <div class="col1">
-                        <span class="campo-text no-margin-bottom">Edad</span>
-                        <input type="number" placeholder="Escriba su edad" class="input-medio"
-                            name="edad_victima" [(ngModel)]='edad_victima'>
-                    </div>
-                    <div class="col2">
-                        <span class="campo-text no-margin-bottom">Sexo</span>
-                        <select class="form-select" name="sexo_victima" [(ngModel)]='sexo_victima'>
-                            <option *ngFor="let n of sexos">{{n}}</option>
-                        </select>
-                    </div>
-                </div>
-                <h2 class="noselect margen-h2-bottom">Sección IV</h2>
-                <h2 class="noselect no-margin">Datos del agresor</h2>
-                <span class="campo-text no-margin-bottom">Nombre del agresor</span>
-                <input type="text" placeholder="Escriba el nombre del agresor" class="input-medio" id="full-input"
-                    name="nombre_agresor" [(ngModel)]='nombre_agresor'>
-                <span class="campo-text no-margin-bottom">Sexo del agresor</span>
-                <select class="form-select" id='little-input' name="sexo_agresor" [(ngModel)]='sexo_agresor'>
-                    <option *ngFor="let n of sexos">{{n}}</option>
-                </select>
-                <span class="campo-text no-margin-bottom">¿Quién es el agresor?</span>
-                <select class="form-select" id="full-input" name="persona_agresora" [(ngModel)]='persona_agresora'>
-                    <option *ngFor="let n of agresor">{{n}}</option>
-                </select>
                 <div class="buttons-container margin-buttons">
                     <div class="button-gray" (click)="backto1()">
                         <span class="text-button" id="gray-inline">Atrás</span>
@@ -229,12 +197,6 @@
                     Gracias por denunciar tu caso de incidencia de violencia, tu aporte nos permite construir escuelas
                     seguras para ti. A través de tu denuncia podremos identificar que instituciones educativas son
                     seguras y de esta forma generar las bases de un cambio en aquellas instituciones que lo requieren.
-                    Recuerda que si conoces a alguien que necesita ayuda o tú la necesitas puedes acercarte a nuestra
-                    asociación o alguna de las instituciones de apoyo disponibles para ti. Te invitamos a seguir
-                    capacitándote en términos de violencia, consulta nuestros artículos y sé parte de esta red
-                    transformacional, trabajando en equipo acabaremos con la violencia.
-                    Los datos de tu denuncia son confidenciales y solo la asociación puede acceder a ellos. Recuerda, tu
-                    denuncia es anónima.
                 </span>
                 <h2 class="noselect margen-h2-bottom margin-titre">Artículos destacados para ti</h2>
                 <div class="grid-stories margin-top new-margin-grid">
