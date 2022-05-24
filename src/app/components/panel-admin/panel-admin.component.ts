@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, OnInit } from '@angular/core';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
@@ -18,6 +18,7 @@ export class PanelAdminComponent implements OnInit {
     this.getLocation();
     this.getVideoCode();
     this.obtenerInstituciones();
+    this.obtenerArticulos();
   }
 
 
@@ -25,49 +26,149 @@ export class PanelAdminComponent implements OnInit {
   articulo_destacado_1 = 'flex';
   articulo_destacado_2 = 'flex';
   articulo_destacado_3 = 'flex';
+  before_catalogo = 'flex';
   articulo_default_1 = 'none';
   articulo_default_2 = 'none';
   articulo_default_3 = 'none';
+  catalogo_articulos = 'none';
   articulos_default: boolean[] = [false, false, false];
-
-  eliminar_articulo_1() {
-    this.articulos_default[0] = true;
-    this.articulo_destacado_1 = 'none';
-    this.articulo_default_1 = 'flex';
-  }
-
-  eliminar_articulo_2() {
-    this.articulos_default[1] = true;
-    this.articulo_destacado_2 = 'none';
-    this.articulo_default_2 = 'flex';
-  }
-
-  eliminar_articulo_3() {
-    this.articulos_default[2] = true;
-    this.articulo_destacado_3 = 'none';
-    this.articulo_default_3 = 'flex';
-  }
-
+  articulos: any[] = []
+  articulos_destacados: any[] = []
   eliminados: string[] = []
+  destacado1 = '';
+  destacado2 = '';
+  destacado3 = '';
 
-  eliminar() {
-    for (let idArticulo of this.eliminados) {
-      this._articulo.eliminarArticulo(idArticulo)
-    }
-    this.eliminados = []
+  // Grid de artículos
+  obtenerArticulos() {
+    let subs = this._articulo.obtenerArticulos().subscribe(data => {
+      this.articulos = [];
+      this.articulos_destacados = [];
+      data.forEach((element: any) => {
+        this.articulos.push({
+          ...element.payload.doc.data(),
+          id: element.payload.doc.id
+        })
+      })
+      subs.unsubscribe
+      console.log(this.articulos);
+      console.log("Artículos destacados:");
+      this.obtenerArticulosDestacados();
+      console.log(this.articulos_destacados);
+    });
   }
+
+  obtenerArticulosDestacados() {
+    // Con este método filtramos los artículos destacados de la
+    // lista de artículos obtenidos
+    for (var a in this.articulos) {
+      if (this.articulos[a].destacado == "0") {
+        this.destacado1 = a;
+        this.articulos_destacados[0] = this.articulos[a];
+
+      } else
+        if (this.articulos[a].destacado == "1") {
+          this.destacado2 = a;
+          this.articulos_destacados[1] = this.articulos[a];
+        } else
+          if (this.articulos[a].destacado == "2") {
+            this.destacado3 = a;
+            this.articulos_destacados[2] = this.articulos[a];
+          }
+    }
+  }
+
+  eliminarArticulo(index: number) {
+    console.log('Artículo seleccionado: ' + index);
+    // Removemos de la lista de destacado al artículo seleccionado
+    // además de cambiarle el estilo a la tarjeta
+    // this.obtenerArticulosDestacados();
+    switch (index) {
+      case 0:
+        this.articulo_destacado_1 = 'none';
+        this.articulo_default_1 = 'flex';
+        this.articulos[+this.destacado1].destacado = "";
+        this.destacado1 = "";
+        break;
+      case 1:
+        this.articulo_destacado_2 = 'none';
+        this.articulo_default_2 = 'flex';
+        this.articulos[+this.destacado2].destacado = "";
+        this.destacado2 = "";
+        break;
+      case 2:
+        this.articulo_destacado_3 = 'none';
+        this.articulo_default_3 = 'flex';
+        this.articulos[+this.destacado3].destacado = "";
+        this.destacado3 = "";
+        break;
+    }
+  }
+
+  seleccionarArticulo(index: number) {
+    console.log('Artículo seleccionado: ' + index);
+    // Agregamos el artículo a la lista de destacados
+    // modificamos opacidad del articulo en lista de articulos disponibles
+    if (this.destacado1 == "") {
+      this.articulos[index].destacado = "0";
+      this.articulos_destacados[0] = this.articulos[index];
+      this.destacado1 = "" + index;
+      // ->
+      this.articulo_destacado_1 = 'flex';
+      this.articulo_default_1 = 'none';
+
+    } else if (this.destacado2 == "") {
+      this.articulos[index].destacado = "1";
+      this.articulos_destacados[1] = this.articulos[index];
+      this.destacado2 = "" + index;
+      // ->
+      this.articulo_destacado_2 = 'flex';
+      this.articulo_default_2 = 'none';
+
+    } else if (this.destacado3 == "") {
+      this.articulos[index].destacado = "2";
+      this.articulos_destacados[2] = this.articulos[index];
+      this.destacado3 = "" + index;
+      // ->
+      this.articulo_destacado_3 = 'flex';
+      this.articulo_default_3 = 'none';
+    }
+    console.log(this.articulos[index]);
+  }
+
+  asignarFiltro(index: number) {
+    if (this.articulos[index].destacado == "0") {
+      return 'opacity(20%)';
+    } else if (this.articulos[index].destacado == "1") {
+      return 'opacity(20%)';
+    } else if (this.articulos[index].destacado == "2") {
+      return 'opacity(20%)';
+    } else {
+      return 'brightness(100%)';
+    }
+  }
+
+  formatearUrl(url: string) {
+    return 'center/cover url(' + url + ')';
+  }
+
+  guardarArticulos() {
+    this.before_catalogo = 'flex';
+    this.catalogo_articulos = 'none';
+  }
+
 
   verArticulos() {
-    // activar el display del grid del total de articulos para seleccionar
+    // Secciones
+    this.before_catalogo = 'none';
+    this.catalogo_articulos = 'flex';
   }
 
   // Actualizar información de contacto
-
   modal_update = 'none';
   modal_content = 'none';
   modal_add = 'none';
   displayYoutube = 'none';
-
   latitud = 21.507029616565315;
   longitud = -104.92007528951542;
   link_video =
@@ -102,11 +203,11 @@ export class PanelAdminComponent implements OnInit {
   getVideoCode() { // Obtener link
     var code = this.link_video.split('?v=', 2);
     this.video_code = code[1];
-    console.log(this.video_code);
+    // console.log(this.video_code);
     code = this.video_code.split('&', 2);
-    console.log(this.video_code);
+    // console.log(this.video_code);
     this.video_code = 'https://www.youtube.com/embed/' + code[0];
-    console.log(this.video_code);
+    // console.log(this.video_code);
   }
 
   cargarImagen(event: any) {
