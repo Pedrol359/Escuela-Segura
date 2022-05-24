@@ -5,7 +5,7 @@
     <!-- Articulos -->
     <div class="cont_articulos">
         <!--Card del articulo -->
-        <app-articulo-card-large *ngFor="let articulo of articulos" url="{{articulo.urlImagen}}" titulo="{{articulo.titulo}}" descripcion="{{articulo.descripcion}}"></app-articulo-card-large>
+        <app-articulo-card-large *ngFor="let articulo of articulos" url="{{articulo.urlImagen}}" titulo="{{articulo.titulo}}" contenido="{{articulo.descripcion}}"></app-articulo-card-large>
 
 
     </div>
@@ -56,7 +56,9 @@
                 Ayudanos a construir escuelas seguras para tí. Da clic en el botón para denunciar tu caso de violencia,
                 visibilicemos el problema para poderlo resolver.
             </p>
+            <a routerLink="/reporte">
             <button>Denunciar ahora</button>
+            </a>
         </div>
     </aside>
 </section>

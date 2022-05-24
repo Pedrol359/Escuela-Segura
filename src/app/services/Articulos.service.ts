@@ -12,6 +12,7 @@ export class ArticuloService {
     constructor(private firestore: AngularFirestore, private router: Router) { }
     //Objeto Articulo
     articulo = {
+        id: "",
         titulo: "",
         autor: "",
         descripcion: "",
@@ -25,8 +26,8 @@ export class ArticuloService {
     obtenerArticulos(): Observable<any> {
         return this.firestore.collection('Articulos').snapshotChanges();
     }
-    actualizarArticulo(articulo: any,id:string): Promise<any> {
-        return this.firestore.collection('Articulos').doc(id).update(articulo)
+    actualizarArticulo(articulo: any): Promise<any> {
+        return this.firestore.collection('Articulos').doc(articulo.id).update(articulo)
     }
     eliminarArticulo(idArticulo:string){
         return this.firestore.collection('Articulos').doc(idArticulo).delete()
