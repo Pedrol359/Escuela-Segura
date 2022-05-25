@@ -23,7 +23,7 @@ export class NavbarAdminComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
     getScreenSize() {
       this.screenWidth = window.innerWidth;
-      console.log(this.screenWidth);
+      // console.log(this.screenWidth);
       if(this.screenWidth < 1330) this.dropDownOn();
       else this.fullOn();
   }
