@@ -11,6 +11,11 @@ export class PeticionesService {
   url='http://localhost:5000/';
   constructor(private http: HttpClient) { }
 
+  addUser(data:any):Observable<any>{
+    return this.http.post(this.url+"insertuser",data);
+
+  }
+
   getIncidencias(){
     return this.http.get(this.url+"readIncidencias");
   }
@@ -41,8 +46,17 @@ export class PeticionesService {
   getMapDataNiv(){
     return this.http.get(this.url+"mapNivel");
   }
+  getInstitucionesBy(nivel: String,municipio:String){
+    return this.http.get(this.url+"readInstitucionBy/"+nivel+"&"+municipio);
+  }
 }
 
+export interface Institucion {
+  ID_INST: number
+  INST_NIVEL: string
+  INST_NOMBRE: string
+  municipios_ID_MUNICIPIO: number
+}
 
 export interface Municipio{
   ID_MUNICIPIO: number

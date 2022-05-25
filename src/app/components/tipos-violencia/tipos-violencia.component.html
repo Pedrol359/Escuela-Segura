@@ -1,3 +1,61 @@
-<div class="carousel">
-    <app-carousel [items]="carouselIData"></app-carousel>
+<app-navbar-principal></app-navbar-principal>
+<!--IMPORTANTE
+Instalaciones necesarias.
+Mapbox:
+npm install mapbox-gl --save
+npm i --save-dev @types/mapbox-gl
+npm install --save-dev @types/mapbox-gl
+-->
+<!-- Barra de navegación -->
+<app-navbar-principal></app-navbar-principal>
+<!-- Código Nosotros I-->
+<div class="flex-container">
+    <div class="flex-item">
+        <div class="left-box">
+            <span class="purple-title-text">
+                Alto a la violencia
+            </span>
+            <span class="black-text par-left little-margin-down">
+                La violencia es un problema recurrente en la sociedad actual, y para poder erradicarlo, primero es necesario reconocer que un acto violento no se limita a una agresión física. La violencia es todo aquel acto que se realiza con la intención de perjudicar a otros. Es más que nunca necesario reconocer el problema, luchar contra él y construir espacios seguros para todos. Aquí te presentamos algunos artículos relativos a los diversos tipos de violencia; si sufres de violencia o conoces a alguien que necesita ayuda, no dudes en acercarte a nuestra asociación a una alguna institución de apoyo para dar seguimiento a tu caso.
+            </span>
+            <span class="black-title-text">
+                Conoce los diferentes tipos de violencia
+            </span>
+            <span class="black-corpus-text noselect little-margin-down">
+                Conoce los diferentes tipos de violencia a través de nuestros artículos.
+            </span>
+            <div class="scroller">
+                <div class="card"  *ngFor="let article of articulos; let i = index">
+                    <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
+                    <div class="blur" (click)="seleccionarArticulo(i)">
+                        <h3>{{article.titulo}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-item">
+        <div class="left-box">
+            <div class="video-1">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mDF0KQ1Gaqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h2 class="noselect black-title-text">¿Has sufrido violencia en tu escuela?</h2>
+            <span class="black-corpus-text noselect ">Ayudanos a construir escuelas seguras para
+                tí. Da clic en el botón para denunciar tu caso de violencia, visibilicemos el problema para poderlo
+                resolver.
+            </span>
+            <div class="buttons-container margin-buttons-final">
+                <a routerLink="/reporte" class="undecorated">
+                    <div class="button-web">
+                        <span class="text-button" id="purple-filled">Denunciar ahora</span>
+                    </div>
+                </a>
+                <a routerLink="/escuelas-seguras" class="undecorated">
+                    <div class="button-purple">
+                        <span class="text-button" id="purple">Espacios seguros</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

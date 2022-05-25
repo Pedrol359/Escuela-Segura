@@ -15,7 +15,7 @@
     width: 88%;
     padding-top: 3%;
     gap: 17%;
-    }
+}
 
 .flex-item:nth-child(1) {
     order: 1;

@@ -150,8 +150,6 @@ h2{
   }
 
   .campo-text{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 21px;
     line-height: 25px;
@@ -160,35 +158,33 @@ h2{
   }
 
   .text-button{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 21px;
     line-height: 25px;
     color: #FFFFFF;
     width:100%;
     align-self: center;
-    margin-inline-start: 10%;
+    text-align: center;
   }
 
   #purple{
     color: #a589f4;
-    margin-inline-start: 10%;
+    text-align: center;
   }
 
   #gray{
     color: #9B9B9B;
-    margin-inline-start: 30%;
+    text-align: center;
   }
 
   #gray-inline{
       color: #9B9B9B;
-      margin-inline-start: 37%;
+      text-align: center;
   }
 
   #purple-filled{
     color: #ffffff;
-    margin-inline-start: 30%;
+    text-align: center;
   }
 
   #purple-finish{
