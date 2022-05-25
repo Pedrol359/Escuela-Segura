@@ -1,35 +1,5 @@
 <!-- Barra de navegación -->
 <app-navbar-admin></app-navbar-admin>
-<!-- Ventana emergente: actualizar portada -->
-<div class="modal-box" [ngStyle]="{ display: modal_update }">
-    <div class="modal-content" [ngStyle]="{ display: modal_content }">
-        <h1 class="white-normal-text noselect">
-            Ingresa el link de un video en Youtube o sube una imagen desde tu equipo.
-        </h1>
-        <div class="modal-button-container">
-            <div class="yt-icon cursor-p" (click)="open_yt()"></div>
-            <input type="file" class="" id="file-input" accept=".png, .jpg, .jpeg, .svg, .jfif"
-                (change)="cargarImagen($event)">
-            <label for="file-input" class="">
-                <div class="modal-icon-upload cursor-p"></div>
-            </label>
-        </div>
-        <span class="modal-close noselect" (click)="close_modal()">&times;</span>
-    </div>
-    <!-- Sección YT -->
-    <div class="modal-content" [ngStyle]="{ display: displayYoutube }">
-        <h1 class="white-normal-text noselect">
-            Ingresa el link de un video en Youtube.
-        </h1>
-        <div class="modal-button-container">
-            <input class="textbox-yt" type="text" placeholder="https://www.youtube.com/">
-            <div class="green-button-small">
-                <a>Guardar</a>
-            </div>
-        </div>
-        <span class="modal-close noselect" (click)="close_modal()">&times;</span>
-    </div>
-</div>
 <!-- Ventana emergente: agregar institución de apoyo -->
 <div class="modal-box" [ngStyle]="{ display: modal_add }">
     <div class="modal-content">
@@ -63,7 +33,18 @@
     <div class="flex-item">
         <div class="left-column">
             <span class="purple-title-text noselect">Panel de Administrador</span>
-            <span class="white-subtitle-text noselect margin-top-small margin-bottom">Editar contenido destacado</span>
+            <div class="shared-header margin-top-small margin-bottom">
+                <div class="instituciones-title">
+                    <span class="white-subtitle-text noselect ">Editar contenido destacado</span>
+                </div>
+                <a class="notextdeco" routerLink="/panel-editor">
+                    <div class="agregar-institucion">
+                        Agregar artículo
+                        <!-- <span class="institucion-icon margin-left-small"></span> -->
+                    </div>
+                </a>
+            </div>
+
             <!-- Artículo destacado 1 -->
             <div class="contenido-destacado">
                 <div class="card">
@@ -166,16 +147,10 @@
                 </div>
                 <!-- Derecha -->
                 <div class="cont-update-right">
-                    <div class="map-header margin-bottom">
-                        <!-- <div class="map-icon noselect"></div> -->
-                        <span class="white-normal-text noselect">Dirección</span>
-                        <!-- <span class="white-small-text noselect bottom">Posicione el marcador sobre su dirección</span> -->
-                    </div>
+                    <span class="white-normal-text margin-bottom noselect">Dirección</span>
                     <div class="map">
                         <div id="map-box"></div>
                     </div>
-                    <!-- <span class="white-normal-text noselect margin-bottom">Página de facebook</span>
-                    <input class="textbox-normal margin-bottom" type="text" value="www.facebook.com/promex"> -->
                 </div>
             </div>
         </div>
@@ -198,33 +173,8 @@
             <div class="green-button margin-top-small flex-end">
                 <a (click)="guardarArticulos()">Aceptar</a>
             </div>
-
         </div>
         <div class="right-column" [ngStyle]="{ display: before_catalogo }">
-            <!-- Sección: Artículos -->
-            <!-- <span class="white-subtitle-text noselect margin-bottom">Artículos</span>
-            <div class="container-articulos">
-                <div class="articulos-left">
-                    <a class="white-normal-text" routerLink="/panel-editor">
-                        <div class="articulo">
-                            <div class="articulo-button">
-                                <span class="articulo-icon"></span>
-                            </div>
-                            <div class="articulo-text">
-                                <span class="white-normal-text">Añadir artículo</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="articulos-right">
-                    <span class="white-normal-text noselect">Editar un artículo</span>
-                    <div class="searchbar">
-                        <input class="textbox-normal margin-top-small width-100" type="text"
-                            placeholder="Busca un artículo">
-                        <span class="searchbar-icon"></span>
-                    </div>
-                </div> -
-            </div> -->
             <!-- Contenedor: Escuelas seguras -->
             <div class="container-escuelas margin-bottom">
                 <span class="white-subtitle-text noselect margin-top-small">Escuelas seguras</span>
@@ -258,7 +208,7 @@
                 </tr>
             </table>
             <!-- Contenedor: Instituciones de apoyo -->
-            <div class="instituciones-header margin-top-small margin-bottom">
+            <div class="shared-header margin-top-small margin-bottom">
                 <div class="instituciones-title">
                     <span class="white-subtitle-text noselect ">Instituciones de
                         apoyo</span>
@@ -266,7 +216,7 @@
                 <a class="notextdeco" (click)="open_modal_add()">
                     <div class="agregar-institucion">
                         Agregar institución de apoyo
-                        <span class="institucion-icon margin-left-small"></span>
+                        <!-- <span class="institucion-icon margin-left-small"></span> -->
                     </div>
                 </a>
             </div>

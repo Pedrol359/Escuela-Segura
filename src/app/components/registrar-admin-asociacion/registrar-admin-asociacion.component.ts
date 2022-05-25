@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js'
+import { PeticionesService } from 'src/app/services/peticiones.service';
 
 @Component({
   selector: 'app-registrar-admin-asociacion',
@@ -9,7 +10,7 @@ import * as CryptoJS from 'crypto-js'
 })
 export class RegistrarAdminAsociacionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private peticiones:PeticionesService) { }
   //Variables
   tipo = "password"
   tipo1 = "password"
@@ -122,8 +123,14 @@ export class RegistrarAdminAsociacionComponent implements OnInit {
     this.registro = {
       nombre: this.nombre,
       usuario: this.usuario,
+      ape_pat: "",
+      ape_mat:"",
       passwordEncryp: this.passwordEncryp
     }
+    this.peticiones.addUser(this.registro).subscribe(
+      err=> console.log(err),
+      res=>console.log(res)            
+    )
     console.log(this.registro)
   }
 }
