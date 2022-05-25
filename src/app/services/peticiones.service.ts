@@ -11,6 +11,11 @@ export class PeticionesService {
   url='http://localhost:5000/';
   constructor(private http: HttpClient) { }
 
+  addUser(data:any):Observable<any>{
+    return this.http.post(this.url+"insertuser",data);
+
+  }
+
   getIncidencias(){
     return this.http.get(this.url+"readIncidencias");
   }
