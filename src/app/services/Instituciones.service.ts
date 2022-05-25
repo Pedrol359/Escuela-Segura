@@ -25,7 +25,10 @@ export class InstitucionesService {
     obtenerInstituciones(): Observable<any> {
         return this.firestore.collection('Instituciones de Apoyo').snapshotChanges();
     }
-    eliminarInstitucion(idInstitucion:string){
+    actualizarInstituciones(institucion: any, id: string): Promise<any> {
+        return this.firestore.collection('Instituciones de Apoyo').doc(id).update(institucion)
+    }
+    eliminarInstitucion(idInstitucion: string) {
         return this.firestore.collection('Instituciones de Apoyo').doc(idInstitucion).delete()
     }
 

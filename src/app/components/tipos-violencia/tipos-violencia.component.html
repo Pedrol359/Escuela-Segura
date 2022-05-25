@@ -21,7 +21,7 @@ npm install --save-dev @types/mapbox-gl
             <span class="black-title-text">
                 Conoce los diferentes tipos de violencia
             </span>
-            <span class="black-corpus-text noselect">
+            <span class="black-corpus-text noselect little-margin-down">
                 Conoce los diferentes tipos de violencia a través de nuestros artículos.
             </span>
             <div class="scroller">
@@ -39,11 +39,23 @@ npm install --save-dev @types/mapbox-gl
             <div class="video-1">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/mDF0KQ1Gaqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <a href="https://progresoparamexico.org/" target="_blank" class="undecorated">
-            <div class="button-web">
-                <span class="text-button">Ir a sitio web</span>
+            <h2 class="noselect black-title-text">¿Has sufrido violencia en tu escuela?</h2>
+            <span class="black-corpus-text noselect ">Ayudanos a construir escuelas seguras para
+                tí. Da clic en el botón para denunciar tu caso de violencia, visibilicemos el problema para poderlo
+                resolver.
+            </span>
+            <div class="buttons-container margin-buttons-final">
+                <a routerLink="/reporte" class="undecorated">
+                    <div class="button-web">
+                        <span class="text-button" id="purple-filled">Denunciar ahora</span>
+                    </div>
+                </a>
+                <a routerLink="/escuelas-seguras" class="undecorated">
+                    <div class="button-purple">
+                        <span class="text-button" id="purple">Espacios seguros</span>
+                    </div>
+                </a>
             </div>
-            </a>
         </div>
     </div>
 </div>

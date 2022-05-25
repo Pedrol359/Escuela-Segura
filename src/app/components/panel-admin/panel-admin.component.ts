@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as Mapboxgl from 'mapbox-gl';
+import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { InstitucionesService } from 'src/app/services/Instituciones.service';
+
 @Component({
     selector: 'app-panel-admin',
     templateUrl: './panel-admin.component.html',
@@ -18,7 +20,6 @@ export class PanelAdminComponent implements OnInit {
         this.obtenerArticulos();
     }
 
-
     // Contenido destacado
     articulo_destacado_1 = 'flex';
     articulo_destacado_2 = 'flex';
@@ -28,7 +29,6 @@ export class PanelAdminComponent implements OnInit {
     articulo_default_2 = 'none';
     articulo_default_3 = 'none';
     catalogo_articulos = 'none';
-    articulos_default: boolean[] = [false, false, false];
     articulos: any[] = []
     articulos_destacados: any[] = []
     eliminados: string[] = []
@@ -48,10 +48,8 @@ export class PanelAdminComponent implements OnInit {
                 })
             })
             subs.unsubscribe
-            console.log(this.articulos);
-            console.log("Artículos destacados:");
             this.obtenerArticulosDestacados();
-            console.log(this.articulos_destacados);
+            // console.log(this.articulos_destacados);
         });
     }
 
@@ -59,73 +57,121 @@ export class PanelAdminComponent implements OnInit {
         // Con este método filtramos los artículos destacados de la
         // lista de artículos obtenidos
         for (var a in this.articulos) {
-            if (this.articulos[a].destacado == "0") {
+            if (this.articulos[a].destacado == '0') {
                 this.destacado1 = a;
                 this.articulos_destacados[0] = this.articulos[a];
+            }
 
-            } else
-                if (this.articulos[a].destacado == "1") {
-                    this.destacado2 = a;
-                    this.articulos_destacados[1] = this.articulos[a];
-                } else
-                    if (this.articulos[a].destacado == "2") {
-                        this.destacado3 = a;
-                        this.articulos_destacados[2] = this.articulos[a];
-                    }
+            if (this.articulos[a].destacado == '1') {
+                this.destacado2 = a;
+                this.articulos_destacados[1] = this.articulos[a];
+            }
+
+            if (this.articulos[a].destacado == '2') {
+                this.destacado3 = a;
+                this.articulos_destacados[2] = this.articulos[a];
+            }
+        }
+        console.log('[Artículo Destacados]');
+        console.log(this.articulos_destacados);
+        this.comprobarDestacados();
+    }
+
+    comprobarDestacados() {
+        // Validamos que el array de destacados tenga info,
+        // sino cambiamos el diseño de la tarjeta para 'seleccionar artículo'
+        if (this.articulos_destacados[0] == null) {
+            this.articulo_destacado_1 = 'none';
+            this.articulo_default_1 = 'flex';
+            console.log('Destacado 1 no existe');
+        } else {
+            this.articulo_destacado_1 = 'flex';
+            this.articulo_default_1 = 'none';
+        }
+
+        if (this.articulos_destacados[1] == null) {
+            this.articulo_destacado_2 = 'none';
+            this.articulo_default_2 = 'flex';
+            console.log('Destacado 2 no existe');
+        } else {
+            this.articulo_destacado_2 = 'flex';
+            this.articulo_default_2 = 'none';
+        }
+
+        if (this.articulos_destacados[2] == null) {
+            this.articulo_destacado_3 = 'none';
+            this.articulo_default_3 = 'flex';
+            console.log('Destacado 3 no existe');
+        } else {
+            this.articulo_destacado_3 = 'flex';
+            this.articulo_default_3 = 'none';
         }
     }
 
     eliminarArticulo(index: number) {
-        console.log('Artículo seleccionado: ' + index);
+        console.log('Artículo eliminado: ' + index);
         // Removemos de la lista de destacado al artículo seleccionado
         // además de cambiarle el estilo a la tarjeta
-        // this.obtenerArticulosDestacados();
         switch (index) {
             case 0:
+                // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_1 = 'none';
                 this.articulo_default_1 = 'flex';
-                this.articulos[+this.destacado1].destacado = "";
                 this.destacado1 = "";
+                // Borramos el campo destacado
+                this.articulos_destacados[0].destacado = '';
+                // Actualizamos en Firebase
+                this._articulo.actualizarArticulo(this.articulos_destacados[0], this.articulos_destacados[0].id);
                 break;
             case 1:
+                // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_2 = 'none';
                 this.articulo_default_2 = 'flex';
-                this.articulos[+this.destacado2].destacado = "";
                 this.destacado2 = "";
+                // Borramos el campo destacado
+                this.articulos_destacados[1].destacado = '';
+                // Actualizamos en Firebase
+                this._articulo.actualizarArticulo(this.articulos_destacados[1], this.articulos_destacados[1].id);
                 break;
             case 2:
+                // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_3 = 'none';
                 this.articulo_default_3 = 'flex';
-                this.articulos[+this.destacado3].destacado = "";
                 this.destacado3 = "";
+                // Borramos el campo destacado
+                this.articulos_destacados[2].destacado = '';
+                // Actualizamos en Firebase
+                this._articulo.actualizarArticulo(this.articulos_destacados[2], this.articulos_destacados[2].id);
                 break;
         }
+        console.log(this.articulos);
+        console.log(this.articulos_destacados);
     }
 
     seleccionarArticulo(index: number) {
         console.log('Artículo seleccionado: ' + index);
         // Agregamos el artículo a la lista de destacados
         // modificamos opacidad del articulo en lista de articulos disponibles
-        if (this.destacado1 == "") {
-            this.articulos[index].destacado = "0";
+        if (this.destacado1 == '') {
+            this.articulos[index].destacado = '0';
             this.articulos_destacados[0] = this.articulos[index];
-            this.destacado1 = "" + index;
+            this.destacado1 = '' + index;
             // ->
             this.articulo_destacado_1 = 'flex';
             this.articulo_default_1 = 'none';
 
-        } else if (this.destacado2 == "") {
-            this.articulos[index].destacado = "1";
+        } else if (this.destacado2 == '') {
+            this.articulos[index].destacado = '1';
             this.articulos_destacados[1] = this.articulos[index];
-            this.destacado2 = "" + index;
+            this.destacado2 = '' + index;
             // ->
             this.articulo_destacado_2 = 'flex';
             this.articulo_default_2 = 'none';
 
-        } else if (this.destacado3 == "") {
-            this.articulos[index].destacado = "2";
+        } else if (this.destacado3 == '') {
+            this.articulos[index].destacado = '2';
             this.articulos_destacados[2] = this.articulos[index];
-            this.destacado3 = "" + index;
+            this.destacado3 = '' + index;
             // ->
             this.articulo_destacado_3 = 'flex';
             this.articulo_default_3 = 'none';
@@ -134,11 +180,11 @@ export class PanelAdminComponent implements OnInit {
     }
 
     asignarFiltro(index: number) {
-        if (this.articulos[index].destacado == "0") {
+        if (this.articulos[index].destacado == '0') {
             return 'opacity(20%)';
-        } else if (this.articulos[index].destacado == "1") {
+        } else if (this.articulos[index].destacado == '1') {
             return 'opacity(20%)';
-        } else if (this.articulos[index].destacado == "2") {
+        } else if (this.articulos[index].destacado == '2') {
             return 'opacity(20%)';
         } else {
             return 'brightness(100%)';
@@ -150,27 +196,41 @@ export class PanelAdminComponent implements OnInit {
     }
 
     guardarArticulos() {
-        this.before_catalogo = 'flex';
-        this.catalogo_articulos = 'none';
-    }
+        // Validar que haya 3 artículos destacados
+        if (this.articulos_destacados[0] != '') {
+            if (this.articulos_destacados[1] != '') {
+                if (this.articulos_destacados[2] != '') {
+                    // Actualizamos individualmente
+                    this._articulo.actualizarArticulo(this.articulos_destacados[0], this.articulos_destacados[0].id);
 
-    eliminar() {
-        for (let idArticulo of this.eliminados) {
-            this._articulo.eliminarArticulo(idArticulo)
+                    this._articulo.actualizarArticulo(this.articulos_destacados[1], this.articulos_destacados[1].id);
+
+                    this._articulo.actualizarArticulo(this.articulos_destacados[2], this.articulos_destacados[2].id);
+
+                    alert('¡Se guardaron los artículos destacados!');
+
+                    // Visualización de sección
+                    this.before_catalogo = 'flex';
+                    this.catalogo_articulos = 'none';
+                } else {
+                    alert('Es necesario seleccionar tres artículos destacados\nSelecciona el artículo destacado 3');
+                }
+            } else {
+                alert('Es necesario seleccionar tres artículos destacados\nSelecciona el artículo destacado 2');
+            }
+        } else {
+            alert('Es necesario seleccionar tres artículos destacados\nSelecciona el artículo destacado 1');
         }
-        this.eliminados = []
     }
-
 
     verArticulos() {
-        // Secciones
+        // Activar el display del grid del total de articulos para seleccionar
         this.before_catalogo = 'none';
         this.catalogo_articulos = 'flex';
-        // activar el display del grid del total de articulos para seleccionar
     }
 
-    // Actualizar información de contacto
 
+    // Actualizar información de contacto
     modal_update = 'none';
     modal_content = 'none';
     modal_add = 'none';
@@ -185,33 +245,56 @@ export class PanelAdminComponent implements OnInit {
     imagenCargada = false;
     cargando = false
     filePath: string = '';
-    imagen_selected: any = "../../../assets/imagenes/inicio_story_principal.svg";
+    imagen_selected: any = '../../../assets/imagenes/inicio_story_principal.svg';
+
     getLocation() { // Mapa
         (Mapboxgl as any).accessToken = environment.mapboxKey;
+
         var mapa = new Mapboxgl.Map({
             container: 'map-box',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [this.longitud, this.latitud],
-            zoom: 11,
+            zoom: 13,
         });
+
+        const geocoder = new MapboxGeocoder({
+            accessToken: environment.mapboxKey,
+            marker: false,
+            mapboxgl: mapa,
+            placeholder: 'Busca tu dirección',
+        }).addTo(mapa);
+
+        mapa.addControl(new Mapboxgl.NavigationControl());
+
         var marker = new Mapboxgl.Marker({
             draggable: true,
         })
             .setLngLat([this.longitud, this.latitud])
             .addTo(mapa);
-        mapa.addControl(new Mapboxgl.NavigationControl());
+
+        marker.on('drag', () => {
+            this.latitud = marker.getLngLat().lat;
+            this.longitud = marker.getLngLat().lng;
+            console.log(this.latitud + ', ' + this.longitud);
+        });
+
+        mapa.on('click', (e) => {
+            marker.setLngLat(e.lngLat);
+            this.latitud = marker.getLngLat().lat;
+            this.longitud = marker.getLngLat().lng;
+            console.log(this.latitud + ', ' + this.longitud);
+        });
+
     }
+
     getVideoCode() { // Obtener link
         var code = this.link_video.split('?v=', 2);
         this.video_code = code[1];
         // console.log(this.video_code);
-        console.log(this.video_code);
         code = this.video_code.split('&', 2);
         // console.log(this.video_code);
-        console.log(this.video_code);
         this.video_code = 'https://www.youtube.com/embed/' + code[0];
         // console.log(this.video_code);
-        console.log(this.video_code);
     }
 
     cargarImagen(event: any) {
@@ -232,27 +315,30 @@ export class PanelAdminComponent implements OnInit {
             this.filePath = '';
         }
     }
+
     open_modal() {
         this.modal_update = 'flex';
         this.modal_content = '';
     }
+
     open_modal_add() {
         this.modal_add = 'block';
     }
-    open_yt() {
-        this.modal_content = 'none';
-        this.displayYoutube = 'block';
-    }
+
     close_modal() {
         this.modal_update = 'none';
         this.modal_content = 'none';
         this.displayYoutube = 'none';
     }
+
     close_modal_add() {
         this.modal_add = 'none';
     }
+
     // Escuelas Seguras
     estado = [true, false, true, false];
+    index: number = 0;
+    combo_option_0 = 'flex';
     nombres = [
         'Instituto Tecnológico de Tepic',
         'Universidad Autonoma de Nayarit',
@@ -301,34 +387,63 @@ export class PanelAdminComponent implements OnInit {
         'Av. de la Cultura No. 30, Cd del Valle, 63199 ...',
         'Tokio 8, Cd del Valle, 63157 Tepic, Nay.',
     ];
+
     check(est: boolean, index: number) {
         this.estado[index] = est;
         console.log(this.estado[index]);
         console.log(index);
     }
+
     // Instituciones de apoyo
-    instituciones: any[] = []
+    idInstituciones: any[] = [];
+    instituciones: any[] = [];
     institucion = {
-        nombre: "",
-        descripcion: "",
-        direccion: "",
-        telefono: ""
+        nombre: '',
+        id: '',
+        descripcion: '',
+        direccion: '',
+        telefono: ''
     }
+
     nuevaInstitucion = {
-        nombre: "",
-        descripcion: "",
-        direccion: "",
-        telefono: ""
+        nombre: '',
+        id: '',
+        descripcion: '',
+        direccion: '',
+        telefono: ''
     }
-    index: number = 0;
-    combo_option_0 = 'flex';
+
+    updateInstitucionApoyo() {
+        // Validar que no haya campos vacíos
+        if ((this.institucion.direccion != '' && this.institucion.telefono != '' && this.institucion.descripcion != '')) {
+            // Validar número telefónico
+            if (this.institucion.telefono.length == 10) {
+                if (this.institucion.telefono.match(/^(\d){10}$/g)) {
+                    this._institucion.actualizarInstituciones(this.institucion, this.idInstituciones[this.index])
+                } else {
+                    alert('Solo se aceptan números para el número telefónico');
+                    return;
+                }
+            } else {
+                alert('El número telefónico debe contener diez digitos\nEjemplo: 1234567890');
+                return;
+            }
+        } else {
+            alert('Es necesario rellenar todos los campos para actualizar la institución de apoyo');
+        }
+    }
+
     getDatosInstitucion(id: any) {
+        console.log('Index = ' + this.index);
         this.combo_option_0 = 'none';
+        this.institucion.nombre = this.instituciones[id].nombre;
+        this.institucion.id = this.instituciones[id].id;
         this.institucion.direccion = this.instituciones
         [id].direccion;
         this.institucion.telefono = this.instituciones[id].telefono;
         this.institucion.descripcion = this.instituciones[id].descripcion;
     }
+
     obtenerInstituciones() {
         this._institucion.obtenerInstituciones().subscribe(data => {
             this.instituciones = [];
@@ -337,10 +452,14 @@ export class PanelAdminComponent implements OnInit {
                     id: element.payload.doc.id,
                     ...element.payload.doc.data()
                 })
+                this.idInstituciones.push(element.payload.doc.id);
             })
-            console.log(this.instituciones.length);
+            console.log(this.instituciones);
+
         });
+        console.log(this.idInstituciones);
     }
+
     agregarInstitucion() {
         this.obtenerInstituciones();
         this._institucion.institucion.id = this.instituciones.length;
@@ -351,8 +470,10 @@ export class PanelAdminComponent implements OnInit {
         this._institucion.agregarInstitucion(this.nuevaInstitucion)
         console.log(this._institucion.institucion);
     }
+
     // Guardar todo
     guardarTodo() {
         console.log(this.institucion);
+        this.updateInstitucionApoyo();
     }
 }

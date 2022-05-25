@@ -454,19 +454,12 @@ input[type="file"] {
 }
 
 #map-box {
-  /* height: 20.5vh; */
   height: 100%;
   width: 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   background-color: #313131;
   display: block;
-}
-
-.map-header-left {
-  white-space: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Contenedor secundario: Derecha */
@@ -557,37 +550,6 @@ input[type="file"] {
 
 .articulo-default:hover .articulo-icon {
   transform: scale(1.2);
-}
-
-/* Barra de búsqueda: Artículos */
-.searchbar {
-  display: flex;
-  position: relative;
-  min-width: 55%;
-}
-
-.searchbar-icon {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 8px;
-  margin-right: 1vh;
-  width: 16px;
-  height: 16px;
-  background: center/cover url("../../../assets/icons/Panel-editor/search.svg");
-  cursor: pointer;
-  transition: 0.3s all ease-in-out;
-}
-
-.searchbar-icon:hover {
-  background: center/cover url("../../../assets/icons/search_white.svg");
-}
-
-/* Contenedor: escuelas seguras */
-.container-escuelas {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 
 /* Tablita escuelas segura */
@@ -735,7 +697,7 @@ td:first-child {
   color: #fff;
   border-radius: 20px;
   border-style: none;
-  padding: 1vh 2.5vh 1vh 1vh;
+  padding: 1vh 1vh 5vh 1vh;
   resize: none;
   text-decoration: none;
   outline: none;
