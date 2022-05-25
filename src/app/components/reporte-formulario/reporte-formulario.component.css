@@ -150,8 +150,6 @@ h2{
   }
 
   .campo-text{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 21px;
     line-height: 25px;
@@ -160,8 +158,6 @@ h2{
   }
 
   .text-button{
-    font-family: 'Inter';
-    font-style: normal;
     font-weight: 500;
     font-size: 21px;
     line-height: 25px;
