@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav">
+    <div class="nav" [ngStyle]="{ display: display_full }">
         <h1 class="noselect">
             promex
         </h1>
@@ -33,6 +33,46 @@
             <div class="dropdown">
                 <div class="dropbtn"></div>
                 <div class="dropdown-content">
+                    <a routerLink="/escuelas-seguras">
+                        <h3>Escuelas Seguras</h3>
+                    </a>
+                    <a routerLink="/login-admin-asociacion">
+                        <h3>Ingreso a Admin</h3>
+                    </a>
+                    <!-- <a routerLink="/login-admin-asociacion">
+                        <h3>Panel de Admin</h3>
+                    </a> -->
+                    <a routerLink="/panel-admin">
+                        <h3>Panel de Admin</h3>
+                    </a>
+                </div>
+            </div>
+        </ul>
+    </div>
+    <div class="nav" [ngStyle]="{ display: display_responsive }">
+        <h1 class="noselect">
+            promex
+        </h1>
+        <ul>
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <div class="dropbtn"></div>
+                <div class="dropdown-content">
+                    <a href="#">
+                        <h3>Inicio</h3>
+                    </a>
+                    <a routerLink="/articulos">
+                        <h3>Artículos</h3>
+                    </a>
+                    <a routerLink="/reporte">
+                        <h3>Denuncias</h3>
+                    </a>
+                    <a routerLink="/nosotros">
+                        <h3>Nosotros</h3>
+                    </a>
+                    <a routerLink="/tipos-violencia">
+                        <h3>Violencia</h3>
+                    </a>
                     <a routerLink="/escuelas-seguras">
                         <h3>Escuelas Seguras</h3>
                     </a>
