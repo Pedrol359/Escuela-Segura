@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { InstitucionesService } from 'src/app/services/Instituciones.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
     selector: 'app-panel-admin',
     templateUrl: './panel-admin.component.html',
@@ -16,7 +17,6 @@ export class PanelAdminComponent implements OnInit {
         this.getVideoCode();
         this.obtenerInstituciones();
         this.obtenerArticulos();
-        this.obtenerArticulosDestacados();
     }
 
     // Contenido destacado
@@ -61,19 +61,52 @@ export class PanelAdminComponent implements OnInit {
             if (this.articulos[a].destacado == '0') {
                 this.destacado1 = a;
                 this.articulos_destacados[0] = this.articulos[a];
+            }
 
-            } else
-                if (this.articulos[a].destacado == '1') {
-                    this.destacado2 = a;
-                    this.articulos_destacados[1] = this.articulos[a];
-                } else
-                    if (this.articulos[a].destacado == '2') {
-                        this.destacado3 = a;
-                        this.articulos_destacados[2] = this.articulos[a];
-                    }
+            if (this.articulos[a].destacado == '1') {
+                this.destacado2 = a;
+                this.articulos_destacados[1] = this.articulos[a];
+            }
+
+            if (this.articulos[a].destacado == '2') {
+                this.destacado3 = a;
+                this.articulos_destacados[2] = this.articulos[a];
+            }
         }
         console.log('[Artículo Destacados]');
         console.log(this.articulos_destacados);
+        this.comprobarDestacados();
+    }
+
+    comprobarDestacados() {
+        // Validamos que el array de destacados tenga info,
+        // sino cambiamos el diseño de la tarjeta para 'seleccionar artículo'
+        if (this.articulos_destacados[0] == null) {
+            this.articulo_destacado_1 = 'none';
+            this.articulo_default_1 = 'flex';
+            console.log('Destacado 1 no existe');
+        } else {
+            this.articulo_destacado_1 = 'flex';
+            this.articulo_default_1 = 'none';
+        }
+
+        if (this.articulos_destacados[1] == null) {
+            this.articulo_destacado_2 = 'none';
+            this.articulo_default_2 = 'flex';
+            console.log('Destacado 2 no existe');
+        } else {
+            this.articulo_destacado_2 = 'flex';
+            this.articulo_default_2 = 'none';
+        }
+
+        if (this.articulos_destacados[2] == null) {
+            this.articulo_destacado_3 = 'none';
+            this.articulo_default_3 = 'flex';
+            console.log('Destacado 3 no existe');
+        } else {
+            this.articulo_destacado_3 = 'flex';
+            this.articulo_default_3 = 'none';
+        }
     }
 
     eliminarArticulo(index: number) {

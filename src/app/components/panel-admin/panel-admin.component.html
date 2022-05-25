@@ -49,10 +49,10 @@
                 <div class="card">
                     <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_1}">
-                        <div class="card-img-1" *ngIf="articulos_destacados[0] != '' "
+                        <div class="card-img-1"
                             [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}"></div>
                         <span class="eliminar_articulo" (click)="eliminarArticulo(0)"></span>
-                        <div class="blur" *ngIf="articulos_destacados[0] != '' ">
+                        <div class="blur">
                             <h3>{{articulos_destacados[0]?.titulo}}</h3>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 <div class="card">
                     <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_2}">
-                        <div class="card-img-2" *ngIf="articulos_destacados[1] != '' "
+                        <div class="card-img-2"
                             [ngStyle]="{'background': formatearUrl(articulos_destacados[1]?.urlImagen)}"></div>
                         <span class="eliminar_articulo" (click)="eliminarArticulo(1)"></span>
                         <div class="blur" *ngIf="articulos_destacados[1] != '' ">
@@ -95,10 +95,10 @@
                 <div class="card">
                     <!-- Tarjeta con imagen -->
                     <div class="card-destacado" [ngStyle]="{ display: articulo_destacado_3}">
-                        <div class="card-img-3" *ngIf="articulos_destacados[2] != '' "
+                        <div class="card-img-3"
                             [ngStyle]="{'background': formatearUrl(articulos_destacados[2]?.urlImagen)}"></div>
                         <span class="eliminar_articulo" (click)="eliminarArticulo(2)"></span>
-                        <div class="blur" *ngIf="articulos_destacados[2] != '' ">
+                        <div class="blur">
                             <h3>{{articulos_destacados[2]?.titulo}}</h3>
                         </div>
                     </div>
