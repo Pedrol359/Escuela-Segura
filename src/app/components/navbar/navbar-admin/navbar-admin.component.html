@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav">
+    <div class="nav" [ngStyle]="{ display: display_full }">
         <h1 class="noselect">
             promex
         </h1>
@@ -23,6 +23,34 @@
             <div class="dropdown">
                 <div class="dropbtn"></div>
                 <div class="dropdown-content">
+                    <a routerLink="/">
+                        <h3>Configuración</h3>
+                    </a>
+                    <a routerLink="/inicio">
+                        <h3>Salir</h3>
+                    </a>
+                </div>
+            </div>
+        </ul>
+    </div>
+    <div class="nav" [ngStyle]="{ display: display_responsive }">
+        <h1 class="noselect">
+            promex
+        </h1>
+        <ul>
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <div class="dropbtn"></div>
+                <div class="dropdown-content">
+                    <a routerLink="/panel-admin">
+                        <h3>Inicio</h3>
+                    </a>
+                    <a routerLink="/mapa">
+                        <h3>Mapa de calor</h3>
+                    </a>
+                    <a routerLink="/panel-editor">
+                        <h3>Panel de editor</h3>
+                    </a>
                     <a routerLink="/">
                         <h3>Configuración</h3>
                     </a>
