@@ -559,37 +559,6 @@ input[type="file"] {
   transform: scale(1.2);
 }
 
-/* Barra de búsqueda: Artículos */
-.searchbar {
-  display: flex;
-  position: relative;
-  min-width: 55%;
-}
-
-.searchbar-icon {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 8px;
-  margin-right: 1vh;
-  width: 16px;
-  height: 16px;
-  background: center/cover url("../../../assets/icons/Panel-editor/search.svg");
-  cursor: pointer;
-  transition: 0.3s all ease-in-out;
-}
-
-.searchbar-icon:hover {
-  background: center/cover url("../../../assets/icons/search_white.svg");
-}
-
-/* Contenedor: escuelas seguras */
-.container-escuelas {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 /* Tablita escuelas segura */
 table {
   background: #505050;
