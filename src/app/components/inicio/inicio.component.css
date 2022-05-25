@@ -7,6 +7,10 @@
   margin-bottom: 1vmax;
 }
 
+.undecorated{
+  text-decoration: none;
+}
+
 /* Evitar subrayado al seleccionar */
 .noselect {
   -webkit-touch-callout: none;
@@ -139,6 +143,10 @@
   flex: 1 1 450px;
   align-self: auto;
   padding-top: 14vh;
+}
+
+.padding-dark{
+  padding-bottom: 14vh;
 }
 
 /* Contenedor superior: Columna izquierda */
