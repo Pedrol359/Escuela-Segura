@@ -18,20 +18,18 @@ npm install --save-dev @types/mapbox-gl
             <span class="black-text par-left little-margin-down">
                 La violencia es un problema recurrente en la sociedad actual, y para poder erradicarlo, primero es necesario reconocer que un acto violento no se limita a una agresión física. La violencia es todo aquel acto que se realiza con la intención de perjudicar a otros. Es más que nunca necesario reconocer el problema, luchar contra él y construir espacios seguros para todos. Aquí te presentamos algunos artículos relativos a los diversos tipos de violencia; si sufres de violencia o conoces a alguien que necesita ayuda, no dudes en acercarte a nuestra asociación a una alguna institución de apoyo para dar seguimiento a tu caso.
             </span>
-        </div>
-        <div>
             <span class="black-title-text">
                 Conoce los diferentes tipos de violencia
             </span>
-        </div>
-        <span class="black-corpus-text noselect">
-            Conoce los diferentes tipos de violencia a través de nuestros artículos.
-        </span>
-        <div class="scroller">
-            <div class="card"  *ngFor="let article of articulos; let i = index">
-                <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
-                <div class="blur" (click)="seleccionarArticulo(i)">
-                    <h3>{{article.titulo}}</h3>
+            <span class="black-corpus-text noselect">
+                Conoce los diferentes tipos de violencia a través de nuestros artículos.
+            </span>
+            <div class="scroller">
+                <div class="card"  *ngFor="let article of articulos; let i = index">
+                    <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
+                    <div class="blur" (click)="seleccionarArticulo(i)">
+                        <h3>{{article.titulo}}</h3>
+                    </div>
                 </div>
             </div>
         </div>
