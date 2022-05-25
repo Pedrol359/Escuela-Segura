@@ -83,6 +83,11 @@
     margin-bottom: 0.2em;
     text-shadow: 1px 0.2px 5px rgba(0, 0, 0, 0.05);
   }
+
+  #purple{
+    color: #a589f4;
+    text-align: center;
+  }
   
   .green-title-text {
     font-size: 64px;
@@ -124,7 +129,7 @@
     color: #FFFFFF;
     width:100%;
     align-self: center;
-    margin-inline-start: 17%;
+    text-align: center;
   }
 
   /*Control parrafos*/
@@ -142,34 +147,11 @@
     overflow: hidden;
     z-index: 1;
     width: 95%;
-    height: 15vw;
+    height: 19vw;
     margin-top: 3em;
     max-width: 688px;
     min-height: 309px;
   }
-
-/* Botón enlace sitio web */
-.button-web{
-    background: #0BCE5A;
-    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
-    border-radius: 25px;
-    width: 200px;
-    height: 45px;
-    align-self:flex-end;
-    display: flex;
-    flex-direction: row;
-    align-content:center;
-    align-items: center;
-    flex-flow:nowrap;
-    margin-top:5%;
-}
-
-.button-web:hover {
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
-    transition-duration: 0.4s;
-    background: #333333;
-}
 
 /*Scroll horizontal instituciones de apoyo*/
 .scroller{
@@ -253,3 +235,69 @@
     color: #fff;
   }
   
+  /* Botón espacios seguros */
+  .button-purple{
+    background: #FFFFFF;
+    border: 2px solid #A589F4;
+    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    width: 14em;
+    height: 45px;
+    align-self:flex-end;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    align-items: center;
+    flex-flow:nowrap;
+    cursor: pointer;
+}
+
+.button-purple:hover {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background: #A589F4;
+}
+
+.button-purple:hover #purple {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    color: #FFFFFF;
+}
+
+/* Botón enlace sitio web */
+.button-web{
+    background: #0BCE5A;
+    box-shadow: 2px 0.5px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    width: 14em;
+    height: 45px;
+    align-self:flex-end;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    align-items: center;
+    flex-flow:nowrap;
+    margin-top:5%;
+}
+
+.button-web:hover {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    background: #333333;
+}
+
+.buttons-container{
+    align-self:flex-end;
+    display: flex;
+    flex-direction: row;
+    align-content:flex-end;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-flow:nowrap;
+    margin-bottom: 2em;
+    width: 100%;
+    gap: 10%;
+}
