@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as Mapboxgl from 'mapbox-gl';
+import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { InstitucionesService } from 'src/app/services/Instituciones.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 @Component({
     selector: 'app-panel-admin',
     templateUrl: './panel-admin.component.html',
@@ -28,10 +29,8 @@ export class PanelAdminComponent implements OnInit {
     articulo_default_2 = 'none';
     articulo_default_3 = 'none';
     catalogo_articulos = 'none';
-    articulos_default: boolean[] = [false, false, false];
     articulos: any[] = []
     articulos_destacados: any[] = []
-    idArticulos: any[] = [];
     eliminados: string[] = []
     destacado1 = '';
     destacado2 = '';
@@ -118,7 +117,6 @@ export class PanelAdminComponent implements OnInit {
                 // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_1 = 'none';
                 this.articulo_default_1 = 'flex';
-                // this.articulos[+this.destacado1].destacado = "";
                 this.destacado1 = "";
                 // Borramos el campo destacado
                 this.articulos_destacados[0].destacado = '';
@@ -129,7 +127,6 @@ export class PanelAdminComponent implements OnInit {
                 // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_2 = 'none';
                 this.articulo_default_2 = 'flex';
-                // this.articulos[+this.destacado2].destacado = "";
                 this.destacado2 = "";
                 // Borramos el campo destacado
                 this.articulos_destacados[1].destacado = '';
@@ -140,7 +137,6 @@ export class PanelAdminComponent implements OnInit {
                 // Cambiamos el diseño de la tarjeta
                 this.articulo_destacado_3 = 'none';
                 this.articulo_default_3 = 'flex';
-                // this.articulos[+this.destacado3].destacado = "";
                 this.destacado3 = "";
                 // Borramos el campo destacado
                 this.articulos_destacados[2].destacado = '';
@@ -204,7 +200,6 @@ export class PanelAdminComponent implements OnInit {
         if (this.articulos_destacados[0] != '') {
             if (this.articulos_destacados[1] != '') {
                 if (this.articulos_destacados[2] != '') {
-
                     // Actualizamos individualmente
                     this._articulo.actualizarArticulo(this.articulos_destacados[0], this.articulos_destacados[0].id);
 
@@ -254,18 +249,42 @@ export class PanelAdminComponent implements OnInit {
 
     getLocation() { // Mapa
         (Mapboxgl as any).accessToken = environment.mapboxKey;
+
         var mapa = new Mapboxgl.Map({
             container: 'map-box',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [this.longitud, this.latitud],
-            zoom: 11,
+            zoom: 13,
         });
+
+        const geocoder = new MapboxGeocoder({
+            accessToken: environment.mapboxKey,
+            marker: false,
+            mapboxgl: mapa,
+            placeholder: 'Busca tu dirección',
+        }).addTo(mapa);
+
+        mapa.addControl(new Mapboxgl.NavigationControl());
+
         var marker = new Mapboxgl.Marker({
             draggable: true,
         })
             .setLngLat([this.longitud, this.latitud])
             .addTo(mapa);
-        mapa.addControl(new Mapboxgl.NavigationControl());
+
+        marker.on('drag', () => {
+            this.latitud = marker.getLngLat().lat;
+            this.longitud = marker.getLngLat().lng;
+            console.log(this.latitud + ', ' + this.longitud);
+        });
+
+        mapa.on('click', (e) => {
+            marker.setLngLat(e.lngLat);
+            this.latitud = marker.getLngLat().lat;
+            this.longitud = marker.getLngLat().lng;
+            console.log(this.latitud + ', ' + this.longitud);
+        });
+
     }
 
     getVideoCode() { // Obtener link
