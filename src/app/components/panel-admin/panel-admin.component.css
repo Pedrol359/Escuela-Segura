@@ -293,6 +293,7 @@ input[type="file"] {
   white-space: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .card-img {
@@ -302,7 +303,7 @@ input[type="file"] {
   height: 21vh;
   background: center/cover
     url("../../../assets/imagenes/inicio_story_principal.svg");
-  filter: opacity(70%);
+  filter: opacity(75%);
 }
 
 .eliminar_articulo {
@@ -318,7 +319,7 @@ input[type="file"] {
   transition: 0.3s all ease-in-out;
 }
 
-.blur:hover {
+.card:hover .blur {
   background-color: rgba(48, 223, 89, 0.27);
 }
 
@@ -334,7 +335,7 @@ input[type="file"] {
   border-radius: 20px;
   width: 21vh;
   height: 23vh;
-  filter: opacity(70%);
+  filter: opacity(75%);
 }
 
 .card-img-1 {
@@ -460,20 +461,6 @@ input[type="file"] {
   border-radius: 15px;
   background-color: #313131;
   display: block;
-}
-
-.map-header {
-  display: flex;
-}
-
-.map-icon {
-  width: 23px;
-  height: 23px;
-  margin-right: 4px;
-  background: center/cover url("../../../assets/icons/map_marker.svg");
-  -webkit-transition-duration: 0.3s;
-  /* Safari */
-  transition-duration: 0.3s;
 }
 
 .map-header-left {
@@ -672,7 +659,7 @@ td:first-child {
 }
 
 /* Instituciones de apoyo */
-.instituciones-header {
+.shared-header {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -943,6 +930,6 @@ select {
   
     .blur h3 {
       font-size: 14px;
-      padding: 0.7vh;
+      padding: 1vh;
     }
   }

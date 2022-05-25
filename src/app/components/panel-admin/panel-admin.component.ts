@@ -195,7 +195,7 @@ export class PanelAdminComponent implements OnInit {
             zoom: 11,
         });
         var marker = new Mapboxgl.Marker({
-            draggable: false,
+            draggable: true,
         })
             .setLngLat([this.longitud, this.latitud])
             .addTo(mapa);
