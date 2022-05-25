@@ -54,5 +54,13 @@ export class ArticulosPantallaInicioComponent implements OnInit {
         console.log(this.articulos);
       });
   }
+
+  formatearUrl(url: string) {
+    return 'center/cover url(' + url + ')'
+  }
+  seleccionarArticulo(index: number) {
+
+  }
+
 }
 

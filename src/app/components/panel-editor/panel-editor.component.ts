@@ -207,12 +207,6 @@ export class PanelEditorComponent implements OnInit {
   getCharacters() {
     this.titulo_count= this.titulo.length+'/35'
     this.descripcion_count= this.descripcion.length+'/100'
-    
-    // var titulo: string = "0/35";
-    // var input = <HTMLInputElement>document.getElementById(id_element);
-    // var indicador: string = "";
-    // indicador = input.value.length + '\\' + limite;
-    // this.titulo_count = indicador;
     this.btnCancelarShow = true
   }
 
