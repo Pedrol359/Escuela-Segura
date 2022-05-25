@@ -47,19 +47,19 @@
                 <h2 class="noselect margen-h2-bottom">Sección I</h2>
                 <h2 class="noselect no-margin">Datos del lugar</h2>
                 <span class="campo-text">Municipio</span>
-                <select class="form-select" name="inc_municipio" [(ngModel)]='reporte.INC_MUN' >
-                    <option ngDefaultControl *ngFor="let item of municipios" [value]="item.MUNICIPIO_NOMBRE"
+                <select class="form-select" name="inc_municipio" [(ngModel)]='reporte.INC_MUN'(change)="setNivel()" >
+                    <option ngDefaultControl *ngFor="let item of municipios; let i = index" [value]="i+1"
                        name="INC_MUN">
                         {{item.MUNICIPIO_NOMBRE}}
                     </option>
                 </select>
                 <span class="campo-text">Nivel educativo</span>
-                <select class="form-select" name="nivel_educativo"  (change)="setNivel()">
-                    <option *ngFor="let n of niveles_educativos">{{n}}</option>
+                <select class="form-select" name="indexNivel" [(ngModel)]='indexNivel' (change)="setNivel()">
+                    <option *ngFor="let n of niveles_educativos; let i = index" [value]="i">{{n}}</option>
                 </select>
                 <span class="campo-text">Institución</span>
                 <select class="form-select" name="institucion" [(ngModel)]='reporte.INC_INST'>
-                    <option *ngFor="let n of instituciones">{{n}}</option>
+                    <option *ngFor="let n of instituciones; let i = index" [value]="i+1">{{n.INST_NOMBRE}}</option>
                 </select>
                 <span class="campo-text">Carrera o facultad</span>
                 <input type="text" placeholder="Escriba su carrera o facultad" class="input-medio"
@@ -93,7 +93,7 @@
                 </span>
                 <span class="campo-text">Tipo de violencia</span>
                 <select class="form-select" name="tipo_violencia" [(ngModel)]='reporte.violencias_ID_VIOLENCIA' (change)="setTipo()">
-                    <option *ngFor="let n of violencias">{{n}}</option>
+                    <option *ngFor="let n of violencias; let i = index" [value]="i">{{n}}</option>
                 </select>
                 <span class="campo-text">Agresión</span>
                 <select class="form-select" name="descripcion"  [(ngModel)]='reporte.INC_VIO_DESCR' >
@@ -126,7 +126,7 @@
                     <div class="col2">
                         <span class="campo-text no-margin-bottom">Sexo</span>
                         <select class="form-select" name="sexo_victima"  [(ngModel)]='reporte.INC_VIC_GENERO'>
-                            <option *ngFor="let n of sexos">{{n}}</option>
+                            <option *ngFor="let n of sexos; let i = index" [value]="sexosI[i]">{{n}}</option>
                         </select>
                     </div>
                 </div>
@@ -139,14 +139,14 @@
                     <div class="grid-campos">
                         <div class="col1">
                             <span class="campo-text no-margin-bottom">Edad</span>
-                            <input type="number" placeholder="Escriba LA edad" class="input-medio"
+                            <input type="number" placeholder="Escriba la edad" class="input-medio"
                                 name="edad_agresor"  [(ngModel)]='reporte.INC_AGR_EDAD'>
                         </div>
                         <div class="col2">
                             <span class="campo-text no-margin-bottom">Sexo</span>
                             <select class="form-select" id='little-input' name="sexo_agresor"
                              [(ngModel)]='reporte.INC_AGR_GENERO'>
-                                <option *ngFor="let n of sexos">{{n}}</option>
+                                <option *ngFor="let n of sexos; let i = index" [value]="sexosI[i]">{{n}}</option>
                             </select>
                         </div>
                     </div>    
