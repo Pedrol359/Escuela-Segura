@@ -532,7 +532,7 @@ export class PanelAdminComponent implements OnInit {
         this.obtenerInstituciones();
         if (this.nuevaInstitucion.nombre != '') {
             if (this.nuevaInstitucion.direccion != '') {
-                if (this.nuevaInstitucion.telefono != '') {
+                if (this.nuevaInstitucion.telefono != '' && this.nuevaInstitucion.telefono.match(/^(\d){10}$/g)) {
                     if (this.nuevaInstitucion.descripcion != '') {
                         this._institucion.institucion.index = this.instituciones.length;
                         this._institucion.institucion.nombre = this.nuevaInstitucion.nombre;
@@ -548,7 +548,7 @@ export class PanelAdminComponent implements OnInit {
                         alert('Ingresa una descripción breve de la institución de apoyo.');
                     }
                 } else {
-                    alert('Ingresa el teléfono de la institución de apoyo.');
+                    alert('Ingresa el teléfono de la institución de apoyo. Debe contener 10 diez dígitos.\nEjemplo: 1234567890');
                 }
             } else {
                 alert('Ingresa la dirección de la institución de apoyo.');
