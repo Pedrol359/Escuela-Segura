@@ -388,6 +388,11 @@ h2{
     margin-bottom: 0.1vmax!important;
   }
 
+  #super-margin{
+    margin-bottom: 10em;
+  }
+
+
   /*Combobox*/
   .form-select{
     width: 80%;
@@ -489,7 +494,7 @@ h2{
   width: 100%;
   margin-top: 0.5em;
   max-height: 180px;
-  margin-bottom: 10em;
+  margin-bottom: 5em;
 }
 
 .story-img-1,
