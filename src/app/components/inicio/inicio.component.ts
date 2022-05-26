@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
@@ -17,10 +17,18 @@ export class InicioComponent implements OnInit {
   destacado1 = '';
   destacado2 = '';
   destacado3 = '';
+  //Responsive styles
+  paddingFull = '14vh'
+  paddingShort = '2vh'
+  padding = ''
+  screenWidth:any
 
-  constructor(private router: Router,private _articulo: ArticuloService) { }
+  constructor(private router: Router,private _articulo: ArticuloService) {
+    this.getScreenSize();
+  }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
           return;
@@ -28,6 +36,14 @@ export class InicioComponent implements OnInit {
       window.scrollTo(0, 0)
     });
     this.obtenerArticulos();
+  }
+
+  @HostListener('window:resize', ['$event'])
+    getScreenSize() {
+      this.screenWidth = window.innerWidth;
+      console.log(this.screenWidth);
+      if(this.screenWidth <= 450) this.padding = this.paddingShort;
+      else this.padding = this.paddingFull;
   }
 
   obtenerArticulos() {
@@ -72,5 +88,6 @@ export class InicioComponent implements OnInit {
   formatearUrl(url: string) {
     return 'center/cover url(' + url + ')';
   }
+
 
 }

@@ -1,8 +1,8 @@
 <!-- Barra de navegación -->
 <app-navbar-principal></app-navbar-principal>
 <!-- Sección superior -->
-<div class="flex-container dark">
-    <div class="flex-item padding-dark">
+<div class="flex-container dark wrap-reverse">
+    <div class="flex-item padding-dark" [ngStyle]="{'padding-top': padding}">
         <div class="left-column">
             <span class="purple-title-text noselect">{{articulos_destacados[0]?.titulo}}</span>
             <span class="white-normal-text noselect margin-top">{{articulos_destacados[0]?.descripcion}}</span>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="flex-item padding-dark">
+    <div class="flex-item">
         <div class="right-column">
             <div class="slider" [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}"></div>
         </div>
