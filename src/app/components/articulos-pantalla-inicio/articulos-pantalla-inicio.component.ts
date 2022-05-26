@@ -1,3 +1,4 @@
+import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticuloService } from 'src/app/services/Articulos.service';
@@ -31,7 +32,7 @@ export class ArticulosPantallaInicioComponent implements OnInit {
     this.imgS1 = "../../../../assets/img/img1-1.png"
     this.imgS2 = "../../../../assets/img/img1-2.png"
 
-    this.obtenerArticulos()
+    this.obtenerArticulos()    
   }
 
   slider1() {

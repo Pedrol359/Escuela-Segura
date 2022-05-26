@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +13,6 @@ export class VerArticuloComponent implements OnInit {
 
   ngOnInit(): void {
     this.articulo= JSON.parse(localStorage.getItem('articuloSeleccionado') || ''); 
-    //localStorage.setItem('articuloSeleccionado',JSON.stringify(this.articulo))
   }
 
 }

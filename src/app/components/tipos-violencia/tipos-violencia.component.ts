@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
 
@@ -24,7 +25,7 @@ export class TiposViolenciaComponent implements OnInit {
   articulos_destacados: any[] = []
   articulos: any[] = []
 
-  constructor(private _articulo: ArticuloService) { }
+  constructor(private _articulo: ArticuloService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerArticulos();
@@ -68,13 +69,9 @@ export class TiposViolenciaComponent implements OnInit {
     }
   }
 
-  seleccionarArticulo(index: number) {
-    this.titulo = this.articulos[index].titulo
-    this.autor = this.articulos[index].autor
-    this.descripcion = this.articulos[index].descripcion
-    this.contenido = this.articulos[index].contenido
-    this.imagen_selected = this.articulos[index].urlImagen
-    this.index_selected = index
+  seleccionarArticulo(articulo:any) {
+    localStorage.setItem('articuloSeleccionado',JSON.stringify(articulo))
+    this.router.navigate(['/articulo']);
   }
 
   /* Metodos de control de interfaz */

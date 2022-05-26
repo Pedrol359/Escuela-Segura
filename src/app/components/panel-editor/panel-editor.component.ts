@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { get } from 'http';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-panel-editor',
@@ -76,6 +78,7 @@ export class PanelEditorComponent implements OnInit {
   obtenerArticulos() {
     let subs = this._articulo.obtenerArticulos().subscribe(data => {
       this.articulos = [];
+      this.idArticulos = [];
       data.forEach((element: any) => {
         this.articulos.push({
           ...element.payload.doc.data()
@@ -109,6 +112,7 @@ export class PanelEditorComponent implements OnInit {
       this.imagenCargada = false;
       this.filePath = '';
       this.btnCancelarShow = false
+      
     }
   }
   subirImagen() { // En realidad modifica el usuario existente y le agrega una imagen
@@ -189,6 +193,7 @@ export class PanelEditorComponent implements OnInit {
       this._articulo.articulo.descripcion = this.descripcion
       this._articulo.articulo.contenido = this.contenido
       this._articulo.articulo.urlImagen = this.imagen_selected
+      this._articulo.articulo.fecha = formatDate(new Date(), 'dd/MM/yyyy', 'en-US');
     } else {
       this.articulos[this.index_selected].titulo = this._articulo.articulo.titulo = this.titulo
       this.articulos[this.index_selected].autor = this._articulo.articulo.autor = this.autor

@@ -17,7 +17,8 @@ export class ArticuloService {
         autor: "",
         descripcion: "",
         contenido: "",
-        urlImagen: ""
+        urlImagen: "",
+        fecha: ""
     }
     //metodos
     agregarArticulo(articulo: any): Promise<any> {

@@ -6,6 +6,7 @@
     <h1>{{articulo.titulo}}</h1>
     <div class="cont_middle">
         <div class="cont_text_article">
+            
             <h3>{{articulo.autor}}</h3>
             <h3>29 de abril de 2022</h3>
             <p>{{articulo.contenido}}
@@ -13,11 +14,10 @@
         </div>
     </div>
     <div class="cont_middle">
-        <div class="cont_video">
-            <div class="video-1">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fqcbNFHsLFs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
+            <div class="cont_video">
+                <img src="{{articulo.urlImagen}}" >
             </div>
-        </div>
         
     </div>
 </section>

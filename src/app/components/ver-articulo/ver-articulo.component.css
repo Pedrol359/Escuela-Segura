@@ -13,7 +13,7 @@ h1{
     color: #A589F4;
     font-weight: 700;
     font-size: 64px;
-    font-size: 3.8vw;
+    font-size: 3.1vw;
     width: 100%;
     margin: 3vw 0 2% 0;
 }
@@ -54,8 +54,7 @@ h3,p{
     justify-content: end;
 }
 
-.video-1 {
-
+img {
     border-radius: 30px;
     overflow: hidden;
     z-index: 1;
@@ -63,4 +62,5 @@ h3,p{
     height: 25vw;
     max-width: 688px;
     min-height: 309px;
+    object-fit: cover;
   }

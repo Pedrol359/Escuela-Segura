@@ -89,5 +89,8 @@ export class InicioComponent implements OnInit {
     return 'center/cover url(' + url + ')';
   }
 
-
+  seleccionarArticulo(articulo:any){
+    localStorage.setItem('articuloSeleccionado',JSON.stringify(articulo))
+    this.router.navigate(['/articulo']);
+  }
 }

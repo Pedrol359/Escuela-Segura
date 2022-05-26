@@ -27,7 +27,7 @@ npm install --save-dev @types/mapbox-gl
             <div class="scroller">
                 <div class="card"  *ngFor="let article of articulos; let i = index">
                     <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
-                    <div class="blur" (click)="seleccionarArticulo(i)">
+                    <div class="blur" (click)="seleccionarArticulo(article)">
                         <h3>{{article.titulo}}</h3>
                     </div>
                 </div>

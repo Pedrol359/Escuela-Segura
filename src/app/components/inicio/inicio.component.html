@@ -7,15 +7,15 @@
             <span class="purple-title-text noselect">{{articulos_destacados[0]?.titulo}}</span>
             <span class="white-normal-text noselect margin-top">{{articulos_destacados[0]?.descripcion}}</span>
             <div class="green-button margin-top">
-                <a href="">Leer artículo</a>
+                <a (click)="seleccionarArticulo(articulos_destacados[0])" >Leer artículo</a>
             </div>
             <span class="white-title-text noselect margin-top">Otras historias</span>
             <div class="grid-stories margin-top">
-                <div class="story">
+                <div class="story" (click)="seleccionarArticulo(articulos_destacados[1])">
                     <div class="story-img-1 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[1]?.urlImagen)}"></div>
                     <a href="" class="white-normal-link">"{{articulos_destacados[1]?.titulo}}: {{articulos_destacados[1]?.descripcion}}"</a>
                 </div>
-                <div class="story">
+                <div class="story" (click)="seleccionarArticulo(articulos_destacados[2])">
                     <div class="story-img-2 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[2]?.urlImagen)}"></div>
                     <a href="" class="white-normal-link">"{{articulos_destacados[2]?.titulo}}: {{articulos_destacados[2]?.descripcion}}"</a>
                 </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="flex-item">
         <div class="right-column">
-            <div class="slider" [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}"></div>
+            <div class="slider" [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}" (click)="seleccionarArticulo(articulos_destacados[0])"></div>
         </div>
     </div>
 </div>
