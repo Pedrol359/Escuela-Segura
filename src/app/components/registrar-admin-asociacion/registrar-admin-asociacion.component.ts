@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js'
 import { PeticionesService } from 'src/app/services/peticiones.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-registrar-admin-asociacion',
@@ -128,8 +129,23 @@ export class RegistrarAdminAsociacionComponent implements OnInit {
       passwordEncryp: this.passwordEncryp
     }
     this.peticiones.addUser(this.registro).subscribe(
-      err=> console.log(err),
-      res=>console.log(res)            
+        res=>{
+          Swal.fire(
+            'ÉXITO',
+            '¡El usuario ha sido registrado',
+            'success'
+          )
+          this.router.navigate(['/login-admin-asociacion']);
+        },
+        err =>{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>'
+          })
+        }
+        
     )
     console.log(this.registro)
   }

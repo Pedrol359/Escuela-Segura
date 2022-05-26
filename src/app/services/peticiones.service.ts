@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { catchError, first, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,8 +12,15 @@ export class PeticionesService {
   constructor(private http: HttpClient) { }
 
   addUser(data:any):Observable<any>{
-    return this.http.post(this.url+"insertuser",data);
+    return this.http.post(this.url+"insertuser",data).pipe(map(res => {
+      return res;
+    }));
+  }
 
+  getUser(data:any):Observable<any>{
+    return this.http.post(this.url+"auth",data).pipe(map(res => {
+      return res;
+    }));
   }
 
   getIncidencias(){
