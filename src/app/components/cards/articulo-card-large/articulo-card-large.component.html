@@ -1,10 +1,10 @@
 <!--Card del articulo -->
-<article>   
+<article (click)="seleccionarArticulo()">   
     <img src="{{articulo.urlImagen}}" alt="img-Card" class="img_articulo">
     <div class="cont_text">
         <h1>{{articulo.titulo}}</h1>
         <span class="descripcion">
             {{articulo.descripcion}}
-        </span><a (click)="seleccionarArticulo()"> Seguir leyendo</a>
+        </span><a> Seguir leyendo</a>
     </div>
 </article>

@@ -13,9 +13,9 @@
         <h1>Contenido destacado</h1>
         <!-- Slider -->
         <div class="scroller">
-            <div class="card"  *ngFor="let article of articulosDestacados; let i = index" >
+            <div class="card"  *ngFor="let article of articulosDestacados; let i = index" (click)="seleccionarArticulo(article)">
                 <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}" *ngIf="article.destacado!=''"></div>
-                <div class="blur" (click)="seleccionarArticulo(article)">
+                <div class="blur">
                     <h3>{{article.titulo}}</h3>
                 </div>
             </div>

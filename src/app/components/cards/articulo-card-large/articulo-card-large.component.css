@@ -8,7 +8,7 @@ article {
     flex-wrap: nowrap;
     align-items: center;
     margin-bottom: 68px;
-
+    cursor: pointer;
 }
 
 .img_articulo {
@@ -48,9 +48,10 @@ a{
     color: #3296F3;
     font-size: 23px;
     text-decoration: none;
+    cursor:pointer;
 }
 
-a:hover{
+article:hover a{
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;

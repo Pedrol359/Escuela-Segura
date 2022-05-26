@@ -22,6 +22,9 @@ export class InicioComponent implements OnInit {
   paddingShort = '2vh'
   padding = ''
   screenWidth:any
+  //Random Index Article
+  indexRandom = 0
+  indexRandom2 = 0
 
   constructor(private router: Router,private _articulo: ArticuloService) {
     this.getScreenSize();
@@ -58,6 +61,7 @@ export class InicioComponent implements OnInit {
         })
         subs.unsubscribe
         this.obtenerArticulosDestacados();
+        this.randomArticle();
         // console.log(this.articulos_destacados);
     });
   }
@@ -92,5 +96,17 @@ export class InicioComponent implements OnInit {
   seleccionarArticulo(articulo:any){
     localStorage.setItem('articuloSeleccionado',JSON.stringify(articulo))
     this.router.navigate(['/articulo']);
+  }
+
+  randomArticle(){
+    this.indexRandom = Math.floor(Math.random() * (this.articulos.length - 0) + 0);
+    while(this.articulos_destacados.includes(this.articulos[this.indexRandom])){
+      this.indexRandom = Math.floor(Math.random() * (this.articulos.length - 0) + 0);
+    }
+    this.indexRandom2 = Math.floor(Math.random() * (this.articulos.length - 0) + 0);
+    while(this.indexRandom == this.indexRandom2 || this.articulos_destacados.includes(this.articulos[this.indexRandom2])){
+      this.indexRandom2 = Math.floor(Math.random() * (this.articulos.length - 0) + 0);
+    }
+    
   }
 }

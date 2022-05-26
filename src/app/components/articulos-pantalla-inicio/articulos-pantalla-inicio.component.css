@@ -132,6 +132,7 @@ h1{
     text-align: justify;
     white-space: break-word;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
   
   .card-img {
@@ -141,10 +142,9 @@ h1{
     height: 21vh;
     background: center/cover
       url("../../../assets/imagenes/inicio_story_principal.svg");
-    filter: opacity(70%);
   }
   
-  .blur:hover {
+  .card:hover .blur{
     background-color: rgba(48, 223, 89, 0.27);
   }
   
@@ -153,7 +153,6 @@ h1{
     border-radius: 20px;
     width: 21vh;
     height: 23vh;
-    filter: opacity(70%);
   }
 
   .blur {
