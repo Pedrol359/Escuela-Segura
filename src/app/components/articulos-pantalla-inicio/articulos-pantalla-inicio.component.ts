@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ArticuloService } from 'src/app/services/Articulos.service';
 })
 export class ArticulosPantallaInicioComponent implements OnInit {
 
-  constructor(private _articulo:ArticuloService) {
+  constructor(private _articulo:ArticuloService,private router:Router) {
 
   }
   //Variables
@@ -23,6 +24,7 @@ export class ArticulosPantallaInicioComponent implements OnInit {
   sl1=true
 
   articulos:any[] = []
+  articulosDestacados:any[] = []
 
 
   ngOnInit(): void {
@@ -45,11 +47,12 @@ export class ArticulosPantallaInicioComponent implements OnInit {
   obtenerArticulos() {
     this._articulo.obtenerArticulos().subscribe(data => {
         this.articulos = [];  
-        data.forEach((element: any) => {
+        data.forEach((element: any ) => {
           this.articulos.push({
-            id: element.payload.doc.id,
             ...element.payload.doc.data()
           })
+          if (this.articulos[this.articulos.length-1].destacado!='')
+            this.articulosDestacados.push(element.payload.doc.data())
         })
         console.log(this.articulos);
       });
@@ -58,8 +61,9 @@ export class ArticulosPantallaInicioComponent implements OnInit {
   formatearUrl(url: string) {
     return 'center/cover url(' + url + ')'
   }
-  seleccionarArticulo(index: number) {
-
+  seleccionarArticulo(articulo:any) {
+    localStorage.setItem('articuloSeleccionado',JSON.stringify(articulo))
+    this.router.navigate(['/articulo']);
   }
 
 }
