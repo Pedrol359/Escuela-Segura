@@ -140,9 +140,11 @@
                         </span>
                     </div>
                     <span class="white-normal-text noselect margin-bottom">Sitio web</span>
-                    <input class="textbox-normal margin-bottom" type="text" value="www.promex.org.mx">
+                    <input class="textbox-normal margin-bottom" type="text" [(ngModel)]="paginaWeb" [value]="paginaWeb">
+
                     <span class="white-normal-text noselect margin-bottom">Correo electrónico de contacto</span>
-                    <input class="textbox-normal margin-bottom" type="text" value="contacto@progresoparamexico.org">
+                    <input class="textbox-normal margin-bottom" type="text" [(ngModel)]="correoContacto"
+                        [value]="correoContacto">
                 </div>
                 <!-- Derecha -->
                 <div class="cont-update-right">

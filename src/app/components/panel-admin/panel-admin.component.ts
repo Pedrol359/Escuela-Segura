@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment.prod';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { InstitucionesService } from 'src/app/services/Instituciones.service';
+import { InformacionContactoService } from 'src/app/services/InformacionContacto';
 
 @Component({
     selector: 'app-panel-admin',
@@ -12,12 +13,11 @@ import { InstitucionesService } from 'src/app/services/Instituciones.service';
     styleUrls: ['./panel-admin.component.css'],
 })
 export class PanelAdminComponent implements OnInit {
-    constructor(private _articulo: ArticuloService, private storage: AngularFireStorage, private _institucion: InstitucionesService) { }
+    constructor(private _articulo: ArticuloService, private storage: AngularFireStorage, private _institucion: InstitucionesService, private _contacto: InformacionContactoService) { }
     ngOnInit(): void {
-        this.getLocation();
-        this.getVideoCode();
         this.obtenerInstituciones();
         this.obtenerArticulos();
+        this.obtenerInformacionContacto();
     }
 
     // Contenido destacado
@@ -235,9 +235,8 @@ export class PanelAdminComponent implements OnInit {
     modal_content = 'none';
     modal_add = 'none';
     displayYoutube = 'none';
-
-    latitud = 21.507029616565315;
-    longitud = -104.92007528951542;
+    latitud = 0;
+    longitud = 0;
     link_video =
         'https://www.youtube.com/watch?v=fqcbNFHsLFs&ab_channel=Asociaci%C3%B3nProgresoparaM%C3%A9xico';
     video_code = '';
@@ -246,6 +245,34 @@ export class PanelAdminComponent implements OnInit {
     cargando = false
     filePath: string = '';
     imagen_selected: any = '../../../assets/imagenes/inicio_story_principal.svg';
+    informacionContacto: any[] = []
+    correoContacto = '';
+    paginaWeb = '';
+
+    obtenerInformacionContacto() {
+        let subs = this._contacto.obtenerContacto().subscribe(data => {
+            this.informacionContacto = [];
+            data.forEach((element: any) => {
+                this.informacionContacto.push({
+                    ...element.payload.doc.data(),
+                    id: element.payload.doc.id
+                })
+            })
+            subs.unsubscribe
+            console.log('[Información Contacto]');
+            console.log(this.informacionContacto);
+            // Establecemos ubicación
+            this.latitud = +this.informacionContacto[0].latitud;
+            this.longitud = +this.informacionContacto[0].longitud;
+            this.correoContacto = this.informacionContacto[0]['correo contacto'];
+            this.paginaWeb = this.informacionContacto[0]['sitio web']
+            this.getLocation();
+        });
+    }
+
+    actualizarInfoContacto() {
+        console.log(this.informacionContacto);
+    }
 
     getLocation() { // Mapa
         (Mapboxgl as any).accessToken = environment.mapboxKey;
@@ -285,16 +312,6 @@ export class PanelAdminComponent implements OnInit {
             console.log(this.latitud + ', ' + this.longitud);
         });
 
-    }
-
-    getVideoCode() { // Obtener link
-        var code = this.link_video.split('?v=', 2);
-        this.video_code = code[1];
-        // console.log(this.video_code);
-        code = this.video_code.split('&', 2);
-        // console.log(this.video_code);
-        this.video_code = 'https://www.youtube.com/embed/' + code[0];
-        // console.log(this.video_code);
     }
 
     cargarImagen(event: any) {
@@ -454,10 +471,9 @@ export class PanelAdminComponent implements OnInit {
                 })
                 this.idInstituciones.push(element.payload.doc.id);
             })
+            console.log('[Instituciones de Apoyo]');
             console.log(this.instituciones);
-
         });
-        console.log(this.idInstituciones);
     }
 
     agregarInstitucion() {
@@ -475,5 +491,6 @@ export class PanelAdminComponent implements OnInit {
     guardarTodo() {
         console.log(this.institucion);
         this.updateInstitucionApoyo();
+        this.actualizarInfoContacto();
     }
 }
