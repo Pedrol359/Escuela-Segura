@@ -5,7 +5,7 @@
     <!-- Articulos -->
     <div class="cont_articulos">
         <!--Card del articulo -->
-        <app-articulo-card-large *ngFor="let articulo of articulos" url="{{articulo.urlImagen}}" titulo="{{articulo.titulo}}" descripcion="{{articulo.descripcion}}"></app-articulo-card-large>
+        <app-articulo-card-large *ngFor="let articulo of articulos" [articulo]="articulo" ></app-articulo-card-large>
     </div>
     <!-- Contenido destacado -->
     <aside>
@@ -13,9 +13,9 @@
         <h1>Contenido destacado</h1>
         <!-- Slider -->
         <div class="scroller">
-            <div class="card"  *ngFor="let article of articulos; let i = index" >
+            <div class="card"  *ngFor="let article of articulosDestacados; let i = index" >
                 <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}" *ngIf="article.destacado!=''"></div>
-                <div class="blur" (click)="seleccionarArticulo(i)">
+                <div class="blur" (click)="seleccionarArticulo(article)">
                     <h3>{{article.titulo}}</h3>
                 </div>
             </div>
