@@ -125,7 +125,8 @@
             <div class="cont-update-info">
                 <!-- Izquierda -->
                 <div class="cont-update-left">
-                    <div class="cont-update-banner margin-bottom">
+                    <div class="cont-update-banner margin-bottom"
+                        [ngStyle]="{'background': formatearUrl(informacionContacto[0].urlImagen)}">
                         <span class="modal-open">
                             <a class="notextdeco">
                                 <input type="file" class="" id="file-input" accept=".png, .jpg, .jpeg, .svg, .jfif"

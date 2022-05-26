@@ -271,7 +271,16 @@ export class PanelAdminComponent implements OnInit {
     }
 
     actualizarInfoContacto() {
+        // Imagen
+        this.subirImagen();
+        // Datos formulario
+        this.informacionContacto[0]['correo contacto'] = this.correoContacto;
+        this.informacionContacto[0]['sitio web'] = this.paginaWeb;
+        this.informacionContacto[0].latitud = this.latitud;
+        this.informacionContacto[0].longitud = this.longitud;
+        this.informacionContacto[0].urlImagen = this.imagen_selected;
         console.log(this.informacionContacto);
+        this._contacto.actualizarContacto(this.informacionContacto[0], this.informacionContacto[0].id);
     }
 
     getLocation() { // Mapa
@@ -330,6 +339,42 @@ export class PanelAdminComponent implements OnInit {
             console.log('Error al cargar la img local: ' + error);
             this.imagenCargada = false;
             this.filePath = '';
+        }
+    }
+
+    subirImagen() { // En realidad modifica el usuario existente y le agrega una imagen
+
+        let imagenSubida = false;
+        // let userAlmacenado = false;
+        try {
+            // console.log(this.imagenCargada);
+            if (this.imagenCargada) {
+                this.imagenCargada = false
+                let porcentaje = 0;
+                const subirImagen = this.storage.upload(this.filePath, this.archivo);
+                const subscription = subirImagen.percentageChanges().subscribe((changes) => {
+                    let cont = 0
+                    // console.log(cont++);
+                    porcentaje = (changes || 0);
+                    // console.log('porcentaje ' + porcentaje);
+                    imagenSubida = porcentaje >= 100;
+                    // console.log('imagenSubida ' + imagenSubida);
+                    if (imagenSubida) {
+                        const ref = this.storage.ref(this.filePath).getDownloadURL().subscribe(url => {
+                            subscription.unsubscribe();
+                            ref.unsubscribe();
+                            this.imagen_selected = url;
+                            console.log(url);
+                            this.actualizarInfoContacto();
+                        });
+                    }
+                });// Con ese metodo se sube la imagen y te da el porcentaje de subida
+            } else {
+                this.actualizarInfoContacto();
+            }
+        } catch (error) {
+            console.log(error);
+            this.cargando = false;
         }
     }
 

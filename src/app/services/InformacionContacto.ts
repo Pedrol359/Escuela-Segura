@@ -25,6 +25,6 @@ export class InformacionContactoService {
     }
 
     actualizarContacto(informacionContacto: any, id: string): Promise<any> {
-        return this.firestore.collection('Instituciones de Apoyo').doc(id).update(informacionContacto)
+        return this.firestore.collection('Informacion de contacto').doc(id).update(informacionContacto)
     }
 }
