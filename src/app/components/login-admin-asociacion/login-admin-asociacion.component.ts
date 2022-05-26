@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
+import { LoginService } from 'src/app/services/login.service';
 import { PeticionesService } from 'src/app/services/peticiones.service';
 import Swal from 'sweetalert2'
 
@@ -11,7 +12,8 @@ import Swal from 'sweetalert2'
 })
 export class LoginAdminAsociacionComponent implements OnInit {
 
-  constructor(private router: Router, private peticiones: PeticionesService) { }
+  constructor(private router: Router, private peticiones: PeticionesService,
+    private auth:LoginService) { }
   //Variables
   tipo = "password"
   verPassword = false;
@@ -119,6 +121,7 @@ export class LoginAdminAsociacionComponent implements OnInit {
         
         
       })
+      this.auth.isLogged = true
       this.router.navigate(['/panel-admin']);
   }
 }

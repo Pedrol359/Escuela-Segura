@@ -19,6 +19,7 @@ import { PanelAdminComponent } from './components/panel-admin/panel-admin.compon
 import { TablaComponent } from './components/map/tabla/tabla.component';
 import { ReporteFormularioComponent } from './components/reporte-formulario/reporte-formulario.component';
 import { EscuelasSegurasComponent } from './components/escuelas-seguras/escuelas-seguras.component'
+import { AuthGuard } from './security/guards/auth.guard';
 InicioComponent
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminInicioComponent
+    component: AdminInicioComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'modal',
@@ -67,11 +69,13 @@ const routes: Routes = [
   },
   {
     path: 'panel-editor',
-    component: PanelEditorComponent
+    component: PanelEditorComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'panel-admin',
-    component: PanelAdminComponent
+    component: PanelAdminComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'test-interactivo',
@@ -87,7 +91,8 @@ const routes: Routes = [
   },
   {
     path: 'mapa',
-    component: TablaComponent
+    component: TablaComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'reporte',
