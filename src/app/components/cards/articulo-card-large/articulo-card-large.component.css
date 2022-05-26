@@ -48,6 +48,7 @@ a{
     color: #3296F3;
     font-size: 23px;
     text-decoration: none;
+    cursor:pointer;
 }
 
 a:hover{
