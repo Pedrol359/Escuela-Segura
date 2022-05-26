@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class VerArticuloComponent implements OnInit {
 
   constructor() { }
+  articulo:any
 
   ngOnInit(): void {
+    this.articulo= JSON.parse(localStorage.getItem('articuloSeleccionado') || ''); 
+    //localStorage.setItem('articuloSeleccionado',JSON.stringify(this.articulo))
   }
 
 }
