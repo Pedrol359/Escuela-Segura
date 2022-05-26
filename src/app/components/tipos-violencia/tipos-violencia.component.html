@@ -24,10 +24,10 @@ npm install --save-dev @types/mapbox-gl
             <span class="black-corpus-text noselect little-margin-down">
                 Conoce los diferentes tipos de violencia a través de nuestros artículos.
             </span>
-            <div class="scroller">
-                <div class="card"  *ngFor="let article of articulos; let i = index">
+            <div class="scroller noselect">
+                <div class="card"  *ngFor="let article of articulos; let i = index" (click)="seleccionarArticulo(article)">
                     <div class="card-img" [ngStyle]="{'background': formatearUrl(article.urlImagen)}"></div>
-                    <div class="blur" (click)="seleccionarArticulo(article)">
+                    <div class="blur">
                         <h3>{{article.titulo}}</h3>
                     </div>
                 </div>

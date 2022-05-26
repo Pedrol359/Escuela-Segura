@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
 import { PeticionesService, Municipio, Incidencia, Institucion } from 'src/app/services/peticiones.service';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
@@ -126,7 +127,7 @@ export class ReporteFormularioComponent implements OnInit {
   }
   listaIncidencias: Incidencia[] = [];
 
-  constructor(private peticiones: PeticionesService, private _articulo: ArticuloService) { }
+  constructor(private peticiones: PeticionesService, private _articulo: ArticuloService, private router: Router) { }
 
   ngOnInit(): void {
     this.listarMunicipios();
@@ -269,4 +270,10 @@ export class ReporteFormularioComponent implements OnInit {
   formatearUrl(url: string) {
     return 'center/cover url(' + url + ')';
   }
+
+  seleccionarArticulo(articulo:any){
+    localStorage.setItem('articuloSeleccionado',JSON.stringify(articulo))
+    this.router.navigate(['/articulo']);
+  }
+
 }

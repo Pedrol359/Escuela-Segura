@@ -8,7 +8,7 @@ article {
     flex-wrap: nowrap;
     align-items: center;
     margin-bottom: 68px;
-
+    cursor: pointer;
 }
 
 .img_articulo {
@@ -51,7 +51,7 @@ a{
     cursor:pointer;
 }
 
-a:hover{
+article:hover a{
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
