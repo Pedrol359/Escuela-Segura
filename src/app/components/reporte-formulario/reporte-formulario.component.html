@@ -216,12 +216,12 @@
                 <h2 class="noselect margen-h2-bottom margin-titre">Artículos destacados para ti</h2>
                 <div class="grid-stories margin-top new-margin-grid" id="super-margin">
                     <div class="story">
-                        <a href="" class="black-normal-link" (click)="getReporte()">
+                        <a  class="black-normal-link" (click)="getReporte(); seleccionarArticulo(articulos_destacados[0])">
                         <div class="story-img-1 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}"></div>
                         "{{articulos_destacados[0]?.titulo}}: {{articulos_destacados[0]?.descripcion}}"</a>
                     </div>
                     <div class="story">
-                        <a href="" class="black-normal-link" (click)="getReporte()">
+                        <a class="black-normal-link" (click)="getReporte(); seleccionarArticulo(articulos_destacados[1])">
                         <div class="story-img-2 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[1]?.urlImagen)}"></div>
                         "{{articulos_destacados[1]?.titulo}}: {{articulos_destacados[1]?.descripcion}}"</a>
                     </div>

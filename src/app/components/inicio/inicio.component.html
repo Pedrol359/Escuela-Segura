@@ -42,26 +42,26 @@
             <div class="icon-subtitle noselect">
                 <div class="icon-subtitle-img">
                 </div>
-                <h2>Los artículos más recientes</h2>
+                <h2>Artículos para ti</h2>
             </div>
             <div class="container-cards">
                 <!-- Artículo principal -->
                 <div class="container-cards-left">
-                    <div class="card-left">
-                        <div class="card-left-img"></div>
+                    <div class="card-left" (click)="seleccionarArticulo(articulos[indexRandom])">
+                        <div class="card-left-img" [ngStyle]="{'background': formatearUrl(articulos[indexRandom]?.urlImagen)}"></div>
                         <div class="blur">
-                            <h3>Artículo más reciente</h3>
+                            <h3>Artículo recomendado</h3>
                             <p>
-                                La discriminación en el ambiente escolar.
+                                {{articulos[indexRandom]?.titulo}}
                             </p>
                         </div>
                     </div>
                 </div>
                 <!-- Artículos secundarios -->
                 <div class="container-cards-right">
-                    <div class="story margin-bottom">
-                        <div class="articule-img-3 margin-bottom"></div>
-                        <a href="" class="black-normal-link">Conferencia: "El feminismo del siglo XXI"
+                    <div class="story margin-bottom" (click)="seleccionarArticulo(articulos[indexRandom2])">
+                        <div class="articule-img-3 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos[indexRandom2]?.urlImagen)}"></div>
+                        <a href="" class="black-normal-link">Artículo: "{{articulos[indexRandom2]?.titulo}}"
                         </a>
                     </div>
                     <a routerLink="/articulos" class="undecorated">

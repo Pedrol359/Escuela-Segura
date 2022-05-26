@@ -2,6 +2,22 @@
 .undecorated{
     text-decoration: none;
 }
+
+/* Evitar subrayado al seleccionar */
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
 /* Containers Flex principales*/
 .flex-container {
     display: flex;
@@ -190,6 +206,7 @@
     text-align: justify;
     white-space: break-word;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
   
   .card-img {
@@ -202,7 +219,7 @@
     
   }
   
-  .blur:hover {
+  .card:hover .blur{
     background-color: rgba(48, 223, 89, 0.27);
   }
   
