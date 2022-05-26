@@ -125,6 +125,7 @@ export class PanelEditorComponent implements OnInit {
         this.imagenCargada = false
         let porcentaje = 0;
         const subirImagen = this.storage.upload(this.filePath, this.arhivo);
+        this.cargando = true;
         const subscription = subirImagen.percentageChanges().subscribe((changes) => {
           let cont = 0
           console.log(cont++);
@@ -181,6 +182,7 @@ export class PanelEditorComponent implements OnInit {
     this.imagen_selected = "";
     this.getCharacters()
     this.btnCancelarShow = false
+    this.cargando = false;
     
   }
 

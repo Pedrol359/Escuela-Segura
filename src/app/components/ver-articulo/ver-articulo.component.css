@@ -21,6 +21,7 @@ h1{
 .cont_middle {
     width: 50%;
     height: 100%;
+    flex: 1 1 450px;
 }
 
 .cont_text_article {
@@ -64,3 +65,26 @@ img {
     min-height: 309px;
     object-fit: cover;
   }
+
+  @media (max-width: 1022px) {
+    .cont_video{
+        margin:50px 0;
+        justify-content: center
+    }
+    img{
+        max-width: none;
+        width: 100%;
+    }
+    h1{
+        font-size: 40px;
+        
+    }
+
+  }
+  @media (max-width: 1022px) {
+    h1{
+        font-size: 30px;
+        
+    }
+}
+

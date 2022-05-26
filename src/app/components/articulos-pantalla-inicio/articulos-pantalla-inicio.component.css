@@ -9,6 +9,8 @@
     padding-top: 3%;
 }
 
+
+
 .title_articulo{
     font-size: 64px;
     font-weight: 600;
@@ -25,6 +27,7 @@
     /* background-color: rgb(230, 230, 230); */
     overflow-y: scroll;
     max-height: calc(79vh - 115px);  
+  
 }   
 .cont_articulos::-webkit-scrollbar {
     width: 3px;     /* Tamaño del scroll en vertical */
@@ -45,6 +48,12 @@ aside{
     /* background-color: rgb(243, 243, 243); */
     /* padding-right: 3%; */
 }
+
+
+
+
+
+
 
 h1{
     font-size:37px;
@@ -195,4 +204,20 @@ button:hover{
     /* Safari */
     transition-duration: 0.4s;
     background: #333333;
+}
+
+button{
+    margin-bottom: 30px;
+}
+@media (max-width: 1022px) {
+    .r1{
+        flex: 1 1 450px;
+    }
+    h1{
+        margin: 50px 0 65px 0;
+    }
+
+    button{
+        margin-bottom: 30px;
+    }
 }
