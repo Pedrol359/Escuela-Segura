@@ -398,7 +398,7 @@ export class PanelAdminComponent implements OnInit {
     }
 
     // Escuelas Seguras
-    estado = [true, false, true, false];
+    estado = [true, false, true, false, true, false];
     index: number = 0;
     combo_option_0 = 'flex';
     nombres = [
@@ -511,25 +511,51 @@ export class PanelAdminComponent implements OnInit {
             this.instituciones = [];
             data.forEach((element: any) => {
                 this.instituciones.push({
-                    id: element.payload.doc.id,
-                    ...element.payload.doc.data()
+                    ...element.payload.doc.data(),
+                    id: element.payload.doc.id
                 })
-                this.idInstituciones.push(element.payload.doc.id);
             })
-            console.log('[Instituciones de Apoyo]');
-            console.log(this.instituciones);
+            this.asignarIndices();
+            this.getDatosInstitucion(0);
         });
+    }
+
+    asignarIndices() {
+        for (var i in this.instituciones) {
+            this.instituciones[i].index = i;
+        }
+        console.log('[Instituciones de Apoyo]');
+        console.log(this.instituciones);
     }
 
     agregarInstitucion() {
         this.obtenerInstituciones();
-        this._institucion.institucion.id = this.instituciones.length;
-        this._institucion.institucion.nombre = this.nuevaInstitucion.nombre;
-        this._institucion.institucion.direccion = this.nuevaInstitucion.direccion;
-        this._institucion.institucion.telefono = this.nuevaInstitucion.telefono;
-        this._institucion.institucion.descripcion = this.nuevaInstitucion.descripcion;
-        this._institucion.agregarInstitucion(this.nuevaInstitucion)
-        console.log(this._institucion.institucion);
+        if (this.nuevaInstitucion.nombre != '') {
+            if (this.nuevaInstitucion.direccion != '') {
+                if (this.nuevaInstitucion.telefono != '') {
+                    if (this.nuevaInstitucion.descripcion != '') {
+                        this._institucion.institucion.index = this.instituciones.length;
+                        this._institucion.institucion.nombre = this.nuevaInstitucion.nombre;
+                        this._institucion.institucion.direccion = this.nuevaInstitucion.direccion;
+                        this._institucion.institucion.telefono = this.nuevaInstitucion.telefono;
+                        this._institucion.institucion.descripcion = this.nuevaInstitucion.descripcion;
+                        this._institucion.agregarInstitucion(this.nuevaInstitucion)
+                        console.log('[Nueva Institución]');
+                        console.log(this._institucion.institucion);
+                        alert('¡Se guardó la nueva institución de apoyo!');
+                        this.close_modal_add();
+                    } else {
+                        alert('Ingresa una descripción breve de la institución de apoyo.');
+                    }
+                } else {
+                    alert('Ingresa el teléfono de la institución de apoyo.');
+                }
+            } else {
+                alert('Ingresa la dirección de la institución de apoyo.');
+            }
+        } else {
+            alert('Ingresa el nombre de la institución de apoyo.');
+        }
     }
 
     // Guardar todo

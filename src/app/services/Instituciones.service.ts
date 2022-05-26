@@ -12,11 +12,12 @@ export class InstitucionesService {
     constructor(private firestore: AngularFirestore, private router: Router) { }
     //Objeto Institucion
     institucion = {
-        id: 0,
+        id: "",
         nombre: "",
         descripcion: "",
         direccion: "",
-        telefono: ""
+        telefono: "",
+        index: 0
     }
     //Métodos
     agregarInstitucion(institucion: any): Promise<any> {

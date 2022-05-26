@@ -126,7 +126,7 @@
                 <!-- Izquierda -->
                 <div class="cont-update-left">
                     <div class="cont-update-banner margin-bottom"
-                        [ngStyle]="{'background': formatearUrl(informacionContacto[0].urlImagen)}">
+                        [ngStyle]="{'background': formatearUrl(imagen_selected)}">
                         <span class="modal-open">
                             <a class="notextdeco">
                                 <input type="file" class="" id="file-input" accept=".png, .jpg, .jpeg, .svg, .jfif"
@@ -211,7 +211,6 @@
                 <a class="notextdeco" (click)="open_modal_add()">
                     <div class="agregar-institucion">
                         Agregar institución de apoyo
-                        <!-- <span class="institucion-icon margin-left-small"></span> -->
                     </div>
                 </a>
             </div>
@@ -220,9 +219,7 @@
                     <!-- Sección superior -->
                     <div class="custom-select margin-bottom">
                         <select [(ngModel)]="index" (change)="getDatosInstitucion(index)">
-                            <option [ngStyle]="{ display: combo_option_0 }" value="0">Selecciona una institución de
-                                apoyo</option>
-                            <option *ngFor="let i of instituciones" [value]="i.id">
+                            <option *ngFor="let i of instituciones" [value]="i.index">
                                 {{i.nombre}}</option>
                         </select>
                     </div>

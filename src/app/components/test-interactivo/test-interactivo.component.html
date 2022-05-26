@@ -2,793 +2,926 @@
 <app-navbar-principal></app-navbar-principal>
 <!-- Ventana emergente inicial -->
 <div class="modal-box" [ngStyle]="{ display: display }">
-    <div class="modal-content">
-        <h1 class="purple-text noselect">¿De qué tipo de violencia soy victima?</h1>
-        <p class="black-small-text noselect">
-            Este test conformado por 32 preguntas tiene como objetivo identificar que
-            tipo de violencia sufres. Es una herramienta útil que permite estar
-            alerta, capacitado/a y atento/a para detectar y atender este tipo de
-            prácticas y no solamente es de gran beneficio para las instituciones
-            educativas, sino también para los ámbitos familiar y laboral.
-        </p>
-        <span class="black-small-text noselect"><b>
-                Existen diversos tipos de violencia de género y cuando ésta no es
-                evidente, aceptar que están siendo víctimas del ser amado es uno de los
-                pasos más dificiles
-            </b></span>
-        <span class="modal-close" (click)="close()">&times;</span>
-    </div>
+  <div class="modal-content">
+    <h1 class="purple-text noselect">¿De qué tipo de violencia soy victima?</h1>
+    <p class="black-small-text noselect">
+      Este test conformado por 32 preguntas tiene como objetivo identificar que
+      tipo de violencia sufres. Es una herramienta útil que permite estar
+      alerta, capacitado/a y atento/a para detectar y atender este tipo de
+      prácticas y no solamente es de gran beneficio para las instituciones
+      educativas, sino también para los ámbitos familiar y laboral.
+    </p>
+    <span class="black-small-text noselect"
+      ><b>
+        Existen diversos tipos de violencia de género y cuando ésta no es
+        evidente, aceptar que están siendo víctimas del ser amado es uno de los
+        pasos más dificiles
+      </b></span
+    >
+    <span class="modal-close" (click)="close()">&times;</span>
+  </div>
 </div>
 
 <!-- Sección (1) Violencia Emocional -->
 
 <div class="container table-padding-big" [ngStyle]="{ display: displayTable }">
-    <span class="purple-text noselect">Violencia emocional</span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Si alguien</th>
-                <th>Nunca</th>
-                <th>En ocasiones</th>
-                <th>Casi siempre</th>
-                <th>Siempre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sección (1) Pregunta (1) -->
-            <tr [formGroup]="p_1_1">
-                <td data-label="Si alguien">
-                    Te ignora, no te habla o no te escucha cuando hablas
-                </td>
-                <td data-label="Nunca">
-                    <input required type="radio" name="p11" formControlName="p11" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p11" formControlName="p11" formControlname="p11" formControlName="p11"
-                        [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p11" formControlName="p11" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p11" formControlName="p11" [value]="4" />
-                </td>
-            </tr>
+  <span class="purple-text noselect">Violencia emocional</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Con que frecuencia alguien</th>
+        <th>Nunca</th>
+        <th>En ocasiones</th>
+        <th>Casi siempre</th>
+        <th>Siempre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sección (1) Pregunta (1) -->
+      <tr [formGroup]="p_1_1">
+        <td data-label="Si alguien">
+          Te ignora, no te habla o no te escucha cuando hablas
+        </td>
+        <td data-label="Nunca">
+          <input
+            required
+            type="radio"
+            name="p11"
+            formControlName="p11"
+            [value]="1"
+          />
+        </td>
+        <td data-label="En ocasiones">
+          <input
+            type="radio"
+            name="p11"
+            formControlName="p11"
+            formControlname="p11"
+            formControlName="p11"
+            [value]="2"
+          />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p11" formControlName="p11" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p11" formControlName="p11" [value]="4" />
+        </td>
+      </tr>
 
-            <!-- Sección (1) Pregunta (2) -->
-            <tr [formGroup]="p_1_2">
-                <td data-label="Si alguien">
-                    Te dice que eres inútil y nada de lo que haces está bien
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p12" formControlName="p12" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p12" formControlName="p12" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p12" formControlName="p12" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p12" formControlName="p12" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (3) -->
-            <tr [formGroup]="p_1_3">
-                <td data-label="Si alguien">
-                    Te insulta, te amenaza o te hace sentir estúpida
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p13" formControlName="p13" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p13" formControlName="p13" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p13" formControlName="p13" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p13" formControlName="p13" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (4) -->
-            <tr [formGroup]="p_1_4">
-                <td data-label="Si alguien">
-                    Te culpa de su malestar físico o emocional
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p14" formControlName="p14" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p14" formControlName="p14" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p14" formControlName="p14" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p14" formControlName="p14" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (5) -->
-            <tr [formGroup]="p_1_5">
-                <td data-label="Si alguien">Limita tu vida social y familiar</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p15" formControlName="p15" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p15" formControlName="p15" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p15" formControlName="p15" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p15" formControlName="p15" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (6) -->
-            <tr [formGroup]="p_1_6">
-                <td data-label="Si alguien">
-                    Se muestra celoso(a) sin razón, acusándote de coquetear
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p16" formControlName="p16" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p16" formControlName="p16" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p16" formControlName="p16" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p16" formControlName="p16" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (7) -->
-            <tr [formGroup]="p_1_7">
-                <td data-label="Si alguien">Se burla y controla tu forma de vestir</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p17" formControlName="p17" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p17" formControlName="p17" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p17" formControlName="p17" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p17" formControlName="p17" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (8) -->
-            <tr [formGroup]="p_1_8">
-                <td data-label="Si alguien">
-                    Te dice que no te quiere y que te va a abandonar
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p18" formControlName="p18" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p18" formControlName="p18" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p18" formControlName="p18" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p18" formControlName="p18" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (9) -->
-            <tr [formGroup]="p_1_9">
-                <td data-label="Si alguien">
-                    Te amenaza con hacerte daño si no haces lo que te pide
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p19" formControlName="p19" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p19" formControlName="p19" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p19" formControlName="p19" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p19" formControlName="p19" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (1) Pregunta (10) -->
-            <tr [formGroup]="p_1_10">
-                <td data-label="Si alguien">
-                    Te llama frecuentemente para saber ¿qué haces? y ¿dónde estás?
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p110" formControlName="p110" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p110" formControlName="p110" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p110" formControlName="p110" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p110" formControlName="p110" [value]="4" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+      <!-- Sección (1) Pregunta (2) -->
+      <tr [formGroup]="p_1_2">
+        <td data-label="Si alguien">
+          Te dice que eres inútil y nada de lo que haces está bien
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p12" formControlName="p12" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p12" formControlName="p12" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p12" formControlName="p12" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p12" formControlName="p12" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (3) -->
+      <tr [formGroup]="p_1_3">
+        <td data-label="Si alguien">
+          Te insulta, te amenaza o te hace sentir estúpida
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p13" formControlName="p13" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p13" formControlName="p13" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p13" formControlName="p13" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p13" formControlName="p13" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (4) -->
+      <tr [formGroup]="p_1_4">
+        <td data-label="Si alguien">
+          Te culpa de su malestar físico o emocional
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p14" formControlName="p14" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p14" formControlName="p14" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p14" formControlName="p14" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p14" formControlName="p14" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (5) -->
+      <tr [formGroup]="p_1_5">
+        <td data-label="Si alguien">Limita tu vida social y familiar</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p15" formControlName="p15" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p15" formControlName="p15" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p15" formControlName="p15" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p15" formControlName="p15" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (6) -->
+      <tr [formGroup]="p_1_6">
+        <td data-label="Si alguien">
+          Se muestra celoso(a) sin razón, acusándote de coquetear
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p16" formControlName="p16" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p16" formControlName="p16" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p16" formControlName="p16" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p16" formControlName="p16" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (7) -->
+      <tr [formGroup]="p_1_7">
+        <td data-label="Si alguien">Se burla y controla tu forma de vestir</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p17" formControlName="p17" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p17" formControlName="p17" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p17" formControlName="p17" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p17" formControlName="p17" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (8) -->
+      <tr [formGroup]="p_1_8">
+        <td data-label="Si alguien">
+          Te dice que no te quiere y que te va a abandonar
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p18" formControlName="p18" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p18" formControlName="p18" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p18" formControlName="p18" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p18" formControlName="p18" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (9) -->
+      <tr [formGroup]="p_1_9">
+        <td data-label="Si alguien">
+          Te amenaza con hacerte daño si no haces lo que te pide
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p19" formControlName="p19" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p19" formControlName="p19" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p19" formControlName="p19" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p19" formControlName="p19" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (1) Pregunta (10) -->
+      <tr [formGroup]="p_1_10">
+        <td data-label="Si alguien">
+          Te llama frecuentemente para saber ¿qué haces? y ¿dónde estás?
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p110" formControlName="p110" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p110" formControlName="p110" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p110" formControlName="p110" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p110" formControlName="p110" [value]="4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="container" [ngStyle]="{ display: displayTable}">
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="seccion2()">Siguiente</span>
-    </div>
+<div class="container" [ngStyle]="{ display: displayTable }">
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="seccion2()">Siguiente</span>
+  </div>
 </div>
-
 
 <!-- Sección (2) Violencia Patrimonial -->
 
+<div
+  class="container table-padding-big"
+  [ngStyle]="{ display: display_patrimonial }"
+>
+  <span class="purple-text noselect">Violencia patrimonial</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Con que frecuencia alguien</th>
+        <th>Nunca</th>
+        <th>En ocasiones</th>
+        <th>Casi siempre</th>
+        <th>Siempre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sección (2) Pregunta (1) -->
+      <tr [formGroup]="p_2_1">
+        <td data-label="Si alguien">Rompe objetos que son valiosos para ti</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p21" formControlName="p21" [value]="1" />
+        </td>
+        <td data-label="En ocasiones">
+          <input type="radio" name="p21" formControlName="p21" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p21" formControlName="p21" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p21" formControlName="p21" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (2) Pregunta (2) -->
+      <tr [formGroup]="p_2_2">
+        <td data-label="Si alguien">
+          Te despoja de bienes como tu casa, tu auto o herencias
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p22" formControlName="p22" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p22" formControlName="p22" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p22" formControlName="p22" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p22" formControlName="p22" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (2) Pregunta (3) -->
+      <tr [formGroup]="p_2_3">
+        <td data-label="Si alguien">
+          Esconde objetos o materiales que usas en tu trabajo, con el propósito
+          de que no lo realices
+        </td>
+        <td data-label="Nunca">
+          <input
+            type="radio"
+            name="p23"
+            formControlName="p23"
+            formControlName="p23"
+            [value]="1"
+          />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input
+            type="radio"
+            name="p23"
+            formControlName="p23"
+            formControlName="p23"
+            [value]="2"
+          />
+        </td>
+        <td data-label="Casi siempre">
+          <input
+            type="radio"
+            name="p23"
+            formControlName="p23"
+            formControlName="p23"
+            [value]="3"
+          />
+        </td>
+        <td data-label="Siempre">
+          <input
+            type="radio"
+            name="p23"
+            formControlName="p23"
+            formControlName="p23"
+            [value]="4"
+          />
+        </td>
+      </tr>
+      <!-- Sección (2) Pregunta (4) -->
+      <tr [formGroup]="p_2_4">
+        <td data-label="Si alguien">
+          Te esconde la tarjeta de crédito, acta de nacimiento o credenciales
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p24" formControlName="p24" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p24" formControlName="p24" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p24" formControlName="p24" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p24" formControlName="p24" [value]="4" />
+        </td>
+        <!-- Sección (2) Pregunta (5) -->
+      </tr>
 
-
-
-
-
-<div class="container table-padding-big" [ngStyle]="{ display: display_patrimonial }">
-    <span class="purple-text noselect">Violencia patrimonial</span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Si alguien</th>
-                <th>Nunca</th>
-                <th>En ocasiones</th>
-                <th>Casi siempre</th>
-                <th>Siempre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sección (2) Pregunta (1) -->
-            <tr [formGroup]="p_2_1">
-                <td data-label="Si alguien">Te empuja o golpea</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p21" formControlName="p21" [value]="1" />
-                </td>
-                <td data-label="En ocasiones">
-                    <input type="radio" name="p21" formControlName="p21" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p21" formControlName="p21" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p21" formControlName="p21" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (2) Pregunta (2) -->
-            <tr [formGroup]="p_2_2">
-                <td data-label="Si alguien">Te da puntapies</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p22" formControlName="p22" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p22" formControlName="p22" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p22" formControlName="p22" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p22" formControlName="p22" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (2) Pregunta (3) -->
-            <tr [formGroup]="p_2_3">
-                <td data-label="Si alguien">Te ha tratado de ahorcar o asfixiar</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p23" formControlName="p23" formControlName="p23" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p23" formControlName="p23" formControlName="p23" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p23" formControlName="p23" formControlName="p23" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p23" formControlName="p23" formControlName="p23" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (2) Pregunta (4) -->
-            <tr [formGroup]="p_2_4">
-                <td data-label="Si alguien">Te ha abofeteado</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p24" formControlName="p24" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p24" formControlName="p24" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p24" formControlName="p24" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p24" formControlName="p24" [value]="4" />
-                </td>
-                <!-- Sección (2) Pregunta (5) -->
-            </tr>
-
-            <tr [formGroup]="p_2_5">
-                <td data-label="Si alguien">Te pellizca</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p25" formControlName="p25" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p25" formControlName="p25" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p25" formControlName="p25" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p25" formControlName="p25" [value]="4" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+      <tr [formGroup]="p_2_5">
+        <td data-label="Si alguien">Te quita tu salario</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p25" formControlName="p25" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p25" formControlName="p25" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p25" formControlName="p25" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p25" formControlName="p25" [value]="4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="container" [ngStyle]="{ display: display_patrimonial}">
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="seccion3()">Siguiente</span>
-    </div>
+<div class="container" [ngStyle]="{ display: display_patrimonial }">
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="seccion3()">Siguiente</span>
+  </div>
 </div>
-
 
 <!-- Sección (3) Violencia Patrimonial -->
 
-
-
-
-
-
-
-<div class="container table-padding-big" [ngStyle]="{ display: display_fisica }">
-    <span class="purple-text noselect">Violencia física</span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Si alguien</th>
-                <th>Nunca</th>
-                <th>En ocasiones</th>
-                <th>Casi siempre</th>
-                <th>Siempre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sección (3) Pregunta (1) -->
-            <tr [formGroup]="p_3_1">
-                <td data-label="Si alguien">Te empuja o golpea</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p31" formControlName="p31" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p31" formControlName="p31" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p31" formControlName="p31" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p31" formControlName="p31" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (3) Pregunta (2) -->
-            <tr [formGroup]="p_3_2">
-                <td data-label="Si alguien">Te da puntapies</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p32" formControlName="p32" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p32" formControlName="p32" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p32" formControlName="p32" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p32" formControlName="p32" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (3) Pregunta (3) -->
-            <tr [formGroup]="p_3_3">
-                <td data-label="Si alguien">Te ha tratado de ahorcar o asfixiar</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p33" formControlName="p33" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p33" formControlName="p33" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p33" formControlName="p33" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p33" formControlName="p33" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (3) Pregunta (4) -->
-            <tr [formGroup]="p_3_4">
-                <td data-label="Si alguien">Te ha abofeteado</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p34" formControlName="p34" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p34" formControlName="p34" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p34" formControlName="p34" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p34" formControlName="p34" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (3) Pregunta (5) -->
-            <tr [formGroup]="p_3_5">
-                <td data-label="Si alguien">Te pellizca</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p35" formControlName="p35" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p35" formControlName="p35" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p35" formControlName="p35" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p35" formControlName="p35" [value]="4" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div
+  class="container table-padding-big"
+  [ngStyle]="{ display: display_fisica }"
+>
+  <span class="purple-text noselect">Violencia física</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Con que frecuencia alguien</th>
+        <th>Nunca</th>
+        <th>En ocasiones</th>
+        <th>Casi siempre</th>
+        <th>Siempre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sección (3) Pregunta (1) -->
+      <tr [formGroup]="p_3_1">
+        <td data-label="Si alguien">Te empuja o golpea</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p31" formControlName="p31" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p31" formControlName="p31" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p31" formControlName="p31" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p31" formControlName="p31" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (3) Pregunta (2) -->
+      <tr [formGroup]="p_3_2">
+        <td data-label="Si alguien">Te da puntapies</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p32" formControlName="p32" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p32" formControlName="p32" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p32" formControlName="p32" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p32" formControlName="p32" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (3) Pregunta (3) -->
+      <tr [formGroup]="p_3_3">
+        <td data-label="Si alguien">Te ha tratado de ahorcar o asfixiar</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p33" formControlName="p33" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p33" formControlName="p33" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p33" formControlName="p33" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p33" formControlName="p33" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (3) Pregunta (4) -->
+      <tr [formGroup]="p_3_4">
+        <td data-label="Si alguien">Te ha abofeteado</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p34" formControlName="p34" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p34" formControlName="p34" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p34" formControlName="p34" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p34" formControlName="p34" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (3) Pregunta (5) -->
+      <tr [formGroup]="p_3_5">
+        <td data-label="Si alguien">Te pellizca</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p35" formControlName="p35" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p35" formControlName="p35" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p35" formControlName="p35" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p35" formControlName="p35" [value]="4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class="container" [ngStyle]="{ display: display_fisica}">
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="seccion4()">Siguiente</span>
-    </div>
+<div class="container" [ngStyle]="{ display: display_fisica }">
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="seccion4()">Siguiente</span>
+  </div>
 </div>
-
-
 
 <!-- Sección (4) Violencia económica -->
 
-
-
-<div class="container table-padding-big" [ngStyle]="{ display: display_economica }">
-    <span class="purple-text noselect">Violencia económica</span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Si alguien</th>
-                <th>Nunca</th>
-                <th>En ocasiones</th>
-                <th>Casi siempre</th>
-                <th>Siempre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sección (4) Pregunta (1) -->
-            <tr [formGroup]="p_4_1">
-                <td data-label="Si alguien">
-                    Administra el dinero, sin tomar en cuenta tus necesidades
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p41" formControlName="p41" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p41" formControlName="p41" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p41" formControlName="p41" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p41" formControlName="p41" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (4) Pregunta (2) -->
-            <tr [formGroup]="p_4_2">
-                <td data-label="Si alguien">Controla lo que gastas</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p42" formControlName="p42" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p42" formControlName="p42" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p42" formControlName="p42" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p42" formControlName="p42" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (4) Pregunta (3) -->
-            <tr [formGroup]="p_4_3">
-                <td data-label="Si alguien">Maneja tu cuenta de banco</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p43" formControlName="p43" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p43" formControlName="p43" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p43" formControlName="p43" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p43" formControlName="p43" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (4) Pregunta (4) -->
-            <tr [formGroup]="p_4_4">
-                <td data-label="Si alguien">
-                    Realiza todas las compras en el supermercado para que, tu no tengas
-                    acceso al dinero ni a decidir que comprar
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p44" formControlName="p44" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p44" formControlName="p44" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p44" formControlName="p44" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p44" formControlName="p44" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (5) -->
-            <tr [formGroup]="p_4_5">
-                <td data-label="Si alguien">
-                    Te pide todo tipo de explicaciones cada vez que requieres dinero
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p45" formControlName="p45" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p45" formControlName="p45" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p45" formControlName="p45" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p45" formControlName="p45" [value]="4" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div
+  class="container table-padding-big"
+  [ngStyle]="{ display: display_economica }"
+>
+  <span class="purple-text noselect">Violencia económica</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Con que frecuencia alguien</th>
+        <th>Nunca</th>
+        <th>En ocasiones</th>
+        <th>Casi siempre</th>
+        <th>Siempre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sección (4) Pregunta (1) -->
+      <tr [formGroup]="p_4_1">
+        <td data-label="Si alguien">
+          Administra el dinero, sin tomar en cuenta tus necesidades
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p41" formControlName="p41" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p41" formControlName="p41" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p41" formControlName="p41" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p41" formControlName="p41" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (4) Pregunta (2) -->
+      <tr [formGroup]="p_4_2">
+        <td data-label="Si alguien">Controla lo que gastas</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p42" formControlName="p42" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p42" formControlName="p42" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p42" formControlName="p42" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p42" formControlName="p42" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (4) Pregunta (3) -->
+      <tr [formGroup]="p_4_3">
+        <td data-label="Si alguien">Maneja tu cuenta de banco</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p43" formControlName="p43" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p43" formControlName="p43" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p43" formControlName="p43" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p43" formControlName="p43" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (4) Pregunta (4) -->
+      <tr [formGroup]="p_4_4">
+        <td data-label="Si alguien">
+          Realiza todas las compras en el supermercado para que, tu no tengas
+          acceso al dinero ni a decidir que comprar
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p44" formControlName="p44" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p44" formControlName="p44" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p44" formControlName="p44" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p44" formControlName="p44" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (5) -->
+      <tr [formGroup]="p_4_5">
+        <td data-label="Si alguien">
+          Te pide todo tipo de explicaciones cada vez que requieres dinero
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p45" formControlName="p45" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p45" formControlName="p45" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p45" formControlName="p45" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p45" formControlName="p45" [value]="4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-
-<div class="container" [ngStyle]="{ display:  display_economica}">
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="seccion5()">Siguiente</span>
-    </div>
+<div class="container" [ngStyle]="{ display: display_economica }">
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="seccion5()">Siguiente</span>
+  </div>
 </div>
-
 
 <!-- Sección (5) Violencia sexual -->
 
-
-
-<div class="container table-padding-big table-padding-bottom" [ngStyle]="{ display: display_sexual }">
-    <span class="purple-text noselect">Violencia sexual</span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Si alguien</th>
-                <th>Nunca</th>
-                <th>En ocasiones</th>
-                <th>Casi siempre</th>
-                <th>Siempre</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sección (5) Pregunta (1) -->
-            <tr [formGroup]="p_5_1">
-                <td data-label="Si alguien">
-                    Te obliga a tener relaciones sexuales a pesar de que tu no quieres
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p51" formControlName="p51" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p51" formControlName="p51" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p51" formControlName="p51" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p51" formControlName="p51" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (2) -->
-            <tr [formGroup]="p_5_2">
-                <td data-label="Si alguien">
-                    Te manipula o chantajea para realizar prácticas sexuales que no te
-                    agradan
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p52" formControlName="p52" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p52" formControlName="p52" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p52" formControlName="p52" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p52" formControlName="p52" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (3) -->
-            <tr [formGroup]="p_5_3">
-                <td data-label="Si alguien">
-                    Se burla y/o hace comentarios humillantes acerca de tu cuerpo
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p53" formControlName="p53" [value]="1" />
-                </td>
-                <td data-label="En
-ocasiones">
-                    <input type="radio" name="p53" formControlName="p53" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p53" formControlName="p53" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p53" formControlName="p53" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (4) -->
-            <tr [formGroup]="p_5_4">
-                <td data-label="Si alguien">
-                    Te compara con otras personas sobre tu eficiencia en la actividad
-                    sexual
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p54" formControlName="p54" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p54" formControlName="p54" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p54" formControlName="p54" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p54" formControlName="p54" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (5) -->
-            <tr [formGroup]="p_5_5">
-                <td data-label="Si alguien">
-                    Te obliga a tener relaciones sexuales sin el uso de métodos de
-                    prevención para embarazos no planeados y/o infecciones de transmisión
-                    sexual
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p55" formControlName="p55" formControlName="p55" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p55" formControlName="p55" formControlName="p55" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p55" formControlName="p55" formControlName="p55" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p55" formControlName="p55" formControlName="p55" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (6) -->
-            <tr [formGroup]="p_5_6">
-                <td data-label="Si alguien">Subestima tus necesidades sexuales</td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p56" formControlName="p56" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p56" formControlName="p56" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p56" formControlName="p56" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p56" formControlName="p56" [value]="4" />
-                </td>
-            </tr>
-            <!-- Sección (5) Pregunta (7) -->
-            <tr [formGroup]="p_5_7">
-                <td data-label="Si alguien">
-                    Se refiere a ti con términos sexuales denigrantes
-                </td>
-                <td data-label="Nunca">
-                    <input type="radio" name="p57" formControlName="p57" [value]="1" />
-                </td>
-                <td data-label="En
-                ocasiones">
-                    <input type="radio" name="p57" formControlName="p57" [value]="2" />
-                </td>
-                <td data-label="Casi siempre">
-                    <input type="radio" name="p57" formControlName="p57" [value]="3" />
-                </td>
-                <td data-label="Siempre">
-                    <input type="radio" name="p57" formControlName="p57" [value]="4" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div
+  class="container table-padding-big table-padding-bottom"
+  [ngStyle]="{ display: display_sexual }"
+>
+  <span class="purple-text noselect">Violencia sexual</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Con que frecuencia alguien</th>
+        <th>Nunca</th>
+        <th>En ocasiones</th>
+        <th>Casi siempre</th>
+        <th>Siempre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sección (5) Pregunta (1) -->
+      <tr [formGroup]="p_5_1">
+        <td data-label="Si alguien">
+          Te obliga a tener relaciones sexuales a pesar de que tu no quieres
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p51" formControlName="p51" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p51" formControlName="p51" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p51" formControlName="p51" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p51" formControlName="p51" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (2) -->
+      <tr [formGroup]="p_5_2">
+        <td data-label="Si alguien">
+          Te manipula o chantajea para realizar prácticas sexuales que no te
+          agradan
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p52" formControlName="p52" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p52" formControlName="p52" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p52" formControlName="p52" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p52" formControlName="p52" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (3) -->
+      <tr [formGroup]="p_5_3">
+        <td data-label="Si alguien">
+          Se burla y/o hace comentarios humillantes acerca de tu cuerpo
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p53" formControlName="p53" [value]="1" />
+        </td>
+        <td
+          data-label="En
+ocasiones"
+        >
+          <input type="radio" name="p53" formControlName="p53" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p53" formControlName="p53" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p53" formControlName="p53" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (4) -->
+      <tr [formGroup]="p_5_4">
+        <td data-label="Si alguien">
+          Te compara con otras personas sobre tu eficiencia en la actividad
+          sexual
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p54" formControlName="p54" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p54" formControlName="p54" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p54" formControlName="p54" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p54" formControlName="p54" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (5) -->
+      <tr [formGroup]="p_5_5">
+        <td data-label="Si alguien">
+          Te obliga a tener relaciones sexuales sin el uso de métodos de
+          prevención para embarazos no planeados y/o infecciones de transmisión
+          sexual
+        </td>
+        <td data-label="Nunca">
+          <input
+            type="radio"
+            name="p55"
+            formControlName="p55"
+            formControlName="p55"
+            [value]="1"
+          />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input
+            type="radio"
+            name="p55"
+            formControlName="p55"
+            formControlName="p55"
+            [value]="2"
+          />
+        </td>
+        <td data-label="Casi siempre">
+          <input
+            type="radio"
+            name="p55"
+            formControlName="p55"
+            formControlName="p55"
+            [value]="3"
+          />
+        </td>
+        <td data-label="Siempre">
+          <input
+            type="radio"
+            name="p55"
+            formControlName="p55"
+            formControlName="p55"
+            [value]="4"
+          />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (6) -->
+      <tr [formGroup]="p_5_6">
+        <td data-label="Si alguien">Subestima tus necesidades sexuales</td>
+        <td data-label="Nunca">
+          <input type="radio" name="p56" formControlName="p56" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p56" formControlName="p56" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p56" formControlName="p56" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p56" formControlName="p56" [value]="4" />
+        </td>
+      </tr>
+      <!-- Sección (5) Pregunta (7) -->
+      <tr [formGroup]="p_5_7">
+        <td data-label="Si alguien">
+          Se refiere a ti con términos sexuales denigrantes
+        </td>
+        <td data-label="Nunca">
+          <input type="radio" name="p57" formControlName="p57" [value]="1" />
+        </td>
+        <td
+          data-label="En
+                ocasiones"
+        >
+          <input type="radio" name="p57" formControlName="p57" [value]="2" />
+        </td>
+        <td data-label="Casi siempre">
+          <input type="radio" name="p57" formControlName="p57" [value]="3" />
+        </td>
+        <td data-label="Siempre">
+          <input type="radio" name="p57" formControlName="p57" [value]="4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-
-<div class="container margin-top margin-bottom" [ngStyle]="{ display: display_sexual}">
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="show_results()">Mostrar resultados</span>
-    </div>
+<div
+  class="container margin-top margin-bottom"
+  [ngStyle]="{ display: display_sexual }"
+>
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="show_results()">Mostrar resultados</span>
+  </div>
 </div>
 
-<div class="container table-padding-big" [ngStyle]="{ display: display_result }">
+<div
+  class="container table-padding-big"
+  [ngStyle]="{ display: display_result }"
+>
+  <h1 class="purple-text noselect">
+    Resultado Test Interactivo: ¿De qué tipo de violencia he sido victima?
+  </h1>
 
-    <h1 class="purple-text noselect">Resultado Test Interactivo: ¿De qué tipo de violencia he sido victima?</h1>
+  <h1 class="noselect">Segun el test sufres de:</h1>
 
-    <h1 class="noselect">Segun el test sufres de:</h1>
+  <h1 class="noselect" [ngStyle]="{ display: res_ninguno }">
+    ¡Ningún tipo de violencia! :)
+  </h1>
 
-    <h1 class="noselect" [ngStyle]="{ display:  res_ninguno}">¡Ningún tipo de violencia! :)</h1>
+  <div class="grid-stories margin-top">
+    <!-- Emocional -->
 
-    <div class="grid-stories margin-top">
-
-        <!-- Emocional -->
-
-        <div class="story">
-            <div class="res-img-1 margin-bottom" [ngStyle]="{ display:  res_emocional}"></div>
-            <a href="" class="black-link" [ngStyle]="{ display:  res_emocional}">Violencia emocional</a>
-        </div>
-
-        <!-- Patrimonial -->
-
-        <div class="story">
-            <div class="res-img-2 margin-bottom" [ngStyle]="{ display:  res_patrimonial}"></div>
-            <a href="" class="black-link" [ngStyle]="{ display:  res_patrimonial}">Violencia patrimonial</a>
-        </div>
-
-        <!-- Física -->
-
-        <div class="story">
-            <div class="res-img-3 margin-bottom" [ngStyle]="{ display:  res_fisica}"></div>
-            <a href="" class="black-link" [ngStyle]="{ display:  res_fisica}">Violencia física</a>
-        </div>
-
-        <!-- Económica -->
-
-        <div class="story">
-            <div class="res-img-4 margin-bottom" [ngStyle]="{ display:  res_economica}"></div>
-            <a href="" class="black-link" [ngStyle]="{ display:  res_economica}">Violencia económica</a>
-        </div>
-
-        <!-- Sexual -->
-
-        <div class="story">
-            <div class="res-img-5 margin-bottom" [ngStyle]="{ display:  res_sexual}"></div>
-            <a href="" class="black-link" [ngStyle]="{ display:  res_sexual}">Violencia sexual</a>
-        </div>
+    <div class="story">
+      <div
+        class="res-img-1 margin-bottom"
+        [ngStyle]="{ display: res_emocional }"
+      ></div>
+      <a href="" class="black-link" [ngStyle]="{ display: res_emocional }"
+        >Violencia emocional</a
+      >
     </div>
-    <div class="green-button margin-top margin-bottom">
-        <span (click)="reiniciarTest()">Hacer de nuevo</span>
-        <!--  routerLink="test-interactivo" -->
+
+    <!-- Patrimonial -->
+
+    <div class="story">
+      <div
+        class="res-img-2 margin-bottom"
+        [ngStyle]="{ display: res_patrimonial }"
+      ></div>
+      <a href="" class="black-link" [ngStyle]="{ display: res_patrimonial }"
+        >Violencia patrimonial</a
+      >
     </div>
+
+    <!-- Física -->
+
+    <div class="story">
+      <div
+        class="res-img-3 margin-bottom"
+        [ngStyle]="{ display: res_fisica }"
+      ></div>
+      <a href="" class="black-link" [ngStyle]="{ display: res_fisica }"
+        >Violencia física</a
+      >
+    </div>
+
+    <!-- Económica -->
+
+    <div class="story">
+      <div
+        class="res-img-4 margin-bottom"
+        [ngStyle]="{ display: res_economica }"
+      ></div>
+      <a href="" class="black-link" [ngStyle]="{ display: res_economica }"
+        >Violencia económica</a
+      >
+    </div>
+
+    <!-- Sexual -->
+
+    <div class="story">
+      <div
+        class="res-img-5 margin-bottom"
+        [ngStyle]="{ display: res_sexual }"
+      ></div>
+      <a href="" class="black-link" [ngStyle]="{ display: res_sexual }"
+        >Violencia sexual</a
+      >
+    </div>
+  </div>
+  <div class="green-button margin-top margin-bottom">
+    <span (click)="reiniciarTest()">Hacer de nuevo</span>
+  </div>
 </div>

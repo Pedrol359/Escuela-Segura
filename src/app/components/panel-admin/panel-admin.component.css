@@ -553,13 +553,13 @@ input[type="file"] {
 
 /* Tablita escuelas segura */
 table {
-  background: #505050;
   color: #fff;
   width: 100%;
   background: #505050;
   border-radius: 20px;
   padding: 1vh;
   font-size: 12px;
+  overflow: auto;
 }
 
 th {
