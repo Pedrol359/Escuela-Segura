@@ -111,10 +111,13 @@
 
 /* Contenedores: Flex */
 /* Sección superior (Scroll up) */
+.flex-container.wrap-reverse{
+   -webkit-flex-wrap: wrap-reverse;
+   -ms-flex-wrap: wrap-reverse;
+   flex-wrap: wrap-reverse;
+}
 .flex-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-content: stretch;
   align-items: flex-start;
@@ -141,7 +144,7 @@
 .flex-item:nth-child(2) {
   order: 2;
   flex: 1 1 450px;
-  align-self: auto;
+  align-self: start;
   padding-top: 14vh;
 }
 
@@ -173,7 +176,7 @@
 
 /* Slider */
 .slider {
-  width: 60vh;
+  width: 100%;
   height: 60vh;
   border-radius: 20px;
   background: center/cover url("../../../assets/imagenes/inicio_story_principal-2.svg") no-repeat;
