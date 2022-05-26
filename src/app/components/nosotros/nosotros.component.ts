@@ -4,20 +4,27 @@ import { environment } from '../../../environments/environment.prod';
 import { CAROUSEL_DATA_NOSOTROS } from './carousel.const.nosotros';
 import { ICarouselItem } from '../carousel/Icarousel-item.metadata'
 import { Router, NavigationEnd } from '@angular/router';
-
+import { InformacionContactoService } from 'src/app/services/InformacionContacto';
 
 @Component({
   selector: 'app-nosotros',
   templateUrl: './nosotros.component.html',
   styleUrls: ['./nosotros.component.css']
 })
+
 export class NosotrosComponent implements OnInit {
   latitud = 21.507029616565315;
   longitud = -104.92007528951542;
   link_video = 'https://www.youtube.com/watch?v=fqcbNFHsLFs&ab_channel=Asociaci%C3%B3nProgresoparaM%C3%A9xico'
   video_code = ''
   public carouselIData: ICarouselItem[] = CAROUSEL_DATA_NOSOTROS;
-  constructor(private router: Router) { }
+  //Info de contacto
+  informacionContacto: any[] = []
+  correoContacto = ""
+  paginaWeb = ""
+
+  constructor(private router: Router,private _contacto: InformacionContactoService) { }
+
 
   ngOnInit(): void {
     this.router.events.subscribe((evt) => {
@@ -26,6 +33,7 @@ export class NosotrosComponent implements OnInit {
       }
       window.scrollTo(0, 0)
     });
+    this.obtenerInformacionContacto();
     this.getLocation();
     this.getVideoCode();
   }
@@ -57,4 +65,24 @@ export class NosotrosComponent implements OnInit {
     console.log(this.video_code);
   }
 
+  obtenerInformacionContacto() {
+    let subs = this._contacto.obtenerContacto().subscribe(data => {
+        this.informacionContacto = [];
+        data.forEach((element: any) => {
+            this.informacionContacto.push({
+                ...element.payload.doc.data(),
+                id: element.payload.doc.id
+            })
+        })
+        subs.unsubscribe
+        console.log('[Información Contacto]');
+        console.log(this.informacionContacto);
+        // Establecemos ubicación
+        this.latitud = +this.informacionContacto[0].latitud;
+        this.longitud = +this.informacionContacto[0].longitud;
+        this.correoContacto = this.informacionContacto[0]['correo contacto'];
+        this.paginaWeb = this.informacionContacto[0]['sitio web']
+        this.getLocation();
+    });
+  }
 }

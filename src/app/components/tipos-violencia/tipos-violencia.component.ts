@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CAROUSEL_DATA_TIPOS } from './carousel.const.tipos';
-import { ICarouselItem } from '../carousel/Icarousel-item.metadata';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
 
@@ -11,7 +9,6 @@ import { ArticuloService } from 'src/app/services/Articulos.service';
 })
 export class TiposViolenciaComponent implements OnInit {
 
-  public carouselIData: ICarouselItem[] = CAROUSEL_DATA_TIPOS;
   //Variables
   idArticulos: string[] = []
   titulo = ""

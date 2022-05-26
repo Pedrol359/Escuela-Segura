@@ -388,6 +388,11 @@ h2{
     margin-bottom: 0.1vmax!important;
   }
 
+  #super-margin{
+    margin-bottom: 10em;
+  }
+
+
   /*Combobox*/
   .form-select{
     width: 80%;

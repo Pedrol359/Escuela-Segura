@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PeticionesService, Municipio, Incidencia, Institucion } from 'src/app/services/peticiones.service';
-
+import { ArticuloService } from 'src/app/services/Articulos.service';
 
 @Component({
   selector: 'app-reporte-formulario',
@@ -20,6 +20,14 @@ export class ReporteFormularioComponent implements OnInit {
   month = ''
   day = ''
   fecha = ''
+
+  // Contenido destacado
+  articulos: any[] = []
+  articulos_destacados: any[] = []
+  eliminados: string[] = []
+  destacado1 = '';
+  destacado2 = '';
+  destacado3 = '';
 
   //Datos sección I entrada
   //municipios = ['Tepic','Xalisco','San Blas','Santa María del Oro','Santiago Ixcuintla','San Pedro Lagunillas']
@@ -118,10 +126,11 @@ export class ReporteFormularioComponent implements OnInit {
   }
   listaIncidencias: Incidencia[] = [];
 
-  constructor(private peticiones: PeticionesService) { }
+  constructor(private peticiones: PeticionesService, private _articulo: ArticuloService) { }
 
   ngOnInit(): void {
-    this.listarMunicipios()
+    this.listarMunicipios();
+    this.obtenerArticulos();
   }
   listarMunicipios() {
     this.peticiones.getMunicipios().subscribe(res => {
@@ -218,4 +227,46 @@ export class ReporteFormularioComponent implements OnInit {
     this.peticiones.addInc(this.reporte).subscribe()
   }
 
+  obtenerArticulos() {
+    let subs = this._articulo.obtenerArticulos().subscribe(data => {
+        this.articulos = [];
+        this.articulos_destacados = [];
+        data.forEach((element: any) => {
+            this.articulos.push({
+                ...element.payload.doc.data(),
+                id: element.payload.doc.id
+            })
+        })
+        subs.unsubscribe
+        this.obtenerArticulosDestacados();
+        // console.log(this.articulos_destacados);
+    });
+  }
+
+  obtenerArticulosDestacados() {
+    // Con este método filtramos los artículos destacados de la
+    // lista de artículos obtenidos
+    for (var a in this.articulos) {
+        if (this.articulos[a].destacado == '0') {
+            this.destacado1 = a;
+            this.articulos_destacados[0] = this.articulos[a];
+        }
+
+        if (this.articulos[a].destacado == '1') {
+            this.destacado2 = a;
+            this.articulos_destacados[1] = this.articulos[a];
+        }
+
+        if (this.articulos[a].destacado == '2') {
+            this.destacado3 = a;
+            this.articulos_destacados[2] = this.articulos[a];
+        }
+    }
+    console.log('[Artículo Destacados]');
+    console.log(this.articulos_destacados);
+  }
+
+  formatearUrl(url: string) {
+    return 'center/cover url(' + url + ')';
+  }
 }

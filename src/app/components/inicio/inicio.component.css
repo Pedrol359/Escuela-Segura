@@ -7,6 +7,10 @@
   margin-bottom: 1vmax;
 }
 
+.undecorated{
+  text-decoration: none;
+}
+
 /* Evitar subrayado al seleccionar */
 .noselect {
   -webkit-touch-callout: none;
@@ -59,7 +63,7 @@
 
 .white-normal-link {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   text-decoration: none;
   -webkit-transition-duration: 0.4s;
@@ -107,10 +111,13 @@
 
 /* Contenedores: Flex */
 /* Sección superior (Scroll up) */
+.flex-container.wrap-reverse{
+   -webkit-flex-wrap: wrap-reverse;
+   -ms-flex-wrap: wrap-reverse;
+   flex-wrap: wrap-reverse;
+}
 .flex-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-content: stretch;
   align-items: flex-start;
@@ -137,8 +144,12 @@
 .flex-item:nth-child(2) {
   order: 2;
   flex: 1 1 450px;
-  align-self: auto;
+  align-self: start;
   padding-top: 14vh;
+}
+
+.padding-dark{
+  padding-bottom: 14vh;
 }
 
 /* Contenedor superior: Columna izquierda */
@@ -165,7 +176,7 @@
 
 /* Slider */
 .slider {
-  width: 60vh;
+  width: 100%;
   height: 60vh;
   border-radius: 20px;
   background: center/cover url("../../../assets/imagenes/inicio_story_principal-2.svg") no-repeat;
@@ -190,6 +201,7 @@
   height: 15vh;
   border-radius: 20px;
   cursor: pointer;
+  min-height: 160px;
 }
 
 .story-img-1 {

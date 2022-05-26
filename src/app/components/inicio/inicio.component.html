@@ -1,31 +1,30 @@
 <!-- Barra de navegación -->
 <app-navbar-principal></app-navbar-principal>
 <!-- Sección superior -->
-<div class="flex-container dark">
-    <div class="flex-item">
+<div class="flex-container dark wrap-reverse">
+    <div class="flex-item padding-dark" [ngStyle]="{'padding-top': padding}">
         <div class="left-column">
-            <span class="purple-title-text noselect">Entre retos e <br> inspiración</span>
-            <span class="white-normal-text noselect margin-top">Susana Rivera, artesana índigena y estudiante, nos habla
-                sobre los retos a los que se enfrenta y como encuentra la inspiración en sus raíces.</span>
+            <span class="purple-title-text noselect">{{articulos_destacados[0]?.titulo}}</span>
+            <span class="white-normal-text noselect margin-top">{{articulos_destacados[0]?.descripcion}}</span>
             <div class="green-button margin-top">
                 <a href="">Leer artículo</a>
             </div>
             <span class="white-title-text noselect margin-top">Otras historias</span>
             <div class="grid-stories margin-top">
                 <div class="story">
-                    <div class="story-img-1 margin-bottom"></div>
-                    <a href="" class="white-normal-link">"Mis colores, mi identidad: una mujer haitiana en México"</a>
+                    <div class="story-img-1 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[1]?.urlImagen)}"></div>
+                    <a href="" class="white-normal-link">"{{articulos_destacados[1]?.titulo}}: {{articulos_destacados[1]?.descripcion}}"</a>
                 </div>
                 <div class="story">
-                    <div class="story-img-2 margin-bottom"></div>
-                    <a href="" class="white-normal-link">"El poder de mi voz: alto al acoso escolar"</a>
+                    <div class="story-img-2 margin-bottom" [ngStyle]="{'background': formatearUrl(articulos_destacados[2]?.urlImagen)}"></div>
+                    <a href="" class="white-normal-link">"{{articulos_destacados[2]?.titulo}}: {{articulos_destacados[2]?.descripcion}}"</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="flex-item">
         <div class="right-column">
-            <div class="slider"></div>
+            <div class="slider" [ngStyle]="{'background': formatearUrl(articulos_destacados[0]?.urlImagen)}"></div>
         </div>
     </div>
 </div>
@@ -65,19 +64,21 @@
                         <a href="" class="black-normal-link">Conferencia: "El feminismo del siglo XXI"
                         </a>
                     </div>
-                    <div class="story">
-                        <div class="card-right">
-                            <div class="card-right-text">
-                                <h3 class="noselect">Todos los artículos</h3>
-                                <span class="noselect">Da clic en el ícono para leer todos nuestros artículos.
-                                </span>
-                            </div>
-                            <div class="card-right-button">
-                                <img src="../../../assets/icons/ver_mas.svg" alt="">
-                                <!-- <a href="">Ver más</a> -->
+                    <a routerLink="/articulos" class="undecorated">
+                        <div class="story">
+                            <div class="card-right">
+                                <div class="card-right-text">
+                                    <h3 class="noselect">Todos los artículos</h3>
+                                    <span class="noselect">Da clic en el ícono para leer todos nuestros artículos.
+                                    </span>
+                                </div>
+                                <div class="card-right-button">
+                                    <img src="../../../assets/icons/ver_mas.svg" alt="">
+                                    <!-- <a href="">Ver más</a> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

@@ -199,7 +199,7 @@
     height: 21vh;
     background: center/cover
       url("../../../assets/imagenes/inicio_story_principal.svg");
-    filter: opacity(70%);
+    
   }
   
   .blur:hover {
@@ -211,7 +211,6 @@
     border-radius: 20px;
     width: 21vh;
     height: 23vh;
-    filter: opacity(70%);
   }
 
   .blur {
@@ -233,6 +232,7 @@
     padding: 1vh;
     margin: 0;
     color: #fff;
+    text-overflow: ellipsis;
   }
   
   /* Botón espacios seguros */
