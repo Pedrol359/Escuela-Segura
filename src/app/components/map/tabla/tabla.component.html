@@ -3,7 +3,17 @@
 <div class="container">
     <h1 class="purple-title-text noselect mt-4">Mapa de calor</h1>
 
-    <p class="black-normal-text ">Mostrar Incidencias por: </p>
+    <div class="row align-items-center">
+        <div class="col-10">
+            <p class="black-normal-text ">Mostrar Incidencias por: </p>
+        </div>
+        <div class="col-2 float-right">
+            <img class="img-refresh float-right" 
+                src="https://www.seekpng.com/png/detail/940-9408213_refresh-icon-png-icon-png-refresh-button.png"
+                (click)="refresh()"/>
+      
+        </div>
+      </div>
     <div class="show-by">
         <span [ngClass]="{'selected':mun}" (click)="clickMun()" id="mun">Municipio</span>
         <span [ngClass]="{'selected':inst}" (click)="clickInst()" id="uni">Institución</span>
@@ -30,6 +40,27 @@
             </tbody>
         </table>
     </div>
+
+    <div *ngIf="niv">
+        <table class="table table-hover p-2">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                  
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of nivel; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nivel}}</th>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div *ngIf="inst">
         <table class="table table-hover p-2">
             <thead>
@@ -48,26 +79,7 @@
             </tbody>
         </table>
     </div>
-    <div *ngIf="niv">
-        <table class="table table-hover p-2">
-            <thead>
-                <tr class="row-color">
-                    <th scope="col">#</th>
-                    <th scope="col">Institución</th>
-                    <th scope="col">Nivel</th>
-                    <th scope="col">Casos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr scope="row" *ngFor="let dato of nivel; index as i">
-                    <th scope="row">{{i+1}}</th>
-                    <th>{{dato.nombre}}</th>
-                    <th>{{dato.nivel}}</th>
-                    <td>{{dato.casos}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+   
 
 
     <div *ngIf="lug">

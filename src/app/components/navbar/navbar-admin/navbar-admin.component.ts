@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar-admin',
@@ -11,7 +12,7 @@ export class NavbarAdminComponent implements OnInit {
   display_full = 'flex';
   display_responsive = 'none';
 
-  constructor() {
+  constructor(private auth:LoginService) {
       this.getScreenSize();
    }
 
@@ -36,6 +37,12 @@ export class NavbarAdminComponent implements OnInit {
   fullOn(){
     this.display_responsive = "none"
     this.display_full = "flex"
+  }
+
+  salir(){
+    console.log("Salimos");
+    this.auth.isLogged = false
+    
   }
 
 

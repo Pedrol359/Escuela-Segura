@@ -67,3 +67,8 @@ div{
 .container{
     padding-top: 10vh;
 }
+.img-refresh{
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}

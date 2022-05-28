@@ -135,7 +135,8 @@
                     afectado. Rellene el formulario basandose en la última agresión que recibió.
                 </span>
                 <span class="campo-text">Tipo de violencia</span>
-                <select class="form-select" name="tipo_violencia" [(ngModel)]='reporte.violencias_ID_VIOLENCIA' (change)="setTipo()">
+                <select class="form-select" name="tipo_violencia" [(ngModel)]='reporte.violencias_ID_VIOLENCIA' 
+                        (change)="setTipo()">
                     <option *ngFor="let n of violencias; let i = index" [value]="i">{{n}}</option>
                 </select>
                 <span class="campo-text">Agresión</span>
