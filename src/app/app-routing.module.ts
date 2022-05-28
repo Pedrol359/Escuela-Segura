@@ -92,7 +92,7 @@ const routes: Routes = [
   {
     path: 'mapa',
     component: TablaComponent,
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'reporte',

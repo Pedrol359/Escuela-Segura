@@ -4,6 +4,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { PeticionesService, Municipio, Incidencia, Institucion } from 'src/app/services/peticiones.service';
 import { ArticuloService } from 'src/app/services/Articulos.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-reporte-formulario',
   templateUrl: './reporte-formulario.component.html',
@@ -44,8 +46,7 @@ export class ReporteFormularioComponent implements OnInit {
   //Datos sección I NG_MODEL
   municipio = this.municipios[0]
   nivel_educativo = this.niveles_educativos[0]
-  indexNivel = -1
-  indexViolencia = 1
+  indexNivel = 0
   institucion = ""
   carrera = ''
   espacio = this.espacios[0]
@@ -198,8 +199,8 @@ export class ReporteFormularioComponent implements OnInit {
     }
   }
 
-  setTipo() {
-    switch (this.tipo_violencia) {
+  setTipo(){
+    switch (this.violencias[ parseInt(this.reporte.violencias_ID_VIOLENCIA + "") + 1]) {
       case 'Verbal o Psicológica': {
         this.descripciones = this.descripciones_verbal
         break;
@@ -220,12 +221,18 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   getReporte() {
-    if (this.reporte.INC_AGR_GENERO == "")
-
-      this.reporte.violencias_ID_VIOLENCIA = parseInt(this.reporte.violencias_ID_VIOLENCIA + "") + this.indexViolencia
+    this.reporte.violencias_ID_VIOLENCIA = parseInt(this.reporte.violencias_ID_VIOLENCIA + "") + 1
     console.log(this.reporte.violencias_ID_VIOLENCIA)
     console.log(this.reporte)
-    this.peticiones.addInc(this.reporte).subscribe()
+    this.peticiones.addInc(this.reporte).subscribe(
+      res =>{
+        Swal.fire(
+          'Éxito',
+          'Se ha registro la incidencia correctamente',
+          'success'
+          )
+      }
+    )
   }
 
   obtenerArticulos() {

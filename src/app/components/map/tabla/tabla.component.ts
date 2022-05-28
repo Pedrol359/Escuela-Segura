@@ -8,10 +8,10 @@ import { PeticionesService } from 'src/app/services/peticiones.service';
 })
 export class TablaComponent implements OnInit  {
 
-  lug = true
+  lug = false
   inst = false
   gen = false
-  mun = false
+  mun = true
   niv = false
 
   lugares: any =[]
@@ -83,7 +83,6 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = false
-    console.log(this.mun,this.lug,this.inst, this.gen);
     
   }
   clickLug(){
@@ -92,7 +91,6 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = false
-    console.log(this.mun,this.lug,this.inst, this.gen);
   }
   clickInst(){
     this.mun = false
@@ -100,7 +98,6 @@ export class TablaComponent implements OnInit  {
     this.inst = true
     this.gen = false
     this.niv = false
-    console.log(this.mun,this.lug,this.inst, this.gen);
   }
   clickGen(){
     this.mun = false
@@ -108,7 +105,6 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = true
     this.niv = false
-    console.log(this.mun,this.lug,this.inst, this.gen);
   }
   clickNiv(){
     this.mun = false
@@ -116,6 +112,13 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = true
-    console.log(this.mun,this.lug,this.inst, this.gen);
+  }
+
+  refresh(){
+    this.datosLugares()
+    this.datosMunicipios()
+    this.datosGenero()
+    this.datosInst()
+    this.datosNivel()
   }
 }
