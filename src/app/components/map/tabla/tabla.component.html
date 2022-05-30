@@ -16,10 +16,11 @@
       </div>
     <div class="show-by">
         <span [ngClass]="{'selected':mun}" (click)="clickMun()" id="mun">Municipio</span>
-        <span [ngClass]="{'selected':inst}" (click)="clickInst()" id="uni">Institución</span>
         <span [ngClass]="{'selected':niv}" (click)="clickNiv()" id="gen">Nivel</span>
+        <span [ngClass]="{'selected':inst}" (click)="clickInst()" id="uni">Institución</span>
         <span [ngClass]="{'selected':lug}" (click)="clickLug()" id="lug">Lugar</span>
         <span [ngClass]="{'selected':gen}" (click)="clickGen()" id="gen">Género</span>
+        <span [ngClass]="{'selected':vio}" (click)="clickVio()" id="gen">Tipo Violencia</span>
     </div>
 
     <div *ngIf="mun">
@@ -119,6 +120,26 @@
                     <th scope="row">{{i+1}}</th>
                     <th>{{dato.nombre}}</th>
                     <td>{{dato.genero}}</td>
+                    <td>{{dato.casos}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="vio">
+        <table class="table table-hover">
+            <thead>
+                <tr class="row-color">
+                    <th scope="col">#</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Tipo de Violencia</th>
+                    <th scope="col">Casos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let dato of violencias; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <th>{{dato.nombre}}</th>
+                    <td>{{dato.tipo}}</td>
                     <td>{{dato.casos}}</td>
                 </tr>
             </tbody>

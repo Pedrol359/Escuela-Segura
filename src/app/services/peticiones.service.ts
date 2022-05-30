@@ -53,6 +53,9 @@ export class PeticionesService {
   getMapDataNiv(){
     return this.http.get(this.url+"mapNivel");
   }
+  getMapDataVio(){
+    return this.http.get(this.url+"mapViolencia");
+  }
   getInstitucionesBy(nivel: String,municipio:String){
     return this.http.get(this.url+"readInstitucionBy/"+nivel+"&"+municipio);
   }
