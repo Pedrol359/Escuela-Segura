@@ -221,7 +221,7 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   getReporte() {
-    this.reporte.violencias_ID_VIOLENCIA = parseInt(this.reporte.violencias_ID_VIOLENCIA + "") + 1
+    this.reporte.violencias_ID_VIOLENCIA = parseInt(this.reporte.violencias_ID_VIOLENCIA + "")
     console.log(this.reporte.violencias_ID_VIOLENCIA)
     console.log(this.reporte)
     this.peticiones.addInc(this.reporte).subscribe(
