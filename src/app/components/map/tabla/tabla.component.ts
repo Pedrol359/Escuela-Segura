@@ -13,12 +13,14 @@ export class TablaComponent implements OnInit  {
   gen = false
   mun = true
   niv = false
+  vio = false
 
   lugares: any =[]
   genero: any =[]
   municipios: any = []
   instituciones: any = []
   nivel: any = []
+  violencias: any = []
 
   constructor(private peticion:PeticionesService) { }
 
@@ -28,6 +30,7 @@ export class TablaComponent implements OnInit  {
     this.datosGenero()
     this.datosInst()
     this.datosNivel()
+    this.datosViolencia()
   }
 
   datosLugares() {
@@ -76,6 +79,15 @@ export class TablaComponent implements OnInit  {
     err => console.log(err)
     );    
   }
+  datosViolencia() {
+    this.peticion.getMapDataVio().subscribe(res=>{
+      this.violencias = <any> res
+     console.log(res);
+     
+    },
+    err => console.log(err)
+    );    
+  }
     
   clickMun(){
     this.mun = true
@@ -83,7 +95,7 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = false
-    
+    this.vio = false
   }
   clickLug(){
     this.mun = false
@@ -91,6 +103,7 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = false
+    this.vio = false
   }
   clickInst(){
     this.mun = false
@@ -98,6 +111,7 @@ export class TablaComponent implements OnInit  {
     this.inst = true
     this.gen = false
     this.niv = false
+    this.vio = false
   }
   clickGen(){
     this.mun = false
@@ -105,6 +119,7 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = true
     this.niv = false
+    this.vio = false
   }
   clickNiv(){
     this.mun = false
@@ -112,6 +127,15 @@ export class TablaComponent implements OnInit  {
     this.inst = false
     this.gen = false
     this.niv = true
+    this.vio = false
+  }
+  clickVio(){
+    this.mun = false
+    this.lug = false
+    this.inst = false
+    this.gen = false
+    this.niv = false
+    this.vio = true
   }
 
   refresh(){
@@ -120,5 +144,6 @@ export class TablaComponent implements OnInit  {
     this.datosGenero()
     this.datosInst()
     this.datosNivel()
+    this.datosViolencia()
   }
 }
