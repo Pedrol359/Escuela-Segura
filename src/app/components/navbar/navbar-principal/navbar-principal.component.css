@@ -83,6 +83,7 @@ h1 {
   font-size: 44px;
   color: #81cb47;
   padding-bottom: .7vh;
+  cursor: pointer;
 }
 
 h2 {
