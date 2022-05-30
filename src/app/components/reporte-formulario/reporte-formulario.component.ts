@@ -200,7 +200,7 @@ export class ReporteFormularioComponent implements OnInit {
   }
 
   setTipo(){
-    switch (this.violencias[ parseInt(this.reporte.violencias_ID_VIOLENCIA + "") + 1]) {
+    switch (this.violencias[ parseInt(this.reporte.violencias_ID_VIOLENCIA + "")]) {
       case 'Verbal o Psicológica': {
         this.descripciones = this.descripciones_verbal
         break;
